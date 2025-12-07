@@ -141,6 +141,9 @@
       border: 1px solid rgba(148,163,184,0.6);
       color: #e5e7eb;
       box-shadow: none;
+      border-radius: 999px;
+      padding: 0.4rem 0.95rem;
+      font-size: 0.8rem;
     }
     main {
       padding-bottom: 4rem;
@@ -310,16 +313,18 @@
       border-spacing: 0;
       border-collapse: collapse;
       margin-top: 0.35rem;
-    }
-    .mini-table thead {
-      font-size: 0.63rem;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.09em;
+      font-size: 0.68rem;
     }
     .mini-table th,
     .mini-table td {
       padding: 0.25rem 0.2rem;
+      text-align: left;
+    }
+    .mini-table thead {
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: var(--muted);
+      font-size: 0.62rem;
     }
     .mini-table tbody tr:nth-child(even) {
       background: rgba(15,23,42,0.9);
@@ -850,31 +855,6 @@
               <li><strong>Stage 2 • Mapping:</strong> We build your 30-day rotation plan (who processes what, where, and when).</li>
               <li><strong>Stage 3 • Activation:</strong> We help you move real money through the plan, then prep you for capital offers.</li>
             </ol>
-
-            <div style="margin-top:0.9rem;" class="grid-2">
-              <div class="card" style="padding:0.7rem;">
-                <h3 style="font-size:0.8rem;">Stripe Funding Audit</h3>
-                <p style="font-size:0.76rem; color:var(--muted);">
-                  We review your Stripe activity, average ticket, frequency, chargebacks, and deposits and give you a written plan to improve capital offers.
-                </p>
-                <button class="btn stripe-checkout" data-plan="stripe_audit" style="margin-top:0.6rem; font-size:0.75rem;">
-                  Connect Stripe & Request Audit
-                </button>
-                <p style="font-size:0.68rem; color:var(--muted); margin-top:0.3rem;">
-                  <!-- Replace this later with your real Stripe Checkout link or client portal -->
-                  This button will connect to your Stripe Checkout or client portal once your account is linked.
-                </p>
-              </div>
-              <div class="card" style="padding:0.7rem;">
-                <h3 style="font-size:0.8rem;">Multi-Entity Rotation Plan</h3>
-                <p style="font-size:0.76rem; color:var(--muted);">
-                  We design a rotation that respects each entity’s real business activity—no fake swipes—and clears what each lender sees.
-                </p>
-                <button class="btn stripe-checkout" data-plan="rotation_plan" style="margin-top:0.6rem; font-size:0.75rem;">
-                  Apply For 30-Day Rotation Plan
-                </button>
-              </div>
-            </div>
           </div>
 
           <div class="card">
@@ -883,13 +863,10 @@
               This site already includes basic automation logic: when someone submits the intake form below, they’ll show up in your “New Leads” table inside the Admin Dashboard section.
             </p>
             <ul class="trust-list">
-              <li>New intake → stored in browser memory (demo) → dashboard lead row.</li>
-              <li>Lead shows: name, entity type, monthly revenue, status.</li>
-              <li>You can mark stages manually (Discovery, Mapping, Activation).</li>
+              <li>New intake → stored in browser and visible in dashboard (demo).</li>
+              <li>Lead shows: name, entity type, monthly revenue, goal, status.</li>
+              <li>You can later connect this same structure to a real CRM or email system.</li>
             </ul>
-            <p style="font-size:0.75rem; color:var(--muted); margin-top:0.6rem;">
-              When you’re ready to go deeper, this structure can be connected to a real backend (e.g., a CRM, Airtable, or email service like Brevo/Mailchimp) using the same form IDs that are already in this file.
-            </p>
           </div>
         </div>
       </div>
@@ -902,7 +879,7 @@
           <div class="section-eyebrow">Client Intake</div>
           <h2 class="section-title">Tell Us How Your Businesses Really Move Money</h2>
           <p class="section-subtitle">
-            This intake form is designed for real operations—multiple corporations, different processors, side businesses, and holding/trust ideas. The more honest you are, the better we can design your structure and funding strategy.
+            This intake form is designed for real operations—multiple corporations, different processors, side businesses, and holding/trust ideas.
           </p>
         </div>
 
@@ -980,7 +957,7 @@
               </div>
               <div>
                 <span style="display:block;">Next step: we review your info and contact you with a recommended path.</span>
-                <span style="display:block;">This demo site stores your info in your browser only. In production you would connect this form to an email or CRM endpoint.</span>
+                <span style="display:block;">In production you can connect this form to email or CRM; for now it feeds the internal dashboard.</span>
               </div>
             </div>
           </form>
@@ -1012,9 +989,6 @@
                   <li>✓ Basic Stripe/Square setup map</li>
                   <li>✓ BOI info sheet</li>
                 </ul>
-                <button class="btn stripe-checkout" data-plan="launch_track" style="margin-top:0.8rem; font-size:0.75rem;">
-                  Request Launch Track →
-                </button>
               </div>
               <div class="plan-card">
                 <div class="plan-name">Growth Track</div>
@@ -1026,9 +1000,6 @@
                   <li>✓ Admin dashboard layout & roles</li>
                   <li>✓ Monthly strategy call</li>
                 </ul>
-                <button class="btn stripe-checkout" data-plan="growth_track" style="margin-top:0.8rem; font-size:0.75rem;">
-                  Request Growth Track →
-                </button>
               </div>
               <div class="plan-card">
                 <div class="plan-name">Scale Track</div>
@@ -1040,9 +1011,6 @@
                   <li>✓ Trust & holdings coordination</li>
                   <li>✓ Priority access & reporting</li>
                 </ul>
-                <button class="btn stripe-checkout" data-plan="scale_track" style="margin-top:0.8rem; font-size:0.75rem;">
-                  Apply For Scale Track →
-                </button>
               </div>
             </div>
           </div>
@@ -1052,16 +1020,16 @@
             <div class="card">
               <h3>Member & Staff Portal Login</h3>
               <p style="font-size:0.8rem; color:var(--muted); margin-bottom:0.6rem;">
-                This demo includes a simple login toggle. In production you’d plug this into a real auth system (client portal, staff portal, or membership site).
+                This login is backed by Firebase Authentication. Use email + password to log in; roles control what you can see.
               </p>
 
               <div class="form-grid">
                 <div class="form-group">
                   <label for="login-email">Email</label>
-                  <input id="login-email" type="email" placeholder="admin@1128..." />
+                  <input id="login-email" type="email" placeholder="you@yourdomain.com" />
                 </div>
                 <div class="form-group">
-                  <label for="login-role">Role</label>
+                  <label for="login-role">Role (for new accounts)</label>
                   <select id="login-role">
                     <option value="client">Client</option>
                     <option value="staff">Staff</option>
@@ -1075,12 +1043,15 @@
                 <div class="form-group">
                   <label>&nbsp;</label>
                   <button type="button" class="btn" onclick="handleLogin()">
-                    Login & Show Dashboard →
+                    Login →
+                  </button>
+                  <button type="button" class="btn-outline" style="margin-top:0.4rem;" onclick="handleRegister()">
+                    Register New Account
                   </button>
                 </div>
               </div>
               <p style="font-size:0.7rem; color:var(--muted); margin-top:0.6rem;">
-                Demo suggestion: use <strong>Role: Admin</strong> to see full dashboard, <strong>Staff</strong> to see limited view. No real passwords are stored here.
+                Use <strong>Register New Account</strong> once per user. Role is stored in the backend, so later logins don’t have to select it.
               </p>
             </div>
           </div>
@@ -1095,7 +1066,7 @@
           <div class="section-eyebrow">Admin & Staff Dashboard</div>
           <h2 class="section-title">One View For Leads, Clients, Entities, And Capital Status</h2>
           <p class="section-subtitle">
-            This is a front-end example of how your internal control panel can look. The same forms and logins can be wired to a real backend once you’re ready.
+            This is a front-end example of how your internal control panel can look. The same forms and logins can be wired to deeper systems as you grow.
           </p>
         </div>
 
@@ -1119,11 +1090,20 @@
           </aside>
 
           <div class="dashboard-main">
+            <!-- CLIENT-ONLY FUNDING DASHBOARD -->
+            <div id="client-dashboard-panel" class="card" style="margin-bottom:1rem; display:none;">
+              <h3 style="font-size:0.9rem;">My Funding & Setup Status</h3>
+              <p id="client-funding-status" style="font-size:0.8rem; color:var(--muted);">
+                We’ll update this as we work on your file.
+              </p>
+              <ul id="client-funding-steps" class="trust-list" style="margin-top:0.5rem;"></ul>
+            </div>
+
             <!-- LEADS -->
             <div id="view-leads" class="dashboard-view">
               <h3 style="font-size:0.9rem;">New Leads from Client Intake</h3>
               <p style="font-size:0.76rem; color:var(--muted); margin-top:0.15rem;">
-                Every time someone fills out the intake form, they’ll show up here so admin or staff can move them to the right stage.
+                Every time someone fills out the intake or contact forms, they’ll show up here so admin or staff can move them to the right stage.
               </p>
               <table class="table" id="leads-table">
                 <thead>
@@ -1179,9 +1159,6 @@
             <!-- ROTATION -->
             <div id="view-rotation" class="dashboard-view" style="display:none;">
               <h3 style="font-size:0.9rem;">Multi-Entity Rotation Overview (Demo)</h3>
-              <p style="font-size:0.76rem; color:var(--muted); margin-top:0.15rem;">
-                Example of how your rotation schedule might be displayed—days, entities, processors, and target volume.
-              </p>
               <table class="table">
                 <thead>
                   <tr>
@@ -1232,7 +1209,7 @@
                 <li>☑ Confirm SOS filings and registered agent info for all entities.</li>
                 <li>☑ Confirm EIN letters, addresses, and BOI filings are consistent.</li>
                 <li>☐ Connect Stripe & Square accounts to the internal dashboard.</li>
-                <li>☐ Finalize trust ownership structure (e.g., 1003 Family Trust) for properties and key entities.</li>
+                <li>☐ Finalize trust ownership structure for properties and key entities.</li>
                 <li>☐ Implement real email/CRM integration for intake and membership forms.</li>
               </ul>
             </div>
@@ -1286,9 +1263,6 @@
               <li><strong>Consistency:</strong> Addresses, EIN, ownership, and activity line up across documents.</li>
               <li><strong>Control:</strong> You keep ultimate control of accounts while granting limited authority where needed.</li>
             </ul>
-            <p style="font-size:0.78rem; color:var(--muted); margin-top:0.6rem;">
-              This site’s structure can be extended into a full “lender packet” PDF that summarizes your corporate world when you are ready.
-            </p>
           </div>
         </div>
       </div>
@@ -1301,7 +1275,7 @@
           <div class="section-eyebrow">Contact & Lead Capture</div>
           <h2 class="section-title">Ready To Get Your Corporate World Organized?</h2>
           <p class="section-subtitle">
-            Use this short form if you’re not ready for full intake but want to talk. It feeds the same internal lead logic so you can keep track of everyone who reaches out.
+            Use this short form if you’re not ready for full intake but want to talk.
           </p>
         </div>
 
@@ -1346,8 +1320,8 @@
                   Submit & Log Lead →
                 </button>
                 <div>
-                  <span style="display:block;">In production, this can send directly to your email (e.g., admin@1128management.com) and a CRM.</span>
-                  <span style="display:block;">For now, it will also show up in your dashboard’s lead list for demo purposes.</span>
+                  <span style="display:block;">Later, this can send directly to your email and CRM.</span>
+                  <span style="display:block;">For now, it will also show up in your dashboard’s lead list.</span>
                 </div>
               </div>
             </form>
@@ -1356,15 +1330,7 @@
           <div class="card">
             <h3 style="font-size:0.95rem;">Email Routing & Automation Notes</h3>
             <p style="font-size:0.8rem; color:var(--muted); margin-bottom:0.6rem;">
-              This front-end is already structured to plug into real automation tools:
-            </p>
-            <ul class="trust-list">
-              <li>• Connect forms to a server endpoint like <code>/api/intake</code> or <code>/api/lead</code>.</li>
-              <li>• Use tools like Zapier, Make, or a direct CRM integration to send notifications.</li>
-              <li>• Route different forms (intake vs lead vs membership) to different email addresses or pipelines.</li>
-            </ul>
-            <p style="font-size:0.78rem; color:var(--muted); margin-top:0.6rem;">
-              The form IDs (<code>intake-form</code>, <code>lead-form</code>) and buttons with <code>stripe-checkout</code> classes are already in place—your developer (or future you) only needs to connect the actual endpoints when you’re ready.
+              This front-end is already structured to plug into real automation tools; all IDs are stable so you or a dev can connect them later.
             </p>
           </div>
         </div>
@@ -1379,46 +1345,43 @@
     </div>
   </footer>
 
-  <!-- BASIC AUTOMATION LOGIC -->
-  <script>
+  <!-- REAL LOGIN + DASHBOARD LOGIC -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
+    import {
+      getAuth,
+      onAuthStateChanged,
+      signInWithEmailAndPassword,
+      createUserWithEmailAndPassword,
+      signOut
+    } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js";
+    import {
+      getFirestore,
+      doc,
+      getDoc,
+      setDoc
+    } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyDWgaRI40P-fgP8xa_m10Wg-3AgOKCQw4",
+      authDomain: "management-portal-da4aa.firebaseapp.com",
+      projectId: "management-portal-da4aa",
+      storageBucket: "management-portal-da4aa.firebasestorage.app",
+      messagingSenderId: "33655066232",
+      appId: "1:33655066232:web:da5a240a56fdd2df3a145d",
+      measurementId: "G-CWC9GVVS7"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+    // ---------- Utility + demo lead handling ----------
     const leads = [];
 
     function scrollToSection(id) {
       const el = document.getElementById(id);
       if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-
-    function handleIntakeSubmit(event) {
-      event.preventDefault();
-      const form = event.target;
-      const lead = {
-        name: form["name"].value || document.getElementById("intake-name").value,
-        entityType: document.getElementById("intake-entity-type").value,
-        revenue: document.getElementById("intake-revenue").value,
-        goal: document.getElementById("intake-goal").value,
-        status: "New"
-      };
-      leads.push(lead);
-      updateLeadsTable();
-      form.reset();
-      alert("Thank you! Your intake has been received and logged as a lead in the dashboard (demo).");
-    }
-
-    function handleLeadCapture(event) {
-      event.preventDefault();
-      const name = document.getElementById("lead-name").value;
-      const topic = document.getElementById("lead-topic").value;
-      const lead = {
-        name,
-        entityType: "TBD",
-        revenue: "TBD",
-        goal: topic,
-        status: "New (Short Form)"
-      };
-      leads.push(lead);
-      updateLeadsTable();
-      event.target.reset();
-      alert("Lead captured and added to the dashboard (demo). In production this would also send an email.");
     }
 
     function updateLeadsTable() {
@@ -1438,49 +1401,195 @@
       });
     }
 
-    function handleLogin() {
-      const role = document.getElementById("login-role").value;
-      const dashboard = document.getElementById("dashboard-wrapper");
-      const roleLabel = document.getElementById("sidebar-role-label");
-      const lockMsg = document.getElementById("dashboard-locked-msg");
+    function handleIntakeSubmit(event) {
+      event.preventDefault();
+      const form = event.target;
+      const lead = {
+        name: form["name"].value || document.getElementById("intake-name").value,
+        entityType: document.getElementById("intake-entity-type").value,
+        revenue: document.getElementById("intake-revenue").value,
+        goal: document.getElementById("intake-goal").value,
+        status: "New"
+      };
+      leads.push(lead);
+      updateLeadsTable();
+      form.reset();
+      alert("Thank you! Your intake has been received.");
+    }
 
-      if (!dashboard || !roleLabel) return;
+    function handleLeadCapture(event) {
+      event.preventDefault();
+      const name = document.getElementById("lead-name").value;
+      const topic = document.getElementById("lead-topic").value;
+      const lead = {
+        name,
+        entityType: "TBD",
+        revenue: "TBD",
+        goal: topic,
+        status: "New (Short Form)"
+      };
+      leads.push(lead);
+      updateLeadsTable();
+      event.target.reset();
+      alert("Lead captured and added to the dashboard.");
+    }
+
+    // ---------- Dashboard role handling ----------
+    let currentRole = "guest";
+
+    function applyRoleUI(role) {
+      currentRole = role || "guest";
+
+      const dashboard = document.getElementById("dashboard-wrapper");
+      const lockMsg = document.getElementById("dashboard-locked-msg");
+      const roleLabel = document.getElementById("sidebar-role-label");
+      const clientPanel = document.getElementById("client-dashboard-panel");
+
+      if (!dashboard || !lockMsg || !roleLabel) return;
+
+      if (!role || role === "guest") {
+        dashboard.style.display = "none";
+        lockMsg.style.display = "block";
+        roleLabel.textContent = "Guest";
+        if (clientPanel) clientPanel.style.display = "none";
+        return;
+      }
+
       dashboard.style.display = "grid";
       lockMsg.style.display = "none";
+      roleLabel.textContent = role.charAt(0).toUpperCase() + role.slice(1);
 
-      let labelText = "Client";
-      if (role === "staff") labelText = "Staff";
-      if (role === "admin") labelText = "Admin";
-      roleLabel.textContent = labelText;
-
-      // Role-based view example
       const navButtons = document.querySelectorAll(".sidebar-nav button");
       navButtons.forEach((btn) => (btn.style.display = "block"));
+
       if (role === "staff") {
-        // Hide rotation config for staff in this demo
         navButtons.forEach((btn) => {
           if (btn.dataset.target === "view-rotation") btn.style.display = "none";
         });
       }
+
       if (role === "client") {
-        // Client only sees their status (leads) in this demo
         navButtons.forEach((btn) => {
           if (btn.dataset.target !== "view-leads") btn.style.display = "none";
         });
+        if (clientPanel) clientPanel.style.display = "block";
+        switchDashboardView("view-leads");
       }
-      alert("Logged in as " + labelText + " (demo only).");
     }
 
-    function handleLogout() {
-      const dashboard = document.getElementById("dashboard-wrapper");
-      const roleLabel = document.getElementById("sidebar-role-label");
-      const lockMsg = document.getElementById("dashboard-locked-msg");
-      if (!dashboard || !roleLabel) return;
-      dashboard.style.display = "none";
-      roleLabel.textContent = "Guest";
-      lockMsg.style.display = "block";
+    async function loadClientFundingStatus(user) {
+      const panel = document.getElementById("client-dashboard-panel");
+      const statusEl = document.getElementById("client-funding-status");
+      const listEl = document.getElementById("client-funding-steps");
+      if (!panel || !statusEl || !listEl) return;
+
+      try {
+        const ref = doc(db, "fundingStatus", user.uid);
+        const snap = await getDoc(ref);
+        if (!snap.exists()) {
+          statusEl.textContent =
+            "We’ve received your info. Your funding & setup status will appear here once 1128 updates it.";
+          listEl.innerHTML = "";
+          return;
+        }
+        const data = snap.data();
+        statusEl.textContent = data.overallStatus || "In progress";
+        const steps = data.steps || [];
+        listEl.innerHTML = "";
+        steps.forEach((step) => {
+          const li = document.createElement("li");
+          li.textContent = `${step.label}: ${step.status}`;
+          listEl.appendChild(li);
+        });
+      } catch (err) {
+        console.error(err);
+        statusEl.textContent = "We couldn’t load your status right now.";
+      }
     }
 
+    // ---------- Auth: register / login / logout ----------
+    async function handleRegister() {
+      const emailInput = document.getElementById("login-email");
+      const passwordInput = document.getElementById("login-password");
+      const roleSelect = document.getElementById("login-role");
+
+      const email = emailInput.value.trim();
+      const password = passwordInput.value;
+      const role = roleSelect.value || "client";
+
+      if (!email || !password) {
+        alert("Please enter an email and password.");
+        return;
+      }
+
+      try {
+        const cred = await createUserWithEmailAndPassword(auth, email, password);
+        await setDoc(doc(db, "users", cred.user.uid), {
+          email,
+          role,
+          createdAt: Date.now()
+        });
+        alert("Account created. You are now logged in as " + role + ".");
+      } catch (err) {
+        console.error(err);
+        alert("Could not register: " + err.message);
+      }
+    }
+
+    async function handleLogin() {
+      const emailInput = document.getElementById("login-email");
+      const passwordInput = document.getElementById("login-password");
+
+      const email = emailInput.value.trim();
+      const password = passwordInput.value;
+
+      if (!email || !password) {
+        alert("Please enter your email and password.");
+        return;
+      }
+
+      try {
+        await signInWithEmailAndPassword(auth, email, password);
+      } catch (err) {
+        console.error(err);
+        alert("Login failed: " + err.message);
+      }
+    }
+
+    async function handleLogout() {
+      try {
+        await signOut(auth);
+      } catch (err) {
+        console.error(err);
+      }
+    }
+
+    // Watch auth state
+    onAuthStateChanged(auth, async (user) => {
+      if (!user) {
+        applyRoleUI("guest");
+        return;
+      }
+
+      let role = "client";
+      try {
+        const ref = doc(db, "users", user.uid);
+        const snap = await getDoc(ref);
+        if (snap.exists()) {
+          const data = snap.data();
+          role = data.role || "client";
+        }
+      } catch (err) {
+        console.error(err);
+      }
+
+      applyRoleUI(role);
+      if (role === "client") {
+        loadClientFundingStatus(user);
+      }
+    });
+
+    // ---------- Dashboard view switching ----------
     function switchDashboardView(viewId, btn) {
       const views = document.querySelectorAll(".dashboard-view");
       views.forEach((view) => (view.style.display = "none"));
@@ -1492,7 +1601,18 @@
       if (btn) btn.classList.add("active");
     }
 
-    document.getElementById("year").textContent = new Date().getFullYear();
+    // Footer year
+    const yearEl = document.getElementById("year");
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+    // Expose functions globally for inline handlers
+    window.scrollToSection = scrollToSection;
+    window.handleIntakeSubmit = handleIntakeSubmit;
+    window.handleLeadCapture = handleLeadCapture;
+    window.handleLogin = handleLogin;
+    window.handleRegister = handleRegister;
+    window.handleLogout = handleLogout;
+    window.switchDashboardView = switchDashboardView;
   </script>
 </body>
 </html>
