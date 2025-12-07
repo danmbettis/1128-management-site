@@ -4,54 +4,53 @@
   <meta charset="UTF-8" />
   <title>1128 Management Corp – B2B Growth & Funding Network</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="1128 Management Corp – Corporate setup, funding strategy, Stripe & Square loan optimization, and B2B growth management." />
+  <meta name="description" content="1128 Management Corp – corporate setup, funding strategy, Stripe & Square loan optimization, and B2B growth management." />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
   <style>
     :root {
-      --primary: #1f4bff;
-      --primary-dark: #102b9c;
-      --accent: #00c896;
-      --bg: #050816;
-      --bg-soft: #0b1020;
-      --card: #111827;
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --accent: #22c55e;
+      --bg: #020617;
+      --bg-soft: #02081a;
+      --card: #0b1120;
       --border: #1f2937;
       --text: #f9fafb;
       --muted: #9ca3af;
       --danger: #ef4444;
     }
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #111827 0, #020617 50%, #000 100%);
+      background: radial-gradient(circle at top, #0b1120 0, #020617 40%, #000 100%);
       color: var(--text);
       line-height: 1.6;
     }
     a { color: inherit; text-decoration: none; }
     button { font-family: inherit; cursor: pointer; }
+
     .container {
       width: 100%;
       max-width: 1120px;
       margin: 0 auto;
       padding: 0 1.25rem;
     }
+
     /* NAV */
     header {
       position: sticky;
       top: 0;
       z-index: 50;
-      backdrop-filter: blur(16px);
-      background: linear-gradient(to bottom, rgba(15,23,42,0.98), rgba(15,23,42,0.8), transparent);
+      backdrop-filter: blur(18px);
+      background: linear-gradient(to bottom, rgba(15,23,42,0.96), rgba(15,23,42,0.85), transparent);
       border-bottom: 1px solid rgba(31,41,55,0.8);
     }
     .nav {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0.75rem 0;
+      padding: 0.7rem 0;
     }
     .logo {
       display: flex;
@@ -59,8 +58,8 @@
       gap: 0.6rem;
     }
     .logo-mark {
-      width: 32px;
-      height: 32px;
+      width: 34px;
+      height: 34px;
       border-radius: 0.9rem;
       border: 1px solid rgba(148,163,184,0.6);
       background: radial-gradient(circle at 20% 0, #38bdf8, #4f46e5, #0f172a);
@@ -71,10 +70,7 @@
       font-size: 0.8rem;
       color: #e5e7eb;
     }
-    .logo-text {
-      display: flex;
-      flex-direction: column;
-    }
+    .logo-text { display: flex; flex-direction: column; }
     .logo-text span:first-child {
       font-weight: 600;
       letter-spacing: 0.05em;
@@ -87,7 +83,7 @@
     }
     .nav-links {
       display: flex;
-      gap: 1.2rem;
+      gap: 1.1rem;
       font-size: 0.86rem;
       color: var(--muted);
     }
@@ -95,9 +91,7 @@
       position: relative;
       padding: 0.25rem 0;
     }
-    .nav-links a:hover {
-      color: #e5e7eb;
-    }
+    .nav-links a:hover { color: #e5e7eb; }
     .nav-links a::after {
       content: "";
       position: absolute;
@@ -109,13 +103,13 @@
       border-radius: 999px;
       transition: width 0.2s ease;
     }
-    .nav-links a:hover::after {
-      width: 100%;
-    }
+    .nav-links a:hover::after { width: 100%; }
+
     .nav-cta {
       display: flex;
       align-items: center;
       gap: 0.5rem;
+      font-size: 0.78rem;
     }
     .pill {
       font-size: 0.7rem;
@@ -124,6 +118,7 @@
       border: 1px solid rgba(148,163,184,0.5);
       color: var(--muted);
     }
+
     .btn {
       border-radius: 999px;
       padding: 0.4rem 0.95rem;
@@ -135,28 +130,25 @@
       background: linear-gradient(to right, var(--primary), var(--accent));
       color: #f9fafb;
       box-shadow: 0 18px 45px rgba(15,118,110,0.45);
+      white-space: nowrap;
     }
     .btn-outline {
       background: transparent;
-      border: 1px solid rgba(148,163,184,0.6);
-      color: #e5e7eb;
-      box-shadow: none;
       border-radius: 999px;
       padding: 0.4rem 0.95rem;
       font-size: 0.8rem;
+      border: 1px solid rgba(148,163,184,0.7);
+      color: #e5e7eb;
+      white-space: nowrap;
     }
-    main {
-      padding-bottom: 4rem;
-    }
-    section {
-      padding: 4rem 0;
-    }
+
+    main { padding-bottom: 4rem; }
+    section { padding: 4rem 0; }
     section:nth-child(even) {
       background: radial-gradient(circle at top left, #020617 0, #020617 40%, #000 100%);
     }
-    .section-header {
-      margin-bottom: 1.75rem;
-    }
+
+    .section-header { margin-bottom: 1.75rem; }
     .section-eyebrow {
       font-size: 0.75rem;
       text-transform: uppercase;
@@ -176,9 +168,7 @@
     }
 
     /* HERO */
-    .hero {
-      padding-top: 3rem;
-    }
+    .hero { padding-top: 3rem; }
     .hero-grid {
       display: grid;
       grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
@@ -214,18 +204,19 @@
       max-width: 460px;
       margin-bottom: 1.1rem;
     }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.2rem;
+    }
     .hero-meta {
       display: flex;
       flex-wrap: wrap;
       gap: 0.75rem;
-      margin-top: 1rem;
+      margin-top: 1.1rem;
       font-size: 0.75rem;
       color: var(--muted);
-    }
-    .hero-meta span {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.3rem;
     }
     .hero-meta-dot {
       width: 6px;
@@ -234,12 +225,7 @@
       background: #22c55e;
       box-shadow: 0 0 0 4px rgba(34,197,94,0.35);
     }
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      margin-top: 1.4rem;
-    }
+
     .hero-card {
       border-radius: 1.25rem;
       border: 1px solid rgba(148,163,184,0.35);
@@ -257,38 +243,18 @@
       opacity: 0.75;
       pointer-events: none;
     }
-    .hero-card-inner {
-      position: relative;
-      z-index: 1;
-    }
+    .hero-card-inner { position: relative; z-index: 1; }
     .hero-card-grid {
       display: grid;
       grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
       gap: 1.25rem;
       align-items: stretch;
     }
-    .hero-stat-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0,1fr));
-      gap: 0.75rem;
-      margin-top: 0.75rem;
-    }
-    .stat-pill {
-      border-radius: 0.9rem;
-      background: rgba(15,23,42,0.7);
-      border: 1px solid rgba(148,163,184,0.4);
-      padding: 0.6rem 0.7rem;
-      font-size: 0.72rem;
-    }
-    .stat-pill strong {
-      display: block;
-      font-size: 0.85rem;
-    }
     .hero-dashboard {
       border-radius: 1rem;
-      background: rgba(15,23,42,0.88);
+      background: rgba(15,23,42,0.9);
       border: 1px solid rgba(55,65,81,0.9);
-      padding: 0.65rem 0.7rem;
+      padding: 0.7rem;
       font-size: 0.7rem;
       display: flex;
       flex-direction: column;
@@ -310,7 +276,6 @@
     }
     .mini-table {
       width: 100%;
-      border-spacing: 0;
       border-collapse: collapse;
       margin-top: 0.35rem;
       font-size: 0.68rem;
@@ -331,7 +296,7 @@
     }
     .status-pill {
       border-radius: 999px;
-      padding: 0.05rem 0.4rem;
+      padding: 0.05rem 0.45rem;
       font-size: 0.6rem;
       border: 1px solid rgba(52,211,153,0.8);
       color: #bbf7d0;
@@ -364,14 +329,8 @@
       position: relative;
       overflow: hidden;
     }
-    .card h3 {
-      font-size: 0.95rem;
-      margin-bottom: 0.35rem;
-    }
-    .card p {
-      font-size: 0.8rem;
-      color: var(--muted);
-    }
+    .card h3 { font-size: 0.95rem; margin-bottom: 0.35rem; }
+    .card p { font-size: 0.8rem; color: var(--muted); }
     .card-tag {
       font-size: 0.62rem;
       text-transform: uppercase;
@@ -406,10 +365,7 @@
       gap: 0.2rem;
       font-size: 0.78rem;
     }
-    label {
-      color: #e5e7eb;
-      font-size: 0.78rem;
-    }
+    label { color: #e5e7eb; font-size: 0.78rem; }
     input, select, textarea {
       border-radius: 0.55rem;
       border: 1px solid rgba(55,65,81,0.9);
@@ -419,13 +375,8 @@
       font-size: 0.78rem;
       outline: none;
     }
-    input::placeholder, textarea::placeholder {
-      color: #6b7280;
-    }
-    textarea {
-      min-height: 90px;
-      resize: vertical;
-    }
+    input::placeholder, textarea::placeholder { color: #6b7280; }
+    textarea { min-height: 90px; resize: vertical; }
     .form-footer {
       display: flex;
       align-items: center;
@@ -444,31 +395,11 @@
       background: radial-gradient(circle at top, rgba(59,130,246,0.15), rgba(15,23,42,1));
       padding: 1rem;
     }
-    .plan-name {
-      font-size: 0.9rem;
-      font-weight: 600;
-      margin-bottom: 0.25rem;
-    }
-    .plan-price {
-      font-size: 1.2rem;
-      font-weight: 600;
-      margin: 0.15rem 0;
-    }
-    .plan-meta {
-      font-size: 0.75rem;
-      color: var(--muted);
-      margin-bottom: 0.75rem;
-    }
-    .plan-list {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      font-size: 0.78rem;
-      color: var(--muted);
-    }
-    .plan-list li {
-      margin-bottom: 0.25rem;
-    }
+    .plan-name { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.25rem; }
+    .plan-price { font-size: 1.2rem; font-weight: 600; margin: 0.15rem 0; }
+    .plan-meta { font-size: 0.75rem; color: var(--muted); margin-bottom: 0.75rem; }
+    .plan-list { list-style: none; margin: 0; padding: 0; font-size: 0.78rem; color: var(--muted); }
+    .plan-list li { margin-bottom: 0.25rem; }
 
     /* DASHBOARD */
     .dashboard-shell {
@@ -485,10 +416,7 @@
       padding: 0.85rem;
       font-size: 0.8rem;
     }
-    .dashboard-main {
-      padding: 0.85rem 1rem;
-      font-size: 0.8rem;
-    }
+    .dashboard-main { padding: 0.85rem 1rem; font-size: 0.8rem; }
     .sidebar-title {
       font-size: 0.75rem;
       text-transform: uppercase;
@@ -530,7 +458,6 @@
 
     .table {
       width: 100%;
-      border-spacing: 0;
       border-collapse: collapse;
       margin-top: 0.4rem;
     }
@@ -561,9 +488,7 @@
       padding-left: 1rem;
       margin-top: 0.5rem;
     }
-    .trust-list li {
-      margin-bottom: 0.3rem;
-    }
+    .trust-list li { margin-bottom: 0.3rem; }
     .pill-row {
       display: flex;
       flex-wrap: wrap;
@@ -590,22 +515,17 @@
       .dashboard-shell {
         grid-template-columns: minmax(0,1fr);
       }
-      .dashboard-shell {
-        min-height: auto;
-      }
+      .dashboard-shell { min-height: auto; }
       .dashboard-sidebar {
         border-right: none;
         border-bottom: 1px solid var(--border);
       }
-      .nav-links {
-        display: none;
-      }
-      .hero {
-        padding-top: 2rem;
-      }
+      .nav-links { display: none; }
+      .hero { padding-top: 2rem; }
     }
   </style>
 </head>
+
 <body>
   <!-- NAVBAR -->
   <header>
@@ -620,19 +540,17 @@
       <nav class="nav-links">
         <a href="#hero">Overview</a>
         <a href="#services">Services</a>
-        <a href="#funding">Funding Funnels</a>
+        <a href="#funding">Funding</a>
         <a href="#intake">Client Intake</a>
         <a href="#membership">Membership</a>
-        <a href="#admin">Admin</a>
-        <a href="#trust">Trust & Credibility</a>
+        <a href="#admin">Dashboard</a>
+        <a href="#trust">Trust</a>
         <a href="#contact">Contact</a>
       </nav>
       <div class="nav-cta">
         <span class="pill">Mississippi • Multi-Entity</span>
-        <button class="btn-outline" onclick="scrollToSection('login')">Staff Login</button>
-        <button class="btn" onclick="scrollToSection('intake')">
-          Start Corporate Setup →
-        </button>
+        <button class="btn-outline" onclick="scrollToSection('membership')">Staff Login</button>
+        <button class="btn" onclick="scrollToSection('intake')">Start Corporate Setup →</button>
       </div>
     </div>
   </header>
@@ -653,15 +571,11 @@
             1128 Management Corp builds and manages corporate structures, payment flows, and funding strategies so multiple entities work together—clean, compliant, and optimized for Stripe, Square, and bank capital.
           </p>
           <div class="hero-actions">
-            <button class="btn" onclick="scrollToSection('intake')">
-              📝 Launch My Corporation & Funding Plan
-            </button>
-            <button class="btn-outline" onclick="scrollToSection('funding')">
-              📊 See 30-Day Funding Funnel
-            </button>
+            <button class="btn" onclick="scrollToSection('intake')">📝 Launch My Corporation & Funding Plan</button>
+            <button class="btn-outline" onclick="scrollToSection('funding')">📊 See 30-Day Funding Funnel</button>
           </div>
           <div class="hero-meta">
-            <span><span class="hero-meta-dot"></span> Active: Multi-entity rotation (1128 LLC, 1128 Food Vending, JasmineCo Inc, Danny’s Collections Inc)</span>
+            <span><span class="hero-meta-dot"></span> Active: multi-entity rotation (1128 LLC, 1128 Food Vending, JasmineCo Inc, Danny’s Collections Inc)</span>
             <span>• Mississippi C-Corps & LLCs • Trust & Holdings</span>
           </div>
         </div>
@@ -674,29 +588,20 @@
                 <p style="font-size:0.78rem; color:var(--muted);">
                   One dashboard view for daily card volume, loan eligibility, and entity rotation—built into your 1128 network.
                 </p>
-                <div class="hero-stat-grid">
-                  <div class="stat-pill">
-                    <span>Daily Card Volume</span>
-                    <strong>$100 / entity</strong>
-                    <span>Stripe + Square targets</span>
+                <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0.75rem;margin-top:0.75rem;">
+                  <div class="card" style="padding:0.6rem;border-radius:0.9rem;background:rgba(15,23,42,0.8);">
+                    <div style="font-size:0.72rem;color:var(--muted);">Daily Card Volume</div>
+                    <div style="font-size:0.9rem;font-weight:600;">$100 / entity</div>
+                    <div style="font-size:0.7rem;color:var(--muted);">Stripe + Square targets</div>
                   </div>
-                  <div class="stat-pill">
-                    <span>Capital Rotation</span>
-                    <strong>4 entities</strong>
-                    <span>Staggered loan timing</span>
-                  </div>
-                  <div class="stat-pill">
-                    <span>Compliance</span>
-                    <strong>BOI + SOS</strong>
-                    <span>Structures documented</span>
-                  </div>
-                  <div class="stat-pill">
-                    <span>Ownership</span>
-                    <strong>Holding & Trust</strong>
-                    <span>Secured control</span>
+                  <div class="card" style="padding:0.6rem;border-radius:0.9rem;background:rgba(15,23,42,0.8);">
+                    <div style="font-size:0.72rem;color:var(--muted);">Capital Rotation</div>
+                    <div style="font-size:0.9rem;font-weight:600;">4 entities</div>
+                    <div style="font-size:0.7rem;color:var(--muted);">Staggered loan timing</div>
                   </div>
                 </div>
               </div>
+
               <div class="hero-dashboard">
                 <div class="hero-dashboard-header">
                   <span>Today’s Funding Snapshot</span>
@@ -704,38 +609,13 @@
                 </div>
                 <table class="mini-table">
                   <thead>
-                    <tr>
-                      <th>Entity</th>
-                      <th>Processor</th>
-                      <th>Today</th>
-                      <th>Status</th>
-                    </tr>
+                    <tr><th>Entity</th><th>Processor</th><th>Today</th><th>Status</th></tr>
                   </thead>
-                  <tbody id="hero-entity-rows">
-                    <tr>
-                      <td>1128 LLC</td>
-                      <td>Square</td>
-                      <td>$135</td>
-                      <td><span class="status-pill">On Track</span></td>
-                    </tr>
-                    <tr>
-                      <td>1128 Mgmt Corp</td>
-                      <td>Stripe</td>
-                      <td>$210</td>
-                      <td><span class="status-pill pending">Warming Up</span></td>
-                    </tr>
-                    <tr>
-                      <td>JasmineCo Inc</td>
-                      <td>Stripe</td>
-                      <td>$88</td>
-                      <td><span class="status-pill">On Track</span></td>
-                    </tr>
-                    <tr>
-                      <td>Danny’s Collections Inc</td>
-                      <td>Stripe</td>
-                      <td>$62</td>
-                      <td><span class="status-pill flagged">Watch</span></td>
-                    </tr>
+                  <tbody>
+                    <tr><td>1128 LLC</td><td>Square</td><td>$135</td><td><span class="status-pill">On Track</span></td></tr>
+                    <tr><td>1128 Mgmt Corp</td><td>Stripe</td><td>$210</td><td><span class="status-pill pending">Warming Up</span></td></tr>
+                    <tr><td>JasmineCo Inc</td><td>Stripe</td><td>$88</td><td><span class="status-pill">On Track</span></td></tr>
+                    <tr><td>Danny’s Collections Inc</td><td>Stripe</td><td>$62</td><td><span class="status-pill flagged">Watch</span></td></tr>
                   </tbody>
                 </table>
                 <p style="font-size:0.68rem; color:var(--muted); margin-top:0.3rem;">
@@ -763,20 +643,16 @@
           <div class="card">
             <div class="card-tag">Corporate Setup & Compliance</div>
             <h3>Mississippi Corporations & LLCs</h3>
-            <p>
-              Articles of Incorporation, bylaws, stock certificates, EIN answer sheets, BOI info sheets, and SOS filings—all aligned with how you actually plan to run money and control entities.
-            </p>
+            <p>Articles, bylaws, stock certificates, EIN answer sheets, BOI info sheets, and SOS filings—all aligned with how you actually plan to run money and control entities.</p>
             <div class="card-footer">
               <span class="chip">C-Corp • S-Corp • LLC</span>
-              <span>1128 Management as your advisor</span>
+              <span>1128 Management as advisor</span>
             </div>
           </div>
           <div class="card">
             <div class="card-tag">Payments & Funding</div>
             <h3>Stripe, Square & Bank Capital Strategy</h3>
-            <p>
-              Processor setup, target daily volumes, 30-day ramp plans, and staggered capital requests across entities so Stripe Capital, Square Loans, and banks see a consistent, healthy pattern.
-            </p>
+            <p>Processor setup, target daily volumes, 30-day ramp plans, and staggered capital requests across entities so lenders see a consistent, healthy pattern.</p>
             <div class="card-footer">
               <span class="chip">Capital Funnels</span>
               <span>Stripe • Square • Novo</span>
@@ -785,48 +661,10 @@
           <div class="card">
             <div class="card-tag">B2B Growth Network</div>
             <h3>Multi-Entity & Trust Structuring</h3>
-            <p>
-              Holdings and trust structures that own your corporations, vehicles, trailers, and properties—keeping who owns what clear while still flexible for rotations and loans.
-            </p>
+            <p>Holdings and trust structures that own your corporations, vehicles, trailers, and properties—keeping who owns what clear while flexible for rotations and loans.</p>
             <div class="card-footer">
               <span class="chip">1128 Holdings • Trusts</span>
               <span>Asset & control design</span>
-            </div>
-          </div>
-        </div>
-
-        <div style="margin-top:1.5rem;" class="grid-3">
-          <div class="card">
-            <div class="card-tag">Admin & Operations</div>
-            <h3>Back-Office Management & Staff Systems</h3>
-            <p>
-              We help map who does what: admin vs staff vs owner, what each can see, and how daily operations (sales, deposits, bills) show up inside your dashboard.
-            </p>
-            <div class="card-footer">
-              <span class="chip">Admin Dashboards</span>
-              <span>Staff login ready</span>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-tag">Automation</div>
-            <h3>Intake → Funnels → Tasks</h3>
-            <p>
-              Client intake forms that automatically feed into a lead table, task list, and pipeline stages—so every new application has a clear next step.
-            </p>
-            <div class="card-footer">
-              <span class="chip">Automation Logic</span>
-              <span>Pipeline visibility</span>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-tag">Consulting</div>
-            <h3>One-on-One Funding & Structure Consulting</h3>
-            <p>
-              Strategy sessions focused on your exact mix of corporations, processors, debts, and opportunities. We help you see the whole rotation, not just one lender.
-            </p>
-            <div class="card-footer">
-              <span class="chip">Done-With-You</span>
-              <span>Hourly & project</span>
             </div>
           </div>
         </div>
@@ -840,46 +678,43 @@
           <div class="section-eyebrow">Funding & Consulting Funnels</div>
           <h2 class="section-title">30-Day Capital Ramp, Mapped For Multiple Entities</h2>
           <p class="section-subtitle">
-            Instead of random swipes and deposits, we map a daily rotation across your businesses so volume, consistency, and payback look the way lenders like to see it.
+            Instead of random swipes and deposits, we map a daily rotation so volume, consistency, and payback look the way lenders like to see it.
           </p>
         </div>
 
         <div class="grid-2">
           <div class="card">
             <h3>Funding Funnel Overview</h3>
-            <p>
-              A simple 3-stage funnel turns strangers into capital-ready clients.
-            </p>
+            <p>A simple 3-stage funnel turns strangers into capital-ready clients.</p>
             <ol class="trust-list" style="margin-top:0.4rem;">
               <li><strong>Stage 1 • Discovery:</strong> Short intake form and strategy call to see your entities, loans, and processors.</li>
               <li><strong>Stage 2 • Mapping:</strong> We build your 30-day rotation plan (who processes what, where, and when).</li>
               <li><strong>Stage 3 • Activation:</strong> We help you move real money through the plan, then prep you for capital offers.</li>
             </ol>
           </div>
-
           <div class="card">
-            <h3>Internal Funnel Automation (Example)</h3>
-            <p style="font-size:0.78rem; color:var(--muted); margin-bottom:0.6rem;">
-              This site already includes basic automation logic: when someone submits the intake form below, they’ll show up in your “New Leads” table inside the Admin Dashboard section.
+            <h3>Internal Funnel Automation (Demo)</h3>
+            <p style="font-size:0.8rem;color:var(--muted);margin-bottom:0.6rem;">
+              When someone submits the intake or short lead form, they show up in your <strong>New Leads</strong> table inside the dashboard below (demo only).
             </p>
             <ul class="trust-list">
-              <li>New intake → stored in browser and visible in dashboard (demo).</li>
+              <li>Intake → stored in browser and visible in dashboard (demo).</li>
               <li>Lead shows: name, entity type, monthly revenue, goal, status.</li>
-              <li>You can later connect this same structure to a real CRM or email system.</li>
+              <li>You can later connect this structure to a real CRM or email system.</li>
             </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- CLIENT INTAKE FORMS -->
+    <!-- CLIENT INTAKE -->
     <section id="intake">
       <div class="container">
         <div class="section-header">
           <div class="section-eyebrow">Client Intake</div>
           <h2 class="section-title">Tell Us How Your Businesses Really Move Money</h2>
           <p class="section-subtitle">
-            This intake form is designed for real operations—multiple corporations, different processors, side businesses, and holding/trust ideas.
+            Designed for real operations—multiple corporations, different processors, side businesses, holdings, and trust ideas.
           </p>
         </div>
 
@@ -951,13 +786,11 @@
 
             <div class="form-footer">
               <div>
-                <button type="submit" class="btn">
-                  Submit Intake & Create Lead →
-                </button>
+                <button type="submit" class="btn">Submit Intake & Create Lead →</button>
               </div>
               <div>
                 <span style="display:block;">Next step: we review your info and contact you with a recommended path.</span>
-                <span style="display:block;">In production you can connect this form to email or CRM; for now it feeds the internal dashboard.</span>
+                <span style="display:block;">In production this can send to email/CRM; for now it feeds the internal dashboard.</span>
               </div>
             </div>
           </form>
@@ -965,7 +798,7 @@
       </div>
     </section>
 
-    <!-- MEMBERSHIP PORTAL & LOGIN -->
+    <!-- MEMBERSHIP / LOGIN -->
     <section id="membership">
       <div class="container">
         <div class="section-header">
@@ -1016,17 +849,21 @@
           </div>
 
           <!-- LOGIN PORTAL -->
-          <div id="login">
+          <div>
             <div class="card">
               <h3>Member & Staff Portal Login</h3>
               <p style="font-size:0.8rem; color:var(--muted); margin-bottom:0.6rem;">
-                This login is backed by Firebase Authentication. Use email + password to log in; roles control what you can see.
+                Firebase Authentication handles secure email + password login. Role controls what you can see inside the dashboard.
               </p>
 
               <div class="form-grid">
                 <div class="form-group">
                   <label for="login-email">Email</label>
                   <input id="login-email" type="email" placeholder="you@yourdomain.com" />
+                </div>
+                <div class="form-group">
+                  <label for="login-password">Password</label>
+                  <input id="login-password" type="password" placeholder="••••••••" />
                 </div>
                 <div class="form-group">
                   <label for="login-role">Role (for new accounts)</label>
@@ -1037,21 +874,15 @@
                   </select>
                 </div>
                 <div class="form-group">
-                  <label for="login-password">Password</label>
-                  <input id="login-password" type="password" placeholder="••••••••" />
-                </div>
-                <div class="form-group">
                   <label>&nbsp;</label>
-                  <button type="button" class="btn" onclick="handleLogin()">
-                    Login →
-                  </button>
+                  <button type="button" class="btn" onclick="handleLogin()">Login →</button>
                   <button type="button" class="btn-outline" style="margin-top:0.4rem;" onclick="handleRegister()">
                     Register New Account
                   </button>
                 </div>
               </div>
               <p style="font-size:0.7rem; color:var(--muted); margin-top:0.6rem;">
-                Use <strong>Register New Account</strong> once per user. Role is stored in the backend, so later logins don’t have to select it.
+                Use <strong>Register New Account</strong> once per user. Role is stored in the backend; later logins only need email + password.
               </p>
             </div>
           </div>
@@ -1059,14 +890,14 @@
       </div>
     </section>
 
-    <!-- ADMIN DASHBOARD LAYOUT -->
+    <!-- ADMIN DASHBOARD -->
     <section id="admin">
       <div class="container">
         <div class="section-header">
           <div class="section-eyebrow">Admin & Staff Dashboard</div>
           <h2 class="section-title">One View For Leads, Clients, Entities, And Capital Status</h2>
           <p class="section-subtitle">
-            This is a front-end example of how your internal control panel can look. The same forms and logins can be wired to deeper systems as you grow.
+            The same forms and logins above feed into this internal control panel. Different roles see different pieces.
           </p>
         </div>
 
@@ -1094,7 +925,7 @@
             <div id="client-dashboard-panel" class="card" style="margin-bottom:1rem; display:none;">
               <h3 style="font-size:0.9rem;">My Funding & Setup Status</h3>
               <p id="client-funding-status" style="font-size:0.8rem; color:var(--muted);">
-                We’ll update this as we work on your file.
+                We’ve received your info. Your funding & setup status appears here once 1128 updates it.
               </p>
               <ul id="client-funding-steps" class="trust-list" style="margin-top:0.5rem;"></ul>
             </div>
@@ -1103,9 +934,9 @@
             <div id="view-leads" class="dashboard-view">
               <h3 style="font-size:0.9rem;">New Leads from Client Intake</h3>
               <p style="font-size:0.76rem; color:var(--muted); margin-top:0.15rem;">
-                Every time someone fills out the intake or contact forms, they’ll show up here so admin or staff can move them to the right stage.
+                Every time someone fills out the intake or contact forms, they’ll show up here (demo, stored in browser only).
               </p>
-              <table class="table" id="leads-table">
+              <table class="table">
                 <thead>
                   <tr>
                     <th>Name</th>
@@ -1115,8 +946,8 @@
                     <th>Status</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <!-- Leads added by JS -->
+                <tbody id="leads-table">
+                  <!-- JS will inject rows -->
                 </tbody>
               </table>
             </div>
@@ -1126,32 +957,12 @@
               <h3 style="font-size:0.9rem;">Active Clients (Demo Data)</h3>
               <table class="table">
                 <thead>
-                  <tr>
-                    <th>Client</th>
-                    <th>Track</th>
-                    <th>Entities</th>
-                    <th>Stage</th>
-                  </tr>
+                  <tr><th>Client</th><th>Track</th><th>Entities</th><th>Stage</th></tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>1128 Food Vending LLC</td>
-                    <td>Growth Track</td>
-                    <td>LLC + Food Trailer</td>
-                    <td>Activation</td>
-                  </tr>
-                  <tr>
-                    <td>JasmineCo Inc</td>
-                    <td>Launch Track</td>
-                    <td>C-Corp • Beauty/Services</td>
-                    <td>Mapping</td>
-                  </tr>
-                  <tr>
-                    <td>Danny’s Collections Inc</td>
-                    <td>Scale Track</td>
-                    <td>Retail & Online</td>
-                    <td>Discovery</td>
-                  </tr>
+                  <tr><td>1128 Food Vending LLC</td><td>Growth Track</td><td>LLC + Food Trailer</td><td>Activation</td></tr>
+                  <tr><td>JasmineCo Inc</td><td>Launch Track</td><td>C-Corp • Beauty/Services</td><td>Mapping</td></tr>
+                  <tr><td>Danny’s Collections Inc</td><td>Scale Track</td><td>Retail & Online</td><td>Discovery</td></tr>
                 </tbody>
               </table>
             </div>
@@ -1161,43 +972,13 @@
               <h3 style="font-size:0.9rem;">Multi-Entity Rotation Overview (Demo)</h3>
               <table class="table">
                 <thead>
-                  <tr>
-                    <th>Day</th>
-                    <th>Entity</th>
-                    <th>Processor</th>
-                    <th>Target Volume</th>
-                    <th>Notes</th>
-                  </tr>
+                  <tr><th>Day</th><th>Entity</th><th>Processor</th><th>Target Volume</th><th>Notes</th></tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>Mon–Wed</td>
-                    <td>1128 LLC</td>
-                    <td>Square</td>
-                    <td>$100/day</td>
-                    <td>Convenience + deli daily flow.</td>
-                  </tr>
-                  <tr>
-                    <td>Thu–Fri</td>
-                    <td>1128 Management Corp</td>
-                    <td>Stripe</td>
-                    <td>$100/day</td>
-                    <td>Consulting invoices and retainers.</td>
-                  </tr>
-                  <tr>
-                    <td>Sat</td>
-                    <td>JasmineCo Inc</td>
-                    <td>Stripe</td>
-                    <td>$100/day</td>
-                    <td>Beauty & accessories activity.</td>
-                  </tr>
-                  <tr>
-                    <td>Sun</td>
-                    <td>Danny’s Collections Inc</td>
-                    <td>Stripe</td>
-                    <td>$100/day</td>
-                    <td>Online & pop-up retail.</td>
-                  </tr>
+                  <tr><td>Mon–Wed</td><td>1128 LLC</td><td>Square</td><td>$100/day</td><td>Convenience + deli daily flow.</td></tr>
+                  <tr><td>Thu–Fri</td><td>1128 Management Corp</td><td>Stripe</td><td>$100/day</td><td>Consulting invoices and retainers.</td></tr>
+                  <tr><td>Sat</td><td>JasmineCo Inc</td><td>Stripe</td><td>$100/day</td><td>Beauty & accessories activity.</td></tr>
+                  <tr><td>Sun</td><td>Danny’s Collections Inc</td><td>Stripe</td><td>$100/day</td><td>Online & pop-up retail.</td></tr>
                 </tbody>
               </table>
             </div>
@@ -1217,12 +998,12 @@
         </div>
 
         <p id="dashboard-locked-msg" style="font-size:0.78rem; color:var(--muted); margin-top:0.75rem;">
-          Use the login in the Membership section to unlock the Admin Dashboard (Admin or Staff role).
+          Use the login in the Membership section to unlock the Admin Dashboard (Admin, Staff, or Client role).
         </p>
       </div>
     </section>
 
-    <!-- TRUST & CREDIBILITY SECTION -->
+    <!-- TRUST & CREDIBILITY -->
     <section id="trust">
       <div class="container">
         <div class="section-header">
@@ -1316,12 +1097,10 @@
               </div>
 
               <div class="form-footer">
-                <button type="submit" class="btn">
-                  Submit & Log Lead →
-                </button>
+                <button type="submit" class="btn">Submit & Log Lead →</button>
                 <div>
                   <span style="display:block;">Later, this can send directly to your email and CRM.</span>
-                  <span style="display:block;">For now, it will also show up in your dashboard’s lead list.</span>
+                  <span style="display:block;">For now, it also shows in your dashboard’s lead list (demo).</span>
                 </div>
               </div>
             </form>
@@ -1330,7 +1109,7 @@
           <div class="card">
             <h3 style="font-size:0.95rem;">Email Routing & Automation Notes</h3>
             <p style="font-size:0.8rem; color:var(--muted); margin-bottom:0.6rem;">
-              This front-end is already structured to plug into real automation tools; all IDs are stable so you or a dev can connect them later.
+              All form fields and IDs are stable so you or a dev can wire this into automations later (Zapier, Make, custom backend, etc.).
             </p>
           </div>
         </div>
@@ -1345,7 +1124,7 @@
     </div>
   </footer>
 
-  <!-- REAL LOGIN + DASHBOARD + LEADS LOGIC -->
+  <!-- REAL LOGIN + DASHBOARD LOGIC -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
     import {
@@ -1362,6 +1141,7 @@
       setDoc
     } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore.js";
 
+    // --- Firebase config for 1128-management-portal ---
     const firebaseConfig = {
       apiKey: "AIzaSyDWgaRI40PO-fgP8xa_m1OWg-3AgOKCQW4",
       authDomain: "management-portal-da4aa.firebaseapp.com",
@@ -1376,16 +1156,24 @@
     const auth = getAuth(app);
     const db = getFirestore(app);
 
-    // ---------- Utility + demo lead handling ----------
-    const leads = [];
+    // ---------- Helpers ----------
+    const qs = (id) => document.getElementById(id);
 
     function scrollToSection(id) {
-      const el = document.getElementById(id);
+      const el = qs(id);
       if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
     }
+    window.scrollToSection = scrollToSection;
+
+    // Footer year
+    const yearEl = qs("year");
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+    // ---------- Leads demo (in-memory) ----------
+    const leads = [];
 
     function updateLeadsTable() {
-      const tbody = document.querySelector("#leads-table tbody");
+      const tbody = qs("leads-table");
       if (!tbody) return;
       tbody.innerHTML = "";
       leads.forEach((lead) => {
@@ -1403,24 +1191,24 @@
 
     function handleIntakeSubmit(event) {
       event.preventDefault();
-      const form = event.target;
       const lead = {
-        name: form["name"].value || document.getElementById("intake-name").value,
-        entityType: document.getElementById("intake-entity-type").value,
-        revenue: document.getElementById("intake-revenue").value,
-        goal: document.getElementById("intake-goal").value,
-        status: "New"
+        name: qs("intake-name").value,
+        entityType: qs("intake-entity-type").value,
+        revenue: qs("intake-revenue").value,
+        goal: qs("intake-goal").value,
+        status: "New (Intake)"
       };
       leads.push(lead);
       updateLeadsTable();
-      form.reset();
-      alert("Thank you! Your intake has been received.");
+      event.target.reset();
+      alert("Thank you! Your intake has been received and logged to the dashboard (demo).");
     }
+    window.handleIntakeSubmit = handleIntakeSubmit;
 
     function handleLeadCapture(event) {
       event.preventDefault();
-      const name = document.getElementById("lead-name").value;
-      const topic = document.getElementById("lead-topic").value;
+      const name = qs("lead-name").value;
+      const topic = qs("lead-topic").value;
       const lead = {
         name,
         entityType: "TBD",
@@ -1431,57 +1219,43 @@
       leads.push(lead);
       updateLeadsTable();
       event.target.reset();
-      alert("Lead captured and added to the dashboard.");
+      alert("Lead captured and added to the dashboard (demo).");
     }
+    window.handleLeadCapture = handleLeadCapture;
 
     // ---------- Dashboard role handling ----------
-    let currentRole = "guest";
-
     function applyRoleUI(role) {
-      currentRole = role || "guest";
+      const dashboard = qs("dashboard-wrapper");
+      const lockMsg = qs("dashboard-locked-msg");
+      const roleLabel = qs("sidebar-role-label");
+      const clientPanel = qs("client-dashboard-panel");
 
-      const dashboard = document.getElementById("dashboard-wrapper");
-      const lockMsg = document.getElementById("dashboard-locked-msg");
-      const roleLabel = document.getElementById("sidebar-role-label");
-      const clientPanel = document.getElementById("client-dashboard-panel");
+      const effectiveRole = role || "guest";
 
-      if (!dashboard || !lockMsg || !roleLabel) return;
-
-      if (!role || role === "guest") {
-        dashboard.style.display = "none";
-        lockMsg.style.display = "block";
-        roleLabel.textContent = "Guest";
-        if (clientPanel) clientPanel.style.display = "none";
-        return;
+      if (dashboard && lockMsg) {
+        if (effectiveRole === "guest") {
+          dashboard.style.display = "none";
+          lockMsg.style.display = "block";
+        } else {
+          dashboard.style.display = "grid";
+          lockMsg.style.display = "none";
+        }
       }
 
-      dashboard.style.display = "grid";
-      lockMsg.style.display = "none";
-      roleLabel.textContent = role.charAt(0).toUpperCase() + role.slice(1);
-
-      const navButtons = document.querySelectorAll(".sidebar-nav button");
-      navButtons.forEach((btn) => (btn.style.display = "block"));
-
-      if (role === "staff") {
-        navButtons.forEach((btn) => {
-          if (btn.dataset.target === "view-rotation") btn.style.display = "none";
-        });
+      if (roleLabel) {
+        roleLabel.textContent =
+          effectiveRole.charAt(0).toUpperCase() + effectiveRole.slice(1);
       }
 
-      if (role === "client") {
-        navButtons.forEach((btn) => {
-          if (btn.dataset.target !== "view-leads") btn.style.display = "none";
-        });
-        if (clientPanel) clientPanel.style.display = "block";
-        switchDashboardView("view-leads");
+      if (clientPanel) {
+        clientPanel.style.display = effectiveRole === "client" ? "block" : "none";
       }
     }
 
     async function loadClientFundingStatus(user) {
-      const panel = document.getElementById("client-dashboard-panel");
-      const statusEl = document.getElementById("client-funding-status");
-      const listEl = document.getElementById("client-funding-steps");
-      if (!panel || !statusEl || !listEl) return;
+      const statusEl = qs("client-funding-status");
+      const listEl = qs("client-funding-steps");
+      if (!statusEl || !listEl) return;
 
       try {
         const ref = doc(db, "fundingStatus", user.uid);
@@ -1494,28 +1268,23 @@
         }
         const data = snap.data();
         statusEl.textContent = data.overallStatus || "In progress";
-        const steps = data.steps || [];
         listEl.innerHTML = "";
-        steps.forEach((step) => {
+        (data.steps || []).forEach((step) => {
           const li = document.createElement("li");
           li.textContent = `${step.label}: ${step.status}`;
           listEl.appendChild(li);
         });
       } catch (err) {
-        console.error(err);
+        console.error("Error loading funding status", err);
         statusEl.textContent = "We couldn’t load your status right now.";
       }
     }
 
-    // ---------- Auth: register / login / logout ----------
+    // ---------- Auth handlers ----------
     async function handleRegister() {
-      const emailInput = document.getElementById("login-email");
-      const passwordInput = document.getElementById("login-password");
-      const roleSelect = document.getElementById("login-role");
-
-      const email = emailInput.value.trim();
-      const password = passwordInput.value;
-      const role = roleSelect.value || "client";
+      const email = qs("login-email")?.value.trim();
+      const password = qs("login-password")?.value;
+      const role = (qs("login-role")?.value || "client").toLowerCase();
 
       if (!email || !password) {
         alert("Please enter an email and password.");
@@ -1524,24 +1293,26 @@
 
       try {
         const cred = await createUserWithEmailAndPassword(auth, email, password);
-        await setDoc(doc(db, "users", cred.user.uid), {
-          email,
-          role,
-          createdAt: Date.now()
-        });
+        try {
+          await setDoc(doc(db, "users", cred.user.uid), {
+            email,
+            role,
+            createdAt: Date.now()
+          });
+        } catch (err) {
+          console.error("Firestore write error (users)", err);
+        }
         alert("Account created. You are now logged in as " + role + ".");
       } catch (err) {
         console.error(err);
         alert("Could not register: " + err.message);
       }
     }
+    window.handleRegister = handleRegister;
 
     async function handleLogin() {
-      const emailInput = document.getElementById("login-email");
-      const passwordInput = document.getElementById("login-password");
-
-      const email = emailInput.value.trim();
-      const password = passwordInput.value;
+      const email = qs("login-email")?.value.trim();
+      const password = qs("login-password")?.value;
 
       if (!email || !password) {
         alert("Please enter your email and password.");
@@ -1550,11 +1321,13 @@
 
       try {
         await signInWithEmailAndPassword(auth, email, password);
+        // onAuthStateChanged will update the UI
       } catch (err) {
         console.error(err);
         alert("Login failed: " + err.message);
       }
     }
+    window.handleLogin = handleLogin;
 
     async function handleLogout() {
       try {
@@ -1563,8 +1336,22 @@
         console.error(err);
       }
     }
+    window.handleLogout = handleLogout;
 
-    // Watch auth state
+    // ---------- Dashboard view switching ----------
+    function switchDashboardView(viewId, btn) {
+      const views = document.querySelectorAll(".dashboard-view");
+      views.forEach((view) => (view.style.display = "none"));
+      const activeView = qs(viewId);
+      if (activeView) activeView.style.display = "block";
+
+      const buttons = document.querySelectorAll(".sidebar-nav button");
+      buttons.forEach((b) => b.classList.remove("active"));
+      if (btn) btn.classList.add("active");
+    }
+    window.switchDashboardView = switchDashboardView;
+
+    // ---------- Watch auth state ----------
     onAuthStateChanged(auth, async (user) => {
       if (!user) {
         applyRoleUI("guest");
@@ -1577,10 +1364,10 @@
         const snap = await getDoc(ref);
         if (snap.exists()) {
           const data = snap.data();
-          role = data.role || "client";
+          role = (data.role || "client").toLowerCase();
         }
       } catch (err) {
-        console.error(err);
+        console.error("Error reading user role from Firestore", err);
       }
 
       applyRoleUI(role);
@@ -1588,31 +1375,6 @@
         loadClientFundingStatus(user);
       }
     });
-
-    // ---------- Dashboard view switching ----------
-    function switchDashboardView(viewId, btn) {
-      const views = document.querySelectorAll(".dashboard-view");
-      views.forEach((view) => (view.style.display = "none"));
-      const activeView = document.getElementById(viewId);
-      if (activeView) activeView.style.display = "block";
-
-      const buttons = document.querySelectorAll(".sidebar-nav button");
-      buttons.forEach((b) => b.classList.remove("active"));
-      if (btn) btn.classList.add("active");
-    }
-
-    // Footer year
-    const yearEl = document.getElementById("year");
-    if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-    // Expose functions globally for inline handlers
-    window.scrollToSection = scrollToSection;
-    window.handleIntakeSubmit = handleIntakeSubmit;
-    window.handleLeadCapture = handleLeadCapture;
-    window.handleLogin = handleLogin;
-    window.handleRegister = handleRegister;
-    window.handleLogout = handleLogout;
-    window.switchDashboardView = switchDashboardView;
   </script>
 </body>
 </html>
