@@ -18,10 +18,11 @@
     p { color: #9ca3af; }
     .btn { background: #2563eb; border: none; color: white; padding: 10px 18px; border-radius: 6px; cursor: pointer; }
     .btn-outline { background: transparent; border: 1px solid #374151; color: white; padding: 10px 18px; border-radius: 6px; cursor: pointer; }
-    .card { background: #111827; padding: 20px; border-radius: 12px; margin-top: 20px; border: 1px solid #1f2937; }
+    .card { background: #111827; padding: 20px; border-radius: 12px; margin-top: 20px; border: 1px solid #1f2937; max-width: 900px; margin-left:auto; margin-right:auto;}
     input, select { width: 100%; padding: 10px; margin-top: 6px; background: #020617; border: 1px solid #1f2937; border-radius: 6px; color: white; }
     table { width: 100%; border-collapse: collapse; margin-top: 12px;}
-    th, td { padding: 8px; border-bottom: 1px solid #1f2937; }
+    th, td { padding: 8px; border-bottom: 1px solid #1f2937; font-size:0.9rem; }
+    footer { font-size: 0.8rem; color:#9ca3af; }
   </style>
 </head>
 
@@ -36,13 +37,13 @@
   <div class="card">
     <h3>Member & Staff Login</h3>
 
-    <label>Email</label>
+    <label for="login-email">Email</label>
     <input id="login-email" placeholder="you@email.com">
 
-    <label>Password</label>
+    <label for="login-password">Password</label>
     <input id="login-password" type="password">
 
-    <label>Role (NEW USERS ONLY)</label>
+    <label for="login-role">Role (NEW USERS ONLY)</label>
     <select id="login-role">
       <option value="client">Client</option>
       <option value="staff">Staff</option>
@@ -56,14 +57,13 @@
 </section>
 
 <section id="dashboard-locked-msg">
-  <p>Login to unlock dashboard</p>
+  <p style="text-align:center;">Login to unlock dashboard</p>
 </section>
 
 <section id="dashboard-wrapper" style="display:none;">
   <div class="card">
     <h3>Dashboard</h3>
-    Logged in as: <b id="sidebar-role-label">Guest</b>
-    <br><br>
+    <p>Logged in as: <b id="sidebar-role-label">Guest</b></p>
     <button class="btn-outline" onclick="handleLogout()">Logout</button>
 
     <div id="client-dashboard-panel" style="display:none;margin-top:20px;">
@@ -86,101 +86,184 @@
   © <span id="year"></span> 1128 Management Corp
 </footer>
 
-<!-- ✅✅✅ REAL FIREBASE LOGIN SYSTEM ✅✅✅ -->
+<!-- ✅ REAL FIREBASE LOGIN SYSTEM -->
 <script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
+  import {
+    getAuth,
+    onAuthStateChanged,
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword,
+    signOut
+  } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js";
 
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
-import {
-  getAuth,
-  onAuthStateChanged,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  signOut
-} from "https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js";
+  import {
+    getFirestore,
+    doc,
+    getDoc,
+    setDoc
+  } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore.js";
 
-import {
-  getFirestore,
-  doc,
-  getDoc,
-  setDoc
-} from "https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore.js";
+  // 🔑 Your Firebase config
+  const firebaseConfig = {
+    apiKey: "AIzaSyDWgaRI40PO-fgP8xa_m1OWg-3AgOKCQW4",
+    authDomain: "management-portal-da4aa.firebaseapp.com",
+    projectId: "management-portal-da4aa",
+    storageBucket: "management-portal-da4aa.firebasestorage.app",
+    messagingSenderId: "336550662632",
+    appId: "1:336550662632:web:da5a240a56fdd2df3a145d",
+    measurementId: "G-CCWG9GVVS7"
+  };
 
-const firebaseConfig = {
-  apiKey: "AIzaSyDWgaRI40PO-fgP8xa_m1OWg-3AgOKCQW4",
-  authDomain: "management-portal-da4aa.firebaseapp.com",
-  projectId: "management-portal-da4aa",
-  storageBucket: "management-portal-da4aa.firebasestorage.app",
-  messagingSenderId: "336550662632",
-  appId: "1:336550662632:web:da5a240a56fdd2df3a145d",
-  measurementId: "G-CCWG9GVVS7"
-};
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const db = getFirestore(app);
 
+  // DOM helpers
+  const emailInput = document.getElementById("login-email");
+  const passwordInput = document.getElementById("login-password");
+  const roleSelect = document.getElementById("login-role");
 
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const db = getFirestore(app);
+  const dashboardWrapper = document.getElementById("dashboard-wrapper");
+  const lockedMsg = document.getElementById("dashboard-locked-msg");
+  const roleLabel = document.getElementById("sidebar-role-label");
+  const clientPanel = document.getElementById("client-dashboard-panel");
+  const clientStatus = document.getElementById("client-funding-status");
+  const clientSteps = document.getElementById("client-funding-steps");
+  const leadsTable = document.getElementById("leads-table");
+  const yearSpan = document.getElementById("year");
 
-let leads = [];
-
-window.handleRegister = async function () {
-  const email = login-email.value;
-  const password = login-password.value;
-  const role = login-role.value;
-
-  const cred = await createUserWithEmailAndPassword(auth, email, password);
-  await setDoc(doc(db, "users", cred.user.uid), {
-    email,
-    role
-  });
-
-  alert("Account created");
-};
-
-window.handleLogin = async function () {
-  await signInWithEmailAndPassword(auth, login-email.value, login-password.value);
-};
-
-window.handleLogout = async function () {
-  await signOut(auth);
-};
-
-onAuthStateChanged(auth, async (user) => {
-  if (!user) {
-    dashboard-wrapper.style.display = "none";
-    dashboard-locked-msg.style.display = "block";
-    return;
+  if (yearSpan) {
+    yearSpan.textContent = new Date().getFullYear();
   }
 
-  dashboard-wrapper.style.display = "block";
-  dashboard-locked-msg.style.display = "none";
+  let leads = [];
 
-  const snap = await getDoc(doc(db, "users", user.uid));
-  const role = snap.data().role;
-  sidebar-role-label.innerText = role;
+  function renderLeads() {
+    if (!leadsTable) return;
+    leadsTable.innerHTML = "";
+    leads.forEach((lead) => {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `<td>${lead.name}</td><td>${lead.status}</td>`;
+      leadsTable.appendChild(tr);
+    });
+  }
 
-  if (role === "client") {
-    client-dashboard-panel.style.display = "block";
+  // ✅ Register
+  window.handleRegister = async function () {
+    const email = emailInput.value.trim();
+    const password = passwordInput.value;
+    const role = roleSelect.value || "client";
 
-    const fundingSnap = await getDoc(doc(db, "fundingStatus", user.uid));
-    if (fundingSnap.exists()) {
-      const data = fundingSnap.data();
-      client-funding-status.innerText = data.overallStatus;
-      client-funding-steps.innerHTML = "";
-      data.steps.forEach(step => {
-        const li = document.createElement("li");
-        li.innerText = step.label + ": " + step.status;
-        client-funding-steps.appendChild(li);
+    if (!email || !password) {
+      alert("Enter email and password.");
+      return;
+    }
+
+    try {
+      const cred = await createUserWithEmailAndPassword(auth, email, password);
+      await setDoc(doc(db, "users", cred.user.uid), {
+        email,
+        role,
+        createdAt: Date.now()
       });
-    } else {
-      client-funding-status.innerText = "Status pending admin update.";
+      alert("Account created. You are now logged in as " + role + ".");
+    } catch (err) {
+      console.error(err);
+      alert("Could not register: " + err.message);
+    }
+  };
+
+  // ✅ Login
+  window.handleLogin = async function () {
+    const email = emailInput.value.trim();
+    const password = passwordInput.value;
+
+    if (!email || !password) {
+      alert("Enter email and password.");
+      return;
+    }
+
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+    } catch (err) {
+      console.error(err);
+      alert("Login failed: " + err.message);
+    }
+  };
+
+  // ✅ Logout
+  window.handleLogout = async function () {
+    try {
+      await signOut(auth);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  async function loadClientFundingStatus(user) {
+    if (!clientPanel || !clientStatus || !clientSteps) return;
+
+    try {
+      const ref = doc(db, "fundingStatus", user.uid);
+      const snap = await getDoc(ref);
+      if (!snap.exists()) {
+        clientStatus.textContent =
+          "We’ve received your info. Your status will appear here once 1128 updates it.";
+        clientSteps.innerHTML = "";
+        return;
+      }
+      const data = snap.data();
+      clientStatus.textContent = data.overallStatus || "In progress";
+      const steps = data.steps || [];
+      clientSteps.innerHTML = "";
+      steps.forEach((step) => {
+        const li = document.createElement("li");
+        li.textContent = `${step.label}: ${step.status}`;
+        clientSteps.appendChild(li);
+      });
+    } catch (err) {
+      console.error(err);
+      clientStatus.textContent = "We couldn’t load your status right now.";
     }
   }
-});
 
-year.innerText = new Date().getFullYear();
+  // ✅ Watch auth state
+  onAuthStateChanged(auth, async (user) => {
+    if (!user) {
+      if (dashboardWrapper) dashboardWrapper.style.display = "none";
+      if (lockedMsg) lockedMsg.style.display = "block";
+      if (roleLabel) roleLabel.textContent = "Guest";
+      if (clientPanel) clientPanel.style.display = "none";
+      return;
+    }
 
+    if (dashboardWrapper) dashboardWrapper.style.display = "block";
+    if (lockedMsg) lockedMsg.style.display = "none";
+
+    let role = "client";
+    try {
+      const ref = doc(db, "users", user.uid);
+      const snap = await getDoc(ref);
+      if (snap.exists()) {
+        role = snap.data().role || "client";
+      }
+    } catch (err) {
+      console.error(err);
+    }
+
+    if (roleLabel) {
+      roleLabel.textContent = role.charAt(0).toUpperCase() + role.slice(1);
+    }
+
+    if (role === "client") {
+      if (clientPanel) clientPanel.style.display = "block";
+      loadClientFundingStatus(user);
+    } else {
+      if (clientPanel) clientPanel.style.display = "none";
+    }
+  });
 </script>
 
 </body>
 </html>
-
