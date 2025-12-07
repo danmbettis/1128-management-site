@@ -4,266 +4,1615 @@
   <meta charset="UTF-8" />
   <title>1128 Management Corp – B2B Growth & Funding Network</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
-
+  <meta name="description" content="1128 Management Corp – Corporate setup, funding strategy, Stripe & Square loan optimization, and B2B growth management." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
-    body {
-      margin: 0;
-      font-family: Inter, sans-serif;
-      background: #050816;
-      color: #f9fafb;
+    :root {
+      --primary: #1f4bff;
+      --primary-dark: #102b9c;
+      --accent: #00c896;
+      --bg: #050816;
+      --bg-soft: #0b1020;
+      --card: #111827;
+      --border: #1f2937;
+      --text: #f9fafb;
+      --muted: #9ca3af;
+      --danger: #ef4444;
     }
-    section { padding: 60px 20px; }
-    h1, h2, h3 { margin-bottom: 12px; }
-    p { color: #9ca3af; }
-    .btn { background: #2563eb; border: none; color: white; padding: 10px 18px; border-radius: 6px; cursor: pointer; }
-    .btn-outline { background: transparent; border: 1px solid #374151; color: white; padding: 10px 18px; border-radius: 6px; cursor: pointer; }
-    .card { background: #111827; padding: 20px; border-radius: 12px; margin-top: 20px; border: 1px solid #1f2937; max-width: 900px; margin-left:auto; margin-right:auto;}
-    input, select { width: 100%; padding: 10px; margin-top: 6px; background: #020617; border: 1px solid #1f2937; border-radius: 6px; color: white; }
-    table { width: 100%; border-collapse: collapse; margin-top: 12px;}
-    th, td { padding: 8px; border-bottom: 1px solid #1f2937; font-size:0.9rem; }
-    footer { font-size: 0.8rem; color:#9ca3af; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #111827 0, #020617 50%, #000 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; cursor: pointer; }
+    .container {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+    /* NAV */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(to bottom, rgba(15,23,42,0.98), rgba(15,23,42,0.8), transparent);
+      border-bottom: 1px solid rgba(31,41,55,0.8);
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 0;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .logo-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 0.9rem;
+      border: 1px solid rgba(148,163,184,0.6);
+      background: radial-gradient(circle at 20% 0, #38bdf8, #4f46e5, #0f172a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.8rem;
+      color: #e5e7eb;
+    }
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+    .logo-text span:first-child {
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+    }
+    .logo-text span:last-child {
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.2rem;
+      font-size: 0.86rem;
+      color: var(--muted);
+    }
+    .nav-links a {
+      position: relative;
+      padding: 0.25rem 0;
+    }
+    .nav-links a:hover {
+      color: #e5e7eb;
+    }
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(to right, var(--primary), var(--accent));
+      border-radius: 999px;
+      transition: width 0.2s ease;
+    }
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .pill {
+      font-size: 0.7rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.5);
+      color: var(--muted);
+    }
+    .btn {
+      border-radius: 999px;
+      padding: 0.4rem 0.95rem;
+      font-size: 0.8rem;
+      border: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: linear-gradient(to right, var(--primary), var(--accent));
+      color: #f9fafb;
+      box-shadow: 0 18px 45px rgba(15,118,110,0.45);
+    }
+    .btn-outline {
+      background: transparent;
+      border: 1px solid rgba(148,163,184,0.6);
+      color: #e5e7eb;
+      box-shadow: none;
+      border-radius: 999px;
+      padding: 0.4rem 0.95rem;
+      font-size: 0.8rem;
+    }
+    main {
+      padding-bottom: 4rem;
+    }
+    section {
+      padding: 4rem 0;
+    }
+    section:nth-child(even) {
+      background: radial-gradient(circle at top left, #020617 0, #020617 40%, #000 100%);
+    }
+    .section-header {
+      margin-bottom: 1.75rem;
+    }
+    .section-eyebrow {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--accent);
+      margin-bottom: 0.2rem;
+    }
+    .section-title {
+      font-size: 1.6rem;
+      font-weight: 600;
+    }
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: var(--muted);
+      max-width: 640px;
+      margin-top: 0.4rem;
+    }
+
+    /* HERO */
+    .hero {
+      padding-top: 3rem;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 2.5rem;
+      align-items: center;
+    }
+    .hero-kicker {
+      font-size: 0.8rem;
+      color: var(--muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.4);
+      margin-bottom: 1rem;
+      background: radial-gradient(circle at left, rgba(59,130,246,0.25), rgba(15,23,42,0.9));
+    }
+    .hero-title {
+      font-size: clamp(2rem, 2.4rem, 2.6rem);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 0.7rem;
+    }
+    .hero-title span {
+      background: linear-gradient(to right, #38bdf8, #a855f7, #22c55e);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    .hero-subtitle {
+      font-size: 0.95rem;
+      color: var(--muted);
+      max-width: 460px;
+      margin-bottom: 1.1rem;
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1rem;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+    .hero-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .hero-meta-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 4px rgba(34,197,94,0.35);
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.4rem;
+    }
+    .hero-card {
+      border-radius: 1.25rem;
+      border: 1px solid rgba(148,163,184,0.35);
+      background: radial-gradient(circle at top left, rgba(37,99,235,0.3), rgba(15,23,42,0.95));
+      padding: 1.25rem;
+      box-shadow: 0 24px 70px rgba(15,23,42,0.95);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top, rgba(56,189,248,0.25), transparent 55%);
+      opacity: 0.75;
+      pointer-events: none;
+    }
+    .hero-card-inner {
+      position: relative;
+      z-index: 1;
+    }
+    .hero-card-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 1.25rem;
+      align-items: stretch;
+    }
+    .hero-stat-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+    .stat-pill {
+      border-radius: 0.9rem;
+      background: rgba(15,23,42,0.7);
+      border: 1px solid rgba(148,163,184,0.4);
+      padding: 0.6rem 0.7rem;
+      font-size: 0.72rem;
+    }
+    .stat-pill strong {
+      display: block;
+      font-size: 0.85rem;
+    }
+    .hero-dashboard {
+      border-radius: 1rem;
+      background: rgba(15,23,42,0.88);
+      border: 1px solid rgba(55,65,81,0.9);
+      padding: 0.65rem 0.7rem;
+      font-size: 0.7rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .hero-dashboard-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
+    .hero-badge {
+      border-radius: 999px;
+      padding: 0.15rem 0.55rem;
+      border: 1px solid rgba(52,211,153,0.7);
+      color: #bbf7d0;
+      background: rgba(22,101,52,0.7);
+    }
+    .mini-table {
+      width: 100%;
+      border-spacing: 0;
+      border-collapse: collapse;
+      margin-top: 0.35rem;
+      font-size: 0.68rem;
+    }
+    .mini-table th,
+    .mini-table td {
+      padding: 0.25rem 0.2rem;
+      text-align: left;
+    }
+    .mini-table thead {
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: var(--muted);
+      font-size: 0.62rem;
+    }
+    .mini-table tbody tr:nth-child(even) {
+      background: rgba(15,23,42,0.9);
+    }
+    .status-pill {
+      border-radius: 999px;
+      padding: 0.05rem 0.4rem;
+      font-size: 0.6rem;
+      border: 1px solid rgba(52,211,153,0.8);
+      color: #bbf7d0;
+    }
+    .status-pill.pending {
+      border-color: rgba(234,179,8,0.8);
+      color: #facc15;
+    }
+    .status-pill.flagged {
+      border-color: rgba(248,113,113,0.9);
+      color: #fecaca;
+    }
+
+    /* GRID / CARDS */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 1.25rem;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 1.25rem;
+    }
+    .card {
+      background: var(--card);
+      border-radius: 1rem;
+      padding: 1rem;
+      border: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+    .card h3 {
+      font-size: 0.95rem;
+      margin-bottom: 0.35rem;
+    }
+    .card p {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .card-tag {
+      font-size: 0.62rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent);
+      margin-bottom: 0.3rem;
+    }
+    .card-footer {
+      margin-top: 0.7rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
+    .chip {
+      border-radius: 999px;
+      padding: 0.12rem 0.6rem;
+      border: 1px solid rgba(148,163,184,0.6);
+      font-size: 0.68rem;
+    }
+
+    /* FORMS */
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 0.8rem;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+      font-size: 0.78rem;
+    }
+    label {
+      color: #e5e7eb;
+      font-size: 0.78rem;
+    }
+    input, select, textarea {
+      border-radius: 0.55rem;
+      border: 1px solid rgba(55,65,81,0.9);
+      background: rgba(15,23,42,0.9);
+      color: #e5e7eb;
+      padding: 0.45rem 0.6rem;
+      font-size: 0.78rem;
+      outline: none;
+    }
+    input::placeholder, textarea::placeholder {
+      color: #6b7280;
+    }
+    textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
+    .form-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-top: 0.8rem;
+      font-size: 0.7rem;
+      color: var(--muted);
+      flex-wrap: wrap;
+    }
+
+    /* MEMBERSHIP / PRICING */
+    .plan-card {
+      border-radius: 1rem;
+      border: 1px solid var(--border);
+      background: radial-gradient(circle at top, rgba(59,130,246,0.15), rgba(15,23,42,1));
+      padding: 1rem;
+    }
+    .plan-name {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+    .plan-price {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 0.15rem 0;
+    }
+    .plan-meta {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+    }
+    .plan-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+    .plan-list li {
+      margin-bottom: 0.25rem;
+    }
+
+    /* DASHBOARD */
+    .dashboard-shell {
+      border-radius: 1.2rem;
+      border: 1px solid var(--border);
+      background: rgba(15,23,42,0.98);
+      display: grid;
+      grid-template-columns: 220px minmax(0,1fr);
+      margin-top: 1rem;
+      min-height: 260px;
+    }
+    .dashboard-sidebar {
+      border-right: 1px solid var(--border);
+      padding: 0.85rem;
+      font-size: 0.8rem;
+    }
+    .dashboard-main {
+      padding: 0.85rem 1rem;
+      font-size: 0.8rem;
+    }
+    .sidebar-title {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+    .sidebar-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      margin-bottom: 0.75rem;
+    }
+    .sidebar-nav button {
+      border-radius: 0.5rem;
+      border: none;
+      background: transparent;
+      color: #e5e7eb;
+      text-align: left;
+      padding: 0.35rem 0.4rem;
+      font-size: 0.78rem;
+    }
+    .sidebar-nav button.active {
+      background: linear-gradient(to right, rgba(59,130,246,0.4), rgba(56,189,248,0.25));
+    }
+    .sidebar-role {
+      font-size: 0.7rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      padding-top: 0.5rem;
+      margin-top: 0.5rem;
+    }
+    .badge-role {
+      border-radius: 999px;
+      border: 1px solid rgba(59,130,246,0.7);
+      padding: 0.12rem 0.5rem;
+      font-size: 0.7rem;
+    }
+
+    .table {
+      width: 100%;
+      border-spacing: 0;
+      border-collapse: collapse;
+      margin-top: 0.4rem;
+    }
+    .table th,
+    .table td {
+      border-bottom: 1px solid rgba(31,41,55,0.9);
+      padding: 0.3rem 0.25rem;
+      font-size: 0.75rem;
+      text-align: left;
+    }
+    .table th {
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.65rem;
+      color: var(--muted);
+    }
+
+    /* TRUST SECTION */
+    .trust-grid {
+      display: grid;
+      grid-template-columns: minmax(0,1.2fr) minmax(0,1fr);
+      gap: 1.5rem;
+      align-items: start;
+    }
+    .trust-list {
+      font-size: 0.8rem;
+      color: var(--muted);
+      padding-left: 1rem;
+      margin-top: 0.5rem;
+    }
+    .trust-list li {
+      margin-bottom: 0.3rem;
+    }
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.6rem;
+      font-size: 0.7rem;
+    }
+
+    /* CONTACT / LEAD CAPTURE */
+    .contact-wrap {
+      display: grid;
+      grid-template-columns: minmax(0,1.2fr) minmax(0,1fr);
+      gap: 1.5rem;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .hero-grid,
+      .hero-card-grid,
+      .grid-3,
+      .grid-2,
+      .trust-grid,
+      .contact-wrap,
+      .dashboard-shell {
+        grid-template-columns: minmax(0,1fr);
+      }
+      .dashboard-shell {
+        min-height: auto;
+      }
+      .dashboard-sidebar {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+      }
+      .nav-links {
+        display: none;
+      }
+      .hero {
+        padding-top: 2rem;
+      }
+    }
   </style>
 </head>
-
 <body>
-
-<section>
-  <h1>1128 Management Corp</h1>
-  <p>B2B Growth & Capital Network</p>
-</section>
-
-<section id="login">
-  <div class="card">
-    <h3>Member & Staff Login</h3>
-
-    <label for="login-email">Email</label>
-    <input id="login-email" placeholder="you@email.com">
-
-    <label for="login-password">Password</label>
-    <input id="login-password" type="password">
-
-    <label for="login-role">Role (NEW USERS ONLY)</label>
-    <select id="login-role">
-      <option value="client">Client</option>
-      <option value="staff">Staff</option>
-      <option value="admin">Admin</option>
-    </select>
-
-    <br><br>
-    <button class="btn" onclick="handleLogin()">Login</button>
-    <button class="btn-outline" onclick="handleRegister()">Register</button>
-  </div>
-</section>
-
-<section id="dashboard-locked-msg">
-  <p style="text-align:center;">Login to unlock dashboard</p>
-</section>
-
-<section id="dashboard-wrapper" style="display:none;">
-  <div class="card">
-    <h3>Dashboard</h3>
-    <p>Logged in as: <b id="sidebar-role-label">Guest</b></p>
-    <button class="btn-outline" onclick="handleLogout()">Logout</button>
-
-    <div id="client-dashboard-panel" style="display:none;margin-top:20px;">
-      <h3>My Funding & Setup Status</h3>
-      <p id="client-funding-status"></p>
-      <ul id="client-funding-steps"></ul>
+  <!-- NAVBAR -->
+  <header>
+    <div class="container nav">
+      <div class="logo">
+        <div class="logo-mark">1128</div>
+        <div class="logo-text">
+          <span>1128 Management Corp</span>
+          <span>B2B Growth & Funding Network</span>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="#hero">Overview</a>
+        <a href="#services">Services</a>
+        <a href="#funding">Funding Funnels</a>
+        <a href="#intake">Client Intake</a>
+        <a href="#membership">Membership</a>
+        <a href="#admin">Admin</a>
+        <a href="#trust">Trust & Credibility</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="nav-cta">
+        <span class="pill">Mississippi • Multi-Entity</span>
+        <button class="btn-outline" onclick="scrollToSection('login')">Staff Login</button>
+        <button class="btn" onclick="scrollToSection('intake')">
+          Start Corporate Setup →
+        </button>
+      </div>
     </div>
+  </header>
 
-    <div id="admin-panel" style="margin-top:20px;">
-      <h3>New Leads (Demo)</h3>
-      <table>
-        <thead><tr><th>Name</th><th>Status</th></tr></thead>
-        <tbody id="leads-table"></tbody>
-      </table>
+  <main>
+    <!-- HERO -->
+    <section id="hero" class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="hero-kicker">
+            <span>Live Capital Strategy • Stripe, Square, Novo</span>
+          </div>
+          <h1 class="hero-title">
+            We don’t just file paperwork.<br />
+            <span>We design your funding machine.</span>
+          </h1>
+          <p class="hero-subtitle">
+            1128 Management Corp builds and manages corporate structures, payment flows, and funding strategies so multiple entities work together—clean, compliant, and optimized for Stripe, Square, and bank capital.
+          </p>
+          <div class="hero-actions">
+            <button class="btn" onclick="scrollToSection('intake')">
+              📝 Launch My Corporation & Funding Plan
+            </button>
+            <button class="btn-outline" onclick="scrollToSection('funding')">
+              📊 See 30-Day Funding Funnel
+            </button>
+          </div>
+          <div class="hero-meta">
+            <span><span class="hero-meta-dot"></span> Active: Multi-entity rotation (1128 LLC, 1128 Food Vending, JasmineCo Inc, Danny’s Collections Inc)</span>
+            <span>• Mississippi C-Corps & LLCs • Trust & Holdings</span>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="hero-card-inner">
+            <div class="hero-card-grid">
+              <div>
+                <h2 style="font-size:0.9rem; margin-bottom:0.2rem;">Capital Control Panel</h2>
+                <p style="font-size:0.78rem; color:var(--muted);">
+                  One dashboard view for daily card volume, loan eligibility, and entity rotation—built into your 1128 network.
+                </p>
+                <div class="hero-stat-grid">
+                  <div class="stat-pill">
+                    <span>Daily Card Volume</span>
+                    <strong>$100 / entity</strong>
+                    <span>Stripe + Square targets</span>
+                  </div>
+                  <div class="stat-pill">
+                    <span>Capital Rotation</span>
+                    <strong>4 entities</strong>
+                    <span>Staggered loan timing</span>
+                  </div>
+                  <div class="stat-pill">
+                    <span>Compliance</span>
+                    <strong>BOI + SOS</strong>
+                    <span>Structures documented</span>
+                  </div>
+                  <div class="stat-pill">
+                    <span>Ownership</span>
+                    <strong>Holding & Trust</strong>
+                    <span>Secured control</span>
+                  </div>
+                </div>
+              </div>
+              <div class="hero-dashboard">
+                <div class="hero-dashboard-header">
+                  <span>Today’s Funding Snapshot</span>
+                  <span class="hero-badge">Live Strategy Mode</span>
+                </div>
+                <table class="mini-table">
+                  <thead>
+                    <tr>
+                      <th>Entity</th>
+                      <th>Processor</th>
+                      <th>Today</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody id="hero-entity-rows">
+                    <tr>
+                      <td>1128 LLC</td>
+                      <td>Square</td>
+                      <td>$135</td>
+                      <td><span class="status-pill">On Track</span></td>
+                    </tr>
+                    <tr>
+                      <td>1128 Mgmt Corp</td>
+                      <td>Stripe</td>
+                      <td>$210</td>
+                      <td><span class="status-pill pending">Warming Up</span></td>
+                    </tr>
+                    <tr>
+                      <td>JasmineCo Inc</td>
+                      <td>Stripe</td>
+                      <td>$88</td>
+                      <td><span class="status-pill">On Track</span></td>
+                    </tr>
+                    <tr>
+                      <td>Danny’s Collections Inc</td>
+                      <td>Stripe</td>
+                      <td>$62</td>
+                      <td><span class="status-pill flagged">Watch</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+                <p style="font-size:0.68rem; color:var(--muted); margin-top:0.3rem;">
+                  This is the type of internal dashboard we design for your rotation strategy—mapped to your real processors, banks, and entities.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow">Services</div>
+          <h2 class="section-title">Everything from Articles to Active Capital Strategy</h2>
+          <p class="section-subtitle">
+            We set up your corporations, structure your ownership, connect processors, and create daily-money plans that keep lenders interested and documents clean.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <div class="card-tag">Corporate Setup & Compliance</div>
+            <h3>Mississippi Corporations & LLCs</h3>
+            <p>
+              Articles of Incorporation, bylaws, stock certificates, EIN answer sheets, BOI info sheets, and SOS filings—all aligned with how you actually plan to run money and control entities.
+            </p>
+            <div class="card-footer">
+              <span class="chip">C-Corp • S-Corp • LLC</span>
+              <span>1128 Management as your advisor</span>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-tag">Payments & Funding</div>
+            <h3>Stripe, Square & Bank Capital Strategy</h3>
+            <p>
+              Processor setup, target daily volumes, 30-day ramp plans, and staggered capital requests across entities so Stripe Capital, Square Loans, and banks see a consistent, healthy pattern.
+            </p>
+            <div class="card-footer">
+              <span class="chip">Capital Funnels</span>
+              <span>Stripe • Square • Novo</span>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-tag">B2B Growth Network</div>
+            <h3>Multi-Entity & Trust Structuring</h3>
+            <p>
+              Holdings and trust structures that own your corporations, vehicles, trailers, and properties—keeping who owns what clear while still flexible for rotations and loans.
+            </p>
+            <div class="card-footer">
+              <span class="chip">1128 Holdings • Trusts</span>
+              <span>Asset & control design</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:1.5rem;" class="grid-3">
+          <div class="card">
+            <div class="card-tag">Admin & Operations</div>
+            <h3>Back-Office Management & Staff Systems</h3>
+            <p>
+              We help map who does what: admin vs staff vs owner, what each can see, and how daily operations (sales, deposits, bills) show up inside your dashboard.
+            </p>
+            <div class="card-footer">
+              <span class="chip">Admin Dashboards</span>
+              <span>Staff login ready</span>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-tag">Automation</div>
+            <h3>Intake → Funnels → Tasks</h3>
+            <p>
+              Client intake forms that automatically feed into a lead table, task list, and pipeline stages—so every new application has a clear next step.
+            </p>
+            <div class="card-footer">
+              <span class="chip">Automation Logic</span>
+              <span>Pipeline visibility</span>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-tag">Consulting</div>
+            <h3>One-on-One Funding & Structure Consulting</h3>
+            <p>
+              Strategy sessions focused on your exact mix of corporations, processors, debts, and opportunities. We help you see the whole rotation, not just one lender.
+            </p>
+            <div class="card-footer">
+              <span class="chip">Done-With-You</span>
+              <span>Hourly & project</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FUNDING / FUNNELS -->
+    <section id="funding">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow">Funding & Consulting Funnels</div>
+          <h2 class="section-title">30-Day Capital Ramp, Mapped For Multiple Entities</h2>
+          <p class="section-subtitle">
+            Instead of random swipes and deposits, we map a daily rotation across your businesses so volume, consistency, and payback look the way lenders like to see it.
+          </p>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3>Funding Funnel Overview</h3>
+            <p>
+              A simple 3-stage funnel turns strangers into capital-ready clients.
+            </p>
+            <ol class="trust-list" style="margin-top:0.4rem;">
+              <li><strong>Stage 1 • Discovery:</strong> Short intake form and strategy call to see your entities, loans, and processors.</li>
+              <li><strong>Stage 2 • Mapping:</strong> We build your 30-day rotation plan (who processes what, where, and when).</li>
+              <li><strong>Stage 3 • Activation:</strong> We help you move real money through the plan, then prep you for capital offers.</li>
+            </ol>
+          </div>
+
+          <div class="card">
+            <h3>Internal Funnel Automation (Example)</h3>
+            <p style="font-size:0.78rem; color:var(--muted); margin-bottom:0.6rem;">
+              This site already includes basic automation logic: when someone submits the intake form below, they’ll show up in your “New Leads” table inside the Admin Dashboard section.
+            </p>
+            <ul class="trust-list">
+              <li>New intake → stored in browser and visible in dashboard (demo).</li>
+              <li>Lead shows: name, entity type, monthly revenue, goal, status.</li>
+              <li>You can later connect this same structure to a real CRM or email system.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLIENT INTAKE FORMS -->
+    <section id="intake">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow">Client Intake</div>
+          <h2 class="section-title">Tell Us How Your Businesses Really Move Money</h2>
+          <p class="section-subtitle">
+            This intake form is designed for real operations—multiple corporations, different processors, side businesses, and holding/trust ideas.
+          </p>
+        </div>
+
+        <div class="card">
+          <form id="intake-form" onsubmit="handleIntakeSubmit(event)">
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="intake-name">Full Name</label>
+                <input id="intake-name" name="name" type="text" placeholder="Your legal name" required />
+              </div>
+              <div class="form-group">
+                <label for="intake-email">Email</label>
+                <input id="intake-email" name="email" type="email" placeholder="you@email.com" required />
+              </div>
+              <div class="form-group">
+                <label for="intake-phone">Mobile Number</label>
+                <input id="intake-phone" name="phone" type="tel" placeholder="(xxx) xxx-xxxx" required />
+              </div>
+              <div class="form-group">
+                <label for="intake-preferred">Preferred Contact Method</label>
+                <select id="intake-preferred" name="preferred">
+                  <option value="text">Text</option>
+                  <option value="call">Phone Call</option>
+                  <option value="email">Email</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="intake-entity-type">Primary Entity Type</label>
+                <select id="intake-entity-type" name="entityType">
+                  <option value="llc">LLC</option>
+                  <option value="c-corp">C-Corporation</option>
+                  <option value="s-corp">S-Corporation</option>
+                  <option value="sole-prop">Sole Proprietor</option>
+                  <option value="trust">Trust Holding Structure</option>
+                  <option value="multiple">Multiple entities</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="intake-revenue">Estimated Monthly Revenue (all entities)</label>
+                <input id="intake-revenue" name="revenue" type="text" placeholder="$15,000" />
+              </div>
+              <div class="form-group">
+                <label for="intake-processors">Where do you process cards?</label>
+                <input id="intake-processors" name="processors" type="text" placeholder="Stripe, Square, Clover, others" />
+              </div>
+              <div class="form-group">
+                <label for="intake-goal">Main Goal</label>
+                <select id="intake-goal" name="goal">
+                  <option value="incorporate">New corporation & EIN</option>
+                  <option value="conversion">Convert LLC to corporation</option>
+                  <option value="funding">Improve capital offers</option>
+                  <option value="structure">Design holdings/trust</option>
+                  <option value="multi">All of the above</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group" style="margin-top:0.8rem;">
+              <label for="intake-notes">Tell us about your businesses (in your own words)</label>
+              <textarea id="intake-notes" name="notes" placeholder="Example: I have a convenience store with deli, a food trailer, an online boutique, and I want them all organized under a holding and trust while we build Stripe/Square capital offers."></textarea>
+            </div>
+
+            <div class="form-group" style="margin-top:0.7rem;">
+              <label>
+                <input id="intake-authorization" type="checkbox" required style="margin-right:0.35rem;" />
+                I authorize 1128 Management Corp to review my business information for the purpose of designing corporate structures, funding strategies, and related documents. (No funds are moved without my written approval.)
+              </label>
+            </div>
+
+            <div class="form-footer">
+              <div>
+                <button type="submit" class="btn">
+                  Submit Intake & Create Lead →
+                </button>
+              </div>
+              <div>
+                <span style="display:block;">Next step: we review your info and contact you with a recommended path.</span>
+                <span style="display:block;">In production you can connect this form to email or CRM; for now it feeds the internal dashboard.</span>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- MEMBERSHIP PORTAL & LOGIN -->
+    <section id="membership">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow">Membership Portal</div>
+          <h2 class="section-title">Choose How Deep You Want 1128 To Be In Your Business</h2>
+          <p class="section-subtitle">
+            From a one-time setup to ongoing management, you choose the level of access and control we have while your corporations and funding machine spin up.
+          </p>
+        </div>
+
+        <div class="grid-2">
+          <div>
+            <div class="grid-3">
+              <div class="plan-card">
+                <div class="plan-name">Launch Track</div>
+                <div class="plan-price">$</div>
+                <div class="plan-meta">You handle day-to-day, we set the foundation.</div>
+                <ul class="plan-list">
+                  <li>✓ Mississippi corporation or LLC setup</li>
+                  <li>✓ EIN answer sheet for IRS</li>
+                  <li>✓ Basic Stripe/Square setup map</li>
+                  <li>✓ BOI info sheet</li>
+                </ul>
+              </div>
+              <div class="plan-card">
+                <div class="plan-name">Growth Track</div>
+                <div class="plan-price">$$</div>
+                <div class="plan-meta">We help shape daily money movement.</div>
+                <ul class="plan-list">
+                  <li>✓ Everything in Launch Track</li>
+                  <li>✓ 30-day Stripe/Square ramp plan</li>
+                  <li>✓ Admin dashboard layout & roles</li>
+                  <li>✓ Monthly strategy call</li>
+                </ul>
+              </div>
+              <div class="plan-card">
+                <div class="plan-name">Scale Track</div>
+                <div class="plan-price">$$$</div>
+                <div class="plan-meta">We sit inside your operation as a partner.</div>
+                <ul class="plan-list">
+                  <li>✓ Everything in Growth Track</li>
+                  <li>✓ Multi-entity rotation design</li>
+                  <li>✓ Trust & holdings coordination</li>
+                  <li>✓ Priority access & reporting</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- LOGIN PORTAL -->
+          <div id="login">
+            <div class="card">
+              <h3>Member & Staff Portal Login</h3>
+              <p style="font-size:0.8rem; color:var(--muted); margin-bottom:0.6rem;">
+                This login is backed by Firebase Authentication. Use email + password to log in; roles control what you can see.
+              </p>
+
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="login-email">Email</label>
+                  <input id="login-email" type="email" placeholder="you@yourdomain.com" />
+                </div>
+                <div class="form-group">
+                  <label for="login-role">Role (for new accounts)</label>
+                  <select id="login-role">
+                    <option value="client">Client</option>
+                    <option value="staff">Staff</option>
+                    <option value="admin">Admin</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="login-password">Password</label>
+                  <input id="login-password" type="password" placeholder="••••••••" />
+                </div>
+                <div class="form-group">
+                  <label>&nbsp;</label>
+                  <button type="button" class="btn" onclick="handleLogin()">
+                    Login →
+                  </button>
+                  <button type="button" class="btn-outline" style="margin-top:0.4rem;" onclick="handleRegister()">
+                    Register New Account
+                  </button>
+                </div>
+              </div>
+              <p style="font-size:0.7rem; color:var(--muted); margin-top:0.6rem;">
+                Use <strong>Register New Account</strong> once per user. Role is stored in the backend, so later logins don’t have to select it.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ADMIN DASHBOARD LAYOUT -->
+    <section id="admin">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow">Admin & Staff Dashboard</div>
+          <h2 class="section-title">One View For Leads, Clients, Entities, And Capital Status</h2>
+          <p class="section-subtitle">
+            This is a front-end example of how your internal control panel can look. The same forms and logins can be wired to deeper systems as you grow.
+          </p>
+        </div>
+
+        <div id="dashboard-wrapper" class="dashboard-shell" style="display:none;">
+          <aside class="dashboard-sidebar">
+            <div class="sidebar-title">Navigation</div>
+            <div class="sidebar-nav">
+              <button class="active" data-target="view-leads" onclick="switchDashboardView('view-leads', this)">New Leads</button>
+              <button data-target="view-clients" onclick="switchDashboardView('view-clients', this)">Active Clients</button>
+              <button data-target="view-rotation" onclick="switchDashboardView('view-rotation', this)">Rotation Plan</button>
+              <button data-target="view-tasks" onclick="switchDashboardView('view-tasks', this)">Tasks</button>
+            </div>
+            <div class="sidebar-role">
+              Logged in as: <span id="sidebar-role-label" class="badge-role">Guest</span>
+              <div style="margin-top:0.4rem;">
+                <button class="btn-outline" style="font-size:0.7rem; padding:0.25rem 0.5rem;" onclick="handleLogout()">
+                  Logout
+                </button>
+              </div>
+            </div>
+          </aside>
+
+          <div class="dashboard-main">
+            <!-- CLIENT-ONLY FUNDING DASHBOARD -->
+            <div id="client-dashboard-panel" class="card" style="margin-bottom:1rem; display:none;">
+              <h3 style="font-size:0.9rem;">My Funding & Setup Status</h3>
+              <p id="client-funding-status" style="font-size:0.8rem; color:var(--muted);">
+                We’ll update this as we work on your file.
+              </p>
+              <ul id="client-funding-steps" class="trust-list" style="margin-top:0.5rem;"></ul>
+            </div>
+
+            <!-- LEADS -->
+            <div id="view-leads" class="dashboard-view">
+              <h3 style="font-size:0.9rem;">New Leads from Client Intake</h3>
+              <p style="font-size:0.76rem; color:var(--muted); margin-top:0.15rem;">
+                Every time someone fills out the intake or contact forms, they’ll show up here so admin or staff can move them to the right stage.
+              </p>
+              <table class="table" id="leads-table">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Entity Type</th>
+                    <th>Monthly Revenue</th>
+                    <th>Goal</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Leads added by JS -->
+                </tbody>
+              </table>
+            </div>
+
+            <!-- CLIENTS -->
+            <div id="view-clients" class="dashboard-view" style="display:none;">
+              <h3 style="font-size:0.9rem;">Active Clients (Demo Data)</h3>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Client</th>
+                    <th>Track</th>
+                    <th>Entities</th>
+                    <th>Stage</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1128 Food Vending LLC</td>
+                    <td>Growth Track</td>
+                    <td>LLC + Food Trailer</td>
+                    <td>Activation</td>
+                  </tr>
+                  <tr>
+                    <td>JasmineCo Inc</td>
+                    <td>Launch Track</td>
+                    <td>C-Corp • Beauty/Services</td>
+                    <td>Mapping</td>
+                  </tr>
+                  <tr>
+                    <td>Danny’s Collections Inc</td>
+                    <td>Scale Track</td>
+                    <td>Retail & Online</td>
+                    <td>Discovery</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- ROTATION -->
+            <div id="view-rotation" class="dashboard-view" style="display:none;">
+              <h3 style="font-size:0.9rem;">Multi-Entity Rotation Overview (Demo)</h3>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Day</th>
+                    <th>Entity</th>
+                    <th>Processor</th>
+                    <th>Target Volume</th>
+                    <th>Notes</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Mon–Wed</td>
+                    <td>1128 LLC</td>
+                    <td>Square</td>
+                    <td>$100/day</td>
+                    <td>Convenience + deli daily flow.</td>
+                  </tr>
+                  <tr>
+                    <td>Thu–Fri</td>
+                    <td>1128 Management Corp</td>
+                    <td>Stripe</td>
+                    <td>$100/day</td>
+                    <td>Consulting invoices and retainers.</td>
+                  </tr>
+                  <tr>
+                    <td>Sat</td>
+                    <td>JasmineCo Inc</td>
+                    <td>Stripe</td>
+                    <td>$100/day</td>
+                    <td>Beauty & accessories activity.</td>
+                  </tr>
+                  <tr>
+                    <td>Sun</td>
+                    <td>Danny’s Collections Inc</td>
+                    <td>Stripe</td>
+                    <td>$100/day</td>
+                    <td>Online & pop-up retail.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- TASKS -->
+            <div id="view-tasks" class="dashboard-view" style="display:none;">
+              <h3 style="font-size:0.9rem;">Admin / Staff Tasks</h3>
+              <ul class="trust-list">
+                <li>☑ Confirm SOS filings and registered agent info for all entities.</li>
+                <li>☑ Confirm EIN letters, addresses, and BOI filings are consistent.</li>
+                <li>☐ Connect Stripe & Square accounts to the internal dashboard.</li>
+                <li>☐ Finalize trust ownership structure for properties and key entities.</li>
+                <li>☐ Implement real email/CRM integration for intake and membership forms.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <p id="dashboard-locked-msg" style="font-size:0.78rem; color:var(--muted); margin-top:0.75rem;">
+          Use the login in the Membership section to unlock the Admin Dashboard (Admin or Staff role).
+        </p>
+      </div>
+    </section>
+
+    <!-- TRUST & CREDIBILITY SECTION -->
+    <section id="trust">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow">Trust & Corporate Credibility</div>
+          <h2 class="section-title">Structures That Look Good To Lenders And Actually Match Reality</h2>
+          <p class="section-subtitle">
+            Anyone can file a corporation. We help you build a full story: entities, holdings, trust, real operations, and money movement that matches what banks, Stripe, and Square like to see.
+          </p>
+        </div>
+
+        <div class="trust-grid">
+          <div>
+            <h3 style="font-size:0.95rem;">Documents We Commonly Work With</h3>
+            <ul class="trust-list">
+              <li>• Articles of Incorporation / Articles of Organization</li>
+              <li>• Bylaws and Operating Agreements</li>
+              <li>• Stock Certificates & Ledger</li>
+              <li>• Organizational Meeting Minutes & Resolutions</li>
+              <li>• Beneficial Ownership (BOI) information sheets</li>
+              <li>• Trust documents and “holding” structures for assets</li>
+              <li>• Processor statements (Stripe/Square/Novo/etc.)</li>
+              <li>• Property deeds, vehicle titles, and key assets</li>
+            </ul>
+            <div class="pill-row">
+              <span class="chip">Mississippi Corporations</span>
+              <span class="chip">Multi-Entity Networks</span>
+              <span class="chip">Trust & Holdings</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3 style="font-size:0.9rem;">How We Present You To Lenders</h3>
+            <p style="font-size:0.8rem; color:var(--muted);">
+              Part of your strategy is simply the story: who you are, what your entities do, how long they’ve been operating, and how consistent your money movement really is.
+            </p>
+            <ul class="trust-list">
+              <li><strong>Clarity:</strong> One-pager that explains your network (holding company, operating companies, properties, and trust).</li>
+              <li><strong>Consistency:</strong> Addresses, EIN, ownership, and activity line up across documents.</li>
+              <li><strong>Control:</strong> You keep ultimate control of accounts while granting limited authority where needed.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT / LEAD CAPTURE -->
+    <section id="contact">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow">Contact & Lead Capture</div>
+          <h2 class="section-title">Ready To Get Your Corporate World Organized?</h2>
+          <p class="section-subtitle">
+            Use this short form if you’re not ready for full intake but want to talk.
+          </p>
+        </div>
+
+        <div class="contact-wrap">
+          <div class="card">
+            <form id="lead-form" onsubmit="handleLeadCapture(event)">
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="lead-name">Name</label>
+                  <input id="lead-name" type="text" placeholder="Your name" required />
+                </div>
+                <div class="form-group">
+                  <label for="lead-email">Email</label>
+                  <input id="lead-email" type="email" placeholder="you@email.com" required />
+                </div>
+                <div class="form-group">
+                  <label for="lead-channel">How did you find us?</label>
+                  <select id="lead-channel">
+                    <option value="tiktok">TikTok</option>
+                    <option value="referral">Referral</option>
+                    <option value="search">Google / search</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="lead-topic">What do you need help with?</label>
+                  <select id="lead-topic">
+                    <option value="incorporate">Incorporating / conversion</option>
+                    <option value="funding">Funding & capital offers</option>
+                    <option value="structure">Holding / trust design</option>
+                    <option value="other">Other / not sure</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group" style="margin-top:0.75rem;">
+                <label for="lead-message">Message</label>
+                <textarea id="lead-message" placeholder="Tell us in your own words what’s going on."></textarea>
+              </div>
+
+              <div class="form-footer">
+                <button type="submit" class="btn">
+                  Submit & Log Lead →
+                </button>
+                <div>
+                  <span style="display:block;">Later, this can send directly to your email and CRM.</span>
+                  <span style="display:block;">For now, it will also show up in your dashboard’s lead list.</span>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <div class="card">
+            <h3 style="font-size:0.95rem;">Email Routing & Automation Notes</h3>
+            <p style="font-size:0.8rem; color:var(--muted); margin-bottom:0.6rem;">
+              This front-end is already structured to plug into real automation tools; all IDs are stable so you or a dev can connect them later.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer style="border-top:1px solid rgba(31,41,55,0.8); padding:1rem 0; background:rgba(15,23,42,0.98);">
+    <div class="container" style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:0.6rem; font-size:0.75rem; color:var(--muted);">
+      <span>© <span id="year"></span> 1128 Management Corp. All rights reserved.</span>
+      <span>Internal demo layout: corporate setup • funding strategy • admin controls.</span>
     </div>
-  </div>
-</section>
+  </footer>
 
-<footer style="padding:20px;text-align:center;">
-  © <span id="year"></span> 1128 Management Corp
-</footer>
+  <!-- REAL LOGIN + DASHBOARD + LEADS LOGIC -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
+    import {
+      getAuth,
+      onAuthStateChanged,
+      signInWithEmailAndPassword,
+      createUserWithEmailAndPassword,
+      signOut
+    } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js";
+    import {
+      getFirestore,
+      doc,
+      getDoc,
+      setDoc
+    } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore.js";
 
-<!-- ✅ REAL FIREBASE LOGIN SYSTEM -->
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
-  import {
-    getAuth,
-    onAuthStateChanged,
-    createUserWithEmailAndPassword,
-    signInWithEmailAndPassword,
-    signOut
-  } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js";
+    const firebaseConfig = {
+      apiKey: "AIzaSyDWgaRI40PO-fgP8xa_m1OWg-3AgOKCQW4",
+      authDomain: "management-portal-da4aa.firebaseapp.com",
+      projectId: "management-portal-da4aa",
+      storageBucket: "management-portal-da4aa.firebasestorage.app",
+      messagingSenderId: "336550662632",
+      appId: "1:336550662632:web:da5a240a56fdd2df3a145d",
+      measurementId: "G-CCWG9GVVS7"
+    };
 
-  import {
-    getFirestore,
-    doc,
-    getDoc,
-    setDoc
-  } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore.js";
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
 
-  // 🔑 Your Firebase config
-  const firebaseConfig = {
-    apiKey: "AIzaSyDWgaRI40PO-fgP8xa_m1OWg-3AgOKCQW4",
-    authDomain: "management-portal-da4aa.firebaseapp.com",
-    projectId: "management-portal-da4aa",
-    storageBucket: "management-portal-da4aa.firebasestorage.app",
-    messagingSenderId: "336550662632",
-    appId: "1:336550662632:web:da5a240a56fdd2df3a145d",
-    measurementId: "G-CCWG9GVVS7"
-  };
+    // ---------- Utility + demo lead handling ----------
+    const leads = [];
 
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
-  const db = getFirestore(app);
-
-  // DOM helpers
-  const emailInput = document.getElementById("login-email");
-  const passwordInput = document.getElementById("login-password");
-  const roleSelect = document.getElementById("login-role");
-
-  const dashboardWrapper = document.getElementById("dashboard-wrapper");
-  const lockedMsg = document.getElementById("dashboard-locked-msg");
-  const roleLabel = document.getElementById("sidebar-role-label");
-  const clientPanel = document.getElementById("client-dashboard-panel");
-  const clientStatus = document.getElementById("client-funding-status");
-  const clientSteps = document.getElementById("client-funding-steps");
-  const leadsTable = document.getElementById("leads-table");
-  const yearSpan = document.getElementById("year");
-
-  if (yearSpan) {
-    yearSpan.textContent = new Date().getFullYear();
-  }
-
-  let leads = [];
-
-  function renderLeads() {
-    if (!leadsTable) return;
-    leadsTable.innerHTML = "";
-    leads.forEach((lead) => {
-      const tr = document.createElement("tr");
-      tr.innerHTML = `<td>${lead.name}</td><td>${lead.status}</td>`;
-      leadsTable.appendChild(tr);
-    });
-  }
-
-  // ✅ Register
-  window.handleRegister = async function () {
-    const email = emailInput.value.trim();
-    const password = passwordInput.value;
-    const role = roleSelect.value || "client";
-
-    if (!email || !password) {
-      alert("Enter email and password.");
-      return;
+    function scrollToSection(id) {
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
     }
 
-    try {
-      const cred = await createUserWithEmailAndPassword(auth, email, password);
-      await setDoc(doc(db, "users", cred.user.uid), {
-        email,
-        role,
-        createdAt: Date.now()
+    function updateLeadsTable() {
+      const tbody = document.querySelector("#leads-table tbody");
+      if (!tbody) return;
+      tbody.innerHTML = "";
+      leads.forEach((lead) => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td>${lead.name || ""}</td>
+          <td>${lead.entityType || ""}</td>
+          <td>${lead.revenue || ""}</td>
+          <td>${lead.goal || ""}</td>
+          <td>${lead.status || ""}</td>
+        `;
+        tbody.appendChild(tr);
       });
-      alert("Account created. You are now logged in as " + role + ".");
-    } catch (err) {
-      console.error(err);
-      alert("Could not register: " + err.message);
-    }
-  };
-
-  // ✅ Login
-  window.handleLogin = async function () {
-    const email = emailInput.value.trim();
-    const password = passwordInput.value;
-
-    if (!email || !password) {
-      alert("Enter email and password.");
-      return;
     }
 
-    try {
-      await signInWithEmailAndPassword(auth, email, password);
-    } catch (err) {
-      console.error(err);
-      alert("Login failed: " + err.message);
+    function handleIntakeSubmit(event) {
+      event.preventDefault();
+      const form = event.target;
+      const lead = {
+        name: form["name"].value || document.getElementById("intake-name").value,
+        entityType: document.getElementById("intake-entity-type").value,
+        revenue: document.getElementById("intake-revenue").value,
+        goal: document.getElementById("intake-goal").value,
+        status: "New"
+      };
+      leads.push(lead);
+      updateLeadsTable();
+      form.reset();
+      alert("Thank you! Your intake has been received.");
     }
-  };
 
-  // ✅ Logout
-  window.handleLogout = async function () {
-    try {
-      await signOut(auth);
-    } catch (err) {
-      console.error(err);
+    function handleLeadCapture(event) {
+      event.preventDefault();
+      const name = document.getElementById("lead-name").value;
+      const topic = document.getElementById("lead-topic").value;
+      const lead = {
+        name,
+        entityType: "TBD",
+        revenue: "TBD",
+        goal: topic,
+        status: "New (Short Form)"
+      };
+      leads.push(lead);
+      updateLeadsTable();
+      event.target.reset();
+      alert("Lead captured and added to the dashboard.");
     }
-  };
 
-  async function loadClientFundingStatus(user) {
-    if (!clientPanel || !clientStatus || !clientSteps) return;
+    // ---------- Dashboard role handling ----------
+    let currentRole = "guest";
 
-    try {
-      const ref = doc(db, "fundingStatus", user.uid);
-      const snap = await getDoc(ref);
-      if (!snap.exists()) {
-        clientStatus.textContent =
-          "We’ve received your info. Your status will appear here once 1128 updates it.";
-        clientSteps.innerHTML = "";
+    function applyRoleUI(role) {
+      currentRole = role || "guest";
+
+      const dashboard = document.getElementById("dashboard-wrapper");
+      const lockMsg = document.getElementById("dashboard-locked-msg");
+      const roleLabel = document.getElementById("sidebar-role-label");
+      const clientPanel = document.getElementById("client-dashboard-panel");
+
+      if (!dashboard || !lockMsg || !roleLabel) return;
+
+      if (!role || role === "guest") {
+        dashboard.style.display = "none";
+        lockMsg.style.display = "block";
+        roleLabel.textContent = "Guest";
+        if (clientPanel) clientPanel.style.display = "none";
         return;
       }
-      const data = snap.data();
-      clientStatus.textContent = data.overallStatus || "In progress";
-      const steps = data.steps || [];
-      clientSteps.innerHTML = "";
-      steps.forEach((step) => {
-        const li = document.createElement("li");
-        li.textContent = `${step.label}: ${step.status}`;
-        clientSteps.appendChild(li);
-      });
-    } catch (err) {
-      console.error(err);
-      clientStatus.textContent = "We couldn’t load your status right now.";
-    }
-  }
 
-  // ✅ Watch auth state
-  onAuthStateChanged(auth, async (user) => {
-    if (!user) {
-      if (dashboardWrapper) dashboardWrapper.style.display = "none";
-      if (lockedMsg) lockedMsg.style.display = "block";
-      if (roleLabel) roleLabel.textContent = "Guest";
-      if (clientPanel) clientPanel.style.display = "none";
-      return;
-    }
-
-    if (dashboardWrapper) dashboardWrapper.style.display = "block";
-    if (lockedMsg) lockedMsg.style.display = "none";
-
-    let role = "client";
-    try {
-      const ref = doc(db, "users", user.uid);
-      const snap = await getDoc(ref);
-      if (snap.exists()) {
-        role = snap.data().role || "client";
-      }
-    } catch (err) {
-      console.error(err);
-    }
-
-    if (roleLabel) {
+      dashboard.style.display = "grid";
+      lockMsg.style.display = "none";
       roleLabel.textContent = role.charAt(0).toUpperCase() + role.slice(1);
+
+      const navButtons = document.querySelectorAll(".sidebar-nav button");
+      navButtons.forEach((btn) => (btn.style.display = "block"));
+
+      if (role === "staff") {
+        navButtons.forEach((btn) => {
+          if (btn.dataset.target === "view-rotation") btn.style.display = "none";
+        });
+      }
+
+      if (role === "client") {
+        navButtons.forEach((btn) => {
+          if (btn.dataset.target !== "view-leads") btn.style.display = "none";
+        });
+        if (clientPanel) clientPanel.style.display = "block";
+        switchDashboardView("view-leads");
+      }
     }
 
-    if (role === "client") {
-      if (clientPanel) clientPanel.style.display = "block";
-      loadClientFundingStatus(user);
-    } else {
-      if (clientPanel) clientPanel.style.display = "none";
-    }
-  });
-</script>
+    async function loadClientFundingStatus(user) {
+      const panel = document.getElementById("client-dashboard-panel");
+      const statusEl = document.getElementById("client-funding-status");
+      const listEl = document.getElementById("client-funding-steps");
+      if (!panel || !statusEl || !listEl) return;
 
+      try {
+        const ref = doc(db, "fundingStatus", user.uid);
+        const snap = await getDoc(ref);
+        if (!snap.exists()) {
+          statusEl.textContent =
+            "We’ve received your info. Your funding & setup status will appear here once 1128 updates it.";
+          listEl.innerHTML = "";
+          return;
+        }
+        const data = snap.data();
+        statusEl.textContent = data.overallStatus || "In progress";
+        const steps = data.steps || [];
+        listEl.innerHTML = "";
+        steps.forEach((step) => {
+          const li = document.createElement("li");
+          li.textContent = `${step.label}: ${step.status}`;
+          listEl.appendChild(li);
+        });
+      } catch (err) {
+        console.error(err);
+        statusEl.textContent = "We couldn’t load your status right now.";
+      }
+    }
+
+    // ---------- Auth: register / login / logout ----------
+    async function handleRegister() {
+      const emailInput = document.getElementById("login-email");
+      const passwordInput = document.getElementById("login-password");
+      const roleSelect = document.getElementById("login-role");
+
+      const email = emailInput.value.trim();
+      const password = passwordInput.value;
+      const role = roleSelect.value || "client";
+
+      if (!email || !password) {
+        alert("Please enter an email and password.");
+        return;
+      }
+
+      try {
+        const cred = await createUserWithEmailAndPassword(auth, email, password);
+        await setDoc(doc(db, "users", cred.user.uid), {
+          email,
+          role,
+          createdAt: Date.now()
+        });
+        alert("Account created. You are now logged in as " + role + ".");
+      } catch (err) {
+        console.error(err);
+        alert("Could not register: " + err.message);
+      }
+    }
+
+    async function handleLogin() {
+      const emailInput = document.getElementById("login-email");
+      const passwordInput = document.getElementById("login-password");
+
+      const email = emailInput.value.trim();
+      const password = passwordInput.value;
+
+      if (!email || !password) {
+        alert("Please enter your email and password.");
+        return;
+      }
+
+      try {
+        await signInWithEmailAndPassword(auth, email, password);
+      } catch (err) {
+        console.error(err);
+        alert("Login failed: " + err.message);
+      }
+    }
+
+    async function handleLogout() {
+      try {
+        await signOut(auth);
+      } catch (err) {
+        console.error(err);
+      }
+    }
+
+    // Watch auth state
+    onAuthStateChanged(auth, async (user) => {
+      if (!user) {
+        applyRoleUI("guest");
+        return;
+      }
+
+      let role = "client";
+      try {
+        const ref = doc(db, "users", user.uid);
+        const snap = await getDoc(ref);
+        if (snap.exists()) {
+          const data = snap.data();
+          role = data.role || "client";
+        }
+      } catch (err) {
+        console.error(err);
+      }
+
+      applyRoleUI(role);
+      if (role === "client") {
+        loadClientFundingStatus(user);
+      }
+    });
+
+    // ---------- Dashboard view switching ----------
+    function switchDashboardView(viewId, btn) {
+      const views = document.querySelectorAll(".dashboard-view");
+      views.forEach((view) => (view.style.display = "none"));
+      const activeView = document.getElementById(viewId);
+      if (activeView) activeView.style.display = "block";
+
+      const buttons = document.querySelectorAll(".sidebar-nav button");
+      buttons.forEach((b) => b.classList.remove("active"));
+      if (btn) btn.classList.add("active");
+    }
+
+    // Footer year
+    const yearEl = document.getElementById("year");
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+    // Expose functions globally for inline handlers
+    window.scrollToSection = scrollToSection;
+    window.handleIntakeSubmit = handleIntakeSubmit;
+    window.handleLeadCapture = handleLeadCapture;
+    window.handleLogin = handleLogin;
+    window.handleRegister = handleRegister;
+    window.handleLogout = handleLogout;
+    window.switchDashboardView = switchDashboardView;
+  </script>
 </body>
 </html>
