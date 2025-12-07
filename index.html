@@ -1154,9 +1154,19 @@
       measurementId: "G-CCWG9GVVS7"
     };
 
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
-    const db = getFirestore(app);
+   const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+// 🔐 Require login every time: no saved sessions
+(async () => {
+  try {
+    await setPersistence(auth, inMemoryPersistence);
+    console.log("Auth persistence set to inMemory – users must log in each visit.");
+  } catch (err) {
+    console.error("Could not set auth persistence", err);
+  }
+})();
 
     // ---------- Helpers ----------
     const qs = (id) => document.getElementById(id);
@@ -1380,4 +1390,5 @@
   </script>
 </body>
 </html>
+
 
