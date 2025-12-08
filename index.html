@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>1128 Management Corp – Corporate Setup & Client Management</title>
+  <title>1128 Management Corp – C-Corp Setup & Client Portal</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="1128 Management Corp – Corporate setup, compliance support, and client coordination for small businesses." />
+  <meta name="description" content="1128 Management Corp – Mississippi C-Corporation setup, basic admin support, and private client portal." />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
@@ -20,8 +20,8 @@
       --muted: #9ca3af;
       --danger: #ef4444;
     }
-
     * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
       font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background: radial-gradient(circle at top, #111827 0, #020617 50%, #000 100%);
@@ -38,7 +38,7 @@
       padding: 0 1.25rem;
     }
 
-    /* NAV */
+    /* NAVBAR */
     header {
       position: sticky;
       top: 0;
@@ -90,20 +90,12 @@
     }
     .nav-links a { position: relative; padding: 0.25rem 0; }
     .nav-links a:hover { color: #e5e7eb; }
-    .nav-links a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -2px;
-      width: 0;
-      height: 2px;
-      background: linear-gradient(to right, var(--primary), var(--accent));
-      border-radius: 999px;
-      transition: width 0.2s ease;
-    }
-    .nav-links a:hover::after { width: 100%; }
 
-    .nav-cta { display: flex; align-items: center; gap: 0.5rem; }
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
     .pill {
       font-size: 0.7rem;
       padding: 0.2rem 0.55rem;
@@ -111,7 +103,6 @@
       border: 1px solid rgba(148,163,184,0.5);
       color: var(--muted);
     }
-
     .btn {
       border-radius: 999px;
       padding: 0.4rem 0.95rem;
@@ -123,26 +114,23 @@
       background: linear-gradient(to right, var(--primary), var(--accent));
       color: #f9fafb;
       box-shadow: 0 18px 45px rgba(15,118,110,0.45);
-      transition: opacity 0.15s ease, transform 0.1s ease;
     }
-    .btn:disabled { opacity: 0.6; cursor: default; transform: none; }
+    .btn[disabled] {
+      opacity: 0.6;
+      cursor: default;
+    }
     .btn-outline {
       background: transparent;
       border: 1px solid rgba(148,163,184,0.6);
       color: #e5e7eb;
-      box-shadow: none;
       border-radius: 999px;
       padding: 0.4rem 0.95rem;
       font-size: 0.8rem;
-      transition: background 0.15s ease, opacity 0.15s ease;
     }
-    .btn-outline:disabled { opacity: 0.6; cursor: default; }
 
     main { padding-bottom: 4rem; }
     section { padding: 4rem 0; }
-    section:nth-child(even) {
-      background: radial-gradient(circle at top left, #020617 0, #020617 40%, #000 100%);
-    }
+
     .section-header { margin-bottom: 1.75rem; }
     .section-eyebrow {
       font-size: 0.75rem;
@@ -151,7 +139,10 @@
       color: var(--accent);
       margin-bottom: 0.2rem;
     }
-    .section-title { font-size: 1.6rem; font-weight: 600; }
+    .section-title {
+      font-size: 1.6rem;
+      font-weight: 600;
+    }
     .section-subtitle {
       font-size: 0.9rem;
       color: var(--muted);
@@ -206,24 +197,12 @@
       color: var(--muted);
     }
     .hero-meta span { display: inline-flex; align-items: center; gap: 0.3rem; }
-    .hero-meta-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 999px;
-      background: #22c55e;
-      box-shadow: 0 0 0 4px rgba(34,197,94,0.35);
-    }
 
-    /* GRID / CARDS */
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0,1fr));
-      gap: 1.25rem;
-    }
+    /* GRID / CARDS / FORMS */
     .grid-2 {
       display: grid;
       grid-template-columns: repeat(2, minmax(0,1fr));
-      gap: 1.25rem;
+      gap: 1.5rem;
     }
     .card {
       background: var(--card);
@@ -231,33 +210,16 @@
       padding: 1rem;
       border: 1px solid var(--border);
       position: relative;
-      overflow: hidden;
     }
-    .card h3 { font-size: 0.95rem; margin-bottom: 0.35rem; }
-    .card p { font-size: 0.8rem; color: var(--muted); }
-    .card-tag {
-      font-size: 0.62rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--accent);
-      margin-bottom: 0.3rem;
+    .card h3 {
+      font-size: 0.95rem;
+      margin-bottom: 0.35rem;
     }
-    .card-footer {
-      margin-top: 0.7rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-size: 0.7rem;
+    .card p {
+      font-size: 0.8rem;
       color: var(--muted);
     }
-    .chip {
-      border-radius: 999px;
-      padding: 0.12rem 0.6rem;
-      border: 1px solid rgba(148,163,184,0.6);
-      font-size: 0.68rem;
-    }
 
-    /* FORMS */
     .form-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0,1fr));
@@ -269,7 +231,10 @@
       gap: 0.2rem;
       font-size: 0.78rem;
     }
-    label { color: #e5e7eb; font-size: 0.78rem; }
+    label {
+      color: #e5e7eb;
+      font-size: 0.78rem;
+    }
     input, select, textarea {
       border-radius: 0.55rem;
       border: 1px solid rgba(55,65,81,0.9);
@@ -281,6 +246,7 @@
     }
     input::placeholder, textarea::placeholder { color: #6b7280; }
     textarea { min-height: 90px; resize: vertical; }
+
     .form-footer {
       display: flex;
       align-items: center;
@@ -292,12 +258,23 @@
       flex-wrap: wrap;
     }
 
-    /* MEMBERSHIP / LOGIN */
-    .plan-card {
-      border-radius: 1rem;
-      border: 1px solid var(--border);
-      background: radial-gradient(circle at top, rgba(59,130,246,0.15), rgba(15,23,42,1));
-      padding: 1rem;
+    table {
+      width: 100%;
+      border-spacing: 0;
+      border-collapse: collapse;
+      margin-top: 0.4rem;
+      font-size: 0.75rem;
+    }
+    th, td {
+      border-bottom: 1px solid rgba(31,41,55,0.9);
+      padding: 0.3rem 0.25rem;
+      text-align: left;
+    }
+    th {
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.65rem;
+      color: var(--muted);
     }
 
     /* DASHBOARD */
@@ -305,113 +282,37 @@
       border-radius: 1.2rem;
       border: 1px solid var(--border);
       background: rgba(15,23,42,0.98);
-      display: grid;
-      grid-template-columns: 220px minmax(0,1fr);
-      margin-top: 1rem;
-      min-height: 220px;
+      padding: 1rem;
     }
-    .dashboard-sidebar {
-      border-right: 1px solid var(--border);
-      padding: 0.85rem;
-      font-size: 0.8rem;
-    }
-    .dashboard-main {
-      padding: 0.85rem 1rem;
-      font-size: 0.8rem;
-    }
-    .sidebar-title {
+    .status-text {
       font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      color: var(--muted);
-      margin-bottom: 0.5rem;
-    }
-    .sidebar-nav {
-      display: flex;
-      flex-direction: column;
-      gap: 0.25rem;
-      margin-bottom: 0.75rem;
-    }
-    .sidebar-nav button {
-      border-radius: 0.5rem;
-      border: none;
-      background: transparent;
-      color: #e5e7eb;
-      text-align: left;
-      padding: 0.35rem 0.4rem;
-      font-size: 0.78rem;
-    }
-    .sidebar-nav button.active {
-      background: linear-gradient(to right, rgba(59,130,246,0.4), rgba(56,189,248,0.25));
-    }
-    .sidebar-role {
-      font-size: 0.7rem;
-      color: var(--muted);
-      border-top: 1px solid var(--border);
-      padding-top: 0.5rem;
-      margin-top: 0.5rem;
-    }
-    .badge-role {
-      border-radius: 999px;
-      border: 1px solid rgba(59,130,246,0.7);
-      padding: 0.12rem 0.5rem;
-      font-size: 0.7rem;
-    }
-    .table {
-      width: 100%;
-      border-spacing: 0;
-      border-collapse: collapse;
       margin-top: 0.4rem;
+      color: var(--muted);
+      min-height: 1em;
     }
-    .table th,
-    .table td {
-      border-bottom: 1px solid rgba(31,41,55,0.9);
-      padding: 0.3rem 0.25rem;
+    .status-text.error { color: var(--danger); }
+
+    footer {
+      border-top: 1px solid rgba(31,41,55,0.8);
+      padding: 1rem 0;
+      background: rgba(15,23,42,0.98);
       font-size: 0.75rem;
-      text-align: left;
-    }
-    .table th {
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      font-size: 0.65rem;
       color: var(--muted);
-    }
-    .trust-list {
-      font-size: 0.8rem;
-      color: var(--muted);
-      padding-left: 1rem;
-      margin-top: 0.5rem;
-    }
-    .trust-list li { margin-bottom: 0.3rem; }
-
-    .dashboard-view { display: none; }
-
-    /* CONTACT */
-    .contact-wrap {
-      display: grid;
-      grid-template-columns: minmax(0,1.2fr) minmax(0,1fr);
-      gap: 1.5rem;
     }
 
     /* RESPONSIVE */
     @media (max-width: 900px) {
       .hero-grid,
-      .grid-3,
-      .grid-2,
-      .contact-wrap,
-      .dashboard-shell {
+      .grid-2 {
         grid-template-columns: minmax(0,1fr);
       }
-      .dashboard-shell { min-height: auto; }
-      .dashboard-sidebar {
-        border-right: none;
-        border-bottom: 1px solid var(--border);
-      }
       .nav-links { display: none; }
-      .hero { padding-top: 2rem; }
+      .nav-cta { display: none; }
+      section { padding: 3rem 0; }
     }
   </style>
 </head>
+
 <body>
   <!-- NAVBAR -->
   <header>
@@ -420,20 +321,18 @@
         <div class="logo-mark">1128</div>
         <div class="logo-text">
           <span>1128 Management Corp</span>
-          <span>Corporate Setup & Client Management</span>
+          <span>Mississippi C-Corporation Setup</span>
         </div>
       </div>
       <nav class="nav-links">
-        <a href="#hero">Home</a>
-        <a href="#services">Services</a>
-        <a href="#intake">Client Intake</a>
-        <a href="#membership">Login</a>
-        <a href="#contact">Contact</a>
+        <a href="#hero" onclick="scrollToSection('hero');return false;">Home</a>
+        <a href="#intake" onclick="scrollToSection('intake');return false;">Client Intake</a>
+        <a href="#membership" onclick="scrollToSection('membership');return false;">Login</a>
       </nav>
       <div class="nav-cta">
-        <span class="pill">Mississippi • Multi-Entity</span>
+        <span class="pill">Mississippi • C-Corp Only</span>
         <button class="btn-outline" onclick="scrollToSection('membership')">Client / Staff Login</button>
-        <button class="btn" onclick="scrollToSection('intake')">Start Corporate Setup →</button>
+        <button class="btn" onclick="scrollToSection('intake')">Start C-Corp Setup →</button>
       </div>
     </div>
   </header>
@@ -444,87 +343,30 @@
       <div class="container hero-grid">
         <div>
           <div class="hero-kicker">
-            <span>Corporate structure • Compliance • Client coordination</span>
+            <span>Corporate paperwork • Basic admin • Private portal</span>
           </div>
           <h1 class="hero-title">
             We help you get your<br />
-            <span>business paperwork and process together.</span>
+            <span>Mississippi C-Corporation set up and organized.</span>
           </h1>
           <p class="hero-subtitle">
-            1128 Management Corp focuses on clean corporate setup, organized documents, and simple client workflows so your business is easier to run and easier to present to banks, vendors, and partners.
+            Public site stays simple. Details on how your business really works live inside a private portal after you become a client.
           </p>
           <div class="hero-actions">
             <button class="btn" onclick="scrollToSection('intake')">📝 Complete Client Intake</button>
-            <button class="btn-outline" onclick="scrollToSection('membership')">🔐 Go to Client / Staff Login</button>
+            <button class="btn-outline" onclick="scrollToSection('membership')">🔐 Client / Staff Login</button>
           </div>
           <div class="hero-meta">
-            <span><span class="hero-meta-dot"></span> Multi-entity & multi-location friendly</span>
-            <span>• Corporations • LLCs • Basic admin support</span>
+            <span><span style="width:6px;height:6px;border-radius:999px;background:#22c55e;display:inline-block;"></span> C-Corp only</span>
+            <span>• Name • Address • Contact • Registered Agent</span>
           </div>
         </div>
-
         <div class="card">
-          <div class="card-tag">At-a-glance</div>
-          <h3>What 1128 Helps With</h3>
-          <ul class="trust-list" style="margin-top:0.4rem;">
-            <li>• Filing new corporations or LLCs in Mississippi.</li>
-            <li>• Organizing bylaws, minutes, and ownership records.</li>
-            <li>• Keeping basic information consistent across documents.</li>
-            <li>• Tracking where you are in your setup or clean-up process.</li>
-          </ul>
-          <div class="card-footer" style="margin-top:1rem;">
-            <span class="chip">Foundations first</span>
-            <span>Simple steps • Clear communication</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SERVICES -->
-    <section id="services">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-eyebrow">Services</div>
-          <h2 class="section-title">Straightforward Support for How Your Business Is Really Set Up</h2>
-          <p class="section-subtitle">
-            We focus on the unglamorous but important pieces: paperwork, structure, and clear records. The goal is a business that’s easier to manage and easier to talk about with professionals.
+          <h3>What we help with (high level)</h3>
+          <p>
+            We work with you to get your C-Corporation properly formed and documented:
+            name, address, phone, email, website, and registered agent — plus organizing basic client records in a private portal.
           </p>
-        </div>
-
-        <div class="grid-3">
-          <div class="card">
-            <div class="card-tag">Corporate Setup</div>
-            <h3>Corporations & LLCs</h3>
-            <p>
-              Help preparing the information you need to form new entities, update existing ones, and keep your basic records organized and accessible.
-            </p>
-            <div class="card-footer">
-              <span class="chip">Mississippi filings</span>
-              <span>Articles • Bylaws • Minutes</span>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-tag">Admin & Organization</div>
-            <h3>Back-Office Coordination</h3>
-            <p>
-              Simple checklists and workflows so you know what information is missing, what’s complete, and what the next recommended step is for your business.
-            </p>
-            <div class="card-footer">
-              <span class="chip">Checklists & tracking</span>
-              <span>Client-friendly status updates</span>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-tag">Client Management</div>
-            <h3>Client & Project Portal</h3>
-            <p>
-              A secure login where clients and staff can check project steps, upload or confirm information, and keep everything in one place.
-            </p>
-            <div class="card-footer">
-              <span class="chip">Secure login</span>
-              <span>Role-based views</span>
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -534,26 +376,30 @@
       <div class="container">
         <div class="section-header">
           <div class="section-eyebrow">Client Intake</div>
-          <h2 class="section-title">Tell Us How Your Business Is Structured Right Now</h2>
+          <h2 class="section-title">Tell us how your business is structured, or how you want it structured</h2>
           <p class="section-subtitle">
-            This intake form helps us understand your entities, what exists already, and what you want to clean up or create. It’s written for real-life, not perfect textbook situations.
+            We only work with <strong>Mississippi C-Corporations</strong>. Use this form so we can set up or clean up your corporation details
+            — name, address, phone number, email, website, registered agent, and basic contact info.
           </p>
         </div>
 
         <div class="card">
           <form id="intake-form" onsubmit="handleIntakeSubmit(event)">
             <div class="form-grid">
+              <!-- FULL NAME & PHONE -->
               <div class="form-group">
-                <label for="intake-name">Full Name</label>
+                <label for="intake-name">Full Name (as shown on government ID)</label>
                 <input id="intake-name" name="name" type="text" placeholder="Your legal name" required />
               </div>
               <div class="form-group">
+                <label for="intake-phone">Phone</label>
+                <input id="intake-phone" name="phone" type="tel" placeholder="(xxx) xxx-xxxx" required />
+              </div>
+
+              <!-- EMAIL & PREFERRED CONTACT -->
+              <div class="form-group">
                 <label for="intake-email">Email</label>
                 <input id="intake-email" name="email" type="email" placeholder="you@email.com" required />
-              </div>
-              <div class="form-group">
-                <label for="intake-phone">Mobile Number</label>
-                <input id="intake-phone" name="phone" type="tel" placeholder="(xxx) xxx-xxxx" required />
               </div>
               <div class="form-group">
                 <label for="intake-preferred">Preferred Contact Method</label>
@@ -563,56 +409,72 @@
                   <option value="email">Email</option>
                 </select>
               </div>
+
+              <!-- ADDRESS -->
               <div class="form-group">
-                <label for="intake-entity-type">Primary Entity Type</label>
-                <select id="intake-entity-type" name="entityType">
-                  <option value="llc">LLC</option>
-                  <option value="c-corp">C-Corporation</option>
-                  <option value="s-corp">S-Corporation</option>
-                  <option value="sole-prop">Sole Proprietor</option>
-                  <option value="trust">Trust / Holding Structure</option>
-                  <option value="multiple">Multiple entities</option>
-                </select>
+                <label for="intake-street">Street Address</label>
+                <input id="intake-street" name="street" type="text" placeholder="Street address" />
               </div>
               <div class="form-group">
-                <label for="intake-revenue">Approx. Monthly Revenue (all entities)</label>
-                <input id="intake-revenue" name="revenue" type="text" placeholder="$15,000" />
+                <label for="intake-city-state-zip">City, State, ZIP</label>
+                <input id="intake-city-state-zip" name="cityStateZip" type="text" placeholder="City, State, ZIP" />
+              </div>
+
+              <!-- DOB & SSN -->
+              <div class="form-group">
+                <label for="intake-dob">Date of Birth</label>
+                <input id="intake-dob" name="dob" type="date" />
               </div>
               <div class="form-group">
-                <label for="intake-processors">Where do you mainly receive payments?</label>
-                <input id="intake-processors" name="processors" type="text" placeholder="Card readers, invoicing tools, other" />
+                <label for="intake-ssn">SSN (for EIN / banking documentation)</label>
+                <input id="intake-ssn" name="ssn" type="password" placeholder="•••••••••" />
+              </div>
+
+              <!-- ENTITY TYPE (FIXED) & MAIN REASON -->
+              <div class="form-group">
+                <label>Entity Type</label>
+                <input type="text" value="Mississippi C-Corporation (only structure offered)" disabled />
               </div>
               <div class="form-group">
                 <label for="intake-goal">Main Reason You Reached Out</label>
                 <select id="intake-goal" name="goal">
-                  <option value="incorporate">New corporation or LLC</option>
-                  <option value="conversion">Change or update existing entity</option>
-                  <option value="cleanup">Get paperwork and records cleaned up</option>
-                  <option value="structure">Organize multiple entities / holding</option>
-                  <option value="multi">All of the above / not sure yet</option>
+                  <option value="new-c-corp">New C-Corporation setup</option>
+                  <option value="cleanup">Clean up existing business paperwork</option>
+                  <option value="update-info">Update name / address / contact info</option>
+                  <option value="structure-help">Help structuring how everything is set up</option>
+                  <option value="other">Other / not sure yet</option>
                 </select>
               </div>
             </div>
 
+            <!-- SITUATION DESCRIPTION -->
             <div class="form-group" style="margin-top:0.8rem;">
               <label for="intake-notes">Tell us about your situation in your own words</label>
-              <textarea id="intake-notes" name="notes" placeholder="Example: I have a convenience store with deli and a separate side business. I want everything set up correctly and easier to manage."></textarea>
+              <textarea
+                id="intake-notes"
+                name="notes"
+                placeholder="Example: I have a store and a side business. I want everything under one C-Corp with the right name, address, phone, email, website, and registered agent."
+              ></textarea>
             </div>
 
+            <!-- AUTHORIZATION -->
             <div class="form-group" style="margin-top:0.7rem;">
               <label>
                 <input id="intake-authorization" type="checkbox" required style="margin-right:0.35rem;" />
-                I authorize 1128 Management Corp to review this information for the purpose of helping with corporate setup, organization, and related support. (No accounts are touched without my separate written approval.)
+                I authorize 1128 Management Corp to review this information for the purpose of helping with
+                Mississippi C-Corporation setup and related support. No accounts or funds are moved without my separate written approval.
               </label>
             </div>
 
             <div class="form-footer">
               <div>
-                <button type="submit" class="btn">Submit Intake →</button>
+                <button type="submit" class="btn">
+                  Submit Intake →
+                </button>
               </div>
               <div>
-                <span style="display:block;">Next step: we review your information and contact you with recommended options.</span>
-                <span style="display:block;">Internal tracking of this intake happens inside a private portal, not on the public website.</span>
+                <span style="display:block;">Next step: we review your information and contact you with recommended options for your C-Corp setup.</span>
+                <span style="display:block;">This intake feeds into your private portal view, not the public site.</span>
               </div>
             </div>
           </form>
@@ -624,269 +486,119 @@
     <section id="membership">
       <div class="container">
         <div class="section-header">
-          <div class="section-eyebrow">Secure Portal</div>
-          <h2 class="section-title">Client & Staff Login</h2>
+          <div class="section-eyebrow">Client & Staff Portal</div>
+          <h2 class="section-title">Log in to see client records and internal notes</h2>
           <p class="section-subtitle">
-            This area is for clients and internal team only. You’ll log in each visit to see project status or manage requests. Nothing in this portal is visible on the public-facing site.
+            This portal is for existing clients and internal staff. Each person logs in with their email and password.
+            Nothing sensitive is shown until you are successfully logged in.
           </p>
         </div>
 
         <div class="grid-2">
+          <!-- LOGIN CARD -->
           <div class="card">
-            <h3>Client & Staff Login</h3>
+            <h3>Member & Staff Login</h3>
             <p style="font-size:0.8rem; color:var(--muted); margin-bottom:0.6rem;">
-              Use your email and password to access your project. New users can register once with their role (Client, Staff, or Admin) and then simply log in on future visits.
+              Use your email and password. If this is your first time, use <strong>Register New Account</strong> and choose your role.
             </p>
 
-            <div class="form-grid">
-              <div class="form-group">
-                <label for="login-email">Email</label>
-                <input id="login-email" type="email" placeholder="you@yourdomain.com" />
-              </div>
-              <div class="form-group">
-                <label for="login-password">Password</label>
-                <input id="login-password" type="password" placeholder="••••••••" />
-              </div>
-              <div class="form-group">
-                <label for="login-role">Role (for new accounts)</label>
-                <select id="login-role">
-                  <option value="client">Client</option>
-                  <option value="staff">Staff</option>
-                  <option value="admin">Admin</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label>&nbsp;</label>
-                <button id="login-btn" type="button" class="btn" onclick="handleLogin()">Login →</button>
-                <button id="register-btn" type="button" class="btn-outline" style="margin-top:0.4rem;" onclick="handleRegister()">Register New Account</button>
-              </div>
+            <div class="form-group">
+              <label for="login-email">Email</label>
+              <input id="login-email" type="email" placeholder="you@yourdomain.com" />
             </div>
-            <p id="login-status" style="font-size:0.75rem; color:#9ca3af; margin-top:0.4rem;"></p>
-            <p style="font-size:0.7rem; color:var(--muted); margin-top:0.4rem;">
-              For privacy and security, accounts are not kept logged in. You’ll sign in each time you return.
-            </p>
+            <div class="form-group">
+              <label for="login-password">Password</label>
+              <input id="login-password" type="password" placeholder="••••••••" />
+            </div>
+            <div class="form-group">
+              <label for="login-role">Role (for new accounts)</label>
+              <select id="login-role">
+                <option value="client">Client</option>
+                <option value="staff">Staff</option>
+                <option value="admin">Admin</option>
+              </select>
+            </div>
+
+            <div style="margin-top:0.8rem; display:flex; flex-wrap:wrap; gap:0.5rem;">
+              <button id="login-btn" class="btn" type="button" onclick="handleLogin()">Login</button>
+              <button id="register-btn" class="btn-outline" type="button" onclick="handleRegister()">Register New Account</button>
+            </div>
+            <div id="auth-status" class="status-text"></div>
           </div>
 
-          <div class="card">
-            <h3>What You See After Login</h3>
-            <ul class="trust-list">
-              <li>• Clients: a simple “My Project Status” view with your current step and checklist items.</li>
-              <li>• Staff: a view of new requests and tasks assigned to you.</li>
-              <li>• Admin: an overview of incoming requests, active clients, and internal tasks.</li>
-            </ul>
-            <p style="font-size:0.75rem; color:var(--muted); margin-top:0.7rem;">
-              Details about how we work, internal notes, and process steps all stay inside the private portal and are not displayed on the public-facing website.
+          <!-- DASHBOARD WRAPPER -->
+          <div id="dashboard-wrapper" class="dashboard-shell" style="display:none;">
+            <h3 style="font-size:0.95rem;">Internal Dashboard</h3>
+            <p style="font-size:0.78rem; color:var(--muted); margin-bottom:0.5rem;">
+              You are logged in. This section is hidden from the public and only appears after a valid login.
             </p>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- PORTAL / DASHBOARD (PRIVATE VIEW, ONLY AFTER LOGIN) -->
-    <section id="portal">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-eyebrow">Private Portal</div>
-          <h2 class="section-title">Internal Project & Client View</h2>
-          <p class="section-subtitle">
-            This section is only unlocked after login. It’s intended for tracking project steps, documents, and basic internal tasks—not for public display.
-          </p>
-        </div>
+            <p style="font-size:0.8rem; margin-bottom:0.4rem;">
+              Logged in as: <strong id="sidebar-role-label">Guest</strong>
+            </p>
+            <button class="btn-outline" type="button" onclick="handleLogout()">Logout</button>
 
-        <div id="dashboard-wrapper" class="dashboard-shell" style="display:none;">
-          <aside class="dashboard-sidebar">
-            <div class="sidebar-title">Navigation</div>
-            <div class="sidebar-nav">
-              <button class="active" data-target="view-requests" onclick="switchDashboardView('view-requests', this)">New Requests</button>
-              <button data-target="view-clients" onclick="switchDashboardView('view-clients', this)">Active Clients</button>
-              <button data-target="view-tasks" onclick="switchDashboardView('view-tasks', this)">Tasks</button>
-            </div>
-            <div class="sidebar-role">
-              Logged in as: <span id="sidebar-role-label" class="badge-role">Guest</span>
-              <div style="margin-top:0.4rem;">
-                <button class="btn-outline" style="font-size:0.7rem; padding:0.25rem 0.5rem;" onclick="handleLogout()">
-                  Logout
-                </button>
-              </div>
-            </div>
-          </aside>
-
-          <div class="dashboard-main">
-            <!-- CLIENT-ONLY STATUS PANEL -->
-            <div id="client-dashboard-panel" class="card" style="margin-bottom:1rem; display:none;">
-              <h3 style="font-size:0.9rem;">My Project Status</h3>
+            <!-- CLIENT-ONLY FUNDING / STATUS PANEL -->
+            <div id="client-dashboard-panel" style="display:none; margin-top:1rem;" class="card">
+              <h3 style="font-size:0.9rem;">My Setup Status</h3>
               <p id="client-funding-status" style="font-size:0.8rem; color:var(--muted);">
-                We’ll update this as we work on your file.
+                Loading your status…
               </p>
-              <ul id="client-funding-steps" class="trust-list" style="margin-top:0.5rem;"></ul>
+              <ul id="client-funding-steps" style="font-size:0.78rem; color:var(--muted); margin-top:0.4rem; padding-left:1rem;"></ul>
             </div>
 
-            <!-- ADMIN / STAFF: NEW REQUESTS -->
-            <div id="view-requests" class="dashboard-view">
-              <h3 style="font-size:0.9rem;">New Requests (From Intake & Contact Forms)</h3>
-              <p style="font-size:0.76rem; color:var(--muted); margin-top:0.15rem;">
-                These are basic entries from the public forms so you can follow up, organize documents, and set next steps.
+            <!-- SIMPLE LEAD TABLE (ADMIN / STAFF VIEW) -->
+            <div id="leads-panel" style="margin-top:1rem;">
+              <h3 style="font-size:0.9rem;">New Intakes (Basic View)</h3>
+              <p style="font-size:0.78rem; color:var(--muted); margin-bottom:0.2rem;">
+                For demo: each submitted intake appears here with name, reason, and status.
               </p>
-              <table class="table" id="leads-table">
+              <table>
                 <thead>
                   <tr>
                     <th>Name</th>
-                    <th>Entity Type</th>
-                    <th>Approx. Revenue</th>
                     <th>Reason</th>
                     <th>Status</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody id="leads-table">
                   <!-- Filled by JS -->
                 </tbody>
               </table>
-            </div>
-
-            <!-- ADMIN / STAFF: ACTIVE CLIENTS -->
-            <div id="view-clients" class="dashboard-view">
-              <h3 style="font-size:0.9rem;">Active Clients (Sample)</h3>
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th>Client</th>
-                    <th>Type</th>
-                    <th>Focus</th>
-                    <th>Stage</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Example Client A</td>
-                    <td>LLC</td>
-                    <td>Clean-up and organization</td>
-                    <td>Information review</td>
-                  </tr>
-                  <tr>
-                    <td>Example Client B</td>
-                    <td>C-Corp</td>
-                    <td>New setup</td>
-                    <td>Document draft</td>
-                  </tr>
-                  <tr>
-                    <td>Example Client C</td>
-                    <td>Multiple entities</td>
-                    <td>Basic structure mapping</td>
-                    <td>Planning</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <!-- ADMIN / STAFF: TASKS -->
-            <div id="view-tasks" class="dashboard-view">
-              <h3 style="font-size:0.9rem;">Internal Tasks (Example)</h3>
-              <ul class="trust-list">
-                <li>☑ Confirm basic business info for new intake submissions.</li>
-                <li>☑ Make sure addresses and ownership details are consistent across documents.</li>
-                <li>☐ Prepare draft filings or checklists for next clients in the queue.</li>
-                <li>☐ Follow up with clients who have missing information.</li>
-                <li>☐ Update project notes as steps are completed.</li>
-              </ul>
+              <p style="font-size:0.72rem; color:var(--muted); margin-top:0.3rem;">
+                In production this would be tied into your private system or CRM, not visible on the public side.
+              </p>
             </div>
           </div>
         </div>
 
         <p id="dashboard-locked-msg" style="font-size:0.78rem; color:var(--muted); margin-top:0.75rem;">
-          Log in through the Client & Staff Login section to access this private portal. Nothing here is visible to the public or search engines.
+          You must be logged in to see the internal dashboard. Clients and staff only.
         </p>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-eyebrow">Contact</div>
-          <h2 class="section-title">Have Questions Before You Start?</h2>
-          <p class="section-subtitle">
-            Use this quick form if you’re not ready for full intake but want to ask about fit, timelines, or next steps.
-          </p>
-        </div>
-
-        <div class="contact-wrap">
-          <div class="card">
-            <form id="lead-form" onsubmit="handleLeadCapture(event)">
-              <div class="form-grid">
-                <div class="form-group">
-                  <label for="lead-name">Name</label>
-                  <input id="lead-name" type="text" placeholder="Your name" required />
-                </div>
-                <div class="form-group">
-                  <label for="lead-email">Email</label>
-                  <input id="lead-email" type="email" placeholder="you@email.com" required />
-                </div>
-                <div class="form-group">
-                  <label for="lead-channel">How did you find us?</label>
-                  <select id="lead-channel">
-                    <option value="tiktok">TikTok</option>
-                    <option value="referral">Referral</option>
-                    <option value="search">Search / online</option>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label for="lead-topic">What do you need help with?</label>
-                  <select id="lead-topic">
-                    <option value="incorporate">New business setup</option>
-                    <option value="update">Updating existing paperwork</option>
-                    <option value="organize">Getting things organized</option>
-                    <option value="other">Other / not sure</option>
-                  </select>
-                </div>
-              </div>
-              <div class="form-group" style="margin-top:0.75rem;">
-                <label for="lead-message">Message</label>
-                <textarea id="lead-message" placeholder="Tell us briefly what’s going on."></textarea>
-              </div>
-
-              <div class="form-footer">
-                <button type="submit" class="btn">Submit Message →</button>
-                <div>
-                  <span style="display:block;">Messages here are logged privately so we can follow up.</span>
-                  <span style="display:block;">They also show in the internal portal for admin or staff—never on the public site.</span>
-                </div>
-              </div>
-            </form>
-          </div>
-
-          <div class="card">
-            <h3 style="font-size:0.95rem;">What to Expect After You Reach Out</h3>
-            <ul class="trust-list">
-              <li>• A brief follow-up to confirm what you’re looking for.</li>
-              <li>• If it’s a good fit, we’ll direct you to the full intake and portal.</li>
-              <li>• If not, we’ll be honest and may suggest other directions.</li>
-            </ul>
-          </div>
-        </div>
       </div>
     </section>
   </main>
 
-  <footer style="border-top:1px solid rgba(31,41,55,0.8); padding:1rem 0; background:rgba(15,23,42,0.98);">
-    <div class="container" style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:0.6rem; font-size:0.75rem; color:var(--muted);">
+  <footer>
+    <div class="container" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:0.6rem;">
       <span>© <span id="year"></span> 1128 Management Corp. All rights reserved.</span>
-      <span>Public site: simple overview • Private portal: project details.</span>
+      <span>Public overview only — client details are kept in a private portal.</span>
     </div>
   </footer>
 
-  <!-- REAL LOGIN + PORTAL + INTAKE LOGIC -->
+  <!-- REAL FIREBASE LOGIN & BASIC LEAD HANDLING -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
     import {
       getAuth,
+      setPersistence,
+      browserSessionPersistence,
       onAuthStateChanged,
       createUserWithEmailAndPassword,
       signInWithEmailAndPassword,
-      signOut,
-      setPersistence,
-      inMemoryPersistence
+      signOut
     } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js";
+
     import {
       getFirestore,
       doc,
@@ -894,7 +606,7 @@
       setDoc
     } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore.js";
 
-    // ---------- Firebase config ----------
+    // --- YOUR FIREBASE CONFIG (from Firebase console) ---
     const firebaseConfig = {
       apiKey: "AIzaSyDWgaRI40PO-fgP8xa_m1OWg-3AgOKCQW4",
       authDomain: "management-portal-da4aa.firebaseapp.com",
@@ -909,155 +621,78 @@
     const auth = getAuth(app);
     const db = getFirestore(app);
 
-    // Require login every visit (no remembered sessions)
-    (async () => {
-      try {
-        await setPersistence(auth, inMemoryPersistence);
-        console.log("Auth persistence set to inMemory – user must log in each visit.");
-      } catch (err) {
-        console.error("Could not set auth persistence", err);
-      }
-    })();
+    // Require login each browser session (no permanent login across sessions)
+    setPersistence(auth, browserSessionPersistence).catch(console.error);
 
-    // ---------- Utilities ----------
-    const qs = (id) => document.getElementById(id);
-
-    function scrollToSection(id) {
-      const el = qs(id);
-      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-    window.scrollToSection = scrollToSection;
-
-    function setLoginUIState({ loading = false, message = "" } = {}) {
-      const loginBtn = qs("login-btn");
-      const registerBtn = qs("register-btn");
-      const statusEl = qs("login-status");
-
-      if (loginBtn) {
-        loginBtn.disabled = loading;
-        loginBtn.textContent = loading ? "Logging in…" : "Login →";
-      }
-      if (registerBtn) {
-        registerBtn.disabled = loading;
-        registerBtn.textContent = loading ? "Registering…" : "Register New Account";
-      }
-      if (statusEl) statusEl.textContent = message;
-    }
-
-    function clearLoginPassword() {
-      const passwordInput = qs("login-password");
-      if (passwordInput) passwordInput.value = "";
-    }
-
-    // ---------- Demo lead storage (browser only) ----------
+    // Simple in-memory leads list
     const leads = [];
 
+    function scrollToSection(id) {
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    function setAuthStatus(message, isError = false) {
+      const statusEl = document.getElementById("auth-status");
+      if (!statusEl) return;
+      statusEl.textContent = message || "";
+      statusEl.classList.toggle("error", !!isError);
+    }
+
+    function setAuthButtonsDisabled(disabled) {
+      const loginBtn = document.getElementById("login-btn");
+      const registerBtn = document.getElementById("register-btn");
+      if (loginBtn) loginBtn.disabled = disabled;
+      if (registerBtn) registerBtn.disabled = disabled;
+    }
+
     function updateLeadsTable() {
-      const table = qs("leads-table");
-      if (!table) return;
-      const tbody = table.querySelector("tbody");
+      const tbody = document.getElementById("leads-table");
       if (!tbody) return;
       tbody.innerHTML = "";
       leads.forEach((lead) => {
         const tr = document.createElement("tr");
         tr.innerHTML = `
           <td>${lead.name || ""}</td>
-          <td>${lead.entityType || ""}</td>
-          <td>${lead.revenue || ""}</td>
-          <td>${lead.goal || ""}</td>
+          <td>${lead.reason || ""}</td>
           <td>${lead.status || ""}</td>
         `;
         tbody.appendChild(tr);
       });
     }
 
+    // Intake submit -> adds to internal leads table
     function handleIntakeSubmit(event) {
       event.preventDefault();
       const form = event.target;
 
+      const name = document.getElementById("intake-name").value.trim();
+      const goalSelect = document.getElementById("intake-goal");
+      const goalText = goalSelect ? goalSelect.options[goalSelect.selectedIndex].text : "";
       const lead = {
-        name: form["name"].value || qs("intake-name").value,
-        entityType: qs("intake-entity-type").value,
-        revenue: qs("intake-revenue").value,
-        goal: qs("intake-goal").value,
+        name,
+        reason: goalText,
         status: "New intake"
       };
+
       leads.push(lead);
       updateLeadsTable();
       form.reset();
-      alert("Thank you! Your intake has been received.");
-    }
-
-    function handleLeadCapture(event) {
-      event.preventDefault();
-      const name = qs("lead-name").value;
-      const topic = qs("lead-topic").value;
-      const lead = {
-        name,
-        entityType: "TBD",
-        revenue: "TBD",
-        goal: topic,
-        status: "New message"
-      };
-      leads.push(lead);
-      updateLeadsTable();
-      event.target.reset();
-      alert("Message submitted. We’ll follow up soon.");
-    }
-
-    window.handleIntakeSubmit = handleIntakeSubmit;
-    window.handleLeadCapture = handleLeadCapture;
-
-    // ---------- Dashboard role handling ----------
-    function applyRoleUI(role) {
-      const dashboard = qs("dashboard-wrapper");
-      const lockMsg = qs("dashboard-locked-msg");
-      const roleLabel = qs("sidebar-role-label");
-      const clientPanel = qs("client-dashboard-panel");
-      const sidebarNav = document.querySelector(".sidebar-nav");
-
-      if (!dashboard || !lockMsg || !roleLabel) return;
-
-      if (!role || role === "guest") {
-        dashboard.style.display = "none";
-        lockMsg.style.display = "block";
-        roleLabel.textContent = "Guest";
-        if (clientPanel) clientPanel.style.display = "none";
-        if (sidebarNav) sidebarNav.style.display = "flex";
-        return;
-      }
-
-      dashboard.style.display = "grid";
-      lockMsg.style.display = "none";
-      roleLabel.textContent = role.charAt(0).toUpperCase() + role.slice(1);
-
-      if (role === "client") {
-        // Clients only see their own status panel; hide internal nav views
-        if (clientPanel) clientPanel.style.display = "block";
-        if (sidebarNav) sidebarNav.style.display = "none";
-
-        const views = document.querySelectorAll(".dashboard-view");
-        views.forEach((view) => (view.style.display = "none"));
-      } else {
-        // Staff / Admin see nav and internal views
-        if (clientPanel) clientPanel.style.display = "none";
-        if (sidebarNav) sidebarNav.style.display = "flex";
-        switchDashboardView("view-requests");
-      }
+      alert("Thank you! Your intake has been received. We will contact you after review.");
     }
 
     async function loadClientFundingStatus(user) {
-      const panel = qs("client-dashboard-panel");
-      const statusEl = qs("client-funding-status");
-      const listEl = qs("client-funding-steps");
+      const panel = document.getElementById("client-dashboard-panel");
+      const statusEl = document.getElementById("client-funding-status");
+      const listEl = document.getElementById("client-funding-steps");
       if (!panel || !statusEl || !listEl) return;
 
       try {
-        const ref = doc(db, "fundingStatus", user.uid); // can rename later if you want
+        const ref = doc(db, "fundingStatus", user.uid);
         const snap = await getDoc(ref);
         if (!snap.exists()) {
           statusEl.textContent =
-            "We’ve received your information. Your project status will appear here once it’s been reviewed and updated.";
+            "We’ve received your information. Your setup status will appear here once 1128 updates it.";
           listEl.innerHTML = "";
           return;
         }
@@ -1071,103 +706,136 @@
           listEl.appendChild(li);
         });
       } catch (err) {
-        console.error("Error loading status", err);
-        statusEl.textContent = "We couldn’t load your status right now. Please check back later.";
+        console.error(err);
+        statusEl.textContent = "We couldn’t load your status right now.";
       }
     }
 
-    // ---------- Auth: register / login / logout ----------
-    window.handleRegister = async function () {
-      const emailInput = qs("login-email");
-      const passwordInput = qs("login-password");
-      const roleSelect = qs("login-role");
+    function applyRoleUI(role) {
+      const dashboard = document.getElementById("dashboard-wrapper");
+      const lockMsg = document.getElementById("dashboard-locked-msg");
+      const roleLabel = document.getElementById("sidebar-role-label");
+      const clientPanel = document.getElementById("client-dashboard-panel");
+      const leadsPanel = document.getElementById("leads-panel");
+
+      if (!dashboard || !lockMsg || !roleLabel) return;
+
+      if (!role || role === "guest") {
+        dashboard.style.display = "none";
+        lockMsg.style.display = "block";
+        roleLabel.textContent = "Guest";
+        if (clientPanel) clientPanel.style.display = "none";
+        return;
+      }
+
+      dashboard.style.display = "block";
+      lockMsg.style.display = "none";
+      roleLabel.textContent = role.charAt(0).toUpperCase() + role.slice(1);
+
+      // Role-based visibility
+      if (clientPanel) clientPanel.style.display = role === "client" ? "block" : "none";
+
+      if (leadsPanel) {
+        if (role === "admin" || role === "staff") {
+          leadsPanel.style.display = "block";
+        } else {
+          leadsPanel.style.display = "none";
+        }
+      }
+    }
+
+    async function handleRegister() {
+      const emailInput = document.getElementById("login-email");
+      const passwordInput = document.getElementById("login-password");
+      const roleSelect = document.getElementById("login-role");
 
       const email = emailInput.value.trim();
       const password = passwordInput.value;
       const role = roleSelect.value || "client";
 
       if (!email || !password) {
-        setLoginUIState({ loading: false, message: "Please enter an email and password to register." });
+        setAuthStatus("Please enter an email and password to register.", true);
         return;
       }
 
       try {
-        setLoginUIState({ loading: true, message: "Registering your account…" });
-
+        setAuthButtonsDisabled(true);
+        setAuthStatus("Creating account…");
         const cred = await createUserWithEmailAndPassword(auth, email, password);
+
         await setDoc(doc(db, "users", cred.user.uid), {
           email,
           role,
           createdAt: Date.now()
         });
 
-        setLoginUIState({
-          loading: false,
-          message: `Account created. Logged in as ${role}.`
+        // Optional: create a default status doc
+        await setDoc(doc(db, "fundingStatus", cred.user.uid), {
+          overallStatus: "File received. Setup not started yet.",
+          steps: [
+            { label: "Intake review", status: "Pending" },
+            { label: "C-Corp setup plan", status: "Pending" },
+            { label: "Documents sent to client", status: "Pending" }
+          ]
         });
-        clearLoginPassword();
+
+        setAuthStatus("Account created and you are logged in as " + role + ".");
+        // Clear fields
+        emailInput.value = "";
+        passwordInput.value = "";
       } catch (err) {
         console.error(err);
-
-        let msg = "Could not register. Please double-check your details.";
-        if (err.code === "auth/email-already-in-use") {
-          msg = "That email already has an account. Try logging in instead.";
-        }
-        setLoginUIState({
-          loading: false,
-          message: msg
-        });
+        setAuthStatus("Could not register: " + err.message, true);
+      } finally {
+        setAuthButtonsDisabled(false);
       }
-    };
+    }
 
-    window.handleLogin = async function () {
-      const emailInput = qs("login-email");
-      const passwordInput = qs("login-password");
+    async function handleLogin() {
+      const emailInput = document.getElementById("login-email");
+      const passwordInput = document.getElementById("login-password");
 
       const email = emailInput.value.trim();
       const password = passwordInput.value;
 
       if (!email || !password) {
-        setLoginUIState({ loading: false, message: "Please enter your email and password to log in." });
+        setAuthStatus("Please enter your email and password to log in.", true);
         return;
       }
 
       try {
-        setLoginUIState({ loading: true, message: "Logging you in…" });
+        setAuthButtonsDisabled(true);
+        setAuthStatus("Logging in…");
         await signInWithEmailAndPassword(auth, email, password);
-        // onAuthStateChanged will handle UI
+        setAuthStatus("Login successful.");
+        // Clear fields so it doesn’t look like it’s “stuck”
+        emailInput.value = "";
+        passwordInput.value = "";
       } catch (err) {
         console.error(err);
-
-        let msg = "Login failed. Please check your email and password.";
-        if (
-          err.code === "auth/invalid-credential" ||
-          err.code === "auth/user-not-found" ||
-          err.code === "auth/wrong-password"
-        ) {
-          msg = "Email or password is incorrect, or this account is not registered yet.";
-        }
-        setLoginUIState({
-          loading: false,
-          message: msg
-        });
+        setAuthStatus("Login failed: " + err.message, true);
+      } finally {
+        setAuthButtonsDisabled(false);
       }
-    };
+    }
 
-    window.handleLogout = async function () {
+    async function handleLogout() {
       try {
+        setAuthButtonsDisabled(true);
+        setAuthStatus("Logging out…");
         await signOut(auth);
+        setAuthStatus("You are logged out.");
       } catch (err) {
         console.error(err);
+        setAuthStatus("Logout failed: " + err.message, true);
+      } finally {
+        setAuthButtonsDisabled(false);
       }
-    };
+    }
 
-    // Watch auth state
     onAuthStateChanged(auth, async (user) => {
       if (!user) {
         applyRoleUI("guest");
-        setLoginUIState({ loading: false, message: "" });
-        clearLoginPassword();
         return;
       }
 
@@ -1184,39 +852,22 @@
       }
 
       applyRoleUI(role);
-      clearLoginPassword();
-      setLoginUIState({
-        loading: false,
-        message: `Logged in as ${role}.`
-      });
-
-      const portalSection = document.getElementById("portal");
-      if (portalSection) {
-        portalSection.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-
+      setAuthStatus("Logged in as " + role + ".");
       if (role === "client") {
         loadClientFundingStatus(user);
       }
     });
 
-    // ---------- Dashboard view switching ----------
-    function switchDashboardView(viewId, btn) {
-      const views = document.querySelectorAll(".dashboard-view");
-      views.forEach((view) => (view.style.display = "none"));
-      const activeView = qs(viewId);
-      if (activeView) activeView.style.display = "block";
-
-      const buttons = document.querySelectorAll(".sidebar-nav button");
-      buttons.forEach((b) => b.classList.remove("active"));
-      if (btn) btn.classList.add("active");
-    }
-
-    window.switchDashboardView = switchDashboardView;
-
     // Footer year
-    const yearEl = qs("year");
+    const yearEl = document.getElementById("year");
     if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+    // Expose functions to window for inline handlers
+    window.scrollToSection = scrollToSection;
+    window.handleIntakeSubmit = handleIntakeSubmit;
+    window.handleLogin = handleLogin;
+    window.handleRegister = handleRegister;
+    window.handleLogout = handleLogout;
   </script>
 </body>
 </html>
