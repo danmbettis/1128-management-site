@@ -115,10 +115,7 @@
       color: #f9fafb;
       box-shadow: 0 18px 45px rgba(15,118,110,0.45);
     }
-    .btn[disabled] {
-      opacity: 0.6;
-      cursor: default;
-    }
+    .btn[disabled] { opacity: 0.6; cursor: default; }
     .btn-outline {
       background: transparent;
       border: 1px solid rgba(148,163,184,0.6);
@@ -188,6 +185,7 @@
       margin-bottom: 1.1rem;
     }
     .hero-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.4rem; }
+    .hero-actions .btn-outline { border-style: solid; }
     .hero-meta {
       display: flex;
       flex-wrap: wrap;
@@ -204,6 +202,11 @@
       grid-template-columns: repeat(2, minmax(0,1fr));
       gap: 1.5rem;
     }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 1.25rem;
+    }
     .card {
       background: var(--card);
       border-radius: 1rem;
@@ -218,6 +221,27 @@
     .card p {
       font-size: 0.8rem;
       color: var(--muted);
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.6);
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .price {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin: 0.35rem 0;
+    }
+    .price small {
+      font-size: 0.75rem;
+      color: var(--muted);
+      font-weight: 400;
     }
 
     .form-grid {
@@ -312,7 +336,8 @@
     /* RESPONSIVE */
     @media (max-width: 900px) {
       .hero-grid,
-      .grid-2 {
+      .grid-2,
+      .grid-3 {
         grid-template-columns: minmax(0,1fr);
       }
       .nav-links { display: none; }
@@ -335,6 +360,7 @@
       </div>
       <nav class="nav-links">
         <a href="#hero" onclick="scrollToSection('hero');return false;">Home</a>
+        <a href="#products" onclick="scrollToSection('products');return false;">Products</a>
         <a href="#intake" onclick="scrollToSection('intake');return false;">Client Intake</a>
         <a href="#membership" onclick="scrollToSection('membership');return false;">Login</a>
         <a href="#policies" onclick="scrollToSection('policies');return false;">Policies</a>
@@ -342,7 +368,7 @@
       <div class="nav-cta">
         <span class="pill">Mississippi • C-Corp Only</span>
         <button class="btn-outline" onclick="scrollToSection('membership')">Client / Staff Login</button>
-        <button class="btn" onclick="scrollToSection('intake')">Start C-Corp Setup →</button>
+        <button class="btn" onclick="scrollToSection('products')">View Products →</button>
       </div>
     </div>
   </header>
@@ -364,8 +390,8 @@
             Services start within 3 business days and total results require a minimum of 90 days. Updates live in your client portal.
           </p>
           <div class="hero-actions">
-            <button class="btn" onclick="scrollToSection('intake')">📝 Complete Client Intake</button>
-            <button class="btn-outline" onclick="scrollToSection('membership')">🔐 Client / Staff Login</button>
+            <button class="btn" onclick="scrollToSection('products')">💳 See $300 Bundle</button>
+            <button class="btn-outline" onclick="scrollToSection('membership')">🔐 Client / Staff Portal</button>
           </div>
           <div class="hero-meta">
             <span><span style="width:6px;height:6px;border-radius:999px;background:#22c55e;display:inline-block;"></span> C-Corp only</span>
@@ -373,12 +399,85 @@
           </div>
         </div>
         <div class="card">
-          <h3>What we help with (high level)</h3>
+          <h3>Simple, all-in C-Corp setup</h3>
           <p>
-            We work with you to get your C-Corporation properly formed and documented:
-            name, address, phone, email, website, and basic admin setup — then we keep your updates, documents, and progress
-            organized inside a private client portal.
+            We keep it straightforward: one price, clear steps, and one place where you can log in to see what’s been done,
+            what’s in progress, and what’s next.
           </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCTS & PRICING -->
+    <section id="products">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow">Products & Pricing</div>
+          <h2 class="section-title">$300 setup bundle + simple support credits</h2>
+          <p class="section-subtitle">
+            One flat fee to get your Mississippi C-Corporation set up with basic admin support.
+            Optional support credits let you add more help later if you need it.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <!-- MAIN BUNDLE -->
+          <div class="card">
+            <span class="badge">Most Popular</span>
+            <h3>1128 C-Corp Launch Bundle</h3>
+            <div class="price">$300 <small>total – state/government fees included</small></div>
+            <p style="margin:0.5rem 0 0.5rem;">
+              One-time service bundle to get your Mississippi C-Corporation formed and organized with the basics.
+            </p>
+            <ul class="policy-list">
+              <li>Mississippi C-Corporation setup (C-Corp only)</li>
+              <li>EIN (Tax ID) setup support</li>
+              <li>Business name & basic structure guidance</li>
+              <li>Business address, phone, and email setup assistance</li>
+              <li>Simple website setup (basic live presence)</li>
+              <li>Banking preparation (what you need & how to apply)</li>
+              <li>Payment processor prep (Stripe, Square, etc.)</li>
+              <li>Client portal access for updates & documents</li>
+            </ul>
+            <button class="btn" style="margin-top:0.75rem;" onclick="scrollToSection('intake')">
+              Start With This Bundle →
+            </button>
+          </div>
+
+          <!-- SUPPORT CREDITS -->
+          <div class="card">
+            <span class="badge">Add-On</span>
+            <h3>1128 Support Credits</h3>
+            <p style="margin-bottom:0.5rem;">
+              Prepaid support credits for extra help, updates, or small admin tasks after your main setup.
+            </p>
+            <ul class="policy-list">
+              <li><strong>$5 Credits</strong> – quick questions or minor changes</li>
+              <li><strong>$10 Credits</strong> – multiple small updates or document tweaks</li>
+              <li><strong>$20 Credits</strong> – deeper help or several tasks at once</li>
+              <li>Can be purchased in any quantity (x1, x2, x3, etc.)</li>
+            </ul>
+            <p style="font-size:0.75rem; color:var(--muted); margin-top:0.5rem;">
+              You can use support credits for extra document edits, additional explanations, follow-up admin work, and similar tasks.
+            </p>
+            <button class="btn-outline" style="margin-top:0.75rem;" onclick="scrollToSection('membership')">
+              Existing Client? Log In →
+            </button>
+          </div>
+
+          <!-- HOW IT FLOWS -->
+          <div class="card">
+            <span class="badge">How It Works</span>
+            <h3>Simple 3-Step Flow</h3>
+            <ul class="policy-list">
+              <li><strong>1. Pay for the $300 bundle</strong><br/>We confirm your payment and send intake instructions.</li>
+              <li><strong>2. Complete intake</strong><br/>You fill in your details so we can prepare your setup.</li>
+              <li><strong>3. Track in portal</strong><br/>We start within 3 business days, and you track progress in your client portal.</li>
+            </ul>
+            <p style="font-size:0.75rem; color:var(--muted); margin-top:0.5rem;">
+              Total results require a minimum of 90 days. All sales are final, and updates are posted in the client portal.
+            </p>
+          </div>
         </div>
       </div>
     </section>
@@ -556,7 +655,7 @@
             <div id="client-dashboard-panel" style="display:none; margin-top:1rem;" class="card">
               <h3 style="font-size:0.9rem;">My Setup Status</h3>
               <p id="client-funding-status" style="font-size:0.8rem; color:var(--muted);">
-                Loading your status…
+                We’ve received your information. Your setup status will appear here once 1128 updates it.
               </p>
               <ul id="client-funding-steps" style="font-size:0.78rem; color:var(--muted); margin-top:0.4rem; padding-left:1rem;"></ul>
             </div>
