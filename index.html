@@ -300,6 +300,15 @@
       color: var(--muted);
     }
 
+    /* POLICIES SECTION */
+    .policy-list {
+      font-size: 0.8rem;
+      color: var(--muted);
+      padding-left: 1rem;
+      margin-top: 0.5rem;
+    }
+    .policy-list li { margin-bottom: 0.35rem; }
+
     /* RESPONSIVE */
     @media (max-width: 900px) {
       .hero-grid,
@@ -328,6 +337,7 @@
         <a href="#hero" onclick="scrollToSection('hero');return false;">Home</a>
         <a href="#intake" onclick="scrollToSection('intake');return false;">Client Intake</a>
         <a href="#membership" onclick="scrollToSection('membership');return false;">Login</a>
+        <a href="#policies" onclick="scrollToSection('policies');return false;">Policies</a>
       </nav>
       <div class="nav-cta">
         <span class="pill">Mississippi • C-Corp Only</span>
@@ -350,7 +360,8 @@
             <span>Mississippi C-Corporation set up and organized.</span>
           </h1>
           <p class="hero-subtitle">
-            Public site stays simple. Details on how your business really works live inside a private portal after you become a client.
+            Your $300 bundle includes incorporation, EIN support, contact details, website, banking prep, and processor prep.
+            Services start within 3 business days and total results require a minimum of 90 days. Updates live in your client portal.
           </p>
           <div class="hero-actions">
             <button class="btn" onclick="scrollToSection('intake')">📝 Complete Client Intake</button>
@@ -358,14 +369,15 @@
           </div>
           <div class="hero-meta">
             <span><span style="width:6px;height:6px;border-radius:999px;background:#22c55e;display:inline-block;"></span> C-Corp only</span>
-            <span>• Name • Address • Contact • Registered Agent</span>
+            <span>• Name • Address • Phone • Email • Website • Portal</span>
           </div>
         </div>
         <div class="card">
           <h3>What we help with (high level)</h3>
           <p>
             We work with you to get your C-Corporation properly formed and documented:
-            name, address, phone, email, website, and registered agent — plus organizing basic client records in a private portal.
+            name, address, phone, email, website, and basic admin setup — then we keep your updates, documents, and progress
+            organized inside a private client portal.
           </p>
         </div>
       </div>
@@ -473,8 +485,8 @@
                 </button>
               </div>
               <div>
-                <span style="display:block;">Next step: we review your information and contact you with recommended options for your C-Corp setup.</span>
-                <span style="display:block;">This intake feeds into your private portal view, not the public site.</span>
+                <span style="display:block;">Services start within 3 business days after payment & completed intake.</span>
+                <span style="display:block;">Total results require a minimum of 90 days. All sales are final.</span>
               </div>
             </div>
           </form>
@@ -487,10 +499,10 @@
       <div class="container">
         <div class="section-header">
           <div class="section-eyebrow">Client & Staff Portal</div>
-          <h2 class="section-title">Log in to see client records and internal notes</h2>
+          <h2 class="section-title">Log in to see updates, documents, and internal notes</h2>
           <p class="section-subtitle">
-            This portal is for existing clients and internal staff. Each person logs in with their email and password.
-            Nothing sensitive is shown until you are successfully logged in.
+            The 1128 Management Client Portal is the primary place where we post your updates, document copies, and progress.
+            Email, text, or calls may be used as backup, but your portal is the main home for your results.
           </p>
         </div>
 
@@ -500,6 +512,7 @@
             <h3>Member & Staff Login</h3>
             <p style="font-size:0.8rem; color:var(--muted); margin-bottom:0.6rem;">
               Use your email and password. If this is your first time, use <strong>Register New Account</strong> and choose your role.
+              Clients log in to see their setup status, documents, and notes inside the portal.
             </p>
 
             <div class="form-group">
@@ -528,9 +541,10 @@
 
           <!-- DASHBOARD WRAPPER -->
           <div id="dashboard-wrapper" class="dashboard-shell" style="display:none;">
-            <h3 style="font-size:0.95rem;">Internal Dashboard</h3>
+            <h3 style="font-size:0.95rem;">Client Portal Dashboard</h3>
             <p style="font-size:0.78rem; color:var(--muted); margin-bottom:0.5rem;">
-              You are logged in. This section is hidden from the public and only appears after a valid login.
+              You are logged in. This panel is not visible to the public. We use this portal for updates, document backup,
+              and tracking your setup and results.
             </p>
 
             <p style="font-size:0.8rem; margin-bottom:0.4rem;">
@@ -538,7 +552,7 @@
             </p>
             <button class="btn-outline" type="button" onclick="handleLogout()">Logout</button>
 
-            <!-- CLIENT-ONLY FUNDING / STATUS PANEL -->
+            <!-- CLIENT-ONLY STATUS PANEL -->
             <div id="client-dashboard-panel" style="display:none; margin-top:1rem;" class="card">
               <h3 style="font-size:0.9rem;">My Setup Status</h3>
               <p id="client-funding-status" style="font-size:0.8rem; color:var(--muted);">
@@ -551,7 +565,7 @@
             <div id="leads-panel" style="margin-top:1rem;">
               <h3 style="font-size:0.9rem;">New Intakes (Basic View)</h3>
               <p style="font-size:0.78rem; color:var(--muted); margin-bottom:0.2rem;">
-                For demo: each submitted intake appears here with name, reason, and status.
+                For demo: each submitted intake appears here with name, reason, and status. In production, this ties into your internal system or CRM.
               </p>
               <table>
                 <thead>
@@ -565,16 +579,66 @@
                   <!-- Filled by JS -->
                 </tbody>
               </table>
-              <p style="font-size:0.72rem; color:var(--muted); margin-top:0.3rem;">
-                In production this would be tied into your private system or CRM, not visible on the public side.
-              </p>
             </div>
           </div>
         </div>
 
         <p id="dashboard-locked-msg" style="font-size:0.78rem; color:var(--muted); margin-top:0.75rem;">
-          You must be logged in to see the internal dashboard. Clients and staff only.
+          You must be logged in to see the internal dashboard. Client updates, document access, and progress tracking are delivered through the 1128 Management Client Portal.
         </p>
+      </div>
+    </section>
+
+    <!-- POLICIES -->
+    <section id="policies">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow">Policies & Disclosures</div>
+          <h2 class="section-title">No Refunds • 3-Day Start • 90-Day Minimum Results • Client Portal</h2>
+          <p class="section-subtitle">
+            To keep everything clear and compliant, we publish our core service policies here. These apply to all services,
+            bundles, and support credits.
+          </p>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3>No Refund Policy</h3>
+            <ul class="policy-list">
+              <li>All sales are final — no refunds and no credits will be issued.</li>
+              <li>No chargebacks are authorized once work has started.</li>
+              <li>This applies to setup bundles, support credits, and all admin/consulting work.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Service Start & Results Timeline</h3>
+            <ul class="policy-list">
+              <li>Service begins within <strong>3 business days</strong> after payment and completed intake.</li>
+              <li>Total results require a minimum of <strong>90 days</strong> due to government, banking, and processor timelines.</li>
+              <li>No results are guaranteed before the 90-day minimum window.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="grid-2" style="margin-top:1.5rem;">
+          <div class="card">
+            <h3>Client Portal Use</h3>
+            <ul class="policy-list">
+              <li>The client portal is the primary place for updates, document backup, and results tracking.</li>
+              <li>Emails, texts, or calls may be used as backup, but the portal is the main hub.</li>
+              <li>Updates posted in the portal are considered delivered, whether viewed immediately or later.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Client Responsibility</h3>
+            <ul class="policy-list">
+              <li>Clients must provide accurate and complete information.</li>
+              <li>Delays caused by missing or incorrect information do not change the no-refund policy.</li>
+              <li>Clients are responsible for keeping their login credentials secure and requesting resets when needed.</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
   </main>
@@ -582,7 +646,7 @@
   <footer>
     <div class="container" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:0.6rem;">
       <span>© <span id="year"></span> 1128 Management Corp. All rights reserved.</span>
-      <span>Public overview only — client details are kept in a private portal.</span>
+      <span>All sales are final. Services start within 3 business days. Results require a minimum of 90 days. Updates & documents are delivered through the client portal.</span>
     </div>
   </footer>
 
@@ -606,7 +670,7 @@
       setDoc
     } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore.js";
 
-    // --- YOUR FIREBASE CONFIG (from Firebase console) ---
+    // --- YOUR FIREBASE CONFIG ---
     const firebaseConfig = {
       apiKey: "AIzaSyDWgaRI40PO-fgP8xa_m1OWg-3AgOKCQW4",
       authDomain: "management-portal-da4aa.firebaseapp.com",
@@ -621,10 +685,9 @@
     const auth = getAuth(app);
     const db = getFirestore(app);
 
-    // Require login each browser session (no permanent login across sessions)
+    // Require login per browser session (not forever)
     setPersistence(auth, browserSessionPersistence).catch(console.error);
 
-    // Simple in-memory leads list
     const leads = [];
 
     function scrollToSection(id) {
@@ -661,7 +724,6 @@
       });
     }
 
-    // Intake submit -> adds to internal leads table
     function handleIntakeSubmit(event) {
       event.preventDefault();
       const form = event.target;
@@ -732,7 +794,6 @@
       lockMsg.style.display = "none";
       roleLabel.textContent = role.charAt(0).toUpperCase() + role.slice(1);
 
-      // Role-based visibility
       if (clientPanel) clientPanel.style.display = role === "client" ? "block" : "none";
 
       if (leadsPanel) {
@@ -769,7 +830,6 @@
           createdAt: Date.now()
         });
 
-        // Optional: create a default status doc
         await setDoc(doc(db, "fundingStatus", cred.user.uid), {
           overallStatus: "File received. Setup not started yet.",
           steps: [
@@ -780,7 +840,6 @@
         });
 
         setAuthStatus("Account created and you are logged in as " + role + ".");
-        // Clear fields
         emailInput.value = "";
         passwordInput.value = "";
       } catch (err) {
@@ -808,7 +867,6 @@
         setAuthStatus("Logging in…");
         await signInWithEmailAndPassword(auth, email, password);
         setAuthStatus("Login successful.");
-        // Clear fields so it doesn’t look like it’s “stuck”
         emailInput.value = "";
         passwordInput.value = "";
       } catch (err) {
@@ -858,11 +916,9 @@
       }
     });
 
-    // Footer year
     const yearEl = document.getElementById("year");
     if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-    // Expose functions to window for inline handlers
     window.scrollToSection = scrollToSection;
     window.handleIntakeSubmit = handleIntakeSubmit;
     window.handleLogin = handleLogin;
