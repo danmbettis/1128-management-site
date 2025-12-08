@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>1128 Management Corp – B2B Growth & Funding Network</title>
+  <title>1128 Management Corp – Corporate Setup & Client Management</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="1128 Management Corp – Corporate setup, funding strategy, Stripe & Square loan optimization, and B2B growth management." />
+  <meta name="description" content="1128 Management Corp – Corporate setup, compliance support, and client coordination for small businesses." />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
@@ -196,6 +196,7 @@
       max-width: 460px;
       margin-bottom: 1.1rem;
     }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.4rem; }
     .hero-meta {
       display: flex;
       flex-wrap: wrap;
@@ -211,107 +212,6 @@
       border-radius: 999px;
       background: #22c55e;
       box-shadow: 0 0 0 4px rgba(34,197,94,0.35);
-    }
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.4rem; }
-
-    .hero-card {
-      border-radius: 1.25rem;
-      border: 1px solid rgba(148,163,184,0.35);
-      background: radial-gradient(circle at top left, rgba(37,99,235,0.3), rgba(15,23,42,0.95));
-      padding: 1.25rem;
-      box-shadow: 0 24px 70px rgba(15,23,42,0.95);
-      position: relative;
-      overflow: hidden;
-    }
-    .hero-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at top, rgba(56,189,248,0.25), transparent 55%);
-      opacity: 0.75;
-      pointer-events: none;
-    }
-    .hero-card-inner { position: relative; z-index: 1; }
-    .hero-card-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-      gap: 1.25rem;
-      align-items: stretch;
-    }
-    .hero-stat-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0,1fr));
-      gap: 0.75rem;
-      margin-top: 0.75rem;
-    }
-    .stat-pill {
-      border-radius: 0.9rem;
-      background: rgba(15,23,42,0.7);
-      border: 1px solid rgba(148,163,184,0.4);
-      padding: 0.6rem 0.7rem;
-      font-size: 0.72rem;
-    }
-    .stat-pill strong { display: block; font-size: 0.85rem; }
-
-    .hero-dashboard {
-      border-radius: 1rem;
-      background: rgba(15,23,42,0.88);
-      border: 1px solid rgba(55,65,81,0.9);
-      padding: 0.65rem 0.7rem;
-      font-size: 0.7rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-    }
-    .hero-dashboard-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-size: 0.7rem;
-      color: var(--muted);
-    }
-    .hero-badge {
-      border-radius: 999px;
-      padding: 0.15rem 0.55rem;
-      border: 1px solid rgba(52,211,153,0.7);
-      color: #bbf7d0;
-      background: rgba(22,101,52,0.7);
-    }
-    .mini-table {
-      width: 100%;
-      border-spacing: 0;
-      border-collapse: collapse;
-      margin-top: 0.35rem;
-      font-size: 0.68rem;
-    }
-    .mini-table th,
-    .mini-table td {
-      padding: 0.25rem 0.2rem;
-      text-align: left;
-    }
-    .mini-table thead {
-      text-transform: uppercase;
-      letter-spacing: 0.09em;
-      color: var(--muted);
-      font-size: 0.62rem;
-    }
-    .mini-table tbody tr:nth-child(even) {
-      background: rgba(15,23,42,0.9);
-    }
-    .status-pill {
-      border-radius: 999px;
-      padding: 0.05rem 0.4rem;
-      font-size: 0.6rem;
-      border: 1px solid rgba(52,211,153,0.8);
-      color: #bbf7d0;
-    }
-    .status-pill.pending {
-      border-color: rgba(234,179,8,0.8);
-      color: #facc15;
-    }
-    .status-pill.flagged {
-      border-color: rgba(248,113,113,0.9);
-      color: #fecaca;
     }
 
     /* GRID / CARDS */
@@ -392,24 +292,13 @@
       flex-wrap: wrap;
     }
 
-    /* MEMBERSHIP / PRICING */
+    /* MEMBERSHIP / LOGIN */
     .plan-card {
       border-radius: 1rem;
       border: 1px solid var(--border);
       background: radial-gradient(circle at top, rgba(59,130,246,0.15), rgba(15,23,42,1));
       padding: 1rem;
     }
-    .plan-name { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.25rem; }
-    .plan-price { font-size: 1.2rem; font-weight: 600; margin: 0.15rem 0; }
-    .plan-meta { font-size: 0.75rem; color: var(--muted); margin-bottom: 0.75rem; }
-    .plan-list {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      font-size: 0.78rem;
-      color: var(--muted);
-    }
-    .plan-list li { margin-bottom: 0.25rem; }
 
     /* DASHBOARD */
     .dashboard-shell {
@@ -419,7 +308,7 @@
       display: grid;
       grid-template-columns: 220px minmax(0,1fr);
       margin-top: 1rem;
-      min-height: 260px;
+      min-height: 220px;
     }
     .dashboard-sidebar {
       border-right: 1px solid var(--border);
@@ -468,7 +357,6 @@
       padding: 0.12rem 0.5rem;
       font-size: 0.7rem;
     }
-
     .table {
       width: 100%;
       border-spacing: 0;
@@ -488,14 +376,6 @@
       font-size: 0.65rem;
       color: var(--muted);
     }
-
-    /* TRUST / CONTACT */
-    .trust-grid {
-      display: grid;
-      grid-template-columns: minmax(0,1.2fr) minmax(0,1fr);
-      gap: 1.5rem;
-      align-items: start;
-    }
     .trust-list {
       font-size: 0.8rem;
       color: var(--muted);
@@ -503,14 +383,10 @@
       margin-top: 0.5rem;
     }
     .trust-list li { margin-bottom: 0.3rem; }
-    .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-top: 0.6rem;
-      font-size: 0.7rem;
-    }
 
+    .dashboard-view { display: none; }
+
+    /* CONTACT */
     .contact-wrap {
       display: grid;
       grid-template-columns: minmax(0,1.2fr) minmax(0,1fr);
@@ -520,10 +396,8 @@
     /* RESPONSIVE */
     @media (max-width: 900px) {
       .hero-grid,
-      .hero-card-grid,
       .grid-3,
       .grid-2,
-      .trust-grid,
       .contact-wrap,
       .dashboard-shell {
         grid-template-columns: minmax(0,1fr);
@@ -546,22 +420,19 @@
         <div class="logo-mark">1128</div>
         <div class="logo-text">
           <span>1128 Management Corp</span>
-          <span>B2B Growth & Funding Network</span>
+          <span>Corporate Setup & Client Management</span>
         </div>
       </div>
       <nav class="nav-links">
-        <a href="#hero">Overview</a>
+        <a href="#hero">Home</a>
         <a href="#services">Services</a>
-        <a href="#funding">Funding</a>
         <a href="#intake">Client Intake</a>
-        <a href="#membership">Membership</a>
-        <a href="#admin">Dashboard</a>
-        <a href="#trust">Trust</a>
+        <a href="#membership">Login</a>
         <a href="#contact">Contact</a>
       </nav>
       <div class="nav-cta">
         <span class="pill">Mississippi • Multi-Entity</span>
-        <button class="btn-outline" onclick="scrollToSection('membership')">Staff Login</button>
+        <button class="btn-outline" onclick="scrollToSection('membership')">Client / Staff Login</button>
         <button class="btn" onclick="scrollToSection('intake')">Start Corporate Setup →</button>
       </div>
     </div>
@@ -573,102 +444,37 @@
       <div class="container hero-grid">
         <div>
           <div class="hero-kicker">
-            <span>Live Capital Strategy • Stripe, Square, Novo</span>
+            <span>Corporate structure • Compliance • Client coordination</span>
           </div>
           <h1 class="hero-title">
-            We don’t just file paperwork.<br />
-            <span>We design your funding machine.</span>
+            We help you get your<br />
+            <span>business paperwork and process together.</span>
           </h1>
           <p class="hero-subtitle">
-            1128 Management Corp builds and manages corporate structures, payment flows, and funding strategies so multiple entities work together—clean, compliant, and optimized for Stripe, Square, and bank capital.
+            1128 Management Corp focuses on clean corporate setup, organized documents, and simple client workflows so your business is easier to run and easier to present to banks, vendors, and partners.
           </p>
           <div class="hero-actions">
-            <button class="btn" onclick="scrollToSection('intake')">📝 Launch My Corporation & Funding Plan</button>
-            <button class="btn-outline" onclick="scrollToSection('funding')">📊 See 30-Day Funding Funnel</button>
+            <button class="btn" onclick="scrollToSection('intake')">📝 Complete Client Intake</button>
+            <button class="btn-outline" onclick="scrollToSection('membership')">🔐 Go to Client / Staff Login</button>
           </div>
           <div class="hero-meta">
-            <span><span class="hero-meta-dot"></span> Active: Multi-entity rotation (1128 LLC, 1128 Food Vending, JasmineCo Inc, Danny’s Collections Inc)</span>
-            <span>• Mississippi C-Corps & LLCs • Trust & Holdings</span>
+            <span><span class="hero-meta-dot"></span> Multi-entity & multi-location friendly</span>
+            <span>• Corporations • LLCs • Basic admin support</span>
           </div>
         </div>
 
-        <div class="hero-card">
-          <div class="hero-card-inner">
-            <div class="hero-card-grid">
-              <div>
-                <h2 style="font-size:0.9rem; margin-bottom:0.2rem;">Capital Control Panel</h2>
-                <p style="font-size:0.78rem; color:var(--muted);">
-                  One dashboard view for daily card volume, loan eligibility, and entity rotation—built into your 1128 network.
-                </p>
-                <div class="hero-stat-grid">
-                  <div class="stat-pill">
-                    <span>Daily Card Volume</span>
-                    <strong>$100 / entity</strong>
-                    <span>Stripe + Square targets</span>
-                  </div>
-                  <div class="stat-pill">
-                    <span>Capital Rotation</span>
-                    <strong>4 entities</strong>
-                    <span>Staggered loan timing</span>
-                  </div>
-                  <div class="stat-pill">
-                    <span>Compliance</span>
-                    <strong>BOI + SOS</strong>
-                    <span>Structures documented</span>
-                  </div>
-                  <div class="stat-pill">
-                    <span>Ownership</span>
-                    <strong>Holding & Trust</strong>
-                    <span>Secured control</span>
-                  </div>
-                </div>
-              </div>
-              <div class="hero-dashboard">
-                <div class="hero-dashboard-header">
-                  <span>Today’s Funding Snapshot</span>
-                  <span class="hero-badge">Live Strategy Mode</span>
-                </div>
-                <table class="mini-table">
-                  <thead>
-                    <tr>
-                      <th>Entity</th>
-                      <th>Processor</th>
-                      <th>Today</th>
-                      <th>Status</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>1128 LLC</td>
-                      <td>Square</td>
-                      <td>$135</td>
-                      <td><span class="status-pill">On Track</span></td>
-                    </tr>
-                    <tr>
-                      <td>1128 Mgmt Corp</td>
-                      <td>Stripe</td>
-                      <td>$210</td>
-                      <td><span class="status-pill pending">Warming Up</span></td>
-                    </tr>
-                    <tr>
-                      <td>JasmineCo Inc</td>
-                      <td>Stripe</td>
-                      <td>$88</td>
-                      <td><span class="status-pill">On Track</span></td>
-                    </tr>
-                    <tr>
-                      <td>Danny’s Collections Inc</td>
-                      <td>Stripe</td>
-                      <td>$62</td>
-                      <td><span class="status-pill flagged">Watch</span></td>
-                    </tr>
-                  </tbody>
-                </table>
-                <p style="font-size:0.68rem; color:var(--muted); margin-top:0.3rem;">
-                  This is the type of internal dashboard we design for your rotation strategy—mapped to your real processors, banks, and entities.
-                </p>
-              </div>
-            </div>
+        <div class="card">
+          <div class="card-tag">At-a-glance</div>
+          <h3>What 1128 Helps With</h3>
+          <ul class="trust-list" style="margin-top:0.4rem;">
+            <li>• Filing new corporations or LLCs in Mississippi.</li>
+            <li>• Organizing bylaws, minutes, and ownership records.</li>
+            <li>• Keeping basic information consistent across documents.</li>
+            <li>• Tracking where you are in your setup or clean-up process.</li>
+          </ul>
+          <div class="card-footer" style="margin-top:1rem;">
+            <span class="chip">Foundations first</span>
+            <span>Simple steps • Clear communication</span>
           </div>
         </div>
       </div>
@@ -679,95 +485,58 @@
       <div class="container">
         <div class="section-header">
           <div class="section-eyebrow">Services</div>
-          <h2 class="section-title">Everything from Articles to Active Capital Strategy</h2>
+          <h2 class="section-title">Straightforward Support for How Your Business Is Really Set Up</h2>
           <p class="section-subtitle">
-            We set up your corporations, structure your ownership, connect processors, and create daily-money plans that keep lenders interested and documents clean.
+            We focus on the unglamorous but important pieces: paperwork, structure, and clear records. The goal is a business that’s easier to manage and easier to talk about with professionals.
           </p>
         </div>
 
         <div class="grid-3">
           <div class="card">
-            <div class="card-tag">Corporate Setup & Compliance</div>
-            <h3>Mississippi Corporations & LLCs</h3>
+            <div class="card-tag">Corporate Setup</div>
+            <h3>Corporations & LLCs</h3>
             <p>
-              Articles of Incorporation, bylaws, stock certificates, EIN answer sheets, BOI info sheets, and SOS filings—all aligned with how you actually plan to run money and control entities.
+              Help preparing the information you need to form new entities, update existing ones, and keep your basic records organized and accessible.
             </p>
             <div class="card-footer">
-              <span class="chip">C-Corp • S-Corp • LLC</span>
-              <span>1128 Management as your advisor</span>
+              <span class="chip">Mississippi filings</span>
+              <span>Articles • Bylaws • Minutes</span>
             </div>
           </div>
           <div class="card">
-            <div class="card-tag">Payments & Funding</div>
-            <h3>Stripe, Square & Bank Capital Strategy</h3>
+            <div class="card-tag">Admin & Organization</div>
+            <h3>Back-Office Coordination</h3>
             <p>
-              Processor setup, target daily volumes, 30-day ramp plans, and staggered capital requests across entities so Stripe Capital, Square Loans, and banks see a consistent, healthy pattern.
+              Simple checklists and workflows so you know what information is missing, what’s complete, and what the next recommended step is for your business.
             </p>
             <div class="card-footer">
-              <span class="chip">Capital Funnels</span>
-              <span>Stripe • Square • Novo</span>
+              <span class="chip">Checklists & tracking</span>
+              <span>Client-friendly status updates</span>
             </div>
           </div>
           <div class="card">
-            <div class="card-tag">B2B Growth Network</div>
-            <h3>Multi-Entity & Trust Structuring</h3>
+            <div class="card-tag">Client Management</div>
+            <h3>Client & Project Portal</h3>
             <p>
-              Holdings and trust structures that own your corporations, vehicles, trailers, and properties—keeping who owns what clear while still flexible for rotations and loans.
+              A secure login where clients and staff can check project steps, upload or confirm information, and keep everything in one place.
             </p>
             <div class="card-footer">
-              <span class="chip">1128 Holdings • Trusts</span>
-              <span>Asset & control design</span>
+              <span class="chip">Secure login</span>
+              <span>Role-based views</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- FUNDING / FUNNELS -->
-    <section id="funding">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-eyebrow">Funding & Consulting Funnels</div>
-          <h2 class="section-title">30-Day Capital Ramp, Mapped For Multiple Entities</h2>
-          <p class="section-subtitle">
-            Instead of random swipes and deposits, we map a daily rotation across your businesses so volume, consistency, and payback look the way lenders like to see it.
-          </p>
-        </div>
-
-        <div class="grid-2">
-          <div class="card">
-            <h3>Funding Funnel Overview</h3>
-            <p>A simple 3-stage funnel turns strangers into capital-ready clients.</p>
-            <ol class="trust-list" style="margin-top:0.4rem;">
-              <li><strong>Stage 1 • Discovery:</strong> Short intake form and strategy call to see your entities, loans, and processors.</li>
-              <li><strong>Stage 2 • Mapping:</strong> We build your 30-day rotation plan (who processes what, where, and when).</li>
-              <li><strong>Stage 3 • Activation:</strong> We help you move real money through the plan, then prep you for capital offers.</li>
-            </ol>
-          </div>
-
-          <div class="card">
-            <h3>Internal Funnel Automation (Demo)</h3>
-            <p style="font-size:0.78rem; color:var(--muted); margin-bottom:0.6rem;">
-              When someone submits the intake or contact forms below, they’ll show up in your “New Leads” table inside the Admin Dashboard section (demo storage in the browser).
-            </p>
-            <ul class="trust-list">
-              <li>New intake → stored in browser and visible in dashboard.</li>
-              <li>Lead shows: name, entity type, monthly revenue, goal, status.</li>
-              <li>You can later connect this same structure to a real CRM or email system.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CLIENT INTAKE FORMS -->
+    <!-- CLIENT INTAKE -->
     <section id="intake">
       <div class="container">
         <div class="section-header">
           <div class="section-eyebrow">Client Intake</div>
-          <h2 class="section-title">Tell Us How Your Businesses Really Move Money</h2>
+          <h2 class="section-title">Tell Us How Your Business Is Structured Right Now</h2>
           <p class="section-subtitle">
-            This intake form is designed for real operations—multiple corporations, different processors, side businesses, and holding/trust ideas.
+            This intake form helps us understand your entities, what exists already, and what you want to clean up or create. It’s written for real-life, not perfect textbook situations.
           </p>
         </div>
 
@@ -801,49 +570,49 @@
                   <option value="c-corp">C-Corporation</option>
                   <option value="s-corp">S-Corporation</option>
                   <option value="sole-prop">Sole Proprietor</option>
-                  <option value="trust">Trust Holding Structure</option>
+                  <option value="trust">Trust / Holding Structure</option>
                   <option value="multiple">Multiple entities</option>
                 </select>
               </div>
               <div class="form-group">
-                <label for="intake-revenue">Estimated Monthly Revenue (all entities)</label>
+                <label for="intake-revenue">Approx. Monthly Revenue (all entities)</label>
                 <input id="intake-revenue" name="revenue" type="text" placeholder="$15,000" />
               </div>
               <div class="form-group">
-                <label for="intake-processors">Where do you process cards?</label>
-                <input id="intake-processors" name="processors" type="text" placeholder="Stripe, Square, Clover, others" />
+                <label for="intake-processors">Where do you mainly receive payments?</label>
+                <input id="intake-processors" name="processors" type="text" placeholder="Card readers, invoicing tools, other" />
               </div>
               <div class="form-group">
-                <label for="intake-goal">Main Goal</label>
+                <label for="intake-goal">Main Reason You Reached Out</label>
                 <select id="intake-goal" name="goal">
-                  <option value="incorporate">New corporation & EIN</option>
-                  <option value="conversion">Convert LLC to corporation</option>
-                  <option value="funding">Improve capital offers</option>
-                  <option value="structure">Design holdings/trust</option>
-                  <option value="multi">All of the above</option>
+                  <option value="incorporate">New corporation or LLC</option>
+                  <option value="conversion">Change or update existing entity</option>
+                  <option value="cleanup">Get paperwork and records cleaned up</option>
+                  <option value="structure">Organize multiple entities / holding</option>
+                  <option value="multi">All of the above / not sure yet</option>
                 </select>
               </div>
             </div>
 
             <div class="form-group" style="margin-top:0.8rem;">
-              <label for="intake-notes">Tell us about your businesses (in your own words)</label>
-              <textarea id="intake-notes" name="notes" placeholder="Example: I have a convenience store with deli, a food trailer, an online boutique, and I want them all organized under a holding and trust while we build Stripe/Square capital offers."></textarea>
+              <label for="intake-notes">Tell us about your situation in your own words</label>
+              <textarea id="intake-notes" name="notes" placeholder="Example: I have a convenience store with deli and a separate side business. I want everything set up correctly and easier to manage."></textarea>
             </div>
 
             <div class="form-group" style="margin-top:0.7rem;">
               <label>
                 <input id="intake-authorization" type="checkbox" required style="margin-right:0.35rem;" />
-                I authorize 1128 Management Corp to review my business information for the purpose of designing corporate structures, funding strategies, and related documents. (No funds are moved without my written approval.)
+                I authorize 1128 Management Corp to review this information for the purpose of helping with corporate setup, organization, and related support. (No accounts are touched without my separate written approval.)
               </label>
             </div>
 
             <div class="form-footer">
               <div>
-                <button type="submit" class="btn">Submit Intake & Create Lead →</button>
+                <button type="submit" class="btn">Submit Intake →</button>
               </div>
               <div>
-                <span style="display:block;">Next step: we review your info and contact you with a recommended path.</span>
-                <span style="display:block;">In production you can connect this form to email or CRM; for now it feeds the internal dashboard.</span>
+                <span style="display:block;">Next step: we review your information and contact you with recommended options.</span>
+                <span style="display:block;">Internal tracking of this intake happens inside a private portal, not on the public website.</span>
               </div>
             </div>
           </form>
@@ -851,107 +620,76 @@
       </div>
     </section>
 
-    <!-- MEMBERSHIP PORTAL & LOGIN -->
+    <!-- MEMBERSHIP / LOGIN -->
     <section id="membership">
       <div class="container">
         <div class="section-header">
-          <div class="section-eyebrow">Membership Portal</div>
-          <h2 class="section-title">Choose How Deep You Want 1128 To Be In Your Business</h2>
+          <div class="section-eyebrow">Secure Portal</div>
+          <h2 class="section-title">Client & Staff Login</h2>
           <p class="section-subtitle">
-            From a one-time setup to ongoing management, you choose the level of access and control we have while your corporations and funding machine spin up.
+            This area is for clients and internal team only. You’ll log in each visit to see project status or manage requests. Nothing in this portal is visible on the public-facing site.
           </p>
         </div>
 
         <div class="grid-2">
-          <div>
-            <div class="grid-3">
-              <div class="plan-card">
-                <div class="plan-name">Launch Track</div>
-                <div class="plan-price">$</div>
-                <div class="plan-meta">You handle day-to-day, we set the foundation.</div>
-                <ul class="plan-list">
-                  <li>✓ Mississippi corporation or LLC setup</li>
-                  <li>✓ EIN answer sheet for IRS</li>
-                  <li>✓ Basic Stripe/Square setup map</li>
-                  <li>✓ BOI info sheet</li>
-                </ul>
+          <div class="card">
+            <h3>Client & Staff Login</h3>
+            <p style="font-size:0.8rem; color:var(--muted); margin-bottom:0.6rem;">
+              Use your email and password to access your project. New users can register once with their role (Client, Staff, or Admin) and then simply log in on future visits.
+            </p>
+
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="login-email">Email</label>
+                <input id="login-email" type="email" placeholder="you@yourdomain.com" />
               </div>
-              <div class="plan-card">
-                <div class="plan-name">Growth Track</div>
-                <div class="plan-price">$$</div>
-                <div class="plan-meta">We help shape daily money movement.</div>
-                <ul class="plan-list">
-                  <li>✓ Everything in Launch Track</li>
-                  <li>✓ 30-day Stripe/Square ramp plan</li>
-                  <li>✓ Admin dashboard layout & roles</li>
-                  <li>✓ Monthly strategy call</li>
-                </ul>
+              <div class="form-group">
+                <label for="login-password">Password</label>
+                <input id="login-password" type="password" placeholder="••••••••" />
               </div>
-              <div class="plan-card">
-                <div class="plan-name">Scale Track</div>
-                <div class="plan-price">$$$</div>
-                <div class="plan-meta">We sit inside your operation as a partner.</div>
-                <ul class="plan-list">
-                  <li>✓ Everything in Growth Track</li>
-                  <li>✓ Multi-entity rotation design</li>
-                  <li>✓ Trust & holdings coordination</li>
-                  <li>✓ Priority access & reporting</li>
-                </ul>
+              <div class="form-group">
+                <label for="login-role">Role (for new accounts)</label>
+                <select id="login-role">
+                  <option value="client">Client</option>
+                  <option value="staff">Staff</option>
+                  <option value="admin">Admin</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>&nbsp;</label>
+                <button id="login-btn" type="button" class="btn" onclick="handleLogin()">Login →</button>
+                <button id="register-btn" type="button" class="btn-outline" style="margin-top:0.4rem;" onclick="handleRegister()">Register New Account</button>
               </div>
             </div>
+            <p id="login-status" style="font-size:0.75rem; color:#9ca3af; margin-top:0.4rem;"></p>
+            <p style="font-size:0.7rem; color:var(--muted); margin-top:0.4rem;">
+              For privacy and security, accounts are not kept logged in. You’ll sign in each time you return.
+            </p>
           </div>
 
-          <!-- LOGIN PORTAL -->
-          <div>
-            <div class="card">
-              <h3>Member & Staff Portal Login</h3>
-              <p style="font-size:0.8rem; color:var(--muted); margin-bottom:0.6rem;">
-                Firebase Authentication handles secure email + password login. Role controls what you can see inside the dashboard.
-              </p>
-
-              <div class="form-grid">
-                <div class="form-group">
-                  <label for="login-email">Email</label>
-                  <input id="login-email" type="email" placeholder="you@yourdomain.com" />
-                </div>
-                <div class="form-group">
-                  <label for="login-password">Password</label>
-                  <input id="login-password" type="password" placeholder="••••••••" />
-                </div>
-                <div class="form-group">
-                  <label for="login-role">Role (for new accounts)</label>
-                  <select id="login-role">
-                    <option value="client">Client</option>
-                    <option value="staff">Staff</option>
-                    <option value="admin">Admin</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label>&nbsp;</label>
-                  <button id="login-btn" type="button" class="btn" onclick="handleLogin()">Login →</button>
-                  <button id="register-btn" type="button" class="btn-outline" style="margin-top:0.4rem;" onclick="handleRegister()">
-                    Register New Account
-                  </button>
-                </div>
-              </div>
-              <p id="login-status" style="font-size:0.75rem; color:#9ca3af; margin-top:0.4rem;"></p>
-              <p style="font-size:0.7rem; color:var(--muted); margin-top:0.4rem;">
-                Use <strong>Register New Account</strong> once per user. Role is stored in the backend; later logins only need email + password.
-              </p>
-            </div>
+          <div class="card">
+            <h3>What You See After Login</h3>
+            <ul class="trust-list">
+              <li>• Clients: a simple “My Project Status” view with your current step and checklist items.</li>
+              <li>• Staff: a view of new requests and tasks assigned to you.</li>
+              <li>• Admin: an overview of incoming requests, active clients, and internal tasks.</li>
+            </ul>
+            <p style="font-size:0.75rem; color:var(--muted); margin-top:0.7rem;">
+              Details about how we work, internal notes, and process steps all stay inside the private portal and are not displayed on the public-facing website.
+            </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ADMIN DASHBOARD LAYOUT -->
-    <section id="admin">
+    <!-- PORTAL / DASHBOARD (PRIVATE VIEW, ONLY AFTER LOGIN) -->
+    <section id="portal">
       <div class="container">
         <div class="section-header">
-          <div class="section-eyebrow">Admin & Staff Dashboard</div>
-          <h2 class="section-title">One View For Leads, Clients, Entities, And Capital Status</h2>
+          <div class="section-eyebrow">Private Portal</div>
+          <h2 class="section-title">Internal Project & Client View</h2>
           <p class="section-subtitle">
-            The same forms and logins above feed into this internal control panel. Different roles see different pieces.
+            This section is only unlocked after login. It’s intended for tracking project steps, documents, and basic internal tasks—not for public display.
           </p>
         </div>
 
@@ -959,9 +697,8 @@
           <aside class="dashboard-sidebar">
             <div class="sidebar-title">Navigation</div>
             <div class="sidebar-nav">
-              <button class="active" data-target="view-leads" onclick="switchDashboardView('view-leads', this)">New Leads</button>
+              <button class="active" data-target="view-requests" onclick="switchDashboardView('view-requests', this)">New Requests</button>
               <button data-target="view-clients" onclick="switchDashboardView('view-clients', this)">Active Clients</button>
-              <button data-target="view-rotation" onclick="switchDashboardView('view-rotation', this)">Rotation Plan</button>
               <button data-target="view-tasks" onclick="switchDashboardView('view-tasks', this)">Tasks</button>
             </div>
             <div class="sidebar-role">
@@ -975,192 +712,100 @@
           </aside>
 
           <div class="dashboard-main">
-            <!-- CLIENT-ONLY FUNDING DASHBOARD -->
+            <!-- CLIENT-ONLY STATUS PANEL -->
             <div id="client-dashboard-panel" class="card" style="margin-bottom:1rem; display:none;">
-              <h3 style="font-size:0.9rem;">My Funding & Setup Status</h3>
+              <h3 style="font-size:0.9rem;">My Project Status</h3>
               <p id="client-funding-status" style="font-size:0.8rem; color:var(--muted);">
                 We’ll update this as we work on your file.
               </p>
               <ul id="client-funding-steps" class="trust-list" style="margin-top:0.5rem;"></ul>
             </div>
 
-            <!-- LEADS -->
-            <div id="view-leads" class="dashboard-view">
-              <h3 style="font-size:0.9rem;">New Leads from Client Intake</h3>
+            <!-- ADMIN / STAFF: NEW REQUESTS -->
+            <div id="view-requests" class="dashboard-view">
+              <h3 style="font-size:0.9rem;">New Requests (From Intake & Contact Forms)</h3>
               <p style="font-size:0.76rem; color:var(--muted); margin-top:0.15rem;">
-                Every time someone fills out the intake or contact forms, they’ll show up here so admin or staff can move them to the right stage.
+                These are basic entries from the public forms so you can follow up, organize documents, and set next steps.
               </p>
               <table class="table" id="leads-table">
                 <thead>
                   <tr>
                     <th>Name</th>
                     <th>Entity Type</th>
-                    <th>Monthly Revenue</th>
-                    <th>Goal</th>
+                    <th>Approx. Revenue</th>
+                    <th>Reason</th>
                     <th>Status</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <!-- Leads added by JS -->
+                  <!-- Filled by JS -->
                 </tbody>
               </table>
             </div>
 
-            <!-- CLIENTS -->
-            <div id="view-clients" class="dashboard-view" style="display:none;">
-              <h3 style="font-size:0.9rem;">Active Clients (Demo Data)</h3>
+            <!-- ADMIN / STAFF: ACTIVE CLIENTS -->
+            <div id="view-clients" class="dashboard-view">
+              <h3 style="font-size:0.9rem;">Active Clients (Sample)</h3>
               <table class="table">
                 <thead>
                   <tr>
                     <th>Client</th>
-                    <th>Track</th>
-                    <th>Entities</th>
+                    <th>Type</th>
+                    <th>Focus</th>
                     <th>Stage</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>1128 Food Vending LLC</td>
-                    <td>Growth Track</td>
-                    <td>LLC + Food Trailer</td>
-                    <td>Activation</td>
+                    <td>Example Client A</td>
+                    <td>LLC</td>
+                    <td>Clean-up and organization</td>
+                    <td>Information review</td>
                   </tr>
                   <tr>
-                    <td>JasmineCo Inc</td>
-                    <td>Launch Track</td>
-                    <td>C-Corp • Beauty/Services</td>
-                    <td>Mapping</td>
+                    <td>Example Client B</td>
+                    <td>C-Corp</td>
+                    <td>New setup</td>
+                    <td>Document draft</td>
                   </tr>
                   <tr>
-                    <td>Danny’s Collections Inc</td>
-                    <td>Scale Track</td>
-                    <td>Retail & Online</td>
-                    <td>Discovery</td>
+                    <td>Example Client C</td>
+                    <td>Multiple entities</td>
+                    <td>Basic structure mapping</td>
+                    <td>Planning</td>
                   </tr>
                 </tbody>
               </table>
             </div>
 
-            <!-- ROTATION -->
-            <div id="view-rotation" class="dashboard-view" style="display:none;">
-              <h3 style="font-size:0.9rem;">Multi-Entity Rotation Overview (Demo)</h3>
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th>Day</th>
-                    <th>Entity</th>
-                    <th>Processor</th>
-                    <th>Target Volume</th>
-                    <th>Notes</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Mon–Wed</td>
-                    <td>1128 LLC</td>
-                    <td>Square</td>
-                    <td>$100/day</td>
-                    <td>Convenience + deli daily flow.</td>
-                  </tr>
-                  <tr>
-                    <td>Thu–Fri</td>
-                    <td>1128 Management Corp</td>
-                    <td>Stripe</td>
-                    <td>$100/day</td>
-                    <td>Consulting invoices and retainers.</td>
-                  </tr>
-                  <tr>
-                    <td>Sat</td>
-                    <td>JasmineCo Inc</td>
-                    <td>Stripe</td>
-                    <td>$100/day</td>
-                    <td>Beauty & accessories activity.</td>
-                  </tr>
-                  <tr>
-                    <td>Sun</td>
-                    <td>Danny’s Collections Inc</td>
-                    <td>Stripe</td>
-                    <td>$100/day</td>
-                    <td>Online & pop-up retail.</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <!-- TASKS -->
-            <div id="view-tasks" class="dashboard-view" style="display:none;">
-              <h3 style="font-size:0.9rem;">Admin / Staff Tasks</h3>
+            <!-- ADMIN / STAFF: TASKS -->
+            <div id="view-tasks" class="dashboard-view">
+              <h3 style="font-size:0.9rem;">Internal Tasks (Example)</h3>
               <ul class="trust-list">
-                <li>☑ Confirm SOS filings and registered agent info for all entities.</li>
-                <li>☑ Confirm EIN letters, addresses, and BOI filings are consistent.</li>
-                <li>☐ Connect Stripe & Square accounts to the internal dashboard.</li>
-                <li>☐ Finalize trust ownership structure for properties and key entities.</li>
-                <li>☐ Implement real email/CRM integration for intake and membership forms.</li>
+                <li>☑ Confirm basic business info for new intake submissions.</li>
+                <li>☑ Make sure addresses and ownership details are consistent across documents.</li>
+                <li>☐ Prepare draft filings or checklists for next clients in the queue.</li>
+                <li>☐ Follow up with clients who have missing information.</li>
+                <li>☐ Update project notes as steps are completed.</li>
               </ul>
             </div>
           </div>
         </div>
 
         <p id="dashboard-locked-msg" style="font-size:0.78rem; color:var(--muted); margin-top:0.75rem;">
-          Use the login in the Membership section to unlock the Admin Dashboard (Admin, Staff or Client role).
+          Log in through the Client & Staff Login section to access this private portal. Nothing here is visible to the public or search engines.
         </p>
       </div>
     </section>
 
-    <!-- TRUST & CREDIBILITY SECTION -->
-    <section id="trust">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-eyebrow">Trust & Corporate Credibility</div>
-          <h2 class="section-title">Structures That Look Good To Lenders And Actually Match Reality</h2>
-          <p class="section-subtitle">
-            Anyone can file a corporation. We help you build a full story: entities, holdings, trust, real operations, and money movement that matches what banks, Stripe, and Square like to see.
-          </p>
-        </div>
-
-        <div class="trust-grid">
-          <div>
-            <h3 style="font-size:0.95rem;">Documents We Commonly Work With</h3>
-            <ul class="trust-list">
-              <li>• Articles of Incorporation / Articles of Organization</li>
-              <li>• Bylaws and Operating Agreements</li>
-              <li>• Stock Certificates & Ledger</li>
-              <li>• Organizational Meeting Minutes & Resolutions</li>
-              <li>• Beneficial Ownership (BOI) information sheets</li>
-              <li>• Trust documents and “holding” structures for assets</li>
-              <li>• Processor statements (Stripe/Square/Novo/etc.)</li>
-              <li>• Property deeds, vehicle titles, and key assets</li>
-            </ul>
-            <div class="pill-row">
-              <span class="chip">Mississippi Corporations</span>
-              <span class="chip">Multi-Entity Networks</span>
-              <span class="chip">Trust & Holdings</span>
-            </div>
-          </div>
-
-          <div class="card">
-            <h3 style="font-size:0.9rem;">How We Present You To Lenders</h3>
-            <p style="font-size:0.8rem; color:var(--muted);">
-              Part of your strategy is simply the story: who you are, what your entities do, how long they’ve been operating, and how consistent your money movement really is.
-            </p>
-            <ul class="trust-list">
-              <li><strong>Clarity:</strong> One-pager that explains your network (holding company, operating companies, properties, and trust).</li>
-              <li><strong>Consistency:</strong> Addresses, EIN, ownership, and activity line up across documents.</li>
-              <li><strong>Control:</strong> You keep ultimate control of accounts while granting limited authority where needed.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT / LEAD CAPTURE -->
+    <!-- CONTACT -->
     <section id="contact">
       <div class="container">
         <div class="section-header">
-          <div class="section-eyebrow">Contact & Lead Capture</div>
-          <h2 class="section-title">Ready To Get Your Corporate World Organized?</h2>
+          <div class="section-eyebrow">Contact</div>
+          <h2 class="section-title">Have Questions Before You Start?</h2>
           <p class="section-subtitle">
-            Use this short form if you’re not ready for full intake but want to talk.
+            Use this quick form if you’re not ready for full intake but want to ask about fit, timelines, or next steps.
           </p>
         </div>
 
@@ -1181,40 +826,42 @@
                   <select id="lead-channel">
                     <option value="tiktok">TikTok</option>
                     <option value="referral">Referral</option>
-                    <option value="search">Google / search</option>
+                    <option value="search">Search / online</option>
                     <option value="other">Other</option>
                   </select>
                 </div>
                 <div class="form-group">
                   <label for="lead-topic">What do you need help with?</label>
                   <select id="lead-topic">
-                    <option value="incorporate">Incorporating / conversion</option>
-                    <option value="funding">Funding & capital offers</option>
-                    <option value="structure">Holding / trust design</option>
+                    <option value="incorporate">New business setup</option>
+                    <option value="update">Updating existing paperwork</option>
+                    <option value="organize">Getting things organized</option>
                     <option value="other">Other / not sure</option>
                   </select>
                 </div>
               </div>
               <div class="form-group" style="margin-top:0.75rem;">
                 <label for="lead-message">Message</label>
-                <textarea id="lead-message" placeholder="Tell us in your own words what’s going on."></textarea>
+                <textarea id="lead-message" placeholder="Tell us briefly what’s going on."></textarea>
               </div>
 
               <div class="form-footer">
-                <button type="submit" class="btn">Submit & Log Lead →</button>
+                <button type="submit" class="btn">Submit Message →</button>
                 <div>
-                  <span style="display:block;">Later, this can send directly to your email and CRM.</span>
-                  <span style="display:block;">For now, it will also show up in your dashboard’s lead list.</span>
+                  <span style="display:block;">Messages here are logged privately so we can follow up.</span>
+                  <span style="display:block;">They also show in the internal portal for admin or staff—never on the public site.</span>
                 </div>
               </div>
             </form>
           </div>
 
           <div class="card">
-            <h3 style="font-size:0.95rem;">Email Routing & Automation Notes</h3>
-            <p style="font-size:0.8rem; color:var(--muted); margin-bottom:0.6rem;">
-              This front-end is already structured to plug into real automation tools; all IDs are stable so you or a dev can connect them later.
-            </p>
+            <h3 style="font-size:0.95rem;">What to Expect After You Reach Out</h3>
+            <ul class="trust-list">
+              <li>• A brief follow-up to confirm what you’re looking for.</li>
+              <li>• If it’s a good fit, we’ll direct you to the full intake and portal.</li>
+              <li>• If not, we’ll be honest and may suggest other directions.</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -1224,11 +871,11 @@
   <footer style="border-top:1px solid rgba(31,41,55,0.8); padding:1rem 0; background:rgba(15,23,42,0.98);">
     <div class="container" style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:0.6rem; font-size:0.75rem; color:var(--muted);">
       <span>© <span id="year"></span> 1128 Management Corp. All rights reserved.</span>
-      <span>Internal demo layout: corporate setup • funding strategy • admin controls.</span>
+      <span>Public site: simple overview • Private portal: project details.</span>
     </div>
   </footer>
 
-  <!-- REAL LOGIN + DASHBOARD + INTAKE LOGIC -->
+  <!-- REAL LOGIN + PORTAL + INTAKE LOGIC -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
     import {
@@ -1279,7 +926,6 @@
       const el = qs(id);
       if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
     }
-
     window.scrollToSection = scrollToSection;
 
     function setLoginUIState({ loading = false, message = "" } = {}) {
@@ -1298,19 +944,18 @@
       if (statusEl) statusEl.textContent = message;
     }
 
-    function clearLoginFields() {
+    function clearLoginPassword() {
       const passwordInput = qs("login-password");
       if (passwordInput) passwordInput.value = "";
-      // If you ever want to clear email too:
-      // const emailInput = qs("login-email");
-      // if (emailInput) emailInput.value = "";
     }
 
-    // ---------- Demo lead storage ----------
+    // ---------- Demo lead storage (browser only) ----------
     const leads = [];
 
     function updateLeadsTable() {
-      const tbody = qs("leads-table")?.querySelector("tbody");
+      const table = qs("leads-table");
+      if (!table) return;
+      const tbody = table.querySelector("tbody");
       if (!tbody) return;
       tbody.innerHTML = "";
       leads.forEach((lead) => {
@@ -1335,7 +980,7 @@
         entityType: qs("intake-entity-type").value,
         revenue: qs("intake-revenue").value,
         goal: qs("intake-goal").value,
-        status: "New"
+        status: "New intake"
       };
       leads.push(lead);
       updateLeadsTable();
@@ -1352,12 +997,12 @@
         entityType: "TBD",
         revenue: "TBD",
         goal: topic,
-        status: "New (Short Form)"
+        status: "New message"
       };
       leads.push(lead);
       updateLeadsTable();
       event.target.reset();
-      alert("Lead captured and added to the dashboard.");
+      alert("Message submitted. We’ll follow up soon.");
     }
 
     window.handleIntakeSubmit = handleIntakeSubmit;
@@ -1369,6 +1014,7 @@
       const lockMsg = qs("dashboard-locked-msg");
       const roleLabel = qs("sidebar-role-label");
       const clientPanel = qs("client-dashboard-panel");
+      const sidebarNav = document.querySelector(".sidebar-nav");
 
       if (!dashboard || !lockMsg || !roleLabel) return;
 
@@ -1377,6 +1023,7 @@
         lockMsg.style.display = "block";
         roleLabel.textContent = "Guest";
         if (clientPanel) clientPanel.style.display = "none";
+        if (sidebarNav) sidebarNav.style.display = "flex";
         return;
       }
 
@@ -1384,23 +1031,18 @@
       lockMsg.style.display = "none";
       roleLabel.textContent = role.charAt(0).toUpperCase() + role.slice(1);
 
-      const navButtons = document.querySelectorAll(".sidebar-nav button");
-      navButtons.forEach((btn) => (btn.style.display = "block"));
-
-      if (role === "staff") {
-        navButtons.forEach((btn) => {
-          if (btn.dataset.target === "view-rotation") btn.style.display = "none";
-        });
-      }
-
       if (role === "client") {
-        navButtons.forEach((btn) => {
-          if (btn.dataset.target !== "view-leads") btn.style.display = "none";
-        });
+        // Clients only see their own status panel; hide internal nav views
         if (clientPanel) clientPanel.style.display = "block";
-        switchDashboardView("view-leads");
+        if (sidebarNav) sidebarNav.style.display = "none";
+
+        const views = document.querySelectorAll(".dashboard-view");
+        views.forEach((view) => (view.style.display = "none"));
       } else {
+        // Staff / Admin see nav and internal views
         if (clientPanel) clientPanel.style.display = "none";
+        if (sidebarNav) sidebarNav.style.display = "flex";
+        switchDashboardView("view-requests");
       }
     }
 
@@ -1411,11 +1053,11 @@
       if (!panel || !statusEl || !listEl) return;
 
       try {
-        const ref = doc(db, "fundingStatus", user.uid);
+        const ref = doc(db, "fundingStatus", user.uid); // can rename later if you want
         const snap = await getDoc(ref);
         if (!snap.exists()) {
           statusEl.textContent =
-            "We’ve received your info. Your funding & setup status will appear here once 1128 updates it.";
+            "We’ve received your information. Your project status will appear here once it’s been reviewed and updated.";
           listEl.innerHTML = "";
           return;
         }
@@ -1429,8 +1071,8 @@
           listEl.appendChild(li);
         });
       } catch (err) {
-        console.error("Error loading funding status", err);
-        statusEl.textContent = "Status pending admin update.";
+        console.error("Error loading status", err);
+        statusEl.textContent = "We couldn’t load your status right now. Please check back later.";
       }
     }
 
@@ -1463,12 +1105,17 @@
           loading: false,
           message: `Account created. Logged in as ${role}.`
         });
-        clearLoginFields();
+        clearLoginPassword();
       } catch (err) {
         console.error(err);
+
+        let msg = "Could not register. Please double-check your details.";
+        if (err.code === "auth/email-already-in-use") {
+          msg = "That email already has an account. Try logging in instead.";
+        }
         setLoginUIState({
           loading: false,
-          message: "Could not register: " + (err.message || "Unknown error")
+          message: msg
         });
       }
     };
@@ -1488,12 +1135,21 @@
       try {
         setLoginUIState({ loading: true, message: "Logging you in…" });
         await signInWithEmailAndPassword(auth, email, password);
-        // onAuthStateChanged will handle UI after this
+        // onAuthStateChanged will handle UI
       } catch (err) {
         console.error(err);
+
+        let msg = "Login failed. Please check your email and password.";
+        if (
+          err.code === "auth/invalid-credential" ||
+          err.code === "auth/user-not-found" ||
+          err.code === "auth/wrong-password"
+        ) {
+          msg = "Email or password is incorrect, or this account is not registered yet.";
+        }
         setLoginUIState({
           loading: false,
-          message: "Login failed: " + (err.message || "Unknown error")
+          message: msg
         });
       }
     };
@@ -1511,6 +1167,7 @@
       if (!user) {
         applyRoleUI("guest");
         setLoginUIState({ loading: false, message: "" });
+        clearLoginPassword();
         return;
       }
 
@@ -1527,15 +1184,15 @@
       }
 
       applyRoleUI(role);
-      clearLoginFields();
+      clearLoginPassword();
       setLoginUIState({
         loading: false,
         message: `Logged in as ${role}.`
       });
 
-      const adminSection = qs("admin");
-      if (adminSection) {
-        adminSection.scrollIntoView({ behavior: "smooth", block: "start" });
+      const portalSection = document.getElementById("portal");
+      if (portalSection) {
+        portalSection.scrollIntoView({ behavior: "smooth", block: "start" });
       }
 
       if (role === "client") {
