@@ -2,29 +2,34 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>1128 Management Corp – C-Corp Setup & Funding Support</title>
+  <title>1128 Management Corp – C-Corp Setup, Business Management & Support</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="1128 Management Corp – Mississippi C-Corporation setup, basic admin support, and funding support with a private client portal." />
+  <meta name="description" content="1128 Management Corp – Mississippi C-Corporation setup, consulting, business management, and support credits with a private client portal." />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
     :root {
-      --primary: #1f4bff;
-      --primary-dark: #102b9c;
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
       --accent: #00c896;
-      --bg: #050816;
-      --bg-soft: #0b1020;
-      --card: #111827;
+      --accent-soft: rgba(34,197,94,0.15);
+      --bg: #020617;
+      --bg-soft: #050816;
+      --card: #020617;
       --border: #1f2937;
       --text: #f9fafb;
       --muted: #9ca3af;
       --danger: #ef4444;
+      --highlight: #38bdf8;
+      --shadow-strong: 0 24px 60px rgba(15,23,42,0.9);
     }
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #111827 0, #020617 50%, #000 100%);
+      background:
+        radial-gradient(circle at top, #0b1120 0, #020617 45%, #000 100%);
       color: var(--text);
       line-height: 1.6;
     }
@@ -43,9 +48,15 @@
       position: sticky;
       top: 0;
       z-index: 50;
-      backdrop-filter: blur(16px);
-      background: linear-gradient(to bottom, rgba(15,23,42,0.98), rgba(15,23,42,0.8), transparent);
-      border-bottom: 1px solid rgba(31,41,55,0.8);
+      backdrop-filter: blur(20px);
+      background: linear-gradient(
+        to bottom,
+        rgba(15,23,42,0.98),
+        rgba(15,23,42,0.9),
+        rgba(15,23,42,0.65),
+        transparent
+      );
+      border-bottom: 1px solid rgba(31,41,55,0.85);
     }
     .nav {
       display: flex;
@@ -59,22 +70,24 @@
       gap: 0.6rem;
     }
     .logo-mark {
-      width: 32px;
-      height: 32px;
-      border-radius: 0.9rem;
+      width: 34px;
+      height: 34px;
+      border-radius: 1rem;
       border: 1px solid rgba(148,163,184,0.6);
-      background: radial-gradient(circle at 20% 0, #38bdf8, #4f46e5, #0f172a);
+      background:
+        radial-gradient(circle at 15% 0, #38bdf8, #4f46e5 40%, #0f172a 75%);
       display: flex;
       align-items: center;
       justify-content: center;
       font-weight: 700;
       font-size: 0.8rem;
       color: #e5e7eb;
+      box-shadow: 0 14px 35px rgba(37,99,235,0.6);
     }
     .logo-text { display: flex; flex-direction: column; }
     .logo-text span:first-child {
       font-weight: 600;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.06em;
       font-size: 0.9rem;
       text-transform: uppercase;
     }
@@ -82,14 +95,30 @@
       font-size: 0.7rem;
       color: var(--muted);
     }
+
     .nav-links {
       display: flex;
       gap: 1.2rem;
       font-size: 0.86rem;
       color: var(--muted);
     }
-    .nav-links a { position: relative; padding: 0.25rem 0; }
+    .nav-links a {
+      position: relative;
+      padding: 0.25rem 0;
+    }
     .nav-links a:hover { color: #e5e7eb; }
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(to right, var(--primary), var(--accent));
+      border-radius: 999px;
+      transition: width 0.18s ease;
+    }
+    .nav-links a:hover::after { width: 100%; }
 
     .nav-cta {
       display: flex;
@@ -104,27 +133,32 @@
       border-radius: 999px;
       border: 1px solid rgba(148,163,184,0.5);
       color: var(--muted);
+      background: rgba(15,23,42,0.8);
     }
     .btn {
       border-radius: 999px;
-      padding: 0.4rem 0.95rem;
+      padding: 0.42rem 0.95rem;
       font-size: 0.8rem;
       border: none;
       display: inline-flex;
       align-items: center;
       gap: 0.35rem;
-      background: linear-gradient(to right, var(--primary), var(--accent));
+      background: linear-gradient(135deg, var(--primary), var(--accent));
       color: #f9fafb;
-      box-shadow: 0 18px 45px rgba(15,118,110,0.45);
+      box-shadow: 0 18px 45px rgba(15,118,110,0.5);
+      white-space: nowrap;
     }
     .btn[disabled] { opacity: 0.6; cursor: default; }
     .btn-outline {
-      background: transparent;
-      border: 1px solid rgba(148,163,184,0.6);
+      background: radial-gradient(circle at top, rgba(15,23,42,0.9), rgba(2,6,23,0.98));
+      border: 1px solid rgba(148,163,184,0.7);
       color: #e5e7eb;
       border-radius: 999px;
       padding: 0.4rem 0.95rem;
       font-size: 0.8rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
     }
 
     main { padding-bottom: 4rem; }
@@ -163,14 +197,15 @@
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
-      padding: 0.25rem 0.6rem;
+      padding: 0.26rem 0.7rem;
       border-radius: 999px;
-      border: 1px solid rgba(148,163,184,0.4);
+      border: 1px solid rgba(148,163,184,0.5);
       margin-bottom: 1rem;
-      background: radial-gradient(circle at left, rgba(59,130,246,0.25), rgba(15,23,42,0.9));
+      background: radial-gradient(circle at left, rgba(59,130,246,0.3), rgba(15,23,42,0.95));
+      box-shadow: 0 16px 40px rgba(15,23,42,0.95);
     }
     .hero-title {
-      font-size: clamp(2rem, 2.4rem, 2.6rem);
+      font-size: clamp(2rem, 2.4rem, 2.7rem);
       font-weight: 700;
       line-height: 1.15;
       margin-bottom: 0.7rem;
@@ -183,10 +218,15 @@
     .hero-subtitle {
       font-size: 0.95rem;
       color: var(--muted);
-      max-width: 460px;
+      max-width: 470px;
       margin-bottom: 1.1rem;
     }
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.4rem; }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.4rem;
+    }
     .hero-meta {
       display: flex;
       flex-wrap: wrap;
@@ -195,7 +235,34 @@
       font-size: 0.75rem;
       color: var(--muted);
     }
-    .hero-meta span { display: inline-flex; align-items: center; gap: 0.3rem; }
+    .hero-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .hero-card {
+      background:
+        radial-gradient(circle at top, rgba(37,99,235,0.4), rgba(15,23,42,0.98));
+      border-radius: 1.4rem;
+      padding: 1.4rem;
+      border: 1px solid rgba(148,163,184,0.6);
+      box-shadow: var(--shadow-strong);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 10% 0, rgba(56,189,248,0.3), transparent 50%),
+        radial-gradient(circle at 100% 20%, rgba(129,140,248,0.25), transparent 55%);
+      opacity: 0.95;
+      pointer-events: none;
+    }
+    .hero-card-inner { position: relative; z-index: 1; }
+    .hero-card-inner h3 { font-size: 0.98rem; margin-bottom: 0.4rem; }
 
     /* GRID / CARDS / FORMS */
     .grid-2 {
@@ -208,15 +275,30 @@
       grid-template-columns: repeat(3, minmax(0,1fr));
       gap: 1.25rem;
     }
+
     .card {
-      background: var(--card);
-      border-radius: 1rem;
-      padding: 1rem;
-      border: 1px solid var(--border);
+      background:
+        radial-gradient(circle at top left, rgba(37,99,235,0.2), rgba(15,23,42,1));
+      border-radius: 1.2rem;
+      padding: 1.1rem;
+      border: 1px solid rgba(31,41,55,0.95);
       position: relative;
+      overflow: hidden;
+      box-shadow: 0 22px 55px rgba(15,23,42,0.9);
     }
+    .card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at top right, rgba(56,189,248,0.12), transparent 55%);
+      opacity: 0.9;
+      pointer-events: none;
+    }
+    .card > * { position: relative; z-index: 1; }
+
     .card h3 {
-      font-size: 0.95rem;
+      font-size: 0.98rem;
       margin-bottom: 0.35rem;
     }
     .card p {
@@ -225,13 +307,22 @@
     }
 
     .badge {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
       font-size: 0.7rem;
-      padding: 0.2rem 0.6rem;
+      padding: 0.22rem 0.7rem;
       border-radius: 999px;
-      border: 1px solid rgba(148,163,184,0.6);
-      color: var(--muted);
+      border: 1px solid rgba(148,163,184,0.7);
+      color: #e5e7eb;
+      background: radial-gradient(circle at top, rgba(15,23,42,0.9), rgba(2,6,23,0.98));
       margin-bottom: 0.5rem;
+    }
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #22c55e;
     }
 
     .price {
@@ -245,6 +336,16 @@
       font-weight: 400;
     }
 
+    .subpill {
+      display: inline-block;
+      font-size: 0.7rem;
+      padding: 0.16rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.4);
+      color: var(--muted);
+      margin-top: 0.3rem;
+    }
+
     .form-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0,1fr));
@@ -253,7 +354,7 @@
     .form-group {
       display: flex;
       flex-direction: column;
-      gap: 0.2rem;
+      gap: 0.22rem;
       font-size: 0.78rem;
     }
     label {
@@ -263,9 +364,9 @@
     input, select, textarea {
       border-radius: 0.55rem;
       border: 1px solid rgba(55,65,81,0.9);
-      background: rgba(15,23,42,0.9);
+      background: rgba(15,23,42,0.95);
       color: #e5e7eb;
-      padding: 0.45rem 0.6rem;
+      padding: 0.46rem 0.6rem;
       font-size: 0.78rem;
       outline: none;
     }
@@ -287,11 +388,11 @@
       width: 100%;
       border-spacing: 0;
       border-collapse: collapse;
-      margin-top: 0.4rem;
+      margin-top: 0.5rem;
       font-size: 0.75rem;
     }
     th, td {
-      border-bottom: 1px solid rgba(31,41,55,0.9);
+      border-bottom: 1px solid rgba(31,41,55,0.95);
       padding: 0.3rem 0.25rem;
       text-align: left;
     }
@@ -306,8 +407,9 @@
     .dashboard-shell {
       border-radius: 1.2rem;
       border: 1px solid var(--border);
-      background: rgba(15,23,42,0.98);
+      background: radial-gradient(circle at top, rgba(37,99,235,0.18), rgba(15,23,42,0.98));
       padding: 1rem;
+      box-shadow: var(--shadow-strong);
     }
     .status-text {
       font-size: 0.75rem;
@@ -318,14 +420,14 @@
     .status-text.error { color: var(--danger); }
 
     footer {
-      border-top: 1px solid rgba(31,41,55,0.8);
+      border-top: 1px solid rgba(31,41,55,0.85);
       padding: 1rem 0;
       background: rgba(15,23,42,0.98);
       font-size: 0.75rem;
       color: var(--muted);
     }
 
-    /* POLICIES SECTION */
+    /* LISTS */
     .policy-list {
       font-size: 0.8rem;
       color: var(--muted);
@@ -343,6 +445,7 @@
       }
       .nav-links { display: none; }
       section { padding: 3rem 0; }
+      .hero { padding-top: 2.4rem; }
     }
   </style>
 </head>
@@ -355,14 +458,15 @@
         <div class="logo-mark">1128</div>
         <div class="logo-text">
           <span>1128 Management Corp</span>
-          <span>Mississippi C-Corp • Funding Support</span>
+          <span>Mississippi C-Corp • Management • Support</span>
         </div>
       </div>
       <nav class="nav-links">
         <a href="#hero" onclick="scrollToSection('hero');return false;">Home</a>
-        <a href="#products" onclick="scrollToSection('products');return false;">Products</a>
+        <a href="#products" onclick="scrollToSection('products');return false;">Bundles & Credits</a>
+        <a href="#services" onclick="scrollToSection('services');return false;">Services</a>
         <a href="#intake" onclick="scrollToSection('intake');return false;">Client Intake</a>
-        <a href="#membership" onclick="scrollToSection('membership');return false;">Login</a>
+        <a href="#membership" onclick="scrollToSection('membership');return false;">Portal</a>
         <a href="#policies" onclick="scrollToSection('policies');return false;">Policies</a>
       </nav>
       <div class="nav-cta">
@@ -372,14 +476,14 @@
           Client / Staff Login
         </button>
 
-        <!-- NEW TOP NAV BUY CREDITS BUTTON -->
+        <!-- TOP NAV BUY CREDITS BUTTON -->
         <button class="btn-outline"
                 onclick="window.location.href='https://buy.stripe.com/4gM00jddY2Q228qanU1ck07';">
           Buy Credits ($5+) →
         </button>
 
         <button class="btn" onclick="scrollToSection('products')">
-          View Products →
+          View Bundles →
         </button>
       </div>
     </div>
@@ -391,69 +495,85 @@
       <div class="container hero-grid">
         <div>
           <div class="hero-kicker">
-            <span>Corporate paperwork • Basic admin • Funding support • Private portal</span>
+            <span>Mississippi C-Corp setup • Business management • Support credits • Private portal</span>
           </div>
           <h1 class="hero-title">
             We help you get your<br />
-            <span>Mississippi C-Corp set up, organized, and ready for funding support.</span>
+            <span>C-Corporation set up, your business managed, and your information organized.</span>
           </h1>
           <p class="hero-subtitle">
-            Your $300 bundle covers C-Corp setup, basic admin details, and light funding support:
-            organizing your information so you can approach banks and processors more confidently.
-            Services start within 3 business days and total results require a minimum of 90 days.
-            Updates live in your client portal.
+            1128 Management Corp focuses on Mississippi C-Corporations, business management, and behind-the-scenes support.
+            From incorporation and admin details to undercover evaluations and premium consulting, updates live in your client portal.
           </p>
           <div class="hero-actions">
             <button class="btn" onclick="scrollToSection('products')">
-              💳 See $300 Bundle
+              💳 See $300 C-Corp Bundle
             </button>
 
-            <!-- NEW HERO BUY CREDITS BUTTON -->
+            <!-- HERO BUY CREDITS BUTTON -->
             <button class="btn-outline"
                     onclick="window.location.href='https://buy.stripe.com/4gM00jddY2Q228qanU1ck07';">
               Buy Support Credits ($5+) →
             </button>
 
-            <button class="btn-outline" onclick="scrollToSection('membership')">
-              🔐 Client / Staff Portal
+            <button class="btn-outline" onclick="scrollToSection('services')">
+              📋 View Management & Consulting Services
             </button>
           </div>
           <div class="hero-meta">
             <span><span style="width:6px;height:6px;border-radius:999px;background:#22c55e;display:inline-block;"></span> C-Corp setup & organization</span>
-            <span>• Basic admin • Funding support • Client portal</span>
+            <span>• Business management programs • Undercover evaluation • Support credits</span>
           </div>
         </div>
-        <div class="card">
-          <h3>C-Corp setup + funding support in one place</h3>
-          <p>
-            We don’t promise approvals. We help you get your C-Corp structured, documented,
-            and organized so you can talk to banks, processors, and funding partners with cleaner information.
-          </p>
+
+        <div class="hero-card">
+          <div class="hero-card-inner">
+            <h3>C-Corp setup + management & support in one ecosystem</h3>
+            <p style="font-size:0.8rem; color:var(--muted);">
+              We do not promise approvals or specific outcomes. We help you get your corporation and business
+              structured, observed, and organized so you can move with more clarity and better information.
+            </p>
+            <div style="margin-top:0.7rem; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0.6rem; font-size:0.75rem;">
+              <div style="background:rgba(15,23,42,0.95); border-radius:0.75rem; padding:0.55rem; border:1px solid rgba(55,65,81,0.9);">
+                <div style="font-size:0.7rem; color:var(--muted);">Core Bundle</div>
+                <div style="font-weight:600;">$300 C-Corp Launch</div>
+                <div style="font-size:0.72rem; color:var(--muted); margin-top:0.15rem;">
+                  Incorporation, EIN support, address/phone/email, site presence, and portal access.
+                </div>
+              </div>
+              <div style="background:rgba(15,23,42,0.95); border-radius:0.75rem; padding:0.55rem; border:1px solid rgba(55,65,81,0.9);">
+                <div style="font-size:0.7rem; color:var(--muted);">Management & Evaluation</div>
+                <div style="font-weight:600;">Program & Undercover Review</div>
+                <div style="font-size:0.72rem; color:var(--muted); margin-top:0.15rem;">
+                  Ongoing management options and premium, Undercover-Boss-style evaluations for deeper insight.
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- PRODUCTS & PRICING -->
+    <!-- PRODUCTS & BUNDLES -->
     <section id="products">
       <div class="container">
         <div class="section-header">
-          <div class="section-eyebrow">Products & Pricing</div>
-          <h2 class="section-title">$300 setup bundle + public support credits</h2>
+          <div class="section-eyebrow">Bundles & Public Support Credits</div>
+          <h2 class="section-title">$300 C-Corp bundle plus public support credits</h2>
           <p class="section-subtitle">
-            One flat fee to get your Mississippi C-Corporation set up and organized, plus support credits anyone can buy
-            for extra help or funding support conversations.
+            Start with a clear C-Corp setup, then use support credits for extra help with admin, organization, and business support.
+            All progress is tracked in your client portal.
           </p>
         </div>
 
         <div class="grid-3">
           <!-- MAIN BUNDLE -->
           <div class="card">
-            <span class="badge">Most Popular</span>
-            <h3>1128 C-Corp Launch & Funding Support Bundle</h3>
-            <div class="price">$300 <small>total – state/government fees included</small></div>
+            <span class="badge"><span class="badge-dot"></span> Most Popular</span>
+            <h3>1128 C-Corp Launch & Organization Bundle</h3>
+            <div class="price">$300 <small>total – service fee (state/government fees are included)</small></div>
             <p style="margin:0.5rem 0 0.5rem;">
-              One-time service bundle to get your Mississippi C-Corporation formed, organized, and ready to present
-              when you start pursuing funding.
+              One-time service bundle to get your Mississippi C-Corporation formed and organized, with key details and basic support set up.
             </p>
             <ul class="policy-list">
               <li>Mississippi C-Corporation setup (C-Corp only)</li>
@@ -462,10 +582,11 @@
               <li>Business address, phone, and email setup assistance</li>
               <li>Simple website setup (basic live presence)</li>
               <li>Banking preparation (what you need & how to apply)</li>
-              <li>Payment processor prep (Stripe, Square, etc.)</li>
-              <li>Light funding support: organizing info so you can approach lenders & processors</li>
+              <li>Payment processor preparation (Stripe, Square, etc.)</li>
+              <li>Light business support: organizing info so you can approach banks and service providers</li>
               <li>Client portal access for updates & documents</li>
             </ul>
+            <span class="subpill">Services start within 3 business days • 90-day minimum timeline</span>
             <button class="btn" style="margin-top:0.75rem;" onclick="scrollToSection('intake')">
               Start With This Bundle →
             </button>
@@ -474,23 +595,23 @@
           <!-- SUPPORT CREDITS (PUBLIC) -->
           <div class="card">
             <span class="badge">Open To The Public</span>
-            <h3>1128 Support Credits (Setup & Funding Support)</h3>
+            <h3>1128 Support Credits</h3>
             <p style="margin-bottom:0.5rem;">
-              Public support credits anyone can purchase — whether you already have a corporation or are just getting started.
-              Use them for extra help with setup, organization, or funding support conversations.
+              Public support credits anyone can purchase — for extra help with setup, organization, document tweaks,
+              and business or management questions.
             </p>
             <ul class="policy-list">
-              <li><strong>$5 Credits</strong> – quick questions, tiny changes, short clarifications</li>
-              <li><strong>$10 Credits</strong> – multiple small updates or document tweaks</li>
-              <li><strong>$20 Credits</strong> – deeper help or several tasks at once</li>
+              <li><strong>$5 credits</strong> – quick questions, tiny changes, short clarifications</li>
+              <li><strong>$10 credits</strong> – multiple small updates or document tweaks</li>
+              <li><strong>$20 credits</strong> – deeper help or several tasks at once</li>
               <li>Can be purchased in any quantity (x1, x2, x3, etc.)</li>
-              <li>Can be used for C-Corp cleanup, information organization, and funding support questions</li>
+              <li>Use for C-Corp cleanup, information organization, and business support questions</li>
             </ul>
             <p style="font-size:0.75rem; color:var(--muted); margin-top:0.5rem;">
-              Example uses: updating addresses, clarifying documents, organizing info before you talk to banks,
+              Example uses: updating addresses, clarifying documents, organizing information before you talk to banks or vendors,
               and similar light support tasks.
             </p>
-            <!-- REAL STRIPE PAYMENT LINK BUTTON -->
+            <!-- STRIPE PAYMENT LINK BUTTON -->
             <button class="btn" style="margin-top:0.75rem;"
                     onclick="window.location.href='https://buy.stripe.com/4gM00jddY2Q228qanU1ck07';">
               Buy Support Credits (from $5) →
@@ -499,17 +620,121 @@
 
           <!-- HOW IT FLOWS -->
           <div class="card">
-            <span class="badge">How It Works</span>
+            <span class="badge">How It Flows</span>
             <h3>Simple 3-Step Flow</h3>
             <ul class="policy-list">
-              <li><strong>1. Pay for the $300 bundle or credits</strong><br/>We confirm your payment and send intake instructions if needed.</li>
-              <li><strong>2. Complete intake & upload docs</strong><br/>You fill in your details so we can prepare your setup and organize your information.</li>
-              <li><strong>3. Track setup & support in the portal</strong><br/>We start within 3 business days, and you track progress and notes in your client portal.</li>
+              <li><strong>1. Pay for the bundle or credits</strong><br/>We confirm payment and give you intake or next steps.</li>
+              <li><strong>2. Complete intake & share documents</strong><br/>You fill in your details so we can handle setup and support.</li>
+              <li><strong>3. Track everything in the portal</strong><br/>We begin within 3 business days. You track updates, documents, and notes in your client portal.</li>
             </ul>
             <p style="font-size:0.75rem; color:var(--muted); margin-top:0.5rem;">
-              Total results require a minimum of 90 days. All sales are final. We help with setup and information organization;
-              we do not guarantee funding approvals.
+              Total results require a minimum of 90 days. All sales are final. We help with setup, management, and organization;
+              we do not guarantee approvals or specific outcomes.
             </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BUSINESS SERVICES & PROGRAMS -->
+    <section id="services">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow">Business Services & Programs</div>
+          <h2 class="section-title">Consulting, management, and Undercover Boss–style evaluation</h2>
+          <p class="section-subtitle">
+            Beyond incorporation, 1128 Management Corp offers structured consulting, ongoing management programs,
+            and premium evaluations designed to show you what’s really happening inside your business.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <!-- CONSULTING & STRATEGY -->
+          <div class="card">
+            <span class="badge"><span class="badge-dot"></span> Advisory Services</span>
+            <h3>Business Consulting & Corporate Strategy</h3>
+            <p>
+              Focused sessions to help you understand your structure, documents, business flow, and next moves.
+              These are advisory and organizational — not legal, tax, or guarantee-based services.
+            </p>
+            <ul class="policy-list">
+              <li><strong>Starter Consultation – $99</strong><br/>One-time session for questions and clarity.</li>
+              <li><strong>Business Structure Review – $299</strong><br/>We review your corporate details and recommend adjustments.</li>
+              <li><strong>Ongoing Consulting – $199/month</strong><br/>Up to two sessions per month plus portal notes and follow-ups.</li>
+            </ul>
+            <span class="subpill">Advisory & organizational guidance only</span>
+          </div>
+
+          <!-- MANAGEMENT PROGRAM -->
+          <div class="card">
+            <span class="badge">Business Management Program</span>
+            <h3>1128 Management Program (Remote Oversight)</h3>
+            <p>
+              For business owners who want another set of eyes on operations, documentation, and daily flow —
+              similar to having a remote operations partner.
+            </p>
+            <ul class="policy-list">
+              <li><strong>Basic Management – $249/month</strong><br/>Monthly operational review, notes, and recommendations.</li>
+              <li><strong>Full Management – $499/month</strong><br/>Weekly check-ins, staff & workflow notes, and organized summaries.</li>
+              <li><strong>Executive Business Partner – $999/month</strong><br/>Remote COO-style support with deeper involvement and reporting.</li>
+            </ul>
+            <span class="subpill">Non-employee, non-payroll, advisory management support</span>
+          </div>
+
+          <!-- UNDERCOVER BOSS PROGRAM -->
+          <div class="card">
+            <span class="badge">Premium Evaluation</span>
+            <h3>Undercover Boss–Style Evaluation</h3>
+            <p>
+              A high-touch, Undercover Boss–style program where business behavior, staff interaction,
+              and customer experience are observed and reported back to you with real-world notes.
+            </p>
+            <ul class="policy-list">
+              <li><strong>Basic Observation – $399</strong><br/>Secret customer-style visit with a focused report.</li>
+              <li><strong>Advanced On-Site Evaluation – $899</strong><br/>Deeper look at staff behavior, operations, and customer experience.</li>
+              <li><strong>Full 3-Day Evaluation – $2,499</strong><br/>Multi-day evaluation with a 30-day correction plan recommendation.</li>
+            </ul>
+            <span class="subpill">Scope, travel, and scheduling discussed before engagement</span>
+          </div>
+        </div>
+
+        <!-- ADD-ON SERVICES -->
+        <div class="section-header" style="margin-top:2.2rem;">
+          <div class="section-eyebrow">Add-On Services (Optional)</div>
+          <h2 class="section-title">Extras you can stack on top</h2>
+          <p class="section-subtitle">
+            These add-ons are for clients who want more help with their digital presence, documents, systems, or overall strategy mapping.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <span class="badge">Brand & Presence</span>
+            <h3>Website & Communication Setup</h3>
+            <ul class="policy-list">
+              <li><strong>Website Build or Rebuild – $399</strong><br/>Simple, business-ready website to match your corporation.</li>
+              <li><strong>Business Phone & Email Setup – $89</strong><br/>Help getting a clean business line and email identity in place.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <span class="badge">Documents & Systems</span>
+            <h3>Corporate Documents & Business Systems</h3>
+            <ul class="policy-list">
+              <li><strong>Corporate Document Creation – $89–$399</strong><br/>Custom corporate-style documents, based on your needs and scope.</li>
+              <li><strong>Business Systems Setup (CRM, portal, etc.) – $299</strong><br/>Helping you pick and organize tools so your information lives in one place.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <span class="badge">Payments & Strategy</span>
+            <h3>Payment Setup & Funding Strategy Mapping</h3>
+            <ul class="policy-list">
+              <li><strong>Payment Processor Setup – $199</strong><br/>Guidance on setting up processors (like Stripe or Square) and organizing info.</li>
+              <li><strong>Funding Strategy & Mapping – $999</strong><br/>
+                High-level review of your business documents and information, with an organized map and plan of what to present and how to talk about your business when you approach banks, processors, or other partners. Advisory only — no guarantees, and no manipulation of transaction patterns.
+              </li>
+            </ul>
           </div>
         </div>
       </div>
@@ -523,7 +748,7 @@
           <h2 class="section-title">Tell us how your business is structured, or how you want it structured</h2>
           <p class="section-subtitle">
             We only work with <strong>Mississippi C-Corporations</strong>. Use this form so we can set up or clean up your corporation details
-            — name, address, phone number, email, website, registered agent, and basic contact info we use to help support funding.
+            — name, address, phone number, email, website, registered agent, and key contact information.
           </p>
         </div>
 
@@ -585,7 +810,8 @@
                   <option value="new-c-corp">New C-Corporation setup</option>
                   <option value="cleanup">Clean up existing business paperwork</option>
                   <option value="update-info">Update name / address / contact info</option>
-                  <option value="funding-support">Help organizing things for funding support</option>
+                  <option value="support">Business management or support services</option>
+                  <option value="evaluation">Undercover evaluation interest</option>
                   <option value="other">Other / not sure yet</option>
                 </select>
               </div>
@@ -597,7 +823,7 @@
               <textarea
                 id="intake-notes"
                 name="notes"
-                placeholder="Example: I have a store and a side business. I want everything under one C-Corp with the right name, address, phone, email, website, registered agent, and organized information for funding."
+                placeholder="Example: I have a store and a side business. I want everything under one C-Corp with a clean name, address, phone, email, website, registered agent, and better organization so I can move forward more confidently."
               ></textarea>
             </div>
 
@@ -606,7 +832,7 @@
               <label>
                 <input id="intake-authorization" type="checkbox" required style="margin-right:0.35rem;" />
                 I authorize 1128 Management Corp to review this information for the purpose of helping with
-                Mississippi C-Corporation setup, organization, and funding support conversations. No accounts or funds are moved without my separate written approval.
+                Mississippi C-Corporation setup, business management, and advisory support. No accounts or funds are moved without my separate written approval.
               </label>
             </div>
 
@@ -631,11 +857,10 @@
       <div class="container">
         <div class="section-header">
           <div class="section-eyebrow">Client & Staff Portal</div>
-          <h2 class="section-title">Log in to see setup progress, documents, and funding support notes</h2>
+          <h2 class="section-title">Log in to see setup progress, management notes, and evaluation results</h2>
           <p class="section-subtitle">
             The 1128 Management Client Portal is the primary place where we post your updates, document copies, and progress.
-            We also store notes related to your setup and funding support. Email, text, or calls may be used as backup,
-            but your portal is the main home for your results.
+            We also store notes related to your setup, management program, consulting, or Undercover Boss–style evaluation.
           </p>
         </div>
 
@@ -645,7 +870,7 @@
             <h3>Member & Staff Login</h3>
             <p style="font-size:0.8rem; color:var(--muted); margin-bottom:0.6rem;">
               Use your email and password. If this is your first time, use <strong>Register New Account</strong> and choose your role.
-              Clients log in to see their setup status, documents, and notes inside the portal.
+              Clients log in to see their status, documents, and notes in the portal. Staff and admin see broader views.
             </p>
 
             <div class="form-group">
@@ -677,7 +902,7 @@
             <h3 style="font-size:0.95rem;">Client Portal Dashboard</h3>
             <p style="font-size:0.78rem; color:var(--muted); margin-bottom:0.5rem;">
               You are logged in. This panel is not visible to the public. We use this portal for updates, document backup,
-              setup progress, and basic funding support notes.
+              setup progress, management notes, and evaluation results where applicable.
             </p>
 
             <p style="font-size:0.8rem; margin-bottom:0.4rem;">
@@ -687,9 +912,9 @@
 
             <!-- CLIENT-ONLY STATUS PANEL -->
             <div id="client-dashboard-panel" style="display:none; margin-top:1rem;" class="card">
-              <h3 style="font-size:0.9rem;">My Setup & Funding Support Status</h3>
+              <h3 style="font-size:0.9rem;">My Setup / Management / Evaluation Status</h3>
               <p id="client-funding-status" style="font-size:0.8rem; color:var(--muted);">
-                We’ve received your information. Your setup and support status will appear here once 1128 updates it.
+                We’ve received your information. Your status will appear here once 1128 updates it.
               </p>
               <ul id="client-funding-steps" style="font-size:0.78rem; color:var(--muted); margin-top:0.4rem; padding-left:1rem;"></ul>
             </div>
@@ -727,10 +952,10 @@
       <div class="container">
         <div class="section-header">
           <div class="section-eyebrow">Policies & Disclosures</div>
-          <h2 class="section-title">No Refunds • 3-Day Start • 90-Day Minimum Results • Client Portal</h2>
+          <h2 class="section-title">No refunds • 3-day start • 90-day minimum results • Portal-based updates</h2>
           <p class="section-subtitle">
-            To keep everything clear and compliant, we publish our core service policies here. These apply to all services,
-            bundles, and support credits.
+            To keep everything clear and consistent, these policies apply to all services, bundles, support credits,
+            consulting, management programs, and evaluation work.
           </p>
         </div>
 
@@ -740,16 +965,16 @@
             <ul class="policy-list">
               <li>All sales are final — no refunds and no credits will be issued.</li>
               <li>No chargebacks are authorized once work has started.</li>
-              <li>This applies to setup bundles, support credits, and all admin/consulting work.</li>
+              <li>This applies to setup bundles, support credits, consulting, management, and evaluation services.</li>
             </ul>
           </div>
 
           <div class="card">
             <h3>Service Start & Results Timeline</h3>
             <ul class="policy-list">
-              <li>Service begins within <strong>3 business days</strong> after payment and completed intake.</li>
-              <li>Total results require a minimum of <strong>90 days</strong> due to government, banking, and processor timelines.</li>
-              <li>No results are guaranteed before the 90-day minimum window, and no specific approvals are promised.</li>
+              <li>Service begins within <strong>3 business days</strong> after payment and completed intake (when required).</li>
+              <li>Total results require a minimum of <strong>90 days</strong> due to government, banking, vendor, and operational timelines.</li>
+              <li>No results, approvals, or specific outcomes are guaranteed before or after the 90-day minimum window.</li>
             </ul>
           </div>
         </div>
@@ -764,10 +989,11 @@
             </ul>
           </div>
           <div class="card">
-            <h3>Client Responsibility</h3>
+            <h3>Client Responsibility & Scope</h3>
             <ul class="policy-list">
               <li>Clients must provide accurate and complete information.</li>
               <li>Delays caused by missing or incorrect information do not change the no-refund policy.</li>
+              <li>Services are advisory and organizational in nature, not legal, tax, or financial guarantees.</li>
               <li>Clients are responsible for keeping their login credentials secure and requesting resets when needed.</li>
             </ul>
           </div>
@@ -779,11 +1005,11 @@
   <footer>
     <div class="container" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:0.6rem;">
       <span>© <span id="year"></span> 1128 Management Corp. All rights reserved.</span>
-      <span>All sales are final. Services start within 3 business days. Results require a minimum of 90 days. Updates, documents, and funding support notes are delivered through the client portal.</span>
+      <span>All sales are final. Services start within 3 business days. Results require a minimum of 90 days. Updates, documents, and notes are delivered through the client portal.</span>
     </div>
   </footer>
 
-  <!-- REAL FIREBASE LOGIN & BASIC LEAD HANDLING -->
+  <!-- FIREBASE LOGIN & BASIC LEAD HANDLING -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
     import {
@@ -803,7 +1029,7 @@
       setDoc
     } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore.js";
 
-    // --- YOUR FIREBASE CONFIG ---
+    // --- FIREBASE CONFIG (WORKING) ---
     const firebaseConfig = {
       apiKey: "AIzaSyDWgaRI40PO-fgP8xa_m1OWg-3AgOKCQW4",
       authDomain: "management-portal-da4aa.firebaseapp.com",
@@ -887,7 +1113,7 @@
         const snap = await getDoc(ref);
         if (!snap.exists()) {
           statusEl.textContent =
-            "We’ve received your information. Your setup and support status will appear here once 1128 updates it.";
+            "We’ve received your information. Your status will appear here once 1128 updates it.";
           listEl.innerHTML = "";
           return;
         }
@@ -964,11 +1190,11 @@
         });
 
         await setDoc(doc(db, "fundingStatus", cred.user.uid), {
-          overallStatus: "File received. Setup not started yet.",
+          overallStatus: "File received. Setup / services not started yet.",
           steps: [
             { label: "Intake review", status: "Pending" },
-            { label: "C-Corp setup plan", status: "Pending" },
-            { label: "Documents sent to client", status: "Pending" }
+            { label: "Service plan prepared", status: "Pending" },
+            { label: "Documents & notes posted to portal", status: "Pending" }
           ]
         });
 
