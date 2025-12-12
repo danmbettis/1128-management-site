@@ -2,1026 +2,432 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>1128 Management Corp – C-Corp Setup, Business Management & Support</title>
+  <title>1128 Management Corp – Client Portal</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="1128 Management Corp – Mississippi C-Corporation setup, consulting, business management, and support credits with a private client portal." />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --primary: #2563eb;
-      --primary-dark: #1d4ed8;
-      --accent: #00c896;
-      --accent-soft: rgba(34,197,94,0.15);
-      --bg: #020617;
-      --bg-soft: #050816;
-      --card: #020617;
+      --bg: #050816;
+      --bg-card: #111827;
       --border: #1f2937;
       --text: #f9fafb;
       --muted: #9ca3af;
-      --danger: #ef4444;
-      --highlight: #38bdf8;
-      --shadow-strong: 0 24px 60px rgba(15,23,42,0.9);
+      --accent: #2563eb;
+      --accent-soft: #1d4ed8;
     }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
     body {
       font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background:
-        radial-gradient(circle at top, #0b1120 0, #020617 45%, #000 100%);
+      background: radial-gradient(circle at top, #111827 0, #020617 50%, #000 100%);
       color: var(--text);
       line-height: 1.6;
     }
-    a { color: inherit; text-decoration: none; }
-    button { font-family: inherit; cursor: pointer; }
-
-    .container {
-      width: 100%;
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 0 1.25rem;
+    a {
+      color: var(--accent);
+      text-decoration: none;
     }
-
-    /* NAVBAR */
+    a:hover {
+      text-decoration: underline;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 24px 16px 48px;
+    }
     header {
+      padding: 16px 16px 8px;
+      border-bottom: 1px solid rgba(31,41,55,0.8);
+      background: rgba(15,23,42,0.96);
       position: sticky;
       top: 0;
-      z-index: 50;
-      backdrop-filter: blur(20px);
-      background: linear-gradient(
-        to bottom,
-        rgba(15,23,42,0.98),
-        rgba(15,23,42,0.9),
-        rgba(15,23,42,0.65),
-        transparent
-      );
-      border-bottom: 1px solid rgba(31,41,55,0.85);
+      z-index: 10;
     }
     .nav {
+      max-width: 1000px;
+      margin: 0 auto;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0.75rem 0;
+      gap: 12px;
     }
-    .logo {
+    .logo-block {
       display: flex;
       align-items: center;
-      gap: 0.6rem;
+      gap: 10px;
     }
     .logo-mark {
-      width: 34px;
-      height: 34px;
-      border-radius: 1rem;
-      border: 1px solid rgba(148,163,184,0.6);
-      background:
-        radial-gradient(circle at 15% 0, #38bdf8, #4f46e5 40%, #0f172a 75%);
+      width: 36px;
+      height: 36px;
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
+      background: radial-gradient(circle at 10% 0, #38bdf8, #4f46e5, #0f172a);
+      border: 1px solid rgba(148,163,184,0.7);
       font-weight: 700;
-      font-size: 0.8rem;
-      color: #e5e7eb;
-      box-shadow: 0 14px 35px rgba(37,99,235,0.6);
-    }
-    .logo-text { display: flex; flex-direction: column; }
-    .logo-text span:first-child {
-      font-weight: 600;
-      letter-spacing: 0.06em;
       font-size: 0.9rem;
+    }
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+    .logo-text span:first-child {
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
     }
     .logo-text span:last-child {
-      font-size: 0.7rem;
+      font-size: 0.75rem;
       color: var(--muted);
     }
-
-    .nav-links {
-      display: flex;
-      gap: 1.2rem;
-      font-size: 0.86rem;
-      color: var(--muted);
-    }
-    .nav-links a {
-      position: relative;
-      padding: 0.25rem 0;
-    }
-    .nav-links a:hover { color: #e5e7eb; }
-    .nav-links a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -2px;
-      width: 0;
-      height: 2px;
-      background: linear-gradient(to right, var(--primary), var(--accent));
-      border-radius: 999px;
-      transition: width 0.18s ease;
-    }
-    .nav-links a:hover::after { width: 100%; }
-
     .nav-cta {
       display: flex;
-      align-items: center;
-      gap: 0.5rem;
+      gap: 8px;
       flex-wrap: wrap;
       justify-content: flex-end;
     }
     .pill {
       font-size: 0.7rem;
-      padding: 0.2rem 0.55rem;
+      padding: 4px 10px;
       border-radius: 999px;
       border: 1px solid rgba(148,163,184,0.5);
       color: var(--muted);
-      background: rgba(15,23,42,0.8);
     }
-    .btn {
+    .btn, .btn-outline {
       border-radius: 999px;
-      padding: 0.42rem 0.95rem;
+      padding: 8px 16px;
       font-size: 0.8rem;
       border: none;
+      cursor: pointer;
+      font-family: inherit;
       display: inline-flex;
       align-items: center;
-      gap: 0.35rem;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      color: #f9fafb;
-      box-shadow: 0 18px 45px rgba(15,118,110,0.5);
-      white-space: nowrap;
+      justify-content: center;
+      gap: 4px;
     }
-    .btn[disabled] { opacity: 0.6; cursor: default; }
+    .btn {
+      background: linear-gradient(to right, var(--accent), var(--accent-soft));
+      color: white;
+      box-shadow: 0 14px 35px rgba(37,99,235,0.45);
+    }
+    .btn[disabled] {
+      opacity: 0.6;
+      cursor: default;
+      box-shadow: none;
+    }
     .btn-outline {
-      background: radial-gradient(circle at top, rgba(15,23,42,0.9), rgba(2,6,23,0.98));
+      background: transparent;
       border: 1px solid rgba(148,163,184,0.7);
-      color: #e5e7eb;
-      border-radius: 999px;
-      padding: 0.4rem 0.95rem;
-      font-size: 0.8rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.3rem;
+      color: var(--text);
     }
 
-    main { padding-bottom: 4rem; }
-    section { padding: 4rem 0; }
-
-    .section-header { margin-bottom: 1.75rem; }
-    .section-eyebrow {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--accent);
-      margin-bottom: 0.2rem;
-    }
-    .section-title {
-      font-size: 1.6rem;
-      font-weight: 600;
-    }
-    .section-subtitle {
-      font-size: 0.9rem;
-      color: var(--muted);
-      max-width: 640px;
-      margin-top: 0.4rem;
-    }
-
-    /* HERO */
-    .hero { padding-top: 3rem; }
-    .hero-grid {
+    .layout {
       display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-      gap: 2.5rem;
-      align-items: center;
+      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.2fr);
+      gap: 24px;
+      margin-top: 24px;
     }
-    .hero-kicker {
-      font-size: 0.8rem;
-      color: var(--muted);
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.26rem 0.7rem;
-      border-radius: 999px;
-      border: 1px solid rgba(148,163,184,0.5);
-      margin-bottom: 1rem;
-      background: radial-gradient(circle at left, rgba(59,130,246,0.3), rgba(15,23,42,0.95));
-      box-shadow: 0 16px 40px rgba(15,23,42,0.95);
-    }
-    .hero-title {
-      font-size: clamp(2rem, 2.4rem, 2.7rem);
-      font-weight: 700;
-      line-height: 1.15;
-      margin-bottom: 0.7rem;
-    }
-    .hero-title span {
-      background: linear-gradient(to right, #38bdf8, #a855f7, #22c55e);
-      -webkit-background-clip: text;
-      color: transparent;
-    }
-    .hero-subtitle {
-      font-size: 0.95rem;
-      color: var(--muted);
-      max-width: 470px;
-      margin-bottom: 1.1rem;
-    }
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      margin-top: 1.4rem;
-    }
-    .hero-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      margin-top: 1rem;
-      font-size: 0.75rem;
-      color: var(--muted);
-    }
-    .hero-meta span {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.3rem;
-    }
-
-    .hero-card {
-      background:
-        radial-gradient(circle at top, rgba(37,99,235,0.4), rgba(15,23,42,0.98));
-      border-radius: 1.4rem;
-      padding: 1.4rem;
-      border: 1px solid rgba(148,163,184,0.6);
-      box-shadow: var(--shadow-strong);
-      position: relative;
-      overflow: hidden;
-    }
-    .hero-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 10% 0, rgba(56,189,248,0.3), transparent 50%),
-        radial-gradient(circle at 100% 20%, rgba(129,140,248,0.25), transparent 55%);
-      opacity: 0.95;
-      pointer-events: none;
-    }
-    .hero-card-inner { position: relative; z-index: 1; }
-    .hero-card-inner h3 { font-size: 0.98rem; margin-bottom: 0.4rem; }
-
-    /* GRID / CARDS / FORMS */
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0,1fr));
-      gap: 1.5rem;
-    }
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0,1fr));
-      gap: 1.25rem;
+    @media (max-width: 900px) {
+      .layout {
+        grid-template-columns: minmax(0,1fr);
+      }
     }
 
     .card {
-      background:
-        radial-gradient(circle at top left, rgba(37,99,235,0.2), rgba(15,23,42,1));
-      border-radius: 1.2rem;
-      padding: 1.1rem;
-      border: 1px solid rgba(31,41,55,0.95);
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 22px 55px rgba(15,23,42,0.9);
+      background: var(--bg-card);
+      border-radius: 16px;
+      padding: 18px 18px 20px;
+      border: 1px solid var(--border);
     }
-    .card::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at top right, rgba(56,189,248,0.12), transparent 55%);
-      opacity: 0.9;
-      pointer-events: none;
+    h1 {
+      font-size: 1.9rem;
+      margin-bottom: 8px;
     }
-    .card > * { position: relative; z-index: 1; }
-
-    .card h3 {
-      font-size: 0.98rem;
-      margin-bottom: 0.35rem;
+    h2 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
     }
-    .card p {
+    h3 {
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+    p {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    .hero-eyebrow {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #22c55e;
+      margin-bottom: 6px;
+    }
+    .hero-meta {
+      margin-top: 8px;
       font-size: 0.8rem;
       color: var(--muted);
     }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.25rem;
-      font-size: 0.7rem;
-      padding: 0.22rem 0.7rem;
-      border-radius: 999px;
-      border: 1px solid rgba(148,163,184,0.7);
-      color: #e5e7eb;
-      background: radial-gradient(circle at top, rgba(15,23,42,0.9), rgba(2,6,23,0.98));
-      margin-bottom: 0.5rem;
-    }
-    .badge-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 999px;
-      background: #22c55e;
+    .hero-meta span {
+      display: block;
     }
 
-    .price {
-      font-size: 1.4rem;
-      font-weight: 600;
-      margin: 0.35rem 0;
-    }
-    .price small {
-      font-size: 0.75rem;
-      color: var(--muted);
-      font-weight: 400;
-    }
-
-    .subpill {
-      display: inline-block;
-      font-size: 0.7rem;
-      padding: 0.16rem 0.55rem;
-      border-radius: 999px;
-      border: 1px solid rgba(148,163,184,0.4);
-      color: var(--muted);
-      margin-top: 0.3rem;
-    }
-
-    .form-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0,1fr));
-      gap: 0.8rem;
-    }
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 0.22rem;
-      font-size: 0.78rem;
-    }
     label {
-      color: #e5e7eb;
-      font-size: 0.78rem;
+      font-size: 0.8rem;
+      display: block;
+      margin-top: 8px;
+      margin-bottom: 3px;
     }
-    input, select, textarea {
-      border-radius: 0.55rem;
-      border: 1px solid rgba(55,65,81,0.9);
-      background: rgba(15,23,42,0.95);
-      color: #e5e7eb;
-      padding: 0.46rem 0.6rem;
-      font-size: 0.78rem;
+    input {
+      width: 100%;
+      padding: 8px 10px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: #020617;
+      color: var(--text);
+      font-size: 0.85rem;
       outline: none;
     }
-    input::placeholder, textarea::placeholder { color: #6b7280; }
-    textarea { min-height: 90px; resize: vertical; }
-
-    .form-footer {
+    input::placeholder {
+      color: #6b7280;
+    }
+    .login-actions {
       display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 0.75rem;
-      margin-top: 0.8rem;
-      font-size: 0.7rem;
-      color: var(--muted);
       flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+      align-items: center;
+    }
+    .helper-text {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    #dashboard-locked-msg {
+      margin-top: 24px;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    #dashboard-wrapper {
+      margin-top: 24px;
+    }
+
+    .badge-role {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(59,130,246,0.7);
+      font-size: 0.75rem;
+    }
+
+    ul.status-list, ul.doc-list {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 6px;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    ul.status-list li::before {
+      content: "• ";
+      color: #22c55e;
+    }
+    ul.doc-list li::before {
+      content: "↗ ";
+      color: #38bdf8;
     }
 
     table {
       width: 100%;
-      border-spacing: 0;
       border-collapse: collapse;
-      margin-top: 0.5rem;
-      font-size: 0.75rem;
+      margin-top: 8px;
+      font-size: 0.8rem;
     }
     th, td {
-      border-bottom: 1px solid rgba(31,41,55,0.95);
-      padding: 0.3rem 0.25rem;
+      padding: 6px 4px;
+      border-bottom: 1px solid var(--border);
       text-align: left;
     }
     th {
       text-transform: uppercase;
-      letter-spacing: 0.14em;
-      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      font-size: 0.7rem;
       color: var(--muted);
     }
-
-    /* DASHBOARD */
-    .dashboard-shell {
-      border-radius: 1.2rem;
-      border: 1px solid var(--border);
-      background: radial-gradient(circle at top, rgba(37,99,235,0.18), rgba(15,23,42,0.98));
-      padding: 1rem;
-      box-shadow: var(--shadow-strong);
-    }
-    .status-text {
-      font-size: 0.75rem;
-      margin-top: 0.4rem;
-      color: var(--muted);
-      min-height: 1em;
-    }
-    .status-text.error { color: var(--danger); }
 
     footer {
-      border-top: 1px solid rgba(31,41,55,0.85);
-      padding: 1rem 0;
-      background: rgba(15,23,42,0.98);
-      font-size: 0.75rem;
-      color: var(--muted);
-    }
-
-    /* LISTS */
-    .policy-list {
+      border-top: 1px solid rgba(31,41,55,0.8);
+      padding: 16px;
       font-size: 0.8rem;
       color: var(--muted);
-      padding-left: 1rem;
-      margin-top: 0.5rem;
-    }
-    .policy-list li { margin-bottom: 0.35rem; }
-
-    /* RESPONSIVE */
-    @media (max-width: 900px) {
-      .hero-grid,
-      .grid-2,
-      .grid-3 {
-        grid-template-columns: minmax(0,1fr);
-      }
-      .nav-links { display: none; }
-      section { padding: 3rem 0; }
-      .hero { padding-top: 2.4rem; }
+      text-align: center;
+      background: rgba(15,23,42,0.96);
+      margin-top: 40px;
     }
   </style>
 </head>
-
 <body>
-  <!-- NAVBAR -->
   <header>
-    <div class="container nav">
-      <div class="logo">
+    <div class="nav">
+      <div class="logo-block">
         <div class="logo-mark">1128</div>
         <div class="logo-text">
           <span>1128 Management Corp</span>
-          <span>Mississippi C-Corp • Management • Support</span>
+          <span>C-Corp Setup • Management • Portal</span>
         </div>
       </div>
-      <nav class="nav-links">
-        <a href="#hero" onclick="scrollToSection('hero');return false;">Home</a>
-        <a href="#products" onclick="scrollToSection('products');return false;">Bundles & Credits</a>
-        <a href="#services" onclick="scrollToSection('services');return false;">Services</a>
-        <a href="#intake" onclick="scrollToSection('intake');return false;">Client Intake</a>
-        <a href="#membership" onclick="scrollToSection('membership');return false;">Portal</a>
-        <a href="#policies" onclick="scrollToSection('policies');return false;">Policies</a>
-      </nav>
       <div class="nav-cta">
-        <span class="pill">Mississippi • C-Corp Only</span>
-
-        <button class="btn-outline" onclick="scrollToSection('membership')">
-          Client / Staff Login
-        </button>
-
-        <!-- TOP NAV BUY CREDITS BUTTON -->
-        <button class="btn-outline"
-                onclick="window.location.href='https://buy.stripe.com/4gM00jddY2Q228qanU1ck07';">
-          Buy Credits ($5+) →
-        </button>
-
-        <button class="btn" onclick="scrollToSection('products')">
-          View Bundles →
+        <span class="pill">Mississippi • Multi-Entity</span>
+        <button class="btn-outline" onclick="document.getElementById('login-card').scrollIntoView({behavior:'smooth'})">
+          Client Portal Login
         </button>
       </div>
     </div>
   </header>
 
-  <main>
-    <!-- HERO -->
-    <section id="hero" class="hero">
-      <div class="container hero-grid">
+    <div class="container">
+      <div class="layout">
+        <!-- LEFT: SIMPLE OVERVIEW -->
         <div>
-          <div class="hero-kicker">
-            <span>Mississippi C-Corp setup • Business management • Support credits • Private portal</span>
-          </div>
-          <h1 class="hero-title">
-            We help you get your<br />
-            <span>C-Corporation set up, your business managed, and your information organized.</span>
-          </h1>
-          <p class="hero-subtitle">
-            1128 Management Corp focuses on Mississippi C-Corporations, business management, and behind-the-scenes support.
-            From incorporation and admin details to undercover evaluations and premium consulting, updates live in your client portal.
-          </p>
-          <div class="hero-actions">
-            <button class="btn" onclick="scrollToSection('products')">
-              💳 See $300 C-Corp Bundle
-            </button>
-
-            <!-- HERO BUY CREDITS BUTTON -->
-            <button class="btn-outline"
-                    onclick="window.location.href='https://buy.stripe.com/4gM00jddY2Q228qanU1ck07';">
-              Buy Support Credits ($5+) →
-            </button>
-
-            <button class="btn-outline" onclick="scrollToSection('services')">
-              📋 View Management & Consulting Services
-            </button>
-          </div>
-          <div class="hero-meta">
-            <span><span style="width:6px;height:6px;border-radius:999px;background:#22c55e;display:inline-block;"></span> C-Corp setup & organization</span>
-            <span>• Business management programs • Undercover evaluation • Support credits</span>
-          </div>
-        </div>
-
-        <div class="hero-card">
-          <div class="hero-card-inner">
-            <h3>C-Corp setup + management & support in one ecosystem</h3>
-            <p style="font-size:0.8rem; color:var(--muted);">
-              We do not promise approvals or specific outcomes. We help you get your corporation and business
-              structured, observed, and organized so you can move with more clarity and better information.
+          <div class="card">
+            <div class="hero-eyebrow">Client Portal</div>
+            <h1>Track your setup, management, and documentation in one place.</h1>
+            <p>
+              1128 Management Corp uses this portal to keep clients updated on
+              C-Corporation setup, management work, document status, and ongoing support.
+              You will see updates, notes, and document links once we begin work on your file.
             </p>
-            <div style="margin-top:0.7rem; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0.6rem; font-size:0.75rem;">
-              <div style="background:rgba(15,23,42,0.95); border-radius:0.75rem; padding:0.55rem; border:1px solid rgba(55,65,81,0.9);">
-                <div style="font-size:0.7rem; color:var(--muted);">Core Bundle</div>
-                <div style="font-weight:600;">$300 C-Corp Launch</div>
-                <div style="font-size:0.72rem; color:var(--muted); margin-top:0.15rem;">
-                  Incorporation, EIN support, address/phone/email, site presence, and portal access.
-                </div>
-              </div>
-              <div style="background:rgba(15,23,42,0.95); border-radius:0.75rem; padding:0.55rem; border:1px solid rgba(55,65,81,0.9);">
-                <div style="font-size:0.7rem; color:var(--muted);">Management & Evaluation</div>
-                <div style="font-weight:600;">Program & Undercover Review</div>
-                <div style="font-size:0.72rem; color:var(--muted); margin-top:0.15rem;">
-                  Ongoing management options and premium, Undercover-Boss-style evaluations for deeper insight.
-                </div>
-              </div>
+            <div class="hero-meta">
+              <span>• For paying clients of 1128 Management Corp.</span>
+              <span>• Each person has their own email + password login.</span>
+              <span>• Status and documents are updated by 1128 on the backend.</span>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- PRODUCTS & BUNDLES -->
-    <section id="products">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-eyebrow">Bundles & Public Support Credits</div>
-          <h2 class="section-title">$300 C-Corp bundle plus public support credits</h2>
-          <p class="section-subtitle">
-            Start with a clear C-Corp setup, then use support credits for extra help with admin, organization, and business support.
-            All progress is tracked in your client portal.
-          </p>
-        </div>
-
-        <div class="grid-3">
-          <!-- MAIN BUNDLE -->
-          <div class="card">
-            <span class="badge"><span class="badge-dot"></span> Most Popular</span>
-            <h3>1128 C-Corp Launch & Organization Bundle</h3>
-            <div class="price">$300 <small>total – service fee (state/government fees are included)</small></div>
-            <p style="margin:0.5rem 0 0.5rem;">
-              One-time service bundle to get your Mississippi C-Corporation formed and organized, with key details and basic support set up.
+          <div class="card" style="margin-top:18px;">
+            <h2>How it works for you</h2>
+            <p>
+              1) You complete payment and intake.  
+              2) You create your portal login using the same email you gave us.  
+              3) We update your file inside our system.  
+              4) When you log in, you can see:
             </p>
-            <ul class="policy-list">
-              <li>Mississippi C-Corporation setup (C-Corp only)</li>
-              <li>EIN (Tax ID) setup support</li>
-              <li>Business name & basic structure guidance</li>
-              <li>Business address, phone, and email setup assistance</li>
-              <li>Simple website setup (basic live presence)</li>
-              <li>Banking preparation (what you need & how to apply)</li>
-              <li>Payment processor preparation (Stripe, Square, etc.)</li>
-              <li>Light business support: organizing info so you can approach banks and service providers</li>
-              <li>Client portal access for updates & documents</li>
+            <ul class="status-list" style="margin-top:6px;">
+              <li>Overall status of your setup / management / evaluation</li>
+              <li>Key steps and their current stage (Complete / In Progress / Pending)</li>
+              <li>Links to important documents we have placed on file for you</li>
             </ul>
-            <span class="subpill">Services start within 3 business days • 90-day minimum timeline</span>
-            <button class="btn" style="margin-top:0.75rem;" onclick="scrollToSection('intake')">
-              Start With This Bundle →
+          </div>
+        </div>
+
+        <!-- RIGHT: LOGIN + PORTAL -->
+        <div id="login-card" class="card">
+          <h2>Client Login</h2>
+          <p class="helper-text">
+            This login is for 1128 Management Corp clients.  
+            New registrations created here are automatically treated as <strong>Clients</strong>.
+          </p>
+
+          <label for="login-email">Email</label>
+          <input id="login-email" type="email" placeholder="you@email.com" autocomplete="email" />
+
+          <label for="login-password">Password</label>
+          <input id="login-password" type="password" placeholder="••••••••" autocomplete="current-password" />
+
+          <!-- Hidden role selector: public cannot choose Staff/Admin -->
+          <div style="display:none;">
+            <label for="login-role">Role</label>
+            <select id="login-role">
+              <option value="client" selected>Client</option>
+            </select>
+          </div>
+
+          <div class="login-actions">
+            <button id="login-btn" class="btn" type="button" onclick="handleLogin()">
+              Login
+            </button>
+            <button id="register-btn" class="btn-outline" type="button" onclick="handleRegister()">
+              Register New Client Account
             </button>
           </div>
 
-          <!-- SUPPORT CREDITS (PUBLIC) -->
-          <div class="card">
-            <span class="badge">Open To The Public</span>
-            <h3>1128 Support Credits</h3>
-            <p style="margin-bottom:0.5rem;">
-              Public support credits anyone can purchase — for extra help with setup, organization, document tweaks,
-              and business or management questions.
-            </p>
-            <ul class="policy-list">
-              <li><strong>$5 credits</strong> – quick questions, tiny changes, short clarifications</li>
-              <li><strong>$10 credits</strong> – multiple small updates or document tweaks</li>
-              <li><strong>$20 credits</strong> – deeper help or several tasks at once</li>
-              <li>Can be purchased in any quantity (x1, x2, x3, etc.)</li>
-              <li>Use for C-Corp cleanup, information organization, and business support questions</li>
-            </ul>
-            <p style="font-size:0.75rem; color:var(--muted); margin-top:0.5rem;">
-              Example uses: updating addresses, clarifying documents, organizing information before you talk to banks or vendors,
-              and similar light support tasks.
-            </p>
-            <!-- STRIPE PAYMENT LINK BUTTON -->
-            <button class="btn" style="margin-top:0.75rem;"
-                    onclick="window.location.href='https://buy.stripe.com/4gM00jddY2Q228qanU1ck07';">
-              Buy Support Credits (from $5) →
-            </button>
-          </div>
-
-          <!-- HOW IT FLOWS -->
-          <div class="card">
-            <span class="badge">How It Flows</span>
-            <h3>Simple 3-Step Flow</h3>
-            <ul class="policy-list">
-              <li><strong>1. Pay for the bundle or credits</strong><br/>We confirm payment and give you intake or next steps.</li>
-              <li><strong>2. Complete intake & share documents</strong><br/>You fill in your details so we can handle setup and support.</li>
-              <li><strong>3. Track everything in the portal</strong><br/>We begin within 3 business days. You track updates, documents, and notes in your client portal.</li>
-            </ul>
-            <p style="font-size:0.75rem; color:var(--muted); margin-top:0.5rem;">
-              Total results require a minimum of 90 days. All sales are final. We help with setup, management, and organization;
-              we do not guarantee approvals or specific outcomes.
-            </p>
-          </div>
+          <p class="helper-text">
+            Use <strong>Register</strong> only once per email. If you forget your password, use the password reset
+            link in your email provider once we enable it, or contact 1128 for assistance.
+          </p>
         </div>
       </div>
-    </section>
 
-    <!-- BUSINESS SERVICES & PROGRAMS -->
-    <section id="services">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-eyebrow">Business Services & Programs</div>
-          <h2 class="section-title">Consulting, management, and Undercover Boss–style evaluation</h2>
-          <p class="section-subtitle">
-            Beyond incorporation, 1128 Management Corp offers structured consulting, ongoing management programs,
-            and premium evaluations designed to show you what’s really happening inside your business.
-          </p>
-        </div>
-
-        <div class="grid-3">
-          <!-- CONSULTING & STRATEGY -->
-          <div class="card">
-            <span class="badge"><span class="badge-dot"></span> Advisory Services</span>
-            <h3>Business Consulting & Corporate Strategy</h3>
-            <p>
-              Focused sessions to help you understand your structure, documents, business flow, and next moves.
-              These are advisory and organizational — not legal, tax, or guarantee-based services.
-            </p>
-            <ul class="policy-list">
-              <li><strong>Starter Consultation – $99</strong><br/>One-time session for questions and clarity.</li>
-              <li><strong>Business Structure Review – $299</strong><br/>We review your corporate details and recommend adjustments.</li>
-              <li><strong>Ongoing Consulting – $199/month</strong><br/>Up to two sessions per month plus portal notes and follow-ups.</li>
-            </ul>
-            <span class="subpill">Advisory & organizational guidance only</span>
-          </div>
-
-          <!-- MANAGEMENT PROGRAM -->
-          <div class="card">
-            <span class="badge">Business Management Program</span>
-            <h3>1128 Management Program (Remote Oversight)</h3>
-            <p>
-              For business owners who want another set of eyes on operations, documentation, and daily flow —
-              similar to having a remote operations partner.
-            </p>
-            <ul class="policy-list">
-              <li><strong>Basic Management – $249/month</strong><br/>Monthly operational review, notes, and recommendations.</li>
-              <li><strong>Full Management – $499/month</strong><br/>Weekly check-ins, staff & workflow notes, and organized summaries.</li>
-              <li><strong>Executive Business Partner – $999/month</strong><br/>Remote COO-style support with deeper involvement and reporting.</li>
-            </ul>
-            <span class="subpill">Non-employee, non-payroll, advisory management support</span>
-          </div>
-
-          <!-- UNDERCOVER BOSS PROGRAM -->
-          <div class="card">
-            <span class="badge">Premium Evaluation</span>
-            <h3>Undercover Boss–Style Evaluation</h3>
-            <p>
-              A high-touch, Undercover Boss–style program where business behavior, staff interaction,
-              and customer experience are observed and reported back to you with real-world notes.
-            </p>
-            <ul class="policy-list">
-              <li><strong>Basic Observation – $399</strong><br/>Secret customer-style visit with a focused report.</li>
-              <li><strong>Advanced On-Site Evaluation – $899</strong><br/>Deeper look at staff behavior, operations, and customer experience.</li>
-              <li><strong>Full 3-Day Evaluation – $2,499</strong><br/>Multi-day evaluation with a 30-day correction plan recommendation.</li>
-            </ul>
-            <span class="subpill">Scope, travel, and scheduling discussed before engagement</span>
-          </div>
-        </div>
-
-        <!-- ADD-ON SERVICES -->
-        <div class="section-header" style="margin-top:2.2rem;">
-          <div class="section-eyebrow">Add-On Services (Optional)</div>
-          <h2 class="section-title">Extras you can stack on top</h2>
-          <p class="section-subtitle">
-            These add-ons are for clients who want more help with their digital presence, documents, systems, or overall strategy mapping.
-          </p>
-        </div>
-
-        <div class="grid-3">
-          <div class="card">
-            <span class="badge">Brand & Presence</span>
-            <h3>Website & Communication Setup</h3>
-            <ul class="policy-list">
-              <li><strong>Website Build or Rebuild – $399</strong><br/>Simple, business-ready website to match your corporation.</li>
-              <li><strong>Business Phone & Email Setup – $89</strong><br/>Help getting a clean business line and email identity in place.</li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <span class="badge">Documents & Systems</span>
-            <h3>Corporate Documents & Business Systems</h3>
-            <ul class="policy-list">
-              <li><strong>Corporate Document Creation – $89–$399</strong><br/>Custom corporate-style documents, based on your needs and scope.</li>
-              <li><strong>Business Systems Setup (CRM, portal, etc.) – $299</strong><br/>Helping you pick and organize tools so your information lives in one place.</li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <span class="badge">Payments & Strategy</span>
-            <h3>Payment Setup & Funding Strategy Mapping</h3>
-            <ul class="policy-list">
-              <li><strong>Payment Processor Setup – $199</strong><br/>Guidance on setting up processors (like Stripe or Square) and organizing info.</li>
-              <li><strong>Funding Strategy & Mapping – $999</strong><br/>
-                High-level review of your business documents and information, with an organized map and plan of what to present and how to talk about your business when you approach banks, processors, or other partners. Advisory only — no guarantees, and no manipulation of transaction patterns.
-              </li>
-            </ul>
-          </div>
-        </div>
+      <!-- LOCKED MESSAGE -->
+      <div id="dashboard-locked-msg">
+        You must be logged in to see your internal status and documents.
       </div>
-    </section>
 
-    <!-- CLIENT INTAKE -->
-    <section id="intake">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-eyebrow">Client Intake</div>
-          <h2 class="section-title">Tell us how your business is structured, or how you want it structured</h2>
-          <p class="section-subtitle">
-            We only work with <strong>Mississippi C-Corporations</strong>. Use this form so we can set up or clean up your corporation details
-            — name, address, phone number, email, website, registered agent, and key contact information.
-          </p>
-        </div>
-
+      <!-- DASHBOARD / PORTAL -->
+      <section id="dashboard-wrapper" style="display:none;">
         <div class="card">
-          <form id="intake-form" onsubmit="handleIntakeSubmit(event)">
-            <div class="form-grid">
-              <!-- FULL NAME & PHONE -->
-              <div class="form-group">
-                <label for="intake-name">Full Name (as shown on government ID)</label>
-                <input id="intake-name" name="name" type="text" placeholder="Your legal name" required />
-              </div>
-              <div class="form-group">
-                <label for="intake-phone">Phone</label>
-                <input id="intake-phone" name="phone" type="tel" placeholder="(xxx) xxx-xxxx" required />
-              </div>
-
-              <!-- EMAIL & PREFERRED CONTACT -->
-              <div class="form-group">
-                <label for="intake-email">Email</label>
-                <input id="intake-email" name="email" type="email" placeholder="you@email.com" required />
-              </div>
-              <div class="form-group">
-                <label for="intake-preferred">Preferred Contact Method</label>
-                <select id="intake-preferred" name="preferred">
-                  <option value="text">Text</option>
-                  <option value="call">Phone Call</option>
-                  <option value="email">Email</option>
-                </select>
-              </div>
-
-              <!-- ADDRESS -->
-              <div class="form-group">
-                <label for="intake-street">Street Address</label>
-                <input id="intake-street" name="street" type="text" placeholder="Street address" />
-              </div>
-              <div class="form-group">
-                <label for="intake-city-state-zip">City, State, ZIP</label>
-                <input id="intake-city-state-zip" name="cityStateZip" type="text" placeholder="City, State, ZIP" />
-              </div>
-
-              <!-- DOB & SSN -->
-              <div class="form-group">
-                <label for="intake-dob">Date of Birth</label>
-                <input id="intake-dob" name="dob" type="date" />
-              </div>
-              <div class="form-group">
-                <label for="intake-ssn">SSN (for EIN / banking documentation)</label>
-                <input id="intake-ssn" name="ssn" type="password" placeholder="•••••••••" />
-              </div>
-
-              <!-- ENTITY TYPE (FIXED) & MAIN REASON -->
-              <div class="form-group">
-                <label>Entity Type</label>
-                <input type="text" value="Mississippi C-Corporation (only structure offered)" disabled />
-              </div>
-              <div class="form-group">
-                <label for="intake-goal">Main Reason You Reached Out</label>
-                <select id="intake-goal" name="goal">
-                  <option value="new-c-corp">New C-Corporation setup</option>
-                  <option value="cleanup">Clean up existing business paperwork</option>
-                  <option value="update-info">Update name / address / contact info</option>
-                  <option value="support">Business management or support services</option>
-                  <option value="evaluation">Undercover evaluation interest</option>
-                  <option value="other">Other / not sure yet</option>
-                </select>
-              </div>
+          <div style="display:flex; justify-content:space-between; align-items:center; gap:8px; flex-wrap:wrap;">
+            <div>
+              <h2>Client Portal Dashboard</h2>
+              <p class="helper-text" style="margin-top:2px;">
+                This area shows information based on your account and role. Most users will be <strong>Clients</strong>.
+              </p>
             </div>
-
-            <!-- SITUATION DESCRIPTION -->
-            <div class="form-group" style="margin-top:0.8rem;">
-              <label for="intake-notes">Tell us about your situation in your own words</label>
-              <textarea
-                id="intake-notes"
-                name="notes"
-                placeholder="Example: I have a store and a side business. I want everything under one C-Corp with a clean name, address, phone, email, website, registered agent, and better organization so I can move forward more confidently."
-              ></textarea>
-            </div>
-
-            <!-- AUTHORIZATION -->
-            <div class="form-group" style="margin-top:0.7rem;">
-              <label>
-                <input id="intake-authorization" type="checkbox" required style="margin-right:0.35rem;" />
-                I authorize 1128 Management Corp to review this information for the purpose of helping with
-                Mississippi C-Corporation setup, business management, and advisory support. No accounts or funds are moved without my separate written approval.
-              </label>
-            </div>
-
-            <div class="form-footer">
-              <div>
-                <button type="submit" class="btn">
-                  Submit Intake →
+            <div style="text-align:right;">
+              <span style="font-size:0.8rem; color:var(--muted);">Logged in as:</span><br />
+              <span id="sidebar-role-label" class="badge-role">Guest</span>
+              <div style="margin-top:6px;">
+                <button class="btn-outline" style="font-size:0.75rem; padding:4px 10px;" type="button" onclick="handleLogout()">
+                  Logout
                 </button>
               </div>
-              <div>
-                <span style="display:block;">Services start within 3 business days after payment & completed intake.</span>
-                <span style="display:block;">Total results require a minimum of 90 days. All sales are final.</span>
-              </div>
             </div>
-          </form>
-        </div>
-      </div>
-    </section>
+          </div>
 
-    <!-- MEMBERSHIP / LOGIN -->
-    <section id="membership">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-eyebrow">Client & Staff Portal</div>
-          <h2 class="section-title">Log in to see setup progress, management notes, and evaluation results</h2>
-          <p class="section-subtitle">
-            The 1128 Management Client Portal is the primary place where we post your updates, document copies, and progress.
-            We also store notes related to your setup, management program, consulting, or Undercover Boss–style evaluation.
-          </p>
-        </div>
+          <!-- CLIENT PANEL -->
+          <div id="client-dashboard-panel" style="margin-top:18px; display:none;">
+            <h3>My Setup / Management / Evaluation Status</h3>
+            <p id="client-funding-status" style="margin-top:4px;"></p>
 
-        <div class="grid-2">
-          <!-- LOGIN CARD -->
-          <div class="card">
-            <h3>Member & Staff Login</h3>
-            <p style="font-size:0.8rem; color:var(--muted); margin-bottom:0.6rem;">
-              Use your email and password. If this is your first time, use <strong>Register New Account</strong> and choose your role.
-              Clients log in to see their status, documents, and notes in the portal. Staff and admin see broader views.
+            <h4 style="margin-top:14px; font-size:0.9rem;">Key Steps</h4>
+            <ul id="client-funding-steps" class="status-list"></ul>
+
+            <h4 style="margin-top:14px; font-size:0.9rem;">Documents on File</h4>
+            <ul id="client-documents" class="doc-list"></ul>
+          </div>
+
+          <!-- ADMIN / STAFF VIEW (simple demo table for future use) -->
+          <div id="admin-staff-note" style="margin-top:18px; display:none;">
+            <h3>Admin / Staff Note</h3>
+            <p class="helper-text">
+              This area is reserved for internal use (future expansion: client list, intakes, tasks, etc.).
+              Staff and Admin roles are managed by 1128 inside Firebase, not by public registration.
             </p>
-
-            <div class="form-group">
-              <label for="login-email">Email</label>
-              <input id="login-email" type="email" placeholder="you@yourdomain.com" />
-            </div>
-            <div class="form-group">
-              <label for="login-password">Password</label>
-              <input id="login-password" type="password" placeholder="••••••••" />
-            </div>
-            <div class="form-group">
-              <label for="login-role">Role (for new accounts)</label>
-              <select id="login-role">
-                <option value="client">Client</option>
-                <option value="staff">Staff</option>
-                <option value="admin">Admin</option>
-              </select>
-            </div>
-
-            <div style="margin-top:0.8rem; display:flex; flex-wrap:wrap; gap:0.5rem;">
-              <button id="login-btn" class="btn" type="button" onclick="handleLogin()">Login</button>
-              <button id="register-btn" class="btn-outline" type="button" onclick="handleRegister()">Register New Account</button>
-            </div>
-            <div id="auth-status" class="status-text"></div>
-          </div>
-
-          <!-- DASHBOARD WRAPPER -->
-          <div id="dashboard-wrapper" class="dashboard-shell" style="display:none;">
-            <h3 style="font-size:0.95rem;">Client Portal Dashboard</h3>
-            <p style="font-size:0.78rem; color:var(--muted); margin-bottom:0.5rem;">
-              You are logged in. This panel is not visible to the public. We use this portal for updates, document backup,
-              setup progress, management notes, and evaluation results where applicable.
-            </p>
-
-            <p style="font-size:0.8rem; margin-bottom:0.4rem;">
-              Logged in as: <strong id="sidebar-role-label">Guest</strong>
-            </p>
-            <button class="btn-outline" type="button" onclick="handleLogout()">Logout</button>
-
-            <!-- CLIENT-ONLY STATUS PANEL -->
-            <div id="client-dashboard-panel" style="display:none; margin-top:1rem;" class="card">
-              <h3 style="font-size:0.9rem;">My Setup / Management / Evaluation Status</h3>
-              <p id="client-funding-status" style="font-size:0.8rem; color:var(--muted);">
-                We’ve received your information. Your status will appear here once 1128 updates it.
-              </p>
-              <ul id="client-funding-steps" style="font-size:0.78rem; color:var(--muted); margin-top:0.4rem; padding-left:1rem;"></ul>
-            </div>
-
-            <!-- SIMPLE LEAD TABLE (ADMIN / STAFF VIEW) -->
-            <div id="leads-panel" style="margin-top:1rem;">
-              <h3 style="font-size:0.9rem;">New Intakes (Basic View)</h3>
-              <p style="font-size:0.78rem; color:var(--muted); margin-bottom:0.2rem;">
-                For demo: each submitted intake appears here with name, reason, and status. In production, this ties into your internal system or CRM.
-              </p>
-              <table>
-                <thead>
-                  <tr>
-                    <th>Name</th>
-                    <th>Reason</th>
-                    <th>Status</th>
-                  </tr>
-                </thead>
-                <tbody id="leads-table">
-                  <!-- Filled by JS -->
-                </tbody>
-              </table>
-            </div>
           </div>
         </div>
-
-        <p id="dashboard-locked-msg" style="font-size:0.78rem; color:var(--muted); margin-top:0.75rem;">
-          You must be logged in to see the internal dashboard. Client updates, document access, and progress tracking are delivered through the 1128 Management Client Portal.
-        </p>
-      </div>
-    </section>
-
-    <!-- POLICIES -->
-    <section id="policies">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-eyebrow">Policies & Disclosures</div>
-          <h2 class="section-title">No refunds • 3-day start • 90-day minimum results • Portal-based updates</h2>
-          <p class="section-subtitle">
-            To keep everything clear and consistent, these policies apply to all services, bundles, support credits,
-            consulting, management programs, and evaluation work.
-          </p>
-        </div>
-
-        <div class="grid-2">
-          <div class="card">
-            <h3>No Refund Policy</h3>
-            <ul class="policy-list">
-              <li>All sales are final — no refunds and no credits will be issued.</li>
-              <li>No chargebacks are authorized once work has started.</li>
-              <li>This applies to setup bundles, support credits, consulting, management, and evaluation services.</li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <h3>Service Start & Results Timeline</h3>
-            <ul class="policy-list">
-              <li>Service begins within <strong>3 business days</strong> after payment and completed intake (when required).</li>
-              <li>Total results require a minimum of <strong>90 days</strong> due to government, banking, vendor, and operational timelines.</li>
-              <li>No results, approvals, or specific outcomes are guaranteed before or after the 90-day minimum window.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="grid-2" style="margin-top:1.5rem;">
-          <div class="card">
-            <h3>Client Portal Use</h3>
-            <ul class="policy-list">
-              <li>The client portal is the primary place for updates, document backup, and results tracking.</li>
-              <li>Emails, texts, or calls may be used as backup, but the portal is the main hub.</li>
-              <li>Updates posted in the portal are considered delivered, whether viewed immediately or later.</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h3>Client Responsibility & Scope</h3>
-            <ul class="policy-list">
-              <li>Clients must provide accurate and complete information.</li>
-              <li>Delays caused by missing or incorrect information do not change the no-refund policy.</li>
-              <li>Services are advisory and organizational in nature, not legal, tax, or financial guarantees.</li>
-              <li>Clients are responsible for keeping their login credentials secure and requesting resets when needed.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
+      </section>
+    </div>
 
   <footer>
-    <div class="container" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:0.6rem;">
-      <span>© <span id="year"></span> 1128 Management Corp. All rights reserved.</span>
-      <span>All sales are final. Services start within 3 business days. Results require a minimum of 90 days. Updates, documents, and notes are delivered through the client portal.</span>
-    </div>
+    © <span id="year"></span> 1128 Management Corp. Client Portal.
   </footer>
 
-  <!-- FIREBASE LOGIN & BASIC LEAD HANDLING -->
+  <!-- FIREBASE + PORTAL LOGIC -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
     import {
       getAuth,
-      setPersistence,
-      browserSessionPersistence,
       onAuthStateChanged,
       createUserWithEmailAndPassword,
       signInWithEmailAndPassword,
       signOut
     } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js";
-
     import {
       getFirestore,
       doc,
@@ -1029,7 +435,7 @@
       setDoc
     } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore.js";
 
-    // --- FIREBASE CONFIG (WORKING) ---
+    // ✅ Your working Firebase config
     const firebaseConfig = {
       apiKey: "AIzaSyDWgaRI40PO-fgP8xa_m1OWg-3AgOKCQW4",
       authDomain: "management-portal-da4aa.firebaseapp.com",
@@ -1044,92 +450,12 @@
     const auth = getAuth(app);
     const db = getFirestore(app);
 
-    // Require login per browser session (not forever)
-    setPersistence(auth, browserSessionPersistence).catch(console.error);
-
-    const leads = [];
-
-    function scrollToSection(id) {
-      const el = document.getElementById(id);
-      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-
-    function setAuthStatus(message, isError = false) {
-      const statusEl = document.getElementById("auth-status");
-      if (!statusEl) return;
-      statusEl.textContent = message || "";
-      statusEl.classList.toggle("error", !!isError);
-    }
-
-    function setAuthButtonsDisabled(disabled) {
-      const loginBtn = document.getElementById("login-btn");
-      const registerBtn = document.getElementById("register-btn");
-      if (loginBtn) loginBtn.disabled = disabled;
-      if (registerBtn) registerBtn.disabled = disabled;
-    }
-
-    function updateLeadsTable() {
-      const tbody = document.getElementById("leads-table");
-      if (!tbody) return;
-      tbody.innerHTML = "";
-      leads.forEach((lead) => {
-        const tr = document.createElement("tr");
-        tr.innerHTML = `
-          <td>${lead.name || ""}</td>
-          <td>${lead.reason || ""}</td>
-          <td>${lead.status || ""}</td>
-        `;
-        tbody.appendChild(tr);
-      });
-    }
-
-    function handleIntakeSubmit(event) {
-      event.preventDefault();
-      const form = event.target;
-
-      const name = document.getElementById("intake-name").value.trim();
-      const goalSelect = document.getElementById("intake-goal");
-      const goalText = goalSelect ? goalSelect.options[goalSelect.selectedIndex].text : "";
-      const lead = {
-        name,
-        reason: goalText,
-        status: "New intake"
-      };
-
-      leads.push(lead);
-      updateLeadsTable();
-      form.reset();
-      alert("Thank you! Your intake has been received. We will contact you after review.");
-    }
-
-    async function loadClientFundingStatus(user) {
-      const panel = document.getElementById("client-dashboard-panel");
-      const statusEl = document.getElementById("client-funding-status");
-      const listEl = document.getElementById("client-funding-steps");
-      if (!panel || !statusEl || !listEl) return;
-
-      try {
-        const ref = doc(db, "fundingStatus", user.uid);
-        const snap = await getDoc(ref);
-        if (!snap.exists()) {
-          statusEl.textContent =
-            "We’ve received your information. Your status will appear here once 1128 updates it.";
-          listEl.innerHTML = "";
-          return;
-        }
-        const data = snap.data();
-        statusEl.textContent = data.overallStatus || "In progress";
-        const steps = data.steps || [];
-        listEl.innerHTML = "";
-        steps.forEach((step) => {
-          const li = document.createElement("li");
-          li.textContent = `${step.label}: ${step.status}`;
-          listEl.appendChild(li);
-        });
-      } catch (err) {
-        console.error(err);
-        statusEl.textContent = "We couldn’t load your status right now.";
-      }
+    // ---------- UI helpers ----------
+    function setLoading(buttonId, isLoading, labelWhenIdle, labelWhenLoading) {
+      const btn = document.getElementById(buttonId);
+      if (!btn) return;
+      btn.disabled = isLoading;
+      btn.textContent = isLoading ? labelWhenLoading : labelWhenIdle;
     }
 
     function applyRoleUI(role) {
@@ -1137,50 +463,121 @@
       const lockMsg = document.getElementById("dashboard-locked-msg");
       const roleLabel = document.getElementById("sidebar-role-label");
       const clientPanel = document.getElementById("client-dashboard-panel");
-      const leadsPanel = document.getElementById("leads-panel");
+      const adminStaffNote = document.getElementById("admin-staff-note");
+
+      const normalizedRole = (role || "guest").toLowerCase();
 
       if (!dashboard || !lockMsg || !roleLabel) return;
 
-      if (!role || role === "guest") {
+      if (normalizedRole === "guest") {
         dashboard.style.display = "none";
         lockMsg.style.display = "block";
         roleLabel.textContent = "Guest";
         if (clientPanel) clientPanel.style.display = "none";
+        if (adminStaffNote) adminStaffNote.style.display = "none";
         return;
       }
 
+      // Logged in
       dashboard.style.display = "block";
       lockMsg.style.display = "none";
-      roleLabel.textContent = role.charAt(0).toUpperCase() + role.slice(1);
+      roleLabel.textContent = normalizedRole.charAt(0).toUpperCase() + normalizedRole.slice(1);
 
-      if (clientPanel) clientPanel.style.display = role === "client" ? "block" : "none";
-
-      if (leadsPanel) {
-        if (role === "admin" || role === "staff") {
-          leadsPanel.style.display = "block";
-        } else {
-          leadsPanel.style.display = "none";
-        }
+      if (normalizedRole === "client") {
+        if (clientPanel) clientPanel.style.display = "block";
+        if (adminStaffNote) adminStaffNote.style.display = "none";
+      } else {
+        // For future: staff/admin view
+        if (clientPanel) clientPanel.style.display = "none";
+        if (adminStaffNote) adminStaffNote.style.display = "block";
       }
     }
 
+    async function loadClientFundingStatus(user) {
+      const statusEl = document.getElementById("client-funding-status");
+      const stepsEl = document.getElementById("client-funding-steps");
+      const docsEl = document.getElementById("client-documents");
+
+      if (!statusEl || !stepsEl || !docsEl) return;
+
+      try {
+        const ref = doc(db, "fundingStatus", user.uid);
+        const snap = await getDoc(ref);
+
+        if (!snap.exists()) {
+          statusEl.textContent =
+            "We’ve received your account. Your file will appear here once 1128 adds your details and documents.";
+          stepsEl.innerHTML = "";
+          docsEl.innerHTML = "";
+          return;
+        }
+
+        const data = snap.data();
+
+        // Overall status
+        statusEl.textContent = data.overallStatus || "In progress.";
+
+        // Steps
+        const steps = data.steps || [];
+        stepsEl.innerHTML = "";
+        if (!steps.length) {
+          const li = document.createElement("li");
+          li.textContent = "No steps have been added yet.";
+          stepsEl.appendChild(li);
+        } else {
+          steps.forEach((step) => {
+            const li = document.createElement("li");
+            li.textContent = `${step.label}: ${step.status}`;
+            stepsEl.appendChild(li);
+          });
+        }
+
+        // Documents
+        const docs = data.documents || [];
+        docsEl.innerHTML = "";
+        if (!docs.length) {
+          const li = document.createElement("li");
+          li.textContent = "No documents have been attached yet.";
+          docsEl.appendChild(li);
+        } else {
+          docs.forEach((docItem) => {
+            const li = document.createElement("li");
+            const a = document.createElement("a");
+            a.href = docItem.url;
+            a.target = "_blank";
+            a.rel = "noopener noreferrer";
+            a.textContent = docItem.label || docItem.url;
+            li.appendChild(a);
+            docsEl.appendChild(li);
+          });
+        }
+      } catch (err) {
+        console.error(err);
+        statusEl.textContent = "We couldn’t load your file right now. Please try again later.";
+        stepsEl.innerHTML = "";
+        docsEl.innerHTML = "";
+      }
+    }
+
+    // ---------- Auth: register/login/logout ----------
+
+    // 🔐 PUBLIC REGISTRATION — CLIENT ONLY
     async function handleRegister() {
       const emailInput = document.getElementById("login-email");
       const passwordInput = document.getElementById("login-password");
-      const roleSelect = document.getElementById("login-role");
 
-      const email = emailInput.value.trim();
-      const password = passwordInput.value;
-      const role = roleSelect.value || "client";
+      const email = (emailInput?.value || "").trim();
+      const password = passwordInput?.value || "";
 
       if (!email || !password) {
-        setAuthStatus("Please enter an email and password to register.", true);
+        alert("Please enter an email and password.");
         return;
       }
 
+      const role = "client"; // hard-locked
+
       try {
-        setAuthButtonsDisabled(true);
-        setAuthStatus("Creating account…");
+        setLoading("register-btn", true, "Register New Client Account", "Registering...");
         const cred = await createUserWithEmailAndPassword(auth, email, password);
 
         await setDoc(doc(db, "users", cred.user.uid), {
@@ -1190,22 +587,21 @@
         });
 
         await setDoc(doc(db, "fundingStatus", cred.user.uid), {
-          overallStatus: "File received. Setup / services not started yet.",
+          overallStatus: "We’ve received your account. Intake and setup steps will be added by 1128.",
           steps: [
-            { label: "Intake review", status: "Pending" },
-            { label: "Service plan prepared", status: "Pending" },
-            { label: "Documents & notes posted to portal", status: "Pending" }
-          ]
+            { label: "Client portal account created", status: "Complete" },
+            { label: "Intake / situation review", status: "Pending" },
+            { label: "Service plan prepared", status: "Pending" }
+          ],
+          documents: []
         });
 
-        setAuthStatus("Account created and you are logged in as " + role + ".");
-        emailInput.value = "";
-        passwordInput.value = "";
+        alert("Client portal account created. You are now logged in as a client.");
       } catch (err) {
         console.error(err);
-        setAuthStatus("Could not register: " + err.message, true);
+        alert("Could not register: " + err.message);
       } finally {
-        setAuthButtonsDisabled(false);
+        setLoading("register-btn", false, "Register New Client Account", "Registering...");
       }
     }
 
@@ -1213,43 +609,34 @@
       const emailInput = document.getElementById("login-email");
       const passwordInput = document.getElementById("login-password");
 
-      const email = emailInput.value.trim();
-      const password = passwordInput.value;
+      const email = (emailInput?.value || "").trim();
+      const password = passwordInput?.value || "";
 
       if (!email || !password) {
-        setAuthStatus("Please enter your email and password to log in.", true);
+        alert("Please enter your email and password.");
         return;
       }
 
       try {
-        setAuthButtonsDisabled(true);
-        setAuthStatus("Logging in…");
+        setLoading("login-btn", true, "Login", "Logging in...");
         await signInWithEmailAndPassword(auth, email, password);
-        setAuthStatus("Login successful.");
-        emailInput.value = "";
-        passwordInput.value = "";
       } catch (err) {
         console.error(err);
-        setAuthStatus("Login failed: " + err.message, true);
+        alert("Login failed: " + err.message);
       } finally {
-        setAuthButtonsDisabled(false);
+        setLoading("login-btn", false, "Login", "Logging in...");
       }
     }
 
     async function handleLogout() {
       try {
-        setAuthButtonsDisabled(true);
-        setAuthStatus("Logging out…");
         await signOut(auth);
-        setAuthStatus("You are logged out.");
       } catch (err) {
         console.error(err);
-        setAuthStatus("Logout failed: " + err.message, true);
-      } finally {
-        setAuthButtonsDisabled(false);
       }
     }
 
+    // ---------- Auth state listener ----------
     onAuthStateChanged(auth, async (user) => {
       if (!user) {
         applyRoleUI("guest");
@@ -1258,30 +645,32 @@
 
       let role = "client";
       try {
-        const ref = doc(db, "users", user.uid);
-        const snap = await getDoc(ref);
+        const userRef = doc(db, "users", user.uid);
+        const snap = await getDoc(userRef);
         if (snap.exists()) {
           const data = snap.data();
-          role = data.role || "client";
+          if (data.role) role = data.role;
         }
       } catch (err) {
         console.error(err);
       }
 
       applyRoleUI(role);
-      setAuthStatus("Logged in as " + role + ".");
-      if (role === "client") {
-        loadClientFundingStatus(user);
+
+      if (role.toLowerCase() === "client") {
+        await loadClientFundingStatus(user);
       }
     });
 
+    // Footer year
     const yearEl = document.getElementById("year");
-    if (yearEl) yearEl.textContent = new Date().getFullYear();
+    if (yearEl) {
+      yearEl.textContent = new Date().getFullYear();
+    }
 
-    window.scrollToSection = scrollToSection;
-    window.handleIntakeSubmit = handleIntakeSubmit;
-    window.handleLogin = handleLogin;
+    // Expose handlers to global scope for onclick
     window.handleRegister = handleRegister;
+    window.handleLogin = handleLogin;
     window.handleLogout = handleLogout;
   </script>
 </body>
