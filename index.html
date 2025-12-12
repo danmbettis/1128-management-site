@@ -2,23 +2,23 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>1128 Management Corp – C-Corp Setup • Management • Client Portal</title>
+  <title>1128 Management Corp – C-Corp Setup, Management & Client Portal</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="1128 Management Corp – C-Corporation setup, management, documentation, and client portal for status updates and results." />
+  <meta name="description" content="1128 Management Corp – C-Corporation setup, management support, and client portal with live status tracking." />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-
   <style>
     :root {
       --bg: #020617;
-      --bg-soft: #030712;
-      --card: #0b1020;
+      --bg-soft: #020818;
+      --card: #020b1c;
       --border: #1f2937;
-      --primary: #2563eb;
-      --primary-soft: rgba(37,99,235,0.15);
-      --accent: #22c55e;
       --text: #f9fafb;
       --muted: #9ca3af;
-      --danger: #f97373;
+      --primary: #2563eb;
+      --primary-soft: rgba(37, 99, 235, 0.12);
+      --accent: #22c55e;
+      --danger: #ef4444;
+      --warn: #eab308;
     }
 
     * {
@@ -29,7 +29,7 @@
 
     body {
       font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #020617 0, #000 50%, #000 100%);
+      background: radial-gradient(circle at top, #020617 0, #000 55%);
       color: var(--text);
       line-height: 1.6;
     }
@@ -45,20 +45,20 @@
     }
 
     .container {
-      width: 100%;
       max-width: 1120px;
       margin: 0 auto;
       padding: 0 1.25rem;
     }
 
     /* NAVBAR */
+
     header {
       position: sticky;
       top: 0;
-      z-index: 50;
-      backdrop-filter: blur(18px);
-      background: linear-gradient(to bottom, rgba(15,23,42,0.98), rgba(15,23,42,0.85), transparent);
-      border-bottom: 1px solid rgba(31,41,55,0.85);
+      z-index: 40;
+      backdrop-filter: blur(14px);
+      background: linear-gradient(to bottom, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 0.75), transparent);
+      border-bottom: 1px solid rgba(31, 41, 55, 0.85);
     }
 
     .nav {
@@ -66,26 +66,27 @@
       align-items: center;
       justify-content: space-between;
       padding: 0.75rem 0;
+      gap: 1rem;
     }
 
-    .logo {
+    .logo-wrap {
       display: flex;
       align-items: center;
       gap: 0.65rem;
     }
 
     .logo-mark {
-      width: 32px;
-      height: 32px;
+      width: 34px;
+      height: 34px;
       border-radius: 0.9rem;
-      background: radial-gradient(circle at 20% 0, #38bdf8, #4f46e5, #0f172a);
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: radial-gradient(circle at 20% 0, #38bdf8, #4f46e5, #020617);
       display: flex;
       align-items: center;
       justify-content: center;
       font-weight: 700;
       font-size: 0.8rem;
       color: #e5e7eb;
-      border: 1px solid rgba(148,163,184,0.7);
     }
 
     .logo-text {
@@ -94,9 +95,9 @@
     }
 
     .logo-text span:first-child {
-      font-weight: 600;
       font-size: 0.9rem;
-      letter-spacing: 0.06em;
+      font-weight: 600;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
     }
 
@@ -107,18 +108,14 @@
 
     .nav-links {
       display: flex;
-      gap: 1.3rem;
-      font-size: 0.86rem;
+      gap: 1.2rem;
+      font-size: 0.85rem;
       color: var(--muted);
     }
 
     .nav-links a {
       position: relative;
-      padding: 0.25rem 0;
-    }
-
-    .nav-links a:hover {
-      color: #e5e7eb;
+      padding-bottom: 0.2rem;
     }
 
     .nav-links a::after {
@@ -128,9 +125,13 @@
       bottom: -2px;
       width: 0;
       height: 2px;
-      background: linear-gradient(to right, var(--primary), var(--accent));
       border-radius: 999px;
-      transition: width 0.2s ease;
+      background: linear-gradient(to right, var(--primary), var(--accent));
+      transition: width 0.18s ease;
+    }
+
+    .nav-links a:hover {
+      color: #e5e7eb;
     }
 
     .nav-links a:hover::after {
@@ -140,37 +141,38 @@
     .nav-cta {
       display: flex;
       align-items: center;
-      gap: 0.6rem;
+      gap: 0.5rem;
+      flex-wrap: wrap;
     }
 
     .pill {
       font-size: 0.7rem;
-      padding: 0.2rem 0.6rem;
+      padding: 0.2rem 0.55rem;
       border-radius: 999px;
-      border: 1px solid rgba(148,163,184,0.6);
+      border: 1px solid rgba(148, 163, 184, 0.6);
       color: var(--muted);
     }
 
     .btn {
       border-radius: 999px;
-      padding: 0.4rem 0.95rem;
-      font-size: 0.8rem;
+      padding: 0.45rem 1rem;
+      font-size: 0.82rem;
       border: none;
       display: inline-flex;
       align-items: center;
       gap: 0.35rem;
       background: linear-gradient(to right, var(--primary), #4f46e5);
       color: #f9fafb;
-      box-shadow: 0 16px 40px rgba(37,99,235,0.45);
+      box-shadow: 0 16px 40px rgba(37, 99, 235, 0.35);
       white-space: nowrap;
     }
 
     .btn-outline {
-      border-radius: 999px;
-      padding: 0.4rem 0.95rem;
-      font-size: 0.8rem;
-      border: 1px solid rgba(148,163,184,0.7);
       background: transparent;
+      border-radius: 999px;
+      padding: 0.45rem 1rem;
+      font-size: 0.82rem;
+      border: 1px solid rgba(148, 163, 184, 0.8);
       color: #e5e7eb;
       white-space: nowrap;
     }
@@ -204,17 +206,18 @@
       font-size: 0.9rem;
       color: var(--muted);
       max-width: 640px;
-      margin-top: 0.4rem;
+      margin-top: 0.3rem;
     }
 
     /* HERO */
+
     .hero {
       padding-top: 3rem;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: minmax(0,1.4fr) minmax(0,1fr);
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
       gap: 2.5rem;
       align-items: center;
     }
@@ -229,13 +232,13 @@
       border-radius: 999px;
       border: 1px solid rgba(148,163,184,0.4);
       margin-bottom: 1rem;
-      background: radial-gradient(circle at left, rgba(37,99,235,0.3), rgba(15,23,42,0.9));
+      background: radial-gradient(circle at left, rgba(59,130,246,0.32), rgba(15,23,42,0.95));
     }
 
     .hero-title {
-      font-size: clamp(2rem, 2.4rem, 2.7rem);
+      font-size: clamp(2.1rem, 2.6vw + 1.6rem, 2.7rem);
       font-weight: 700;
-      line-height: 1.15;
+      line-height: 1.12;
       margin-bottom: 0.7rem;
     }
 
@@ -246,26 +249,87 @@
     }
 
     .hero-subtitle {
-      font-size: 0.95rem;
+      font-size: 0.96rem;
       color: var(--muted);
       max-width: 480px;
-      margin-bottom: 1rem;
+      margin-bottom: 1.1rem;
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 0.75rem;
-      margin-top: 1.5rem;
+      margin-top: 1.3rem;
     }
 
     .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
       margin-top: 1.2rem;
       font-size: 0.75rem;
       color: var(--muted);
     }
 
-    /* GRID / CARDS */
+    .hero-meta-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.35);
+    }
+
+    .hero-card {
+      border-radius: 1.2rem;
+      border: 1px solid rgba(148, 163, 184, 0.32);
+      background: radial-gradient(circle at top left, rgba(37,99,235,0.5), rgba(15,23,42,0.96));
+      padding: 1.25rem;
+      box-shadow: 0 24px 70px rgba(15,23,42,0.9);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top, rgba(56,189,248,0.25), transparent 55%);
+      opacity: 0.8;
+      pointer-events: none;
+    }
+
+    .hero-card-inner {
+      position: relative;
+      z-index: 1;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .hero-stat-list {
+      margin-top: 0.8rem;
+      border-radius: 0.9rem;
+      border: 1px solid rgba(148,163,184,0.4);
+      background: rgba(15,23,42,0.9);
+      padding: 0.7rem 0.8rem;
+      font-size: 0.78rem;
+    }
+
+    .hero-stat-list li {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.2rem 0;
+    }
+
+    .hero-stat-key {
+      color: var(--muted);
+    }
+
+    .hero-stat-value {
+      font-weight: 500;
+    }
+
+    /* GRID + CARDS */
+
     .grid-3 {
       display: grid;
       grid-template-columns: repeat(3, minmax(0,1fr));
@@ -279,10 +343,10 @@
     }
 
     .card {
-      background: var(--card);
+      background: radial-gradient(circle at top left, #020b1c, #020617);
       border-radius: 1rem;
-      padding: 1.1rem;
       border: 1px solid var(--border);
+      padding: 1.1rem 1.2rem;
     }
 
     .card h3 {
@@ -296,98 +360,104 @@
     }
 
     .card-tag {
-      font-size: 0.62rem;
+      font-size: 0.64rem;
       text-transform: uppercase;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.18em;
       color: var(--accent);
       margin-bottom: 0.3rem;
     }
 
-    .price {
-      font-size: 1.2rem;
-      font-weight: 600;
-      margin: 0.4rem 0;
-    }
-
-    ul.bullet-list {
-      list-style: none;
-      padding-left: 0;
-      margin-top: 0.4rem;
-      font-size: 0.8rem;
+    .card-footer {
+      margin-top: 0.8rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.72rem;
       color: var(--muted);
-    }
-
-    ul.bullet-list li::before {
-      content: "• ";
-      color: var(--accent);
+      gap: 0.5rem;
+      flex-wrap: wrap;
     }
 
     .chip {
       border-radius: 999px;
-      padding: 0.12rem 0.6rem;
-      border: 1px solid rgba(148,163,184,0.6);
-      font-size: 0.68rem;
-      display: inline-block;
-      margin-top: 0.4rem;
+      padding: 0.12rem 0.65rem;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      font-size: 0.7rem;
+      white-space: nowrap;
     }
 
-    /* TABLE */
-    table {
-      width: 100%;
-      border-collapse: collapse;
+    /* PRODUCT / PRICING */
+
+    .bundle-price {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin: 0.1rem 0 0.4rem;
+    }
+
+    .bundle-note {
       font-size: 0.78rem;
-    }
-
-    th, td {
-      padding: 0.35rem 0.25rem;
-      border-bottom: 1px solid rgba(31,41,55,0.85);
-      text-align: left;
-    }
-
-    th {
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      font-size: 0.65rem;
       color: var(--muted);
     }
 
-    /* PORTAL SECTION */
-    .portal-section {
-      border-top: 1px solid rgba(31,41,55,0.9);
-      background: radial-gradient(circle at top, #020617 0, #020617 45%, #000 100%);
+    ul.feature-list {
+      list-style: none;
+      margin-top: 0.55rem;
+      font-size: 0.82rem;
+      color: var(--muted);
     }
 
-    .portal-grid {
+    .feature-list li {
+      margin-bottom: 0.28rem;
+    }
+
+    /* PORTAL */
+
+    .portal-wrap {
       display: grid;
-      grid-template-columns: minmax(0,1.3fr) minmax(0,1fr);
-      gap: 2rem;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 1.75rem;
       align-items: flex-start;
     }
 
     .portal-card {
-      background: #050816;
+      background: var(--card);
       border-radius: 1rem;
       border: 1px solid var(--border);
-      padding: 1.1rem;
+      padding: 1.2rem 1.3rem;
+    }
+
+    .portal-card h3 {
+      font-size: 0.98rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .portal-card p {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.22rem;
+      margin-bottom: 0.65rem;
+      font-size: 0.8rem;
     }
 
     label {
       font-size: 0.78rem;
       color: #e5e7eb;
-      display: block;
-      margin-bottom: 0.15rem;
     }
 
-    input {
-      width: 100%;
+    input[type="email"],
+    input[type="password"] {
       border-radius: 0.55rem;
       border: 1px solid rgba(55,65,81,0.9);
-      background: rgba(15,23,42,0.98);
+      background: rgba(15,23,42,0.9);
       color: #e5e7eb;
       padding: 0.45rem 0.6rem;
       font-size: 0.8rem;
       outline: none;
-      margin-bottom: 0.6rem;
     }
 
     input::placeholder {
@@ -396,61 +466,150 @@
 
     .portal-actions {
       display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      align-items: center;
+      gap: 0.6rem;
       margin-top: 0.3rem;
-    }
-
-    .portal-note {
-      font-size: 0.7rem;
-      color: var(--muted);
-      margin-top: 0.6rem;
-    }
-
-    .status-text {
-      font-size: 0.78rem;
-      margin-bottom: 0.4rem;
-      color: var(--muted);
-    }
-
-    .status-badge {
-      display: inline-flex;
-      align-items: center;
-      padding: 0.15rem 0.55rem;
-      border-radius: 999px;
-      border: 1px solid rgba(52,211,153,0.7);
-      font-size: 0.7rem;
-      color: #bbf7d0;
-      background: rgba(22,101,52,0.7);
-      margin-bottom: 0.4rem;
-    }
-
-    .text-danger {
-      color: var(--danger);
-    }
-
-    footer {
-      border-top: 1px solid rgba(31,41,55,0.9);
-      padding: 1rem 0;
-      background: rgba(3,7,18,0.98);
-      font-size: 0.75rem;
-      color: var(--muted);
-    }
-
-    footer .container {
-      display: flex;
       flex-wrap: wrap;
-      gap: 0.5rem;
+    }
+
+    .helper-text {
+      font-size: 0.72rem;
+      color: var(--muted);
+      margin-top: 0.5rem;
+    }
+
+    .status-pill {
+      border-radius: 999px;
+      padding: 0.12rem 0.55rem;
+      font-size: 0.72rem;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.85);
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .status-pill.pending {
+      border-color: rgba(148, 163, 184, 0.7);
+      color: #e5e7eb;
+      background: rgba(15,23,42,0.95);
+    }
+
+    .status-pill.inprogress {
+      border-color: rgba(234, 179, 8, 0.9);
+      color: #facc15;
+      background: rgba(24, 20, 5, 0.95);
+    }
+
+    .status-pill.complete {
+      border-color: rgba(34, 197, 94, 0.9);
+      color: #bbf7d0;
+      background: rgba(6, 78, 59, 0.95);
+    }
+
+    .dashboard-meta {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-bottom: 0.6rem;
+    }
+
+    .overall-status {
+      font-size: 0.8rem;
+      margin-bottom: 0.65rem;
+    }
+
+    .overall-status strong {
+      font-weight: 600;
+    }
+
+    .checklist {
+      margin-top: 0.2rem;
+      border-radius: 0.8rem;
+      border: 1px solid var(--border);
+      background: rgba(15, 23, 42, 0.95);
+      padding: 0.75rem 0.8rem;
+      max-height: 360px;
+      overflow-y: auto;
+    }
+
+    .checklist-header {
+      display: flex;
       justify-content: space-between;
       align-items: center;
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-bottom: 0.35rem;
     }
+
+    .checklist-list {
+      list-style: none;
+      font-size: 0.8rem;
+    }
+
+    .checklist-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.25rem 0;
+      border-bottom: 1px dashed rgba(31,41,55,0.9);
+    }
+
+    .checklist-row:last-child {
+      border-bottom: none;
+    }
+
+    .step-label {
+      flex: 1 1 auto;
+    }
+
+    .step-index {
+      font-size: 0.7rem;
+      color: var(--muted);
+      margin-right: 0.35rem;
+    }
+
+    .empty-state {
+      font-size: 0.78rem;
+      color: var(--muted);
+      padding-top: 0.3rem;
+    }
+
+    .badge-small {
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      padding: 0.1rem 0.45rem;
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
+
+    .portal-footer-note {
+      font-size: 0.74rem;
+      color: var(--muted);
+      margin-top: 0.8rem;
+    }
+
+    /* REFUND / POLICY BOX */
+
+    .policy-box {
+      margin-top: 1rem;
+      border-radius: 0.8rem;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: rgba(15, 23, 42, 0.95);
+      padding: 0.8rem 0.9rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .policy-box strong {
+      color: #e5e7eb;
+    }
+
+    /* RESPONSIVE */
 
     @media (max-width: 900px) {
       .hero-grid,
       .grid-3,
       .grid-2,
-      .portal-grid {
+      .portal-wrap {
         grid-template-columns: minmax(0,1fr);
       }
 
@@ -459,698 +618,582 @@
       }
 
       header {
-        background: rgba(15,23,42,0.96);
+        position: static;
       }
     }
   </style>
 </head>
 <body>
-
-<header>
-  <div class="container nav">
-    <div class="logo">
-      <div class="logo-mark">1128</div>
-      <div class="logo-text">
-        <span>1128 Management Corp</span>
-        <span>C-Corp Setup • Management • Portal</span>
+  <!-- NAVBAR -->
+  <header>
+    <div class="container nav">
+      <div class="logo-wrap">
+        <div class="logo-mark">1128</div>
+        <div class="logo-text">
+          <span>1128 Management Corp</span>
+          <span>C-Corp Setup • Management • Portal</span>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="#hero">Overview</a>
+        <a href="#bundle">C-Corp Bundle</a>
+        <a href="#credits">Support Credits</a>
+        <a href="#consulting">Management Support</a>
+        <a href="#policy">Timeline & Policy</a>
+        <a href="#portal">Client Portal</a>
+      </nav>
+      <div class="nav-cta">
+        <span class="pill">Mississippi • Multi-entity</span>
+        <button class="btn-outline" onclick="document.getElementById('portal').scrollIntoView({behavior:'smooth'})">
+          Client Portal Login
+        </button>
+        <button class="btn" onclick="document.getElementById('bundle').scrollIntoView({behavior:'smooth'})">
+          Start C-Corp Setup →
+        </button>
       </div>
     </div>
-    <nav class="nav-links">
-      <a href="#hero">Overview</a>
-      <a href="#setup">C-Corp Setup</a>
-      <a href="#services">Management</a>
-      <a href="#pricing">Pricing & Credits</a>
-      <a href="#refunds">Process & Policy</a>
-      <a href="#portal">Client Portal</a>
-    </nav>
-    <div class="nav-cta">
-      <span class="pill">Mississippi • Multi-Entity</span>
-      <a href="#portal"><button class="btn-outline">Client Portal Login</button></a>
-      <a href="#pricing"><button class="btn">Buy Credits</button></a>
-    </div>
-  </div>
-</header>
+  </header>
 
-<main>
-  <!-- HERO -->
-  <section id="hero" class="hero">
-    <div class="container hero-grid">
-      <div>
-        <div class="hero-kicker">
-          <span>C-Corp setup • Management • Documentation</span>
-        </div>
-        <h1 class="hero-title">
-          We organize your <span>C-Corporation world</span> so funding and operations make sense.
-        </h1>
-        <p class="hero-subtitle">
-          1128 Management Corp helps you set up your corporation, keep your documents in order, and track
-          progress through a private client portal – without putting your full strategy on public display.
-        </p>
-        <div class="hero-actions">
-          <a href="#setup">
-            <button class="btn">Start C-Corp Setup</button>
-          </a>
-          <a href="#pricing">
-            <button class="btn-outline">Purchase Support Credits</button>
-          </a>
-        </div>
-        <div class="hero-meta">
-          C-Corp setup • EIN support • address/phone/email/website • banking & processor setup •
-          ongoing management and evaluation.
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-tag">Snapshot</div>
-        <h3>What you can expect from 1128 Management Corp</h3>
-        <ul class="bullet-list">
-          <li>C-Corporation paperwork filed and organized.</li>
-          <li>Clean contact info: address, phone, email, basic website.</li>
-          <li>Banking & card processing accounts set up and linked correctly.</li>
-          <li>Private client portal for updates, documents, and status.</li>
-          <li>Management review & practical recommendations – not just forms.</li>
-        </ul>
-        <span class="chip">Client-first • Documentation-driven • Portal-based</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- C-CORP SETUP -->
-  <section id="setup">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-eyebrow">C-Corporation Setup</div>
-        <h2 class="section-title">$300 C-Corp Setup & Organization Bundle</h2>
-        <p class="section-subtitle">
-          Focus on one clean C-Corporation at a time. We help you form, activate, and document your company
-          so that banks, processors, and partners see an organized operation, not a scramble.
-        </p>
-      </div>
-
-      <div class="grid-2">
-        <div class="card">
-          <div class="card-tag">Core Package</div>
-          <h3>1128 C-Corp Setup & Organization</h3>
-          <div class="price">$300 total bundle</div>
-          <p>(service fee – includes typical state/government filing amounts; if your state is different we’ll confirm before filing.)</p>
-          <ul class="bullet-list">
-            <li>C-Corporation formation in the appropriate state.</li>
-            <li>EIN guidance and answer sheet for IRS online filing.</li>
-            <li>Business address, phone number, email, and basic website setup.</li>
-            <li>Banking introduction and basic business account setup assistance.</li>
-            <li>Payment processor setup map (Stripe / Square etc.).</li>
-            <li>Client portal login with document backup and status updates.</li>
-          </ul>
-          <p style="font-size:0.78rem; color:var(--muted); margin-top:0.6rem;">
-            Process typically begins within <strong>3 days of signup</strong>. Our working window for full
-            results and documentation is a minimum of <strong>90 days</strong>, depending on third-party
-            responses (state, IRS, banks, processors).
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="card-tag">What we handle</div>
-          <h3>From “idea on paper” to organized corporate profile</h3>
-          <ul class="bullet-list">
-            <li>We help name and structure the corporation around what you’re really doing.</li>
-            <li>We align address, phone, email, website, and contact info across your profiles.</li>
-            <li>We provide templates and document files to keep everything in one place.</li>
-            <li>We use the client portal so you always have a copy of what we’ve done for you.</li>
-          </ul>
-          <p style="font-size:0.78rem; color:var(--muted); margin-top:0.6rem;">
-            Your full story – how the business is set up, how you operate, and what’s in place – is kept
-            in our internal notes and your private portal, not on the public website.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- MANAGEMENT & SERVICES -->
-  <section id="services">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-eyebrow">Management & Consulting</div>
-        <h2 class="section-title">Beyond formation: real management and review</h2>
-        <p class="section-subtitle">
-          Some clients only need a corporation filed. Others want a “behind-the-scenes manager” who looks
-          at operations, documents, and cash-flow patterns the way a private evaluator would – not on TV,
-          but in real life.
-        </p>
-      </div>
-
-      <div class="grid-3">
-        <div class="card">
-          <div class="card-tag">Ongoing Support</div>
-          <h3>Management Oversight & Evaluation</h3>
-          <p>
-            A service similar in spirit to “undercover boss” – but quiet. We review how your business is
-            actually running, where money is flowing, and how your systems show up on paper and online.
-          </p>
-          <ul class="bullet-list">
-            <li>Review of daily operations and spending patterns.</li>
-            <li>Evaluation of compliance and documentation gaps.</li>
-            <li>Practical recommendations you can actually execute.</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <div class="card-tag">Flows & Readiness</div>
-          <h3>Cash-Flow Mapping & Readiness Planning</h3>
-          <p>
-            We avoid public buzzwords and focus on what matters: clean records and consistent movement that
-            looks healthy to lenders and partners.
-          </p>
-          <ul class="bullet-list">
-            <li>Simple daily and weekly targets for your card processing and deposits.</li>
-            <li>Notes on how to keep things steady instead of random spikes.</li>
-            <li>Documented plan stored inside your client portal.</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <div class="card-tag">Systems & Tools</div>
-          <h3>Systems Setup & Admin Support</h3>
-          <ul class="bullet-list">
-            <li>Basic CRM or portal system configuration.</li>
-            <li>Document folder structure and naming standards.</li>
-            <li>Internal checklists for staff so tasks don’t live only in your head.</li>
-          </ul>
-          <p style="font-size:0.78rem; color:var(--muted); margin-top:0.4rem;">
-            These pieces can be added on as needed, after your initial C-Corp setup.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PRICING & CREDITS -->
-  <section id="pricing">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-eyebrow">Pricing & Support Credits</div>
-        <h2 class="section-title">Simple bundle plus flexible support credits</h2>
-        <p class="section-subtitle">
-          We keep the main offer straightforward and let you add extra help as you need it. Support
-          credits are open to the public – anyone can back their project or pay for extra time and work.
-        </p>
-      </div>
-
-      <div class="grid-3">
-        <div class="card">
-          <div class="card-tag">Main Offer</div>
-          <h3>C-Corp Setup Bundle</h3>
-          <div class="price">$300</div>
-          <ul class="bullet-list">
-            <li>Single C-Corporation setup and documentation.</li>
-            <li>Intake + planning call (or documented questions).</li>
-            <li>Contact info (address, phone, email, website) aligned.</li>
-            <li>Bank/processor setup assistance.</li>
-            <li>Client portal access for 90-day active window.</li>
-          </ul>
-          <p style="font-size:0.78rem; color:var(--muted); margin-top:0.4rem;">
-            This is a focused, one-entity package. Additional entities can be scoped separately.
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="card-tag">Support Credits</div>
-          <h3>Public Support Credit Purchase</h3>
-          <div class="price">From $5+</div>
-          <p>
-            Support credits can be used toward extra time, additional paperwork, document cleanup, or
-            other agreed-upon work related to your project.
-          </p>
-          <ul class="bullet-list">
-            <li>Minimum purchase: <strong>$5</strong>.</li>
-            <li>You can adjust the quantity on the Stripe checkout page.</li>
-            <li>Credits are tracked internally and reflected in your client portal notes.</li>
-          </ul>
-          <a href="https://buy.stripe.com/4gM00jddY2Q228qanU1ck07" target="_blank" rel="noopener">
-            <button class="btn" style="margin-top:0.6rem;">Buy Support Credits</button>
-          </a>
-          <p style="font-size:0.72rem; color:var(--muted); margin-top:0.4rem;">
-            After purchase, we’ll match the payment to your file and update your portal with what the
-            credits will be used for.
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="card-tag">Optional Add-Ons</div>
-          <h3>Additional Services (sample pricing)</h3>
-          <ul class="bullet-list">
-            <li>Website build or rebuild – <strong>$399</strong></li>
-            <li>Business phone & email setup – <strong>$89</strong></li>
-            <li>Corporate document creation – <strong>$89–$399</strong></li>
-            <li>Payment processor setup – <strong>$199</strong></li>
-            <li>Business systems setup (CRM, portal, etc.) – <strong>$299</strong></li>
-            <li>Cash-flow and readiness mapping – <strong>$999</strong></li>
-          </ul>
-          <p style="font-size:0.72rem; color:var(--muted); margin-top:0.4rem;">
-            These are scoped per client; final pricing is confirmed in writing before work begins.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROCESS & REFUND POLICY -->
-  <section id="refunds">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-eyebrow">Process & Policy</div>
-        <h2 class="section-title">Timeline, expectations, and refund policy</h2>
-        <p class="section-subtitle">
-          We want expectations to be clear before you start. The portal keeps everyone on the same page
-          with dates, notes, and uploaded documentation.
-        </p>
-      </div>
-
-      <div class="grid-2">
-        <div class="card">
-          <div class="card-tag">How the process works</div>
-          <h3>Timeline & communication</h3>
-          <ul class="bullet-list">
-            <li>We aim to begin active work within <strong>3 days</strong> of signup and intake.</li>
-            <li>The typical working window for full setup and documentation is at least <strong>90 days</strong>.</li>
-            <li>Your client portal is where we post updates, notes, and document copies for backup.</li>
-            <li>You can message us using the contact details we provide; the portal keeps the record of what’s done.</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <div class="card-tag">Refund Policy</div>
-          <h3>No-Refund Service Policy (Aligned with Stripe requirements)</h3>
-          <p style="font-size:0.8rem; color:var(--muted);">
-            All services, including the $300 C-Corp bundle and any support credits, are
-            <strong class="text-danger">non-refundable</strong>.
-          </p>
-          <ul class="bullet-list">
-            <li>We provide professional time, planning, and documentation work starting shortly after signup.</li>
-            <li>Because our time and knowledge cannot be “returned,” payments are treated as final.</li>
-            <li>If there is an error on our side, we will correct the work or offer reasonable options such as
-                additional support time or adjustments, consistent with Stripe’s terms and dispute rules.</li>
-            <li>Chargebacks and disputes are handled through Stripe’s standard process, with our documentation
-                and portal records used to show the work performed.</li>
-          </ul>
-          <p style="font-size:0.74rem; color:var(--muted); margin-top:0.4rem;">
-            By proceeding with payment, you acknowledge that this is a professional service engagement,
-            that results depend on third-party decisions (state, IRS, banks, processors), and that no
-            specific approval or outcome is guaranteed.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CLIENT PORTAL (BOTTOM OF PAGE) -->
-  <section id="portal" class="portal-section">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-eyebrow">Client Portal</div>
-        <h2 class="section-title">Track your setup, management, and documentation in one place</h2>
-        <p class="section-subtitle">
-          This portal is for active 1128 Management Corp clients. We use it to post updates, document links,
-          status notes, and any support credit usage – so you always have a record of what’s been done.
-        </p>
-      </div>
-
-      <div class="portal-grid">
-        <!-- LEFT: EXPLANATION -->
+  <main>
+    <!-- HERO -->
+    <section id="hero" class="hero">
+      <div class="container hero-grid">
         <div>
-          <div class="card">
-            <div class="card-tag">For active clients</div>
-            <h3>What you’ll see inside your portal</h3>
-            <ul class="bullet-list">
-              <li>Overall status of your C-Corp setup and management work.</li>
-              <li>Simple stage markers: Complete / In Progress / Pending.</li>
-              <li>Notes on what we’re waiting on (state, IRS, bank, processor, or you).</li>
-              <li>Document titles or links we’ve posted for you to download or review.</li>
-              <li>Summary of any support credits purchased and how they were applied.</li>
+          <div class="hero-kicker">
+            <span>Done-for-you C-Corp setup, management, and tracking</span>
+          </div>
+          <h1 class="hero-title">
+            Get your C-Corporation set up, organized,<br />
+            and <span>managed with live status tracking.</span>
+          </h1>
+          <p class="hero-subtitle">
+            1128 Management Corp helps you form and organize a real C-Corporation, connect the key parts
+            (address, phone, email, website, banking, payment processors), and then track everything in a private client portal.
+          </p>
+          <div class="hero-actions">
+            <button class="btn" onclick="document.getElementById('bundle').scrollIntoView({behavior:'smooth'})">
+              View $300 C-Corp Bundle
+            </button>
+            <button class="btn-outline" onclick="document.getElementById('credits').scrollIntoView({behavior:'smooth'})">
+              Buy Support Credits →
+            </button>
+          </div>
+          <div class="hero-meta">
+            <span><span class="hero-meta-dot"></span> Minimum 90-day total build-out; work typically begins within 3 business days.</span>
+            <span>Client portal provides updates, documents, and results in one place.</span>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="hero-card-inner">
+            <h3 style="font-size:0.9rem;margin-bottom:0.15rem;">Example C-Corp Setup Snapshot</h3>
+            <p>
+              We walk through a standard setup path and keep each step visible inside your portal.
+              Everything lines up for banking and processors.
+            </p>
+            <ul class="hero-stat-list">
+              <li>
+                <span class="hero-stat-key">Entity type</span>
+                <span class="hero-stat-value">C-Corporation (Mississippi)</span>
+              </li>
+              <li>
+                <span class="hero-stat-key">Included items</span>
+                <span class="hero-stat-value">Name, address, phone, email, website, EIN & more</span>
+              </li>
+              <li>
+                <span class="hero-stat-key">Portal tracking</span>
+                <span class="hero-stat-value">Business Name → Payment Processing</span>
+              </li>
+              <li>
+                <span class="hero-stat-key">Updates</span>
+                <span class="hero-stat-value">Uploaded documents + status notes</span>
+              </li>
             </ul>
-            <p style="font-size:0.78rem; color:var(--muted); margin-top:0.6rem;">
-              We do not show your detailed strategy or sensitive details on the public site.
-              Those live only in your private portal and our internal records.
-            </p>
-          </div>
-
-          <div class="card" style="margin-top:1rem;">
-            <div class="card-tag">How it works</div>
-            <h3>Steps to use your client portal</h3>
-            <ol class="bullet-list" style="list-style:decimal; padding-left:1rem;">
-              <li>Complete payment and intake using the email you want on file.</li>
-              <li>Use that same email here to register your portal login (once).</li>
-              <li>We match your portal account to your project on our side.</li>
-              <li>We update status, notes, and documents as we work.</li>
-              <li>You log in anytime to see where things stand and download files.</li>
-            </ol>
-            <p style="font-size:0.78rem; color:var(--muted); margin-top:0.6rem;">
-              If you forget your password or can’t log in, contact 1128 and we can guide you through
-              resetting access with your email provider’s reset link.
-            </p>
           </div>
         </div>
+      </div>
+    </section>
 
-        <!-- RIGHT: LOGIN + DASHBOARD -->
-        <div>
-          <!-- AUTH CARD -->
-          <div id="portal-auth-card" class="portal-card">
-            <h3 style="margin-bottom:0.75rem;">Client Login</h3>
-            <p class="status-text">
-              This login is for 1128 Management Corp clients only. All new accounts created here are
-              treated as <strong>Client</strong> access. Staff/Admin are invite-only and created internally.
-            </p>
+    <!-- BUNDLE / PRODUCT -->
+    <section id="bundle">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow">Primary Service</div>
+          <h2 class="section-title">C-Corp Setup & Organization Bundle</h2>
+          <p class="section-subtitle">
+            One flat service fee to get your core C-Corporation details set, organized, and tracked in the portal.
+            State, IRS, and banking decisions are handled by those agencies – we manage the setup and coordination.
+          </p>
+        </div>
 
-            <label for="portal-email">Email</label>
-            <input id="portal-email" type="email" placeholder="you@email.com" autocomplete="email" />
+        <div class="grid-2">
+          <div class="card">
+            <div class="card-tag">Flat Service Bundle</div>
+            <h3>$300 C-Corp Setup & Management Bundle</h3>
+            <div class="bundle-price">$300 total service fee</div>
+            <p class="bundle-note">(service fee – state / government / banking decisions remain separate)</p>
 
-            <label for="portal-password">Password</label>
-            <input id="portal-password" type="password" placeholder="••••••••" autocomplete="current-password" />
+            <ul class="feature-list">
+              <li>• C-Corporation filing setup (Mississippi) – information prepared for state filing.</li>
+              <li>• Business name, address, phone number, email address, and basic website setup support.</li>
+              <li>• EIN support and answer-sheet guidance for IRS application.</li>
+              <li>• Banking setup support (business account preparation and documentation guidance).</li>
+              <li>• Payment processing setup support (Stripe, Square, or similar – where approved).</li>
+              <li>• Portal access with live checklist for each major step, updated as we work.</li>
+            </ul>
 
-            <div class="portal-actions">
-              <button class="btn" id="btn-login">Login</button>
-              <button class="btn-outline" id="btn-register">Register New Client Account</button>
+            <div class="card-footer">
+              <span class="chip">C-Corp only</span>
+              <span>Client portal access included.</span>
             </div>
-
-            <p class="portal-note">
-              Use <strong>Register</strong> one time per email. After that, use <strong>Login</strong>.
-              If we have not yet confirmed you as a client, we may limit access until your project
-              is active in our system.
-            </p>
-
-            <p id="portal-message" class="portal-note" style="margin-top:0.4rem;"></p>
           </div>
 
-          <!-- DASHBOARD CARD -->
-          <div id="portal-dashboard" class="portal-card" style="margin-top:1rem; display:none;">
-            <h3 style="margin-bottom:0.4rem;">Client Dashboard</h3>
-            <div class="status-text">
-              Logged in as: <strong id="portal-user-email">—</strong>
-            </div>
-            <div id="portal-role-badge" class="status-badge">Client</div>
-
-            <div style="margin-top:0.6rem;">
-              <h4 style="font-size:0.86rem; margin-bottom:0.2rem;">Overall Status</h4>
-              <p id="portal-status-text" style="font-size:0.8rem; color:var(--muted);">
-                We’re loading your status. If this stays blank, we may not have posted it yet.
-              </p>
-            </div>
-
-            <div style="margin-top:0.8rem;">
-              <h4 style="font-size:0.86rem; margin-bottom:0.2rem;">Key Steps</h4>
-              <ul id="portal-steps-list" class="bullet-list"></ul>
-            </div>
-
-            <div style="margin-top:0.8rem;">
-              <h4 style="font-size:0.86rem; margin-bottom:0.2rem;">Documents / Notes</h4>
-              <table>
-                <thead>
-                  <tr>
-                    <th>Item</th>
-                    <th>Status</th>
-                  </tr>
-                </thead>
-                <tbody id="portal-docs-body">
-                  <tr>
-                    <td colspan="2" style="font-size:0.76rem; color:var(--muted);">
-                      We’ll list uploaded documents or key notes here as we post them to your file.
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <div style="margin-top:0.9rem; display:flex; justify-content:space-between; align-items:center; gap:0.5rem;">
-              <button class="btn-outline" id="btn-logout">Logout</button>
-              <p style="font-size:0.72rem; color:var(--muted);">
-                When you’re finished, click Logout to keep your account secure, especially on shared devices.
-              </p>
+          <div class="card">
+            <div class="card-tag">How Delivery Works</div>
+            <h3>Minimum Timeline, Start Window & Communication</h3>
+            <ul class="feature-list">
+              <li>• Work typically begins within <strong>3 business days</strong> after payment and intake.</li>
+              <li>• Minimum expected time for the full cycle (filings, banking, and processors) is
+                <strong>approximately 90 days</strong>, depending on state / IRS / bank processing.</li>
+              <li>• You receive updates, notes, and documentation through the
+                <strong>1128 client portal</strong> as we progress.</li>
+              <li>• You may also purchase <strong>Support Credits</strong> for extra time, calls,
+                or additional assistance beyond the base bundle.</li>
+            </ul>
+            <div style="margin-top:0.9rem;">
+              <button class="btn" onclick="document.getElementById('portal').scrollIntoView({behavior:'smooth'})">
+                Go to Client Portal →
+              </button>
             </div>
           </div>
         </div>
       </div>
+    </section>
 
-      <p style="font-size:0.75rem; color:var(--muted); margin-top:1.5rem;">
-        You must be logged in to see your internal status and documents. If something inside the portal
-        doesn’t match what you expect, contact 1128 so we can review and update your file.
-      </p>
+    <!-- SUPPORT CREDITS -->
+    <section id="credits">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow">Support Credits</div>
+          <h2 class="section-title">Flexible Credit Support For Extra Help</h2>
+          <p class="section-subtitle">
+            Support Credits are small dollar add-ons you can purchase to cover additional calls,
+            document review, or extra assistance while we are working on your setup and management.
+            Minimum support credit is $5 and you can change the quantity during checkout.
+          </p>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <div class="card-tag">Public Purchase</div>
+            <h3>Buy Support Credits (Stripe Checkout)</h3>
+            <p>
+              Anyone can purchase Support Credits. These apply toward additional time, follow-up help,
+              or special situations that fall outside the normal bundle scope.
+            </p>
+            <ul class="feature-list">
+              <li>• Credits available in $5, $10, $20 and higher – quantity can be changed in Stripe.</li>
+              <li>• Credits can be used toward consulting calls, document work, or extended help.</li>
+              <li>• You’ll receive a Stripe receipt; 1128 will note credits in your client file.</li>
+            </ul>
+            <div style="margin-top:0.8rem;display:flex;gap:0.6rem;flex-wrap:wrap;">
+              <a
+                href="https://buy.stripe.com/4gM00jddY2Q228qanU1ck07"
+                target="_blank"
+                class="btn"
+              >
+                Buy Credits via Stripe →
+              </a>
+              <button class="btn-outline" onclick="document.getElementById('portal').scrollIntoView({behavior:'smooth'})">
+                Then connect in the client portal
+              </button>
+            </div>
+          </div>
+
+          <div class="card" id="consulting">
+            <div class="card-tag">Business Management Support</div>
+            <h3>Operational Management & “Undercover” Style Evaluation</h3>
+            <p>
+              Beyond incorporation, 1128 Management Corp can step into your business, observe how
+              things really run, and help tighten operations – a service somewhat similar in spirit
+              to an “undercover boss” evaluation but tailored to small businesses.
+            </p>
+            <ul class="feature-list">
+              <li>• On-site or remote observation of day-to-day operations.</li>
+              <li>• Identification of cash-flow leaks, process bottlenecks, and staffing gaps.</li>
+              <li>• Practical recommendations you can actually implement.</li>
+              <li>• Pair this with the C-Corp bundle for a structured, long-term approach.</li>
+            </ul>
+            <div class="card-footer">
+              <span class="chip">Custom pricing</span>
+              <span>Best for businesses that are already operating.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- POLICY / TIMELINE -->
+    <section id="policy">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow">Timeline & Refund Policy</div>
+          <h2 class="section-title">How Long Things Take & How Refunds Work</h2>
+          <p class="section-subtitle">
+            We want expectations to be realistic and clear. Our work is a service; state, IRS, banking,
+            and payment processor decisions are always made by those organizations.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Timeline Overview</h3>
+          <ul class="feature-list">
+            <li>• Work normally begins within <strong>3 business days</strong> after we receive payment and intake.</li>
+            <li>• The total cycle of filings, banking setup, and payment processing reviews usually
+              takes at least <strong>90 days</strong> and can be longer depending on outside agencies.</li>
+            <li>• During that time, we use the client portal to upload documents, record notes,
+              and update the status checklist.</li>
+          </ul>
+
+          <div class="policy-box" style="margin-top:1rem;">
+            <strong>Refund Policy (Stripe-Compatible)</strong><br />
+            All payments to 1128 Management Corp for service bundles and Support Credits are
+            for professional services that begin shortly after payment. Because work, time, and
+            coordination start quickly and cannot be “un-worked,”
+            <strong>no refunds or credit-backs are issued once services have begun.</strong><br /><br />
+            If there is a billing error or duplicate charge, we will review it in line with
+            Stripe’s dispute and refund procedures. Any adjustments will be processed through
+            Stripe so that records stay accurate for all parties.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLIENT PORTAL -->
+    <section id="portal">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow">Client Portal</div>
+          <h2 class="section-title">Track Your Setup, Management & Documentation In One Place</h2>
+          <p class="section-subtitle">
+            Once you become a client, this portal is how you log in to see your C-Corp setup checklist,
+            statuses, notes, and document links. Each email has its own login. New registrations are
+            treated as <strong>clients only</strong>; staff and admin are invite-only on the backend.
+          </p>
+        </div>
+
+        <div class="portal-wrap">
+          <!-- LEFT: EXPLANATION -->
+          <div class="portal-card">
+            <h3>How 1128 Uses This Portal</h3>
+            <p>
+              After you sign up and complete intake, we connect your file to this portal. You’ll see a
+              simple checklist of the major steps we’re working through – from Business Name all the way
+              to Payment Processing and Internal Review – each with a status.
+            </p>
+            <ul class="feature-list" style="margin-top:0.55rem;">
+              <li>• <strong>Simple list</strong> of each step we manage for your setup and organization.</li>
+              <li>• <strong>Color-coded status</strong> badges:<br />
+                &nbsp;&nbsp;&nbsp;– Pending (grey) • In Progress (gold) • Complete (green).</li>
+              <li>• Notes and uploaded documents can be attached to your file on our side.</li>
+              <li>• You log in with the <strong>same email</strong> you used with 1128.</li>
+            </ul>
+            <p class="portal-footer-note">
+              For your privacy, do not share your login with others. If you lose access to your email,
+              contact 1128 so we can coordinate a safe update.
+            </p>
+          </div>
+
+          <!-- RIGHT: LOGIN + DASHBOARD -->
+          <div class="portal-card">
+            <h3>Client Login</h3>
+            <p class="helper-text">
+              This login is for 1128 Management Corp clients. Use the same email you gave us on your
+              intake or during payment. New registrations are automatically set as <strong>Client</strong>.
+            </p>
+
+            <form id="login-form" autocomplete="on">
+              <div class="form-group">
+                <label for="login-email">Email</label>
+                <input id="login-email" type="email" placeholder="you@email.com" required />
+              </div>
+              <div class="form-group">
+                <label for="login-password">Password</label>
+                <input id="login-password" type="password" placeholder="••••••••" required />
+              </div>
+              <div class="portal-actions">
+                <button type="submit" class="btn" id="login-btn">
+                  Login →
+                </button>
+                <button type="button" class="btn-outline" id="register-btn">
+                  Register New Client Account
+                </button>
+              </div>
+              <p class="helper-text" id="login-helper-text">
+                Use Register only once per email. If you forget your password later, use your email
+                provider’s password reset or contact 1128 for assistance.
+              </p>
+            </form>
+
+            <!-- DASHBOARD (hidden until logged in) -->
+            <div id="client-dashboard" style="margin-top:1.2rem; display:none;">
+              <div class="dashboard-meta" id="dashboard-meta">
+                Logged out.
+              </div>
+
+              <div class="overall-status">
+                <strong>Overall status:</strong> <span id="overall-status-text">—</span>
+              </div>
+
+              <div class="checklist">
+                <div class="checklist-header">
+                  <span>Setup & Management Checklist</span>
+                  <span class="badge-small" id="step-count-badge">0 steps</span>
+                </div>
+                <ul class="checklist-list" id="status-steps">
+                  <!-- Steps injected by JS -->
+                </ul>
+                <div class="empty-state" id="empty-state-msg" style="display:none;">
+                  We don’t see a status file connected yet. Once 1128 links your account,
+                  your checklist will appear here.
+                </div>
+              </div>
+
+              <div style="margin-top:0.75rem; display:flex; justify-content:flex-end;">
+                <button type="button" class="btn-outline" id="logout-btn">
+                  Logout
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer style="border-top:1px solid rgba(31,41,55,0.85); padding:1rem 0; background:rgba(15,23,42,0.98);">
+    <div class="container" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:0.6rem;font-size:0.75rem;color:var(--muted);">
+      <span>© <span id="year"></span> 1128 Management Corp. All rights reserved.</span>
+      <span>Service-based support – no guarantees of state, IRS, bank, or processor approvals.</span>
     </div>
-  </section>
-</main>
+  </footer>
 
-<footer>
-  <div class="container">
-    <span>© <span id="year"></span> 1128 Management Corp. All rights reserved.</span>
-    <span>Private client portal • C-Corp setup • management & documentation support.</span>
-  </div>
-</footer>
+  <!-- FIREBASE + PORTAL LOGIC -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
+    import {
+      getAuth,
+      onAuthStateChanged,
+      signInWithEmailAndPassword,
+      createUserWithEmailAndPassword,
+      signOut
+    } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js";
+    import {
+      getFirestore,
+      doc,
+      getDoc,
+      setDoc
+    } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore.js";
 
-<!-- FIREBASE CLIENT PORTAL LOGIC -->
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
-  import {
-    getAuth,
-    onAuthStateChanged,
-    createUserWithEmailAndPassword,
-    signInWithEmailAndPassword,
-    signOut
-  } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js";
-  import {
-    getFirestore,
-    doc,
-    getDoc,
-    setDoc
-  } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore.js";
+    // --- Firebase config for 1128 management portal project ---
+    const firebaseConfig = {
+      apiKey: "AIzaSyDWgaRI40PO-fgP8xa_m1OWg-3AgOKCQW4",
+      authDomain: "management-portal-da4aa.firebaseapp.com",
+      projectId: "management-portal-da4aa",
+      storageBucket: "management-portal-da4aa.firebasestorage.app",
+      messagingSenderId: "336550662632",
+      appId: "1:336550662632:web:da5a240a56fdd2df3a145d",
+      measurementId: "G-CCWG9GVVS7"
+    };
 
-  // TODO: If Firebase ever gives you a new config, update this block.
-  const firebaseConfig = {
-    apiKey: "AIzaSyDWgaRI40PO-fgP8xa_m1OWg-3AgOKCQW4",
-    authDomain: "management-portal-da4aa.firebaseapp.com",
-    projectId: "management-portal-da4aa",
-    storageBucket: "management-portal-da4aa.firebasestorage.app",
-    messagingSenderId: "336550662632",
-    appId: "1:336550662632:web:da5a240a56fdd2df3a145d",
-    measurementId: "G-CCWG9GVVS7"
-  };
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
 
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
-  const db = getFirestore(app);
+    // DOM references
+    const loginForm = document.getElementById("login-form");
+    const loginEmailInput = document.getElementById("login-email");
+    const loginPasswordInput = document.getElementById("login-password");
+    const loginHelperText = document.getElementById("login-helper-text");
+    const registerBtn = document.getElementById("register-btn");
+    const logoutBtn = document.getElementById("logout-btn");
+    const dashboardEl = document.getElementById("client-dashboard");
+    const dashboardMeta = document.getElementById("dashboard-meta");
+    const overallStatusText = document.getElementById("overall-status-text");
+    const stepsListEl = document.getElementById("status-steps");
+    const emptyStateEl = document.getElementById("empty-state-msg");
+    const stepCountBadge = document.getElementById("step-count-badge");
 
-  // DOM references
-  const emailInput = document.getElementById("portal-email");
-  const passwordInput = document.getElementById("portal-password");
-  const loginBtn = document.getElementById("btn-login");
-  const registerBtn = document.getElementById("btn-register");
-  const logoutBtn = document.getElementById("btn-logout");
-  const authCard = document.getElementById("portal-auth-card");
-  const dashboardCard = document.getElementById("portal-dashboard");
-  const portalMsg = document.getElementById("portal-message");
-  const userEmailSpan = document.getElementById("portal-user-email");
-  const statusText = document.getElementById("portal-status-text");
-  const stepsList = document.getElementById("portal-steps-list");
-  const docsBody = document.getElementById("portal-docs-body");
+    document.getElementById("year").textContent = new Date().getFullYear();
 
-  function setMessage(text, isError = false) {
-    portalMsg.textContent = text || "";
-    portalMsg.style.color = isError ? "var(--danger)" : "var(--muted)";
-  }
-
-  function toggleLoading(button, loading) {
-    if (!button) return;
-    if (loading) {
-      button.dataset.originalText = button.textContent;
-      button.textContent = "Please wait…";
-      button.disabled = true;
-    } else {
-      if (button.dataset.originalText) {
-        button.textContent = button.dataset.originalText;
+    function setLoading(isLoading, message) {
+      if (isLoading) {
+        loginHelperText.textContent = message || "Working… please wait a moment.";
+      } else {
+        loginHelperText.textContent =
+          "Use Register only once per email. If you forget your password later, use your email provider’s password reset or contact 1128 for assistance.";
       }
-      button.disabled = false;
-    }
-  }
-
-  async function handleRegister() {
-    const email = (emailInput.value || "").trim();
-    const password = passwordInput.value;
-
-    if (!email || !password) {
-      setMessage("Enter an email and password, then click Register.", true);
-      return;
     }
 
-    try {
-      toggleLoading(registerBtn, true);
-      setMessage("");
-
-      const cred = await createUserWithEmailAndPassword(auth, email, password);
-
-      // Store as client; staff/admin are created by 1128 internally only.
-      await setDoc(doc(db, "users", cred.user.uid), {
-        email,
-        role: "client",
-        createdAt: Date.now()
-      });
-
-      setMessage("Account created. You are now logged in as a client.");
-    } catch (err) {
-      console.error(err);
-      setMessage("Could not register: " + err.message, true);
-    } finally {
-      toggleLoading(registerBtn, false);
-    }
-  }
-
-  async function handleLogin() {
-    const email = (emailInput.value || "").trim();
-    const password = passwordInput.value;
-
-    if (!email || !password) {
-      setMessage("Enter your email and password, then click Login.", true);
-      return;
+    // Map a status string to a CSS class for the pill
+    function getStatusClass(status) {
+      const s = (status || "").toLowerCase();
+      if (s.startsWith("complete") || s.startsWith("done")) return "complete";
+      if (s.startsWith("in progress") || s.startsWith("working")) return "inprogress";
+      return "pending";
     }
 
-    try {
-      toggleLoading(loginBtn, true);
-      setMessage("");
-      await signInWithEmailAndPassword(auth, email, password);
-      // onAuthStateChanged will handle the rest
-    } catch (err) {
-      console.error(err);
-      setMessage("Login failed: " + err.message, true);
-    } finally {
-      toggleLoading(loginBtn, false);
-    }
-  }
+    function renderChecklist(data) {
+      const overall = data?.overallStatus || "Pending";
+      const steps = Array.isArray(data?.steps) ? data.steps : [];
 
-  async function handleLogout() {
-    try {
-      await signOut(auth);
-    } catch (err) {
-      console.error(err);
-    }
-  }
+      overallStatusText.textContent = overall;
 
-  async function loadClientStatus(user) {
-    statusText.textContent = "Loading your status…";
-    stepsList.innerHTML = "";
-    docsBody.innerHTML = `
-      <tr>
-        <td colspan="2" style="font-size:0.76rem; color:var(--muted);">
-          Loading your documents and notes…
-        </td>
-      </tr>
-    `;
+      stepsListEl.innerHTML = "";
+      stepCountBadge.textContent = `${steps.length} step${steps.length === 1 ? "" : "s"}`;
 
-    try {
-      // fundingStatus document: { overallStatus: string, steps: [{label, status}], docs: [{title,status}] }
-      const statusRef = doc(db, "fundingStatus", user.uid);
-      const statusSnap = await getDoc(statusRef);
-
-      if (!statusSnap.exists()) {
-        statusText.textContent =
-          "We’ve received your info. Your detailed status will appear here once 1128 posts it.";
-        stepsList.innerHTML = "";
-        docsBody.innerHTML = `
-          <tr>
-            <td colspan="2" style="font-size:0.76rem; color:var(--muted);">
-              No documents or notes have been posted yet.
-            </td>
-          </tr>
-        `;
+      if (!steps.length) {
+        emptyStateEl.style.display = "block";
         return;
       }
 
-      const data = statusSnap.data();
-      statusText.textContent = data.overallStatus || "In progress";
+      emptyStateEl.style.display = "none";
 
-      const steps = Array.isArray(data.steps) ? data.steps : [];
-      stepsList.innerHTML = "";
-      steps.forEach((step) => {
+      steps.forEach((step, index) => {
         const li = document.createElement("li");
-        li.textContent = `${step.label || "Step"}: ${step.status || "In progress"}`;
-        stepsList.appendChild(li);
+        li.className = "checklist-row";
+
+        const labelDiv = document.createElement("div");
+        labelDiv.className = "step-label";
+        labelDiv.innerHTML = `<span class="step-index">${index + 1}.</span> ${step.label || "Untitled step"}`;
+
+        const pill = document.createElement("span");
+        const status = step.status || "Pending";
+        const statusClass = getStatusClass(status);
+        pill.className = `status-pill ${statusClass}`;
+        pill.textContent = status;
+
+        li.appendChild(labelDiv);
+        li.appendChild(pill);
+        stepsListEl.appendChild(li);
       });
-
-      const docs = Array.isArray(data.docs) ? data.docs : [];
-      docsBody.innerHTML = "";
-      if (!docs.length) {
-        docsBody.innerHTML = `
-          <tr>
-            <td colspan="2" style="font-size:0.76rem; color:var(--muted);">
-              No documents or notes have been posted yet.
-            </td>
-          </tr>
-        `;
-      } else {
-        docs.forEach((d) => {
-          const tr = document.createElement("tr");
-          tr.innerHTML = `
-            <td>${d.title || "Document / Note"}</td>
-            <td>${d.status || ""}</td>
-          `;
-          docsBody.appendChild(tr);
-        });
-      }
-    } catch (err) {
-      console.error(err);
-      statusText.textContent = "We could not load your status right now.";
-      docsBody.innerHTML = `
-        <tr>
-          <td colspan="2" style="font-size:0.76rem; color:var(--danger);">
-            Error loading data. Please try again later or contact 1128.
-          </td>
-        </tr>
-      `;
-    }
-  }
-
-  // Attach handlers
-  loginBtn.addEventListener("click", handleLogin);
-  registerBtn.addEventListener("click", handleRegister);
-  logoutBtn.addEventListener("click", handleLogout);
-
-  // Watch auth state
-  onAuthStateChanged(auth, async (user) => {
-    if (!user) {
-      // Not logged in
-      authCard.style.display = "block";
-      dashboardCard.style.display = "none";
-      userEmailSpan.textContent = "—";
-      setMessage("");
-      return;
     }
 
-    authCard.style.display = "none";
-    dashboardCard.style.display = "block";
-    userEmailSpan.textContent = user.email || "Client";
+    async function loadClientStatus(user) {
+      if (!user) return;
 
-    try {
-      const userRef = doc(db, "users", user.uid);
-      const snap = await getDoc(userRef);
-      if (!snap.exists()) {
-        // If we somehow don't have a user doc, treat as client but note it.
-        setMessage("Account found, but profile is still being set up on our side.");
-      } else {
-        const data = snap.data();
-        if (data.role && data.role.toLowerCase() !== "client") {
-          setMessage("This portal is currently limited to client view.", true);
+      try {
+        const ref = doc(db, "clientStatus", user.uid);
+        const snap = await getDoc(ref);
+        if (!snap.exists()) {
+          // No status file yet – show empty message
+          renderChecklist({ overallStatus: "Pending", steps: [] });
+          return;
         }
+        renderChecklist(snap.data());
+      } catch (err) {
+        console.error("Error loading status:", err);
+        renderChecklist({ overallStatus: "Pending", steps: [] });
       }
-    } catch (err) {
-      console.error(err);
     }
 
-    // Load status & docs
-    await loadClientStatus(user);
-  });
+    // --- Auth handlers ---
 
-  // Footer year
-  const yearEl = document.getElementById("year");
-  if (yearEl) {
-    yearEl.textContent = new Date().getFullYear();
-  }
-</script>
+    loginForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const email = loginEmailInput.value.trim();
+      const password = loginPasswordInput.value;
 
+      if (!email || !password) {
+        alert("Please enter your email and password.");
+        return;
+      }
+
+      try {
+        setLoading(true, "Logging in…");
+        await signInWithEmailAndPassword(auth, email, password);
+      } catch (err) {
+        console.error(err);
+        alert("Login failed: " + (err.message || err.code));
+      } finally {
+        setLoading(false);
+      }
+    });
+
+    registerBtn.addEventListener("click", async () => {
+      const email = loginEmailInput.value.trim();
+      const password = loginPasswordInput.value;
+
+      if (!email || !password) {
+        alert("Enter an email and password first, then click Register.");
+        return;
+      }
+
+      try {
+        setLoading(true, "Creating your client account…");
+        const cred = await createUserWithEmailAndPassword(auth, email, password);
+
+        // Store user role as client
+        await setDoc(doc(db, "users", cred.user.uid), {
+          email,
+          role: "client",
+          createdAt: Date.now()
+        }, { merge: true });
+
+        // Optional: if you want to pre-create a default clientStatus document for new users,
+        // you can uncomment this block:
+        /*
+        await setDoc(doc(db, "clientStatus", cred.user.uid), {
+          overallStatus: "Pending",
+          steps: [
+            { label: "Business Name", status: "Pending" },
+            { label: "Address", status: "Pending" },
+            { label: "Phone Number", status: "Pending" },
+            { label: "Website", status: "Pending" },
+            { label: "Email Address", status: "Pending" },
+            { label: "State Filing", status: "Pending" },
+            { label: "EIN", status: "Pending" },
+            { label: "Banking Setup", status: "Pending" },
+            { label: "Payment Processing", status: "Pending" },
+            { label: "Internal Review", status: "Pending" }
+          ]
+        }, { merge: true });
+        */
+
+        alert("Client account created. You are now logged in.");
+      } catch (err) {
+        console.error(err);
+        alert("Could not register: " + (err.message || err.code));
+      } finally {
+        setLoading(false);
+      }
+    });
+
+    logoutBtn.addEventListener("click", async () => {
+      try {
+        await signOut(auth);
+      } catch (err) {
+        console.error(err);
+      }
+    });
+
+    // --- Auth state listener ---
+
+    onAuthStateChanged(auth, async (user) => {
+      if (!user) {
+        dashboardEl.style.display = "none";
+        dashboardMeta.textContent = "Logged out.";
+        overallStatusText.textContent = "—";
+        stepsListEl.innerHTML = "";
+        emptyStateEl.style.display = "true";
+        return;
+      }
+
+      dashboardEl.style.display = "block";
+      dashboardMeta.textContent = `Logged in as: ${user.email || "Client"}`;
+
+      await loadClientStatus(user);
+    });
+  </script>
 </body>
 </html>
