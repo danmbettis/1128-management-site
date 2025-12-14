@@ -1,13 +1,972 @@
-rules_version = '2';
-service firebase.storage {
-  match /b/{bucket}/o {
-
-    function signedIn() { return request.auth != null; }
-    function isAdmin() { return signedIn() && request.auth.token.admin == true; }
-
-    match /clientDocs/{uid}/{allPaths=**} {
-      allow read: if signedIn() && request.auth.uid == uid || isAdmin();
-      allow write: if isAdmin();
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>1128 Management Corp — C-Corp Setup, Management & Client Portal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --bg:#050816;
+      --panel:#0b1226;
+      --panel2:#0e1730;
+      --text:#f9fafb;
+      --muted:#9ca3af;
+      --line:#1f2a44;
+      --brand1:#2563eb;
+      --brand2:#10b981;
+      --warn:#f59e0b;
+      --ok:#22c55e;
+      --bad:#ef4444;
+      --chip:#0b1022;
+      --shadow: 0 14px 50px rgba(0,0,0,.45);
+      --radius:16px;
     }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background: radial-gradient(1000px 600px at 30% 10%, rgba(37,99,235,.25), transparent 55%),
+                  radial-gradient(900px 500px at 70% 20%, rgba(16,185,129,.18), transparent 55%),
+                  var(--bg);
+      color:var(--text);
+    }
+    a{color:inherit}
+    .wrap{max-width:1100px;margin:0 auto;padding:0 18px}
+    nav{
+      position:sticky;top:0;z-index:10;
+      backdrop-filter: blur(12px);
+      background: rgba(5,8,22,.62);
+      border-bottom:1px solid rgba(31,42,68,.65);
+    }
+    .nav-inner{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:14px 0;
+      gap:12px;
+    }
+    .brand{
+      display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.02em;
+    }
+    .logo{
+      width:30px;height:30px;border-radius:10px;
+      background: linear-gradient(135deg,var(--brand1),var(--brand2));
+      display:flex;align-items:center;justify-content:center;
+      box-shadow: 0 10px 25px rgba(0,0,0,.35);
+      font-size:13px;font-weight:900;
+    }
+    .nav-links{display:flex;gap:14px;flex-wrap:wrap;align-items:center;justify-content:flex-end}
+    .nav-links a{
+      text-decoration:none;
+      color:rgba(249,250,251,.85);
+      font-size:13px;
+      padding:8px 10px;border-radius:999px;
+      border:1px solid transparent;
+    }
+    .nav-links a:hover{border-color:rgba(31,42,68,.9);background:rgba(11,18,38,.5)}
+    .btn{
+      border:none;cursor:pointer;
+      padding:10px 14px;border-radius:999px;
+      font-weight:700;font-size:13px;
+      color:white;
+      background: linear-gradient(135deg,var(--brand1),var(--brand2));
+      box-shadow: 0 12px 30px rgba(0,0,0,.35);
+    }
+    .btn:disabled{opacity:.55;cursor:not-allowed}
+    .btn-outline{
+      cursor:pointer;
+      padding:10px 14px;border-radius:999px;
+      font-weight:700;font-size:13px;
+      color:rgba(249,250,251,.92);
+      background: transparent;
+      border:1px solid rgba(31,42,68,.95);
+    }
+    header{padding:60px 0 20px}
+    .hero{
+      display:grid;grid-template-columns:1.25fr .75fr;gap:18px;align-items:start;
+    }
+    @media(max-width:920px){ .hero{grid-template-columns:1fr} }
+    .card{
+      background: linear-gradient(180deg, rgba(14,23,48,.78), rgba(11,18,38,.78));
+      border:1px solid rgba(31,42,68,.9);
+      border-radius:var(--radius);
+      box-shadow: var(--shadow);
+      padding:20px;
+    }
+    .kicker{color:#7dd3fc;letter-spacing:.12em;font-size:11px;font-weight:800}
+    h1{font-size:34px;line-height:1.15;margin:10px 0 8px}
+    p{color:var(--muted);line-height:1.55;margin:0}
+    .hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+    @media(max-width:980px){ .grid3{grid-template-columns:1fr} }
+    .pill{
+      display:inline-flex;align-items:center;gap:8px;
+      background: rgba(11,16,34,.8);
+      border:1px solid rgba(31,42,68,.9);
+      padding:7px 10px;border-radius:999px;
+      font-size:12px;color:rgba(249,250,251,.9);
+    }
+    section{padding:36px 0}
+    .section-title{font-size:22px;margin:0 0 8px}
+    .muted{color:var(--muted)}
+    .pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    @media(max-width:980px){ .pricing{grid-template-columns:1fr} }
+    .price{
+      font-size:28px;font-weight:900;margin:8px 0 8px;
+    }
+    ul{margin:10px 0 0;padding-left:18px;color:var(--muted)}
+    li{margin:6px 0}
+    .divider{height:1px;background:rgba(31,42,68,.75);margin:18px 0}
+    .tag{
+      display:inline-flex;align-items:center;
+      padding:5px 10px;border-radius:999px;font-size:12px;font-weight:800;
+      border:1px solid rgba(31,42,68,.95); background: rgba(11,16,34,.7);
+    }
+    .tag.ok{border-color:rgba(34,197,94,.45);color:#bbf7d0}
+    .tag.warn{border-color:rgba(245,158,11,.45);color:#fde68a}
+    .tag.bad{border-color:rgba(239,68,68,.45);color:#fecaca}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    @media(max-width:920px){ .form-grid{grid-template-columns:1fr} }
+    label{font-size:12px;color:rgba(249,250,251,.85);font-weight:700}
+    input, textarea, select{
+      width:100%; margin-top:6px;
+      padding:11px 12px;
+      background: rgba(2,6,23,.75);
+      border:1px solid rgba(31,42,68,.95);
+      border-radius:12px;
+      color: var(--text);
+      outline:none;
+    }
+    textarea{min-height:84px;resize:vertical}
+    .hint{font-size:12px;color:rgba(156,163,175,.95);margin-top:8px}
+    .statusbar{
+      display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;
+      margin-top:10px;
+    }
+    table{
+      width:100%;
+      border-collapse:collapse;
+      margin-top:12px;
+      overflow:hidden;
+      border-radius:14px;
+      border:1px solid rgba(31,42,68,.95);
+      background: rgba(2,6,23,.35);
+    }
+    th, td{
+      padding:12px 12px;
+      border-bottom:1px solid rgba(31,42,68,.75);
+      font-size:13px;
+      vertical-align:top;
+    }
+    th{color:rgba(249,250,251,.9);text-align:left;background:rgba(11,18,38,.55)}
+    .right{ text-align:right }
+    .row-actions{display:flex;gap:8px;align-items:center;justify-content:flex-end;flex-wrap:wrap}
+    .small{font-size:12px;color:rgba(156,163,175,.95)}
+    .note{
+      color:rgba(226,232,240,.95);
+      font-size:12px;
+      margin-top:4px;
+      opacity:.95;
+    }
+    .docs a{
+      display:inline-block;
+      margin-right:8px;
+      color:#93c5fd;
+      font-size:12px;
+      text-decoration:none;
+    }
+    .docs a:hover{text-decoration:underline}
+    .admin-only{display:none}
+    footer{padding:26px 0;color:rgba(156,163,175,.9);font-size:12px;border-top:1px solid rgba(31,42,68,.65)}
+    .toast{
+      position:fixed;right:16px;bottom:16px;z-index:50;
+      background: rgba(11,18,38,.92);
+      border:1px solid rgba(31,42,68,.95);
+      border-radius:14px;
+      padding:12px 14px;
+      box-shadow: var(--shadow);
+      width:min(380px, calc(100vw - 32px));
+      display:none;
+    }
+    .toast b{display:block;margin-bottom:6px}
+  </style>
+</head>
+
+<body>
+  <nav>
+    <div class="wrap">
+      <div class="nav-inner">
+        <div class="brand">
+          <div class="logo">1128</div>
+          <div>
+            <div style="font-size:13px;font-weight:900;letter-spacing:.03em">1128 MANAGEMENT CORP</div>
+            <div style="font-size:11px;color:rgba(156,163,175,.95);margin-top:2px">C-Corp Setup • Management • Client Portal</div>
+          </div>
+        </div>
+
+        <div class="nav-links">
+          <a href="#overview">Overview</a>
+          <a href="#ccorp">C-Corp Setup</a>
+          <a href="#addons">Add-On Services</a>
+          <a href="#policies">Policies</a>
+          <a href="#portal">Client Portal</a>
+          <a class="btn-outline" href="https://buy.stripe.com/4gM00jddY2Q228qanU1ck07" target="_blank" rel="noopener">Buy Credits</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <header class="wrap">
+    <div class="hero">
+      <div class="card">
+        <div class="kicker">MISSISSIPPI • MULTI-ENTITY SUPPORT</div>
+        <h1>C-Corp setup + organized management, with a client portal for status & documents.</h1>
+        <p>
+          We keep the public site simple. Clients get a secure portal login to view checklist status,
+          updates, and document links we place on file for them.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn" href="#ccorp" style="text-decoration:none;display:inline-flex;align-items:center;justify-content:center;">View Setup Package</a>
+          <a class="btn-outline" href="https://buy.stripe.com/4gM00jddY2Q228qanU1ck07" target="_blank" rel="noopener" style="text-decoration:none;display:inline-flex;align-items:center;justify-content:center;">Buy Credits</a>
+          <a class="btn-outline" href="#portal" style="text-decoration:none;display:inline-flex;align-items:center;justify-content:center;">Client Portal Login</a>
+        </div>
+
+        <div class="grid3">
+          <div class="pill">Start work within <b>3 business days</b> (after signup + intake)</div>
+          <div class="pill">Minimum expectation for total results: <b>~90 days</b></div>
+          <div class="pill">Clients receive portal updates for <b>status + docs</b></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="tag warn">Credits (Public)</div>
+        <div class="price" style="margin-top:10px">$5+ Support Credits</div>
+        <p class="muted">Quick checkout credits you can promote publicly. Quantity is handled in Stripe.</p>
+        <div class="divider"></div>
+        <a class="btn" href="https://buy.stripe.com/4gM00jddY2Q228qanU1ck07" target="_blank" rel="noopener" style="text-decoration:none;display:inline-flex;width:100%;justify-content:center;">Buy Credits</a>
+        <div class="hint">Use credits for support, priority handling, and add-on work.</div>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section id="overview">
+      <h2 class="section-title">What we do</h2>
+      <p class="muted">
+        1128 Management Corp provides service-based business setup and operational coordination for clients.
+        Your strategy details stay off the public site. Clients see status + documentation inside the portal.
+      </p>
+    </section>
+
+    <section id="ccorp">
+      <h2 class="section-title">C-Corp Setup Package</h2>
+      <div class="pricing">
+        <div class="card">
+          <div class="tag ok">Primary Package</div>
+          <div class="price">$300</div>
+          <p class="muted">(Service fee — state/government fees are included.)</p>
+          <ul>
+            <li>Mississippi C-Corporation filing</li>
+            <li>IRS EIN setup</li>
+            <li>Business address setup (does not require approval)</li>
+            <li>Business phone + email setup</li>
+            <li>Basic website launch page</li>
+            <li>Banking + payment processing setup coordination</li>
+            <li>Client portal access for updates, documentation backup, and results</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="tag">Credits (Public)</div>
+          <div class="price">$5 / $10 / $20+</div>
+          <p class="muted">Customers can choose quantity in Stripe to increase total.</p>
+          <div class="divider"></div>
+          <a class="btn-outline" href="https://buy.stripe.com/4gM00jddY2Q228qanU1ck07" target="_blank" rel="noopener" style="text-decoration:none;display:inline-flex;width:100%;justify-content:center;">Buy Credits</a>
+        </div>
+
+        <div class="card">
+          <div class="tag">Timeline</div>
+          <div class="price">90 days</div>
+          <p class="muted">Minimum expectation for total results (formation + basic setup).</p>
+          <ul>
+            <li>Work begins within 3 business days after signup + intake</li>
+            <li>Some steps depend on external institutions and processing timelines</li>
+            <li>Status is tracked in the portal checklist</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="addons">
+      <h2 class="section-title">Add-On Services (Optional)</h2>
+      <div class="pricing">
+        <div class="card">
+          <div class="tag">Build & Presence</div>
+          <ul>
+            <li>Website build or rebuild — <b>$399</b></li>
+            <li>Business phone & email setup — <b>$89</b></li>
+            <li>Business systems setup (CRM, portal, etc.) — <b>$299</b></li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="tag">Operations</div>
+          <ul>
+            <li>Payment processor setup — <b>$199</b></li>
+            <li>Corporate document creation — <b>$89–$399</b></li>
+            <li>Business management consulting (hands-on) — <b>Custom quote</b></li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="tag">Notes</div>
+          <p class="muted">Add-ons are delivered and tracked through the client portal checklist and updates.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="policies">
+      <h2 class="section-title">Policies</h2>
+      <div class="pricing">
+        <div class="card">
+          <h3 style="margin:0 0 10px">Timeline for work</h3>
+          <ul>
+            <li>We aim to begin active processing within <b>3 business days</b> after signup and intake.</li>
+            <li>Minimum expectation for total results is about <b>90 days</b>.</li>
+            <li>Some items are controlled by external institutions and processing timelines.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 style="margin:0 0 10px">Refunds & credits</h3>
+          <ul>
+            <li>Service fees paid to 1128 Management Corp are generally <b>non-refundable</b>.</li>
+            <li>Any exceptions or disputes must follow applicable law and the policies and procedures of our payment processor (Stripe).</li>
+            <li>If there is a clear service error on our side, we will review the situation and work toward a fair resolution.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 style="margin:0 0 10px">Client portal usage</h3>
+          <ul>
+            <li>Status updates + checklist + document links are delivered via the portal.</li>
+            <li>Clients have read-only access to their file; updates are posted by 1128.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         CLIENT PORTAL (BOTTOM)
+    ========================== -->
+    <section id="portal">
+      <h2 class="section-title">Client Portal</h2>
+      <p class="muted">
+        This portal is for active clients. New registrations are treated as Clients only.
+        You must log in to view your internal status checklist and documents.
+      </p>
+
+      <div class="pricing" style="margin-top:14px">
+        <!-- LOGIN CARD -->
+        <div class="card">
+          <h3 style="margin:0 0 10px">Client Login</h3>
+
+          <div class="form-grid">
+            <div>
+              <label>Email</label>
+              <input id="email" placeholder="you@email.com" autocomplete="email" />
+            </div>
+            <div>
+              <label>Password</label>
+              <input id="password" type="password" placeholder="••••••••" autocomplete="current-password" />
+            </div>
+          </div>
+
+          <div class="statusbar">
+            <div class="small" id="authStatus">Not signed in.</div>
+            <div style="display:flex;gap:10px;flex-wrap:wrap">
+              <button class="btn" id="loginBtn">Login</button>
+              <button class="btn-outline" id="registerBtn">Register New Client Account</button>
+              <button class="btn-outline" id="logoutBtn" style="display:none">Logout</button>
+            </div>
+          </div>
+
+          <div class="hint">
+            Tip: If login looks slow, watch for “Signing in…”. This site uses session-only login,
+            so clients log in each browser session.
+          </div>
+
+          <div class="divider"></div>
+
+          <!-- ADMIN TOGGLE (only shown for admins) -->
+          <div class="admin-only" id="adminBadge">
+            <span class="tag ok">Admin Mode</span>
+            <span class="small" style="margin-left:10px;color:rgba(187,247,208,.95)">
+              You can edit statuses, upload docs, and set internal notes.
+            </span>
+          </div>
+        </div>
+
+        <!-- CLIENT CHECKLIST CARD -->
+        <div class="card" style="grid-column: span 2">
+          <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:flex-start">
+            <div>
+              <h3 style="margin:0 0 6px">Client Checklist & Status</h3>
+              <div class="small">This section appears only after you log in.</div>
+            </div>
+            <div class="right">
+              <div class="small">Logged in as:</div>
+              <div style="font-weight:900" id="whoami">—</div>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between">
+            <div>
+              <div class="small">Overall status:</div>
+              <div id="overallChip" class="tag warn" style="margin-top:6px">Pending</div>
+            </div>
+            <div class="small">
+              Last updated: <span id="lastUpdated">—</span>
+            </div>
+          </div>
+
+          <table id="statusTable" style="margin-top:14px;display:none">
+            <thead>
+              <tr>
+                <th style="width:32%">Item</th>
+                <th style="width:18%">Status</th>
+                <th style="width:35%">Client Note</th>
+                <th class="admin-only" style="width:35%">Internal Note (Admin)</th>
+                <th class="admin-only right" style="width:15%">Admin Actions</th>
+              </tr>
+            </thead>
+            <tbody id="statusBody"></tbody>
+          </table>
+
+          <div id="lockedMsg" class="small" style="margin-top:10px;color:rgba(156,163,175,.95)">
+            Sign in to view your checklist and documents.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrap" style="padding:0">
+        © <span id="year"></span> 1128 Management Corp. Client Portal.
+      </div>
+    </footer>
+  </main>
+
+  <div class="toast" id="toast">
+    <b id="toastTitle">Notice</b>
+    <div id="toastMsg" class="small"></div>
+  </div>
+
+<script type="module">
+  // =========================
+  // Firebase (Modular SDK)
+  // =========================
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
+  import {
+    getAuth,
+    setPersistence,
+    browserSessionPersistence,
+    onAuthStateChanged,
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword,
+    signOut
+  } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js";
+
+  import {
+    getFirestore,
+    doc,
+    getDoc,
+    setDoc,
+    updateDoc,
+    onSnapshot,
+    serverTimestamp
+  } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore.js";
+
+  import {
+    getStorage,
+    ref as sRef,
+    uploadBytes,
+    getDownloadURL
+  } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-storage.js";
+
+  // ✅ Your Firebase config
+  const firebaseConfig = {
+    apiKey: "AIzaSyDWgaRI40PO-fgP8xa_m1OWg-3AgOKCQW4",
+    authDomain: "management-portal-da4aa.firebaseapp.com",
+    projectId: "management-portal-da4aa",
+    storageBucket: "management-portal-da4aa.firebasestorage.app",
+    messagingSenderId: "336550662632",
+    appId: "1:336550662632:web:da5a240a56fdd2df3a145d",
+    measurementId: "G-CCWG9GVVS7"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const db = getFirestore(app);
+  const storage = getStorage(app);
+
+  // Force session-only auth (clients log in each browser session)
+  await setPersistence(auth, browserSessionPersistence);
+
+  // =========================
+  // UI helpers
+  // =========================
+  const $ = (id) => document.getElementById(id);
+
+  function toast(title, msg){
+    $("toastTitle").textContent = title;
+    $("toastMsg").textContent = msg;
+    $("toast").style.display = "block";
+    setTimeout(()=> $("toast").style.display = "none", 5200);
   }
-}
+
+  function setAuthStatus(msg){
+    $("authStatus").textContent = msg;
+  }
+
+  function statusTagClass(v){
+    const s = (v || "").toLowerCase();
+    if (s.includes("complete")) return "tag ok";
+    if (s.includes("progress")) return "tag warn";
+    if (s.includes("hold") || s.includes("issue") || s.includes("error")) return "tag bad";
+    return "tag warn";
+  }
+
+  function fmtDate(ts){
+    if (!ts) return "—";
+    const d = ts.toDate ? ts.toDate() : new Date(ts);
+    return d.toLocaleString();
+  }
+
+  // =========================
+  // Default checklist template
+  // (Auto-created on register)
+  // =========================
+  const DEFAULT_STEPS = [
+    { key:"businessName",     label:"Business Name" },
+    { key:"address",          label:"Address" },
+    { key:"phoneNumber",      label:"Phone Number" },
+    { key:"website",          label:"Website" },
+    { key:"emailAddress",     label:"Email Address" },
+    { key:"stateFiling",      label:"State Filing" },
+    { key:"ein",              label:"EIN" },
+    { key:"bankingSetup",     label:"Banking Setup" },
+    { key:"paymentProcessing",label:"Payment Processing" }
+  ].map(x => ({
+    ...x,
+    status: "Pending",
+    clientNote: "",
+    internalNote: "",
+    updatedAt: null,
+    docs: []
+  }));
+
+  // =========================
+  // Admin detection
+  // - Primary: users/{uid}.role == "admin"
+  // - (Best practice: also set custom claims in backend; rules below use claims.)
+  // =========================
+  let currentUser = null;
+  let isAdmin = false;
+  let statusUnsub = null;
+
+  async function loadRole(uid){
+    const uref = doc(db, "users", uid);
+    const snap = await getDoc(uref);
+    if (!snap.exists()) return "client";
+    return snap.data()?.role || "client";
+  }
+
+  function applyAdminUI(){
+    const adminEls = document.querySelectorAll(".admin-only");
+    adminEls.forEach(el => el.style.display = isAdmin ? "" : "none");
+    $("adminBadge").style.display = isAdmin ? "" : "none";
+  }
+
+  function setSignedOutUI(){
+    $("whoami").textContent = "—";
+    $("statusTable").style.display = "none";
+    $("lockedMsg").style.display = "block";
+    $("logoutBtn").style.display = "none";
+    $("loginBtn").disabled = false;
+    $("registerBtn").disabled = false;
+    $("overallChip").className = "tag warn";
+    $("overallChip").textContent = "Pending";
+    $("lastUpdated").textContent = "—";
+    $("statusBody").innerHTML = "";
+    isAdmin = false;
+    applyAdminUI();
+  }
+
+  // =========================
+  // Rendering
+  // =========================
+  function renderChecklist(docData){
+    const overallStatus = docData?.overallStatus || "Pending";
+    $("overallChip").className = statusTagClass(overallStatus);
+    $("overallChip").textContent = overallStatus;
+
+    $("lastUpdated").textContent = fmtDate(docData?.updatedAt);
+    const steps = Array.isArray(docData?.steps) ? docData.steps : [];
+
+    const tbody = $("statusBody");
+    tbody.innerHTML = "";
+
+    for (const step of steps){
+      const tr = document.createElement("tr");
+
+      // Item
+      const tdItem = document.createElement("td");
+      tdItem.innerHTML = `<div style="font-weight:800">${step.label || step.key || "Item"}</div>` +
+                         (step.docs?.length ? `<div class="docs" style="margin-top:6px">${
+                           step.docs.map(d => `<a href="${d.url}" target="_blank" rel="noopener">${d.name || "Document"}</a>`).join("")
+                         }</div>` : `<div class="small" style="margin-top:6px;color:rgba(156,163,175,.95)">No documents</div>`);
+      tr.appendChild(tdItem);
+
+      // Status chip
+      const tdStatus = document.createElement("td");
+      const s = step.status || "Pending";
+      tdStatus.innerHTML = `<span class="${statusTagClass(s)}">${s}</span>` +
+                           (step.updatedAt ? `<div class="small" style="margin-top:8px">Updated: ${fmtDate(step.updatedAt)}</div>` : "");
+      tr.appendChild(tdStatus);
+
+      // Client note (visible to client)
+      const tdClientNote = document.createElement("td");
+      tdClientNote.innerHTML = step.clientNote
+        ? `<div class="note">${escapeHtml(step.clientNote)}</div>`
+        : `<div class="small">—</div>`;
+      tr.appendChild(tdClientNote);
+
+      // Admin internal note + actions
+      const tdInternal = document.createElement("td");
+      tdInternal.className = "admin-only";
+      tdInternal.innerHTML = step.internalNote
+        ? `<div class="note">${escapeHtml(step.internalNote)}</div>`
+        : `<div class="small">—</div>`;
+      tr.appendChild(tdInternal);
+
+      const tdActions = document.createElement("td");
+      tdActions.className = "admin-only right";
+      tdActions.appendChild(buildAdminControls(step));
+      tr.appendChild(tdActions);
+
+      tbody.appendChild(tr);
+    }
+
+    $("lockedMsg").style.display = "none";
+    $("statusTable").style.display = "";
+    applyAdminUI();
+  }
+
+  function escapeHtml(str){
+    return String(str)
+      .replaceAll("&","&amp;")
+      .replaceAll("<","&lt;")
+      .replaceAll(">","&gt;")
+      .replaceAll('"',"&quot;")
+      .replaceAll("'","&#039;");
+  }
+
+  // =========================
+  // Admin controls per row
+  // =========================
+  function buildAdminControls(step){
+    const wrap = document.createElement("div");
+    wrap.className = "row-actions";
+
+    // Status dropdown
+    const sel = document.createElement("select");
+    sel.style.minWidth = "160px";
+    ["Pending","In Progress","Completed"].forEach(v=>{
+      const o = document.createElement("option");
+      o.value = v;
+      o.textContent = v;
+      if ((step.status||"Pending") === v) o.selected = true;
+      sel.appendChild(o);
+    });
+
+    // Client note input
+    const clientNote = document.createElement("input");
+    clientNote.placeholder = "Client note (visible to client)";
+    clientNote.value = step.clientNote || "";
+    clientNote.style.minWidth = "220px";
+
+    // Internal note input
+    const internalNote = document.createElement("input");
+    internalNote.placeholder = "Internal note (admin only)";
+    internalNote.value = step.internalNote || "";
+    internalNote.style.minWidth = "220px";
+
+    // Upload button + hidden file input
+    const file = document.createElement("input");
+    file.type = "file";
+    file.accept = ".pdf,.png,.jpg,.jpeg";
+    file.style.display = "none";
+
+    const uploadBtn = document.createElement("button");
+    uploadBtn.className = "btn-outline";
+    uploadBtn.textContent = "Upload Doc";
+    uploadBtn.onclick = () => file.click();
+
+    file.onchange = async () => {
+      if (!file.files || !file.files[0]) return;
+      const f = file.files[0];
+      try{
+        uploadBtn.disabled = true;
+        uploadBtn.textContent = "Uploading…";
+        await uploadDocForStep(currentUser.uid, step.key, f);
+        toast("Upload complete", "Document added to this checklist item.");
+      }catch(e){
+        console.error(e);
+        toast("Upload failed", e?.message || "Could not upload document.");
+      }finally{
+        uploadBtn.disabled = false;
+        uploadBtn.textContent = "Upload Doc";
+        file.value = "";
+      }
+    };
+
+    // Save button
+    const saveBtn = document.createElement("button");
+    saveBtn.className = "btn";
+    saveBtn.textContent = "Save";
+    saveBtn.onclick = async () => {
+      try{
+        saveBtn.disabled = true;
+        saveBtn.textContent = "Saving…";
+        await adminUpdateStep(currentUser.uid, step.key, {
+          status: sel.value,
+          clientNote: clientNote.value.trim(),
+          internalNote: internalNote.value.trim()
+        });
+        toast("Saved", "Checklist item updated.");
+      }catch(e){
+        console.error(e);
+        toast("Save failed", e?.message || "Could not update checklist item.");
+      }finally{
+        saveBtn.disabled = false;
+        saveBtn.textContent = "Save";
+      }
+    };
+
+    wrap.appendChild(sel);
+    wrap.appendChild(clientNote);
+    wrap.appendChild(internalNote);
+    wrap.appendChild(uploadBtn);
+    wrap.appendChild(file);
+    wrap.appendChild(saveBtn);
+
+    return wrap;
+  }
+
+  async function adminUpdateStep(uid, stepKey, patch){
+    // Reads current doc, updates one step, and writes back.
+    // (Simple + reliable for your phase. Later you can switch to a Cloud Function.)
+    const ref = doc(db, "clientStatus", uid);
+    const snap = await getDoc(ref);
+    if (!snap.exists()) throw new Error("Client status doc not found.");
+    const data = snap.data();
+
+    const steps = Array.isArray(data.steps) ? data.steps : [];
+    const idx = steps.findIndex(s => s.key === stepKey);
+    if (idx < 0) throw new Error("Step not found: " + stepKey);
+
+    steps[idx] = {
+      ...steps[idx],
+      status: patch.status ?? steps[idx].status,
+      clientNote: patch.clientNote ?? steps[idx].clientNote,
+      internalNote: patch.internalNote ?? steps[idx].internalNote,
+      updatedAt: serverTimestamp()
+    };
+
+    // Optionally update overallStatus automatically
+    const overall = computeOverall(steps);
+
+    await updateDoc(ref, {
+      steps,
+      overallStatus: overall,
+      updatedAt: serverTimestamp()
+    });
+  }
+
+  function computeOverall(steps){
+    const statuses = steps.map(s => (s.status||"Pending"));
+    if (statuses.every(s => s === "Completed")) return "Completed";
+    if (statuses.some(s => s === "In Progress" || s === "Completed")) return "In Progress";
+    return "Pending";
+  }
+
+  async function uploadDocForStep(uid, stepKey, file){
+    // Upload to Storage: clientDocs/{uid}/{stepKey}/{timestamp}-{filename}
+    const safeName = file.name.replace(/[^\w.\-]+/g, "_");
+    const path = `clientDocs/${uid}/${stepKey}/${Date.now()}-${safeName}`;
+    const r = sRef(storage, path);
+    await uploadBytes(r, file, { contentType: file.type });
+
+    const url = await getDownloadURL(r);
+
+    // Add doc to the step in Firestore
+    const ref = doc(db, "clientStatus", uid);
+    const snap = await getDoc(ref);
+    if (!snap.exists()) throw new Error("Client status doc not found.");
+
+    const data = snap.data();
+    const steps = Array.isArray(data.steps) ? data.steps : [];
+    const idx = steps.findIndex(s => s.key === stepKey);
+    if (idx < 0) throw new Error("Step not found: " + stepKey);
+
+    const docs = Array.isArray(steps[idx].docs) ? steps[idx].docs : [];
+    docs.push({
+      name: file.name,
+      url,
+      path,
+      uploadedAt: serverTimestamp()
+    });
+
+    steps[idx] = {
+      ...steps[idx],
+      docs,
+      updatedAt: serverTimestamp()
+    };
+
+    await updateDoc(ref, {
+      steps,
+      updatedAt: serverTimestamp()
+    });
+  }
+
+  // =========================
+  // Auth: Login / Register / Logout
+  // =========================
+  $("loginBtn").onclick = async () => {
+    const email = $("email").value.trim();
+    const pass = $("password").value;
+    if (!email || !pass) return toast("Missing info", "Enter email and password.");
+
+    try{
+      $("loginBtn").disabled = true;
+      $("registerBtn").disabled = true;
+      setAuthStatus("Signing in…");
+      await signInWithEmailAndPassword(auth, email, pass);
+      $("password").value = "";
+    }catch(e){
+      console.error(e);
+      toast("Login failed", e?.message || "Could not sign in.");
+      setAuthStatus("Not signed in.");
+    }finally{
+      $("loginBtn").disabled = false;
+      $("registerBtn").disabled = false;
+    }
+  };
+
+  $("registerBtn").onclick = async () => {
+    const email = $("email").value.trim();
+    const pass = $("password").value;
+    if (!email || !pass) return toast("Missing info", "Enter email and password.");
+
+    try{
+      $("loginBtn").disabled = true;
+      $("registerBtn").disabled = true;
+      setAuthStatus("Creating account…");
+
+      const cred = await createUserWithEmailAndPassword(auth, email, pass);
+
+      // Create /users doc (client only)
+      await setDoc(doc(db, "users", cred.user.uid), {
+        email,
+        role: "client",
+        createdAt: serverTimestamp()
+      });
+
+      // Create /clientStatus doc for checklist (default template)
+      await setDoc(doc(db, "clientStatus", cred.user.uid), {
+        overallStatus: "Pending",
+        updatedAt: serverTimestamp(),
+        steps: DEFAULT_STEPS
+      });
+
+      $("password").value = "";
+      toast("Account created", "You can now log in and view your checklist.");
+      setAuthStatus("Account created. Signed in.");
+    }catch(e){
+      console.error(e);
+      toast("Could not register", e?.message || "Registration failed.");
+      setAuthStatus("Not signed in.");
+    }finally{
+      $("loginBtn").disabled = false;
+      $("registerBtn").disabled = false;
+    }
+  };
+
+  $("logoutBtn").onclick = async () => {
+    try{
+      await signOut(auth);
+    }catch(e){
+      console.error(e);
+      toast("Logout failed", e?.message || "Could not sign out.");
+    }
+  };
+
+  // =========================
+  // Live status subscription
+  // =========================
+  function subscribeToClientStatus(uid){
+    if (statusUnsub) statusUnsub();
+    const ref = doc(db, "clientStatus", uid);
+
+    statusUnsub = onSnapshot(ref, (snap) => {
+      if (!snap.exists()){
+        // If missing doc, show empty
+        $("statusBody").innerHTML = "";
+        $("statusTable").style.display = "none";
+        $("lockedMsg").style.display = "block";
+        $("lockedMsg").textContent = "No checklist found yet. Please contact 1128.";
+        return;
+      }
+      renderChecklist(snap.data());
+    }, (err) => {
+      console.error(err);
+      toast("Portal error", err?.message || "Could not load checklist.");
+    });
+  }
+
+  // =========================
+  // Auth state changes
+  // =========================
+  onAuthStateChanged(auth, async (user) => {
+    currentUser = user;
+
+    if (!user){
+      setAuthStatus("Not signed in.");
+      setSignedOutUI();
+      return;
+    }
+
+    $("logoutBtn").style.display = "";
+    $("whoami").textContent = user.email || user.uid;
+    setAuthStatus("Signed in.");
+    $("lockedMsg").textContent = "Loading checklist…";
+
+    // Load role from /users doc
+    try{
+      const role = await loadRole(user.uid);
+      isAdmin = (role === "admin");
+      applyAdminUI();
+    }catch(e){
+      console.error(e);
+      isAdmin = false;
+      applyAdminUI();
+    }
+
+    // Subscribe to this user's status doc (clients see their own; admins will still see their own here)
+    subscribeToClientStatus(user.uid);
+  });
+
+  // Footer year
+  $("year").textContent = String(new Date().getFullYear());
+</script>
+</body>
+</html>
