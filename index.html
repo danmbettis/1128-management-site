@@ -2,916 +2,218 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <title>1128 Management Corp | Corporate Setup & Business Management</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>1128 Management Corp — C-Corp Setup, Organization & Consulting</title>
-  <meta name="description" content="1128 Management Corp: C-Corp setup & organization, operational consulting, client portal with checklist status and admin updates." />
+  <meta name="description" content="1128 Management Corp provides Mississippi C-Corporation setup, EIN coordination, administrative business management, and ongoing operational support." />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
 
   <style>
-    :root{
-      --bg:#050816;
-      --bg2:#070b18;
-      --card:#0b1020;
-      --card2:#0e1630;
-      --text:#f9fafb;
-      --muted:#9ca3af;
-      --border:#1f2937;
-
-      --primary:#1f4bff;
-      --primary2:#6d28d9;
-      --accent:#00c896;
-
-      --danger:#ef4444;
-      --warn:#f59e0b;
-      --ok:#22c55e;
-
-      --shadow: 0 26px 80px rgba(0,0,0,.55);
-      --radius: 18px;
+    body {
+      margin: 0;
+      font-family: Inter, sans-serif;
+      background: #050816;
+      color: #f9fafb;
+      line-height: 1.6;
     }
-    *{ box-sizing:border-box; }
-    html,body{ margin:0; padding:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Arial,sans-serif; background: radial-gradient(circle at top, #101737 0, #050816 45%, #000 100%); color:var(--text); }
-    a{ color:inherit; text-decoration:none; }
-    button,input,select,textarea{ font-family:inherit; }
-    .container{ max-width:1120px; margin:0 auto; padding:0 18px; }
-
-    /* NAV */
-    header{
-      position:sticky; top:0; z-index:50;
-      backdrop-filter: blur(14px);
-      background: linear-gradient(to bottom, rgba(5,8,22,.92), rgba(5,8,22,.70), rgba(5,8,22,.0));
-      border-bottom:1px solid rgba(31,41,55,.75);
+    section { padding: 70px 20px; }
+    h1, h2, h3 { margin-bottom: 12px; }
+    p { color: #9ca3af; max-width: 900px; }
+    .container { max-width: 1100px; margin: auto; }
+    .btn {
+      background: linear-gradient(to right, #2563eb, #4f46e5);
+      border: none;
+      color: white;
+      padding: 12px 22px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 600;
     }
-    .nav{
-      display:flex; align-items:center; justify-content:space-between; gap:12px;
-      padding:12px 0;
+    .card {
+      background: #111827;
+      padding: 24px;
+      border-radius: 16px;
+      margin-top: 30px;
+      border: 1px solid #1f2937;
     }
-    .brand{ display:flex; align-items:center; gap:10px; }
-    .mark{
-      width:38px; height:38px; border-radius:14px;
-      display:flex; align-items:center; justify-content:center;
-      font-weight:900; font-size:12px; letter-spacing:.08em;
-      border:1px solid rgba(148,163,184,.45);
-      background: radial-gradient(circle at 15% 0, #38bdf8, #4f46e5, #0b1020);
-      box-shadow: 0 18px 55px rgba(31,75,255,.25);
+    input, select, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-top: 6px;
+      background: #020617;
+      border: 1px solid #1f2937;
+      border-radius: 10px;
+      color: white;
+      font-size: 14px;
     }
-    .brandText{ display:flex; flex-direction:column; line-height:1.15; }
-    .brandText .t1{ font-weight:800; font-size:13px; letter-spacing:.08em; text-transform:uppercase; }
-    .brandText .t2{ font-size:11px; color:var(--muted); }
-
-    .navLinks{ display:flex; align-items:center; gap:16px; color:var(--muted); font-size:13px; }
-    .navLinks a{ padding:6px 0; position:relative; }
-    .navLinks a:hover{ color:var(--text); }
-    .navLinks a:after{
-      content:""; position:absolute; left:0; bottom:-2px; width:0; height:2px;
-      background: linear-gradient(to right, var(--primary), var(--accent));
-      border-radius:99px; transition: width .2s ease;
-    }
-    .navLinks a:hover:after{ width:100%; }
-
-    .navCtas{ display:flex; align-items:center; gap:10px; }
-    .pill{
-      border:1px solid rgba(148,163,184,.45);
-      color:var(--muted); font-size:11px; padding:6px 10px; border-radius:999px;
-      background: rgba(2,6,23,.35);
-    }
-    .btn{
-      border:none; cursor:pointer;
-      border-radius:999px; padding:10px 14px; font-size:13px; font-weight:700;
-      color:#fff;
-      background: linear-gradient(to right, var(--primary), var(--accent));
-      box-shadow: 0 22px 60px rgba(0,200,150,.18);
-      display:inline-flex; align-items:center; gap:8px;
-    }
-    .btn:hover{ filter:brightness(1.05); }
-    .btn2{
-      border:1px solid rgba(148,163,184,.50);
-      background: rgba(2,6,23,.35);
-      color: var(--text);
-      border-radius:999px; padding:10px 14px; font-size:13px; font-weight:700;
-      cursor:pointer;
-      display:inline-flex; align-items:center; gap:8px;
-    }
-    .btn2:hover{ border-color:rgba(148,163,184,.75); }
-
-    /* SECTIONS */
-    section{ padding:64px 0; }
-    .sectionHead{ margin-bottom:18px; }
-    .eyebrow{ color:var(--accent); font-size:11px; letter-spacing:.22em; text-transform:uppercase; margin-bottom:6px; }
-    h1,h2,h3{ margin:0 0 10px; }
-    p{ margin:0; color:var(--muted); line-height:1.6; }
-
-    /* HERO */
-    .hero{
-      padding-top:40px;
-    }
-    .heroGrid{
-      display:grid; grid-template-columns: 1.25fr .95fr; gap:22px; align-items:stretch;
-    }
-    .heroTitle{
-      font-size: clamp(28px, 3.6vw, 44px);
-      line-height:1.1; font-weight:900;
-      margin:12px 0 12px;
-    }
-    .gradText{
-      background: linear-gradient(to right, #38bdf8, #a855f7, #22c55e);
-      -webkit-background-clip:text; background-clip:text; color:transparent;
-    }
-    .heroSub{ max-width:720px; font-size:14px; }
-    .heroActions{ display:flex; flex-wrap:wrap; gap:10px; margin-top:16px; }
-    .noteLine{
-      margin-top:14px; font-size:12px; color:rgba(156,163,175,.95);
-      border-left:2px solid rgba(0,200,150,.7);
-      padding-left:10px;
-    }
-
-    .card{
-      background: radial-gradient(circle at top left, rgba(31,75,255,.18), rgba(11,16,32,1));
-      border:1px solid rgba(31,41,55,.9);
-      border-radius: var(--radius);
-      padding:18px;
-      box-shadow: var(--shadow);
-    }
-    .card.soft{
-      background: rgba(11,16,32,.85);
-      box-shadow: none;
-    }
-    .miniGrid{
-      display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:12px;
-    }
-    .mini{
-      background: rgba(2,6,23,.45);
-      border:1px solid rgba(31,41,55,.85);
-      border-radius:14px;
-      padding:12px;
-      font-size:12px;
-      color: var(--muted);
-    }
-    .mini strong{ color:var(--text); display:block; font-size:14px; margin-top:3px; }
-
-    /* GRID */
-    .grid3{ display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:14px; }
-    .grid2{ display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap:14px; }
-
-    .svc{
-      background: rgba(11,16,32,.82);
-      border:1px solid rgba(31,41,55,.9);
-      border-radius: var(--radius);
-      padding:16px;
-    }
-    .tag{
-      font-size:10px; letter-spacing:.20em; text-transform:uppercase;
-      color:#bbf7d0;
-      display:inline-flex; align-items:center; gap:6px;
-      padding:6px 10px; border-radius:999px;
-      border:1px solid rgba(34,197,94,.35);
-      background: rgba(22,101,52,.25);
-      margin-bottom:10px;
-    }
-    .svc h3{ font-size:16px; margin:0 0 8px; }
-    .svc ul{ margin:10px 0 0; padding-left:18px; color:var(--muted); font-size:13px; }
-    .svc li{ margin:6px 0; }
-
-    /* PRODUCTS */
-    .priceCard{
-      background: radial-gradient(circle at top, rgba(0,200,150,.14), rgba(11,16,32,1));
-      border:1px solid rgba(31,41,55,.9);
-      border-radius: var(--radius);
-      padding:18px;
-    }
-    .priceRow{ display:flex; align-items:baseline; justify-content:space-between; gap:12px; flex-wrap:wrap; }
-    .price{ font-size:34px; font-weight:900; letter-spacing:-.03em; }
-    .small{ font-size:12px; color:var(--muted); }
-
-    /* PORTAL */
-    .portalWrap{ display:grid; grid-template-columns: 1fr 1fr; gap:14px; align-items:start; }
-    .field{ display:flex; flex-direction:column; gap:6px; margin-top:10px; }
-    label{ color:rgba(156,163,175,.95); font-size:12px; }
-    input,select,textarea{
-      width:100%;
-      background: rgba(2,6,23,.5);
-      border:1px solid rgba(31,41,55,.9);
-      color:var(--text);
-      padding:10px 12px;
-      border-radius:12px;
-      outline:none;
-      font-size:13px;
-    }
-    textarea{ min-height:92px; resize:vertical; }
-    .row{ display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
-
-    .hint{ font-size:12px; color:rgba(156,163,175,.95); margin-top:10px; }
-    .hide{ display:none !important; }
-
-    /* TABLE */
-    table{ width:100%; border-collapse:collapse; margin-top:12px; overflow:hidden; border-radius:14px; }
-    thead th{
-      text-align:left; font-size:11px; color:rgba(156,163,175,.95);
-      letter-spacing:.16em; text-transform:uppercase;
-      padding:10px 10px;
-      border-bottom:1px solid rgba(31,41,55,.9);
-      background: rgba(2,6,23,.35);
-    }
-    tbody td{
-      padding:10px 10px;
-      border-bottom:1px solid rgba(31,41,55,.75);
-      font-size:13px;
-      vertical-align:top;
-    }
-    tbody tr:nth-child(even){ background: rgba(2,6,23,.20); }
-    .note{ color:rgba(156,163,175,.95); font-size:12px; }
-
-    .statusbar{ display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; align-items:flex-start; }
-    .badge{
-      display:inline-flex; align-items:center; justify-content:center;
-      padding:6px 10px; border-radius:999px; font-size:12px; font-weight:800;
-      border:1px solid rgba(148,163,184,.40);
-      background: rgba(2,6,23,.35);
-    }
-    .b-pending{ border-color: rgba(245,158,11,.40); color:#fde68a; background: rgba(245,158,11,.12); }
-    .b-progress{ border-color: rgba(59,130,246,.45); color:#bfdbfe; background: rgba(59,130,246,.12); }
-    .b-done{ border-color: rgba(34,197,94,.45); color:#bbf7d0; background: rgba(34,197,94,.12); }
-    .b-alert{ border-color: rgba(239,68,68,.45); color:#fecaca; background: rgba(239,68,68,.12); }
-
-    footer{
-      border-top:1px solid rgba(31,41,55,.85);
-      background: rgba(5,8,22,.92);
-      padding:20px 0;
-      color:var(--muted);
-      font-size:12px;
-    }
-
-    /* RESPONSIVE */
-    @media (max-width: 980px){
-      .heroGrid, .grid3, .grid2, .portalWrap{ grid-template-columns:1fr; }
-      .navLinks{ display:none; }
+    label { font-size: 14px; margin-top: 14px; display: block; }
+    footer {
+      padding: 30px;
+      border-top: 1px solid #1f2937;
+      color: #9ca3af;
+      text-align: center;
+      font-size: 13px;
     }
   </style>
 </head>
 
 <body>
-<header>
-  <div class="container nav">
-    <div class="brand">
-      <div class="mark">1128</div>
-      <div class="brandText">
-        <div class="t1">1128 Management Corp</div>
-        <div class="t2">C-Corp Setup • Organization • Consulting</div>
-      </div>
-    </div>
 
-    <nav class="navLinks">
-      <a href="#services">Services</a>
-      <a href="#products">Packages</a>
-      <a href="#credits">Credits</a>
-      <a href="#portal">Client Portal</a>
-      <a href="#policies">Policies</a>
-    </nav>
+<!-- HERO -->
+<section>
+  <div class="container">
+    <h1>1128 Management Corp</h1>
+    <h3>Corporate Setup, Administrative Management & Business Infrastructure</h3>
+    <p>
+      We help businesses establish proper corporate structures, coordinate required filings,
+      and manage foundational systems so owners can focus on operations while staying organized,
+      compliant, and sustainable.
+    </p>
+    <button class="btn" onclick="document.getElementById('intake').scrollIntoView({behavior:'smooth'})">
+      Start Intake Request →
+    </button>
+  </div>
+</section>
 
-    <div class="navCtas">
-      <span class="pill">Mississippi • Multi-State Support</span>
-      <a class="btn2" href="https://buy.stripe.com/4gM00jddY2Q228qanU1ck07" target="_blank" rel="noopener">Buy Credits</a>
-      <a class="btn" href="#portal">Client Portal</a>
+<!-- CONTACT INFO -->
+<section style="background:#020617;">
+  <div class="container">
+    <h2>Contact Information</h2>
+    <p>
+      <strong>1128 Management Corp</strong><br>
+      3900 Lakeland Dr., Suite 200 #1172<br>
+      Flowood, Mississippi 39232<br><br>
+      Phone: (662) 339-8474<br>
+      Email: admin@1128management.online
+    </p>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section>
+  <div class="container">
+    <h2>Our Services</h2>
+    <p>
+      1128 Management Corp provides administrative, organizational, and management services
+      for businesses operating as Mississippi C-Corporations.
+    </p>
+
+    <div class="card">
+      <ul>
+        <li>Mississippi C-Corporation formation</li>
+        <li>IRS EIN coordination</li>
+        <li>Business name documentation</li>
+        <li>Business address, phone, and email setup</li>
+        <li>Website coordination</li>
+        <li>Banking setup coordination</li>
+        <li>Payment processing setup coordination</li>
+        <li>Corporate documentation organization</li>
+        <li>Ongoing administrative business management</li>
+        <li>Operational consulting & internal process review (owner-level oversight)</li>
+      </ul>
     </div>
   </div>
-</header>
+</section>
 
-<main>
-  <!-- HERO -->
-  <section class="hero" id="top">
-    <div class="container heroGrid">
-      <div>
-        <div class="eyebrow">Client-ready • Structured • Portal Updates</div>
-        <h1 class="heroTitle">
-          C-Corp setup and business organization—<br />
-          <span class="gradText">with clear updates in one secure portal.</span>
-        </h1>
-        <p class="heroSub">
-          1128 Management Corp provides service-based business setup, administrative coordination, and operational consulting.
-          Clients receive checklist visibility, admin updates, and milestone tracking—without exposing internal methods on the public site.
-        </p>
-
-        <div class="heroActions">
-          <a class="btn" href="#products">View Packages</a>
-          <a class="btn2" href="https://buy.stripe.com/4gM00jddY2Q228qanU1ck07" target="_blank" rel="noopener">Buy Credits</a>
-          <a class="btn2" href="#portal">Start Intake</a>
-        </div>
-
-        <div class="noteLine">
-          Processing typically begins within <strong>3 business days</strong> after intake review and approval.
-          Minimum timeframe for full results is <strong>approximately 90 days</strong>, depending on third-party institutions.
-        </div>
-      </div>
-
-      <div class="card">
-        <h3 style="margin:0 0 6px;">What clients get</h3>
-        <p class="small">A clear, professional experience—from onboarding to ongoing updates.</p>
-
-        <div class="miniGrid">
-          <div class="mini">
-            Setup & Organization
-            <strong>C-Corp Focus</strong>
-            Filing coordination + systems readiness
-          </div>
-          <div class="mini">
-            Payment Setup Support
-            <strong>Processor Ready</strong>
-            Administrative setup assistance
-          </div>
-          <div class="mini">
-            Portal Visibility
-            <strong>Status Checklist</strong>
-            Admin notes & milestones
-          </div>
-          <div class="mini">
-            Consulting
-            <strong>Operational Insight</strong>
-            Process improvement support
-          </div>
-        </div>
-
-        <div class="hint" style="margin-top:12px;">
-          Note: 1128 Management Corp is not a law firm, CPA firm, or lender. We do not provide legal, tax, or financial advice. Approvals are determined by third-party institutions.
-        </div>
-      </div>
+<!-- HOW IT WORKS -->
+<section style="background:#020617;">
+  <div class="container">
+    <h2>How It Works</h2>
+    <div class="card">
+      <ol>
+        <li><strong>Submit Intake Request</strong> — Provide basic business and ownership details.</li>
+        <li><strong>Review & Authorization</strong> — We confirm scope and obtain authorization.</li>
+        <li><strong>Setup & Coordination</strong> — We coordinate filings, systems, and documentation.</li>
+        <li><strong>Ongoing Management</strong> — Updates, records, and status live in the client portal.</li>
+      </ol>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- SERVICES -->
-  <section id="services">
-    <div class="container">
-      <div class="sectionHead">
-        <div class="eyebrow">Services</div>
-        <h2>All services—clearly listed and client-ready</h2>
-        <p>
-          We focus on administrative coordination, professional setup, and operational support. No guarantees are made regarding approvals or outcomes.
-        </p>
-      </div>
+<!-- INTAKE FORM -->
+<section id="intake">
+  <div class="container">
+    <h2>New Client Intake Request</h2>
+    <p>
+      This intake allows 1128 Management Corp to review your situation and determine
+      appropriate administrative and management support.
+      All fields are optional unless required by law or third-party institutions.
+    </p>
 
-      <div class="grid3">
-        <div class="svc">
-          <div class="tag">Core</div>
-          <h3>C-Corp Setup & Organization</h3>
-          <p>Done-for-you administrative coordination for a clean business foundation.</p>
-          <ul>
-            <li>Formation coordination (C-Corp only)</li>
-            <li>EIN registration support</li>
-            <li>Business address + contact setup (phone/email)</li>
-            <li>Website presence + basic business profile readiness</li>
-            <li>Banking and processor setup coordination</li>
-            <li>Client portal checklist updates</li>
-          </ul>
-        </div>
+    <div class="card">
+      <form>
 
-        <div class="svc">
-          <div class="tag">Consulting</div>
-          <h3>Business Management & Operations Consulting</h3>
-          <p>Structure, execution, and workflow improvement support.</p>
-          <ul>
-            <li>Workflow + process evaluation</li>
-            <li>Administrative structure + role alignment</li>
-            <li>Customer experience improvement</li>
-            <li>Consistency and operational efficiency recommendations</li>
-          </ul>
-        </div>
+        <label>Full Legal Name</label>
+        <input placeholder="As shown on government ID" />
 
-        <div class="svc">
-          <div class="tag">Evaluation</div>
-          <h3>Independent Experience Evaluations</h3>
-          <p>Professional “secret shopper” style reviews—framed as operational insight.</p>
-          <ul>
-            <li>Customer walkthrough evaluations</li>
-            <li>Service consistency observations</li>
-            <li>Process bottleneck identification</li>
-            <li>Internal improvement report</li>
-          </ul>
-        </div>
-      </div>
+        <label>Phone Number</label>
+        <input />
 
-      <div class="grid3" style="margin-top:14px;">
-        <div class="svc">
-          <div class="tag">Embedded</div>
-          <h3>Ground-Level Operational Insight</h3>
-          <p>An “inside-the-operation” approach to identify gaps between intent and execution.</p>
-          <ul>
-            <li>Operational observation within normal workflows</li>
-            <li>Systems improvements (not personnel monitoring)</li>
-            <li>Standard customer interaction boundaries</li>
-          </ul>
-        </div>
+        <label>Email Address</label>
+        <input type="email" />
 
-        <div class="svc">
-          <div class="tag">Optional Add-Ons</div>
-          <h3>Systems, Documents & Setup Add-Ons</h3>
-          <p>Optional services added as needed.</p>
-          <ul>
-            <li>Website build/rebuild — $399</li>
-            <li>Business phone & email setup — $89</li>
-            <li>Corporate document creation — $89–$399</li>
-            <li>Payment processor setup assistance — $199</li>
-            <li>Business systems setup (CRM/portal/tools) — $299</li>
-            <li>Strategic mapping & planning — $999</li>
-          </ul>
-        </div>
+        <label>Address (City, State, ZIP)</label>
+        <input />
 
-        <div class="svc">
-          <div class="tag">Clients</div>
-          <h3>Client Portal Updates</h3>
-          <p>Clients see progress without needing to manage the back-end work.</p>
-          <ul>
-            <li>Checklist items + status tracking</li>
-            <li>Admin notes for each milestone</li>
-            <li>Read-only client access</li>
-            <li>Admin-managed updates</li>
-          </ul>
-        </div>
-      </div>
+        <label>Date of Birth</label>
+        <input type="date" />
+
+        <label>SSN (for EIN coordination, if authorized)</label>
+        <input />
+
+        <label>Preferred Contact Method</label>
+        <select>
+          <option>Text</option>
+          <option>Email</option>
+          <option>Phone Call</option>
+        </select>
+
+        <label>Main Reason You Reached Out</label>
+        <select>
+          <option>New Mississippi C-Corporation</option>
+          <option>EIN Coordination</option>
+          <option>Business Organization & Cleanup</option>
+          <option>Administrative Management Support</option>
+        </select>
+
+        <label>Tell us about your situation in your own words</label>
+        <textarea rows="5"></textarea>
+
+        <label>
+          <input type="checkbox" />
+          I authorize 1128 Management Corp to coordinate and manage administrative setup,
+          documentation, banking coordination, payment processing coordination,
+          and related business infrastructure services on my behalf
+          until the business is operationally sustainable or authorization is revoked in writing.
+        </label>
+
+        <br><br>
+        <button class="btn">Submit Intake Request</button>
+
+      </form>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- PRODUCTS / PACKAGES -->
-  <section id="products">
-    <div class="container">
-      <div class="sectionHead">
-        <div class="eyebrow">Packages</div>
-        <h2>Client packages and pricing</h2>
-        <p>Clear scope, clear expectations, and portal-based progress tracking.</p>
-      </div>
-
-      <div class="grid2">
-        <div class="priceCard">
-          <div class="priceRow">
-            <div>
-              <h3 style="margin:0;">C-Corporation Setup Bundle</h3>
-              <div class="small">(Service fee — state/government fees included)</div>
-            </div>
-            <div class="price">$300</div>
-          </div>
-
-          <div class="hint" style="margin-top:10px;">
-            Includes: incorporation coordination, EIN support, business address, phone, email, website presence, banking coordination, and payment processing setup assistance.
-          </div>
-
-          <div class="row" style="margin-top:14px;">
-            <a class="btn" href="#portal">Start Intake</a>
-            <a class="btn2" href="#policies">View Policies</a>
-          </div>
-
-          <div class="hint" style="margin-top:12px;">
-            Work begins within ~3 business days after intake review/approval. Minimum timeframe for full results is ~90 days depending on institutions.
-          </div>
-        </div>
-
-        <div class="priceCard">
-          <h3 style="margin:0 0 6px;">Support Credits (Public)</h3>
-          <p class="small">
-            Credits are available to the public and may be applied toward services/support time. Minimum purchase is $5 with adjustable quantity.
-          </p>
-
-          <div class="row" style="margin-top:14px;">
-            <a class="btn" href="https://buy.stripe.com/4gM00jddY2Q228qanU1ck07" target="_blank" rel="noopener">Buy Credits</a>
-            <a class="btn2" href="#credits">How Credits Work</a>
-          </div>
-
-          <div class="hint" style="margin-top:12px;">
-            Credits are non-refundable and not redeemable for cash.
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CREDITS SECTION -->
-  <section id="credits">
-    <div class="container">
-      <div class="sectionHead">
-        <div class="eyebrow">Credits</div>
-        <h2>Support credits</h2>
-        <p>
-          Use credits to pre-fund support time or apply toward future services. Credits are optional and do not replace service packages.
-        </p>
-      </div>
-
-      <div class="card soft">
-        <div class="grid2">
-          <div>
-            <h3 style="margin:0 0 8px;">Buy Credits</h3>
-            <p class="small">
-              Minimum purchase is $5 and quantity can be adjusted at checkout.
-            </p>
-            <div class="row" style="margin-top:12px;">
-              <a class="btn" href="https://buy.stripe.com/4gM00jddY2Q228qanU1ck07" target="_blank" rel="noopener">Buy Credits</a>
-              <a class="btn2" href="#portal">Client Portal</a>
-            </div>
-          </div>
-
-          <div>
-            <h3 style="margin:0 0 8px;">Credit Terms</h3>
-            <ul style="margin:0; padding-left:18px; color:var(--muted); font-size:13px;">
-              <li>Credits may be applied toward services/support time offered by 1128.</li>
-              <li>Credits are non-refundable and not redeemable for cash.</li>
-              <li>Credits do not guarantee approvals or outcomes.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PORTAL -->
-  <section id="portal">
-    <div class="container">
-      <div class="sectionHead">
-        <div class="eyebrow">Client Portal</div>
-        <h2>Intake first. Approval next. Portal login after.</h2>
-        <p>
-          Clients submit intake first. After review and approval, 1128 creates the portal login.
-          The checklist and notes are then visible after login.
-        </p>
-      </div>
-
-      <div class="portalWrap">
-        <!-- LOGIN (NO REGISTRATION) -->
-        <div class="card soft">
-          <h3 style="margin:0 0 6px;">Client Login</h3>
-          <p class="small">Portal accounts are created after intake review. There is no public self-registration.</p>
-
-          <div class="field">
-            <label for="email">Email</label>
-            <input id="email" type="email" placeholder="you@email.com" autocomplete="username" />
-          </div>
-
-          <div class="field">
-            <label for="password">Password</label>
-            <input id="password" type="password" placeholder="••••••••" autocomplete="current-password" />
-          </div>
-
-          <div class="row" style="margin-top:12px;">
-            <button id="btnLogin" class="btn" type="button">Login</button>
-            <button id="btnLogout" class="btn2 hide" type="button">Logout</button>
-          </div>
-
-          <div id="authMsg" class="hint"></div>
-          <div class="hint">
-            If you submitted intake, you will receive portal login credentials after approval.
-          </div>
-        </div>
-
-        <!-- INTAKE REQUEST (PUBLIC) -->
-        <div class="card soft">
-          <h3 style="margin:0 0 6px;">New Client Intake Request</h3>
-          <p class="small">
-            Submit intake first. After review, 1128 will create your portal login and begin processing.
-          </p>
-
-          <form id="intakeRequestForm">
-            <div class="grid2" style="gap:12px;">
-              <div class="field">
-                <label for="rq_fullName">Full Name</label>
-                <input id="rq_fullName" required />
-              </div>
-              <div class="field">
-                <label for="rq_phone">Phone</label>
-                <input id="rq_phone" required />
-              </div>
-              <div class="field">
-                <label for="rq_email">Email</label>
-                <input id="rq_email" type="email" required />
-              </div>
-              <div class="field">
-                <label for="rq_address">Address (City, State, ZIP)</label>
-                <input id="rq_address" required />
-              </div>
-              <div class="field">
-                <label for="rq_contactMethod">Preferred Contact Method</label>
-                <input id="rq_contactMethod" placeholder="Text / Call / Email" required />
-              </div>
-              <div class="field">
-                <label for="rq_reason">Main Reason You Reached Out</label>
-                <select id="rq_reason" required>
-                  <option value="">Select one</option>
-                  <option value="C-Corp Setup Package">C-Corp Setup Package</option>
-                  <option value="Business Organization Support">Business Organization Support</option>
-                  <option value="Operations & Management Consulting">Operations & Management Consulting</option>
-                  <option value="Independent Experience Evaluation">Independent Experience Evaluation</option>
-                  <option value="Other">Other</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="field">
-              <label for="rq_notes">Tell us about your situation (in your own words)</label>
-              <textarea id="rq_notes" placeholder="Short summary of what you need"></textarea>
-            </div>
-
-            <div class="field">
-              <label>
-                <input id="rq_auth" type="checkbox" required style="margin-right:8px; transform: translateY(1px);" />
-                I confirm the information I provided is accurate. I understand intake is a request and that portal login is created after approval.
-              </label>
-            </div>
-
-            <div class="row" style="margin-top:12px;">
-              <button id="btnSubmitIntake" class="btn" type="submit">Submit Intake</button>
-            </div>
-
-            <div id="intakeMsg" class="hint"></div>
-          </form>
-        </div>
-      </div>
-
-      <!-- STATUS CARD (UNCHANGED LOGIC) -->
-      <div id="statusCard" class="card soft hide" style="margin-top:14px;">
-        <div class="statusbar">
-          <div>
-            <h3 style="margin:0 0 6px;">Client Checklist & Status</h3>
-            <div class="hint">This section appears only after you log in.</div>
-          </div>
-          <div style="text-align:right;">
-            <div class="hint">Logged in as:</div>
-            <div id="whoami" style="font-weight:900;"></div>
-          </div>
-        </div>
-
-        <div class="row" style="margin-top:12px; justify-content:space-between;">
-          <div class="row">
-            <div class="hint">Overall status:</div>
-            <div id="overallBadge" class="badge b-pending">Pending</div>
-          </div>
-          <div class="hint">Last updated: <span id="updatedAt">—</span></div>
-        </div>
-
-        <table>
-          <thead>
-            <tr>
-              <th style="width:34%;">Item</th>
-              <th style="width:16%;">Status</th>
-              <th>Admin Note</th>
-            </tr>
-          </thead>
-          <tbody id="stepsBody"></tbody>
-        </table>
-
-        <div class="hint">
-          Portal data is updated by 1128 Management Corp as milestones progress. Clients do not edit portal data.
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- POLICIES -->
-  <section id="policies">
-    <div class="container">
-      <div class="sectionHead">
-        <div class="eyebrow">Policies</div>
-        <h2>Service terms & expectations</h2>
-        <p>Clear terms protect you and your clients.</p>
-      </div>
-
-      <div class="grid2">
-        <div class="card soft">
-          <h3 style="margin:0 0 8px;">Refund & Credits Policy</h3>
-          <ul style="margin:0; padding-left:18px; color:var(--muted); font-size:13px;">
-            <li>Service fees are non-refundable once work begins.</li>
-            <li>Credits are non-refundable and not redeemable for cash.</li>
-            <li>1128 does not guarantee approvals, timelines, or outcomes.</li>
-            <li>Where required, any disputes or reviews follow applicable payment processor procedures (including Stripe) and applicable law.</li>
-          </ul>
-        </div>
-
-        <div class="card soft">
-          <h3 style="margin:0 0 8px;">Disclaimer</h3>
-          <ul style="margin:0; padding-left:18px; color:var(--muted); font-size:13px;">
-            <li>1128 Management Corp is not a law firm, CPA firm, or lender.</li>
-            <li>We provide administrative coordination, organizational support, and operational consulting.</li>
-            <li>All approvals are determined solely by third-party institutions (state agencies, IRS, banks, processors).</li>
-            <li>Processing typically begins within ~3 business days after intake review/approval; minimum time for full results is ~90 days depending on institutions.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-</main>
+<!-- PORTAL NOTICE -->
+<section style="background:#020617;">
+  <div class="container">
+    <h2>Client Portal Access</h2>
+    <p>
+      Portal access is provided after intake review and approval.
+      The portal is used for updates, documentation storage, status tracking,
+      and administrative communication.
+    </p>
+  </div>
+</section>
 
 <footer>
-  <div class="container" style="display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap;">
-    <div>© <span id="year"></span> 1128 Management Corp. All rights reserved.</div>
-    <div>Client Portal • Checklist Updates • Administrative Coordination</div>
-  </div>
+  © <span id="year"></span> 1128 Management Corp. All rights reserved.<br>
+  Administrative & management services only. No guarantees of approvals or outcomes.
 </footer>
 
-<!-- FIREBASE: LOGIN-ONLY + INTAKE WRITES -->
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
-  import {
-    getAuth,
-    onAuthStateChanged,
-    signInWithEmailAndPassword,
-    signOut
-  } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js";
-  import {
-    getFirestore,
-    doc,
-    getDoc,
-    collection,
-    addDoc,
-    serverTimestamp
-  } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore.js";
-
-  // IMPORTANT: This config matches what you shared (do not change unless Firebase console says otherwise)
-  const firebaseConfig = {
-    apiKey: "AIzaSyDWgaRI40PO-fgP8xa_m1OWg-3AgOKCQW4",
-    authDomain: "management-portal-da4aa.firebaseapp.com",
-    projectId: "management-portal-da4aa",
-    storageBucket: "management-portal-da4aa.firebasestorage.app",
-    messagingSenderId: "336550662632",
-    appId: "1:336550662632:web:da5a240a56fdd2df3a145d",
-    measurementId: "G-CCWG9GVVS7"
-  };
-
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
-  const db = getFirestore(app);
-
-  const $ = (id) => document.getElementById(id);
-
-  const btnLogin = $("btnLogin");
-  const btnLogout = $("btnLogout");
-  const authMsg = $("authMsg");
-
-  const statusCard = $("statusCard");
-  const whoami = $("whoami");
-  const updatedAtEl = $("updatedAt");
-  const overallBadge = $("overallBadge");
-  const stepsBody = $("stepsBody");
-
-  const intakeForm = $("intakeRequestForm");
-  const intakeMsg = $("intakeMsg");
-  const btnSubmitIntake = $("btnSubmitIntake");
-
-  function setBusy(isBusy, msg=""){
-    btnLogin.disabled = isBusy;
-    btnSubmitIntake.disabled = isBusy;
-    if (authMsg) authMsg.textContent = msg;
-  }
-
-  function escapeHtml(str){
-    return String(str ?? "")
-      .replaceAll("&","&amp;")
-      .replaceAll("<","&lt;")
-      .replaceAll(">","&gt;")
-      .replaceAll('"',"&quot;")
-      .replaceAll("'","&#039;");
-  }
-
-  function badgeClass(status){
-    const s = String(status || "").toLowerCase();
-    if (s.includes("complete")) return "badge b-done";
-    if (s.includes("progress")) return "badge b-progress";
-    if (s.includes("pending")) return "badge b-pending";
-    if (s.includes("hold") || s.includes("issue") || s.includes("flag")) return "badge b-alert";
-    return "badge";
-  }
-
-  function fmtTimestamp(ts){
-    if (!ts) return "—";
-    try{
-      const d = ts.toDate ? ts.toDate() : new Date(ts);
-      return d.toLocaleString();
-    }catch{
-      return "—";
-    }
-  }
-
-  async function loadClientStatus(uid){
-    const ref = doc(db, "clientStatus", uid);
-    const snap = await getDoc(ref);
-
-    if (!snap.exists()){
-      overallBadge.className = "badge b-pending";
-      overallBadge.textContent = "Pending";
-      updatedAtEl.textContent = "—";
-      stepsBody.innerHTML = `
-        <tr>
-          <td colspan="3" class="note">
-            Your checklist has not been created yet. 1128 will add it after approval and onboarding.
-          </td>
-        </tr>`;
-      return;
-    }
-
-    const data = snap.data() || {};
-    const overall = data.overallStatus || "Pending";
-    overallBadge.className = badgeClass(overall);
-    overallBadge.textContent = overall;
-    updatedAtEl.textContent = fmtTimestamp(data.updatedAt);
-
-    const steps = Array.isArray(data.steps) ? data.steps : [];
-    if (!steps.length){
-      stepsBody.innerHTML = `<tr><td colspan="3" class="note">No checklist steps found yet.</td></tr>`;
-      return;
-    }
-
-    stepsBody.innerHTML = steps.map((s) => {
-      const label = s?.label ?? "";
-      const status = s?.status ?? "Pending";
-      const note = s?.note ?? ""; // IMPORTANT: must be lowercase "note"
-      return `
-        <tr>
-          <td><strong>${escapeHtml(label)}</strong></td>
-          <td><span class="${badgeClass(status)}">${escapeHtml(status)}</span></td>
-          <td class="note">${escapeHtml(note)}</td>
-        </tr>`;
-    }).join("");
-  }
-
-  // LOGIN (NO REGISTRATION)
-  btnLogin.addEventListener("click", async () => {
-    const email = $("email").value.trim();
-    const password = $("password").value;
-
-    if (!email || !password){
-      authMsg.textContent = "Enter email + password to login.";
-      return;
-    }
-
-    setBusy(true, "Signing in…");
-    try{
-      await signInWithEmailAndPassword(auth, email, password);
-      $("password").value = "";
-      authMsg.textContent = "Signed in. Loading your checklist…";
-    }catch(e){
-      authMsg.textContent = "Login failed: " + (e?.message || e);
-    }finally{
-      setBusy(false);
-    }
-  });
-
-  btnLogout.addEventListener("click", async () => {
-    setBusy(true, "Signing out…");
-    try{
-      await signOut(auth);
-    }finally{
-      setBusy(false);
-    }
-  });
-
-  onAuthStateChanged(auth, async (user) => {
-    if (!user){
-      statusCard.classList.add("hide");
-      btnLogout.classList.add("hide");
-      whoami.textContent = "";
-      if (authMsg) authMsg.textContent = "";
-      return;
-    }
-
-    btnLogout.classList.remove("hide");
-    statusCard.classList.remove("hide");
-    whoami.textContent = user.email || user.uid;
-
-    try{
-      await loadClientStatus(user.uid);
-      if (authMsg) authMsg.textContent = "Signed in.";
-    }catch(e){
-      if (authMsg) authMsg.textContent = "Could not load checklist: " + (e?.message || e);
-    }
-  });
-
-  // INTAKE REQUEST (PUBLIC WRITE TO intakeRequests)
-  intakeForm.addEventListener("submit", async (ev) => {
-    ev.preventDefault();
-    intakeMsg.textContent = "";
-
-    const payload = {
-      fullName: $("rq_fullName").value.trim(),
-      phone: $("rq_phone").value.trim(),
-      email: $("rq_email").value.trim(),
-      address: $("rq_address").value.trim(),
-      preferredContact: $("rq_contactMethod").value.trim(),
-      mainReason: $("rq_reason").value,
-      situationNotes: $("rq_notes").value.trim(),
-      status: "New",
-      createdAt: serverTimestamp()
-    };
-
-    btnSubmitIntake.disabled = true;
-    intakeMsg.textContent = "Submitting…";
-
-    try{
-      await addDoc(collection(db, "intakeRequests"), payload);
-      intakeMsg.textContent = "Intake submitted. 1128 will review and create your portal login after approval.";
-      intakeForm.reset();
-    }catch(e){
-      intakeMsg.textContent = "Intake submission failed: " + (e?.message || e);
-    }finally{
-      btnSubmitIntake.disabled = false;
-    }
-  });
-
-  // Footer year
-  $("year").textContent = new Date().getFullYear();
+<script>
+  document.getElementById("year").innerText = new Date().getFullYear();
 </script>
 
 </body>
