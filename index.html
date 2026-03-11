@@ -27,178 +27,85 @@
       --shadow: 0 26px 80px rgba(0,0,0,.55);
       --radius: 18px;
     }
-
     *{ box-sizing:border-box; }
-    html,body{
-      margin:0;
-      padding:0;
-      font-family:Inter,system-ui,-apple-system,Segoe UI,Arial,sans-serif;
-      background: radial-gradient(circle at top, #101737 0, #050816 45%, #000 100%);
-      color:var(--text);
-    }
-
+    html,body{ margin:0; padding:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Arial,sans-serif; background: radial-gradient(circle at top, #101737 0, #050816 45%, #000 100%); color:var(--text); }
     a{ color:inherit; text-decoration:none; }
     button,input,select,textarea{ font-family:inherit; }
     .container{ max-width:1120px; margin:0 auto; padding:0 18px; }
 
     header{
-      position:sticky;
-      top:0;
-      z-index:50;
+      position:sticky; top:0; z-index:50;
       backdrop-filter: blur(14px);
       background: linear-gradient(to bottom, rgba(5,8,22,.92), rgba(5,8,22,.70), rgba(5,8,22,.0));
       border-bottom:1px solid rgba(31,41,55,.75);
     }
-
     .nav{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
       padding:12px 0;
     }
-
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      min-width:0;
-    }
-
+    .brand{ display:flex; align-items:center; gap:12px; }
     .brandLogo{
-      height:60px;
-      width:auto;
-      object-fit:contain;
       display:block;
-      filter: drop-shadow(0 8px 22px rgba(0,0,0,0.35));
+      width:260px;
+      max-width:48vw;
+      height:auto;
+      object-fit:contain;
+      filter: drop-shadow(0 10px 24px rgba(31,75,255,.22));
     }
+    .brandText{ display:none; }
+    .brandTextFallback{ display:none; }
 
-    .navLinks{
-      display:flex;
-      align-items:center;
-      gap:16px;
-      color:var(--muted);
-      font-size:13px;
-    }
-
-    .navLinks a{
-      padding:6px 0;
-      position:relative;
-    }
-
+    .navLinks{ display:flex; align-items:center; gap:16px; color:var(--muted); font-size:13px; }
+    .navLinks a{ padding:6px 0; position:relative; }
     .navLinks a:hover{ color:var(--text); }
-
     .navLinks a:after{
-      content:"";
-      position:absolute;
-      left:0;
-      bottom:-2px;
-      width:0;
-      height:2px;
+      content:""; position:absolute; left:0; bottom:-2px; width:0; height:2px;
       background: linear-gradient(to right, var(--primary), var(--accent));
-      border-radius:99px;
-      transition: width .2s ease;
+      border-radius:99px; transition: width .2s ease;
     }
-
     .navLinks a:hover:after{ width:100%; }
 
-    .navCtas{
-      display:flex;
-      align-items:center;
-      gap:10px;
-    }
-
+    .navCtas{ display:flex; align-items:center; gap:10px; }
     .btn{
-      border:none;
-      cursor:pointer;
-      border-radius:999px;
-      padding:10px 14px;
-      font-size:13px;
-      font-weight:700;
+      border:none; cursor:pointer;
+      border-radius:999px; padding:10px 14px; font-size:13px; font-weight:700;
       color:#fff;
       background: linear-gradient(to right, var(--primary), var(--accent));
       box-shadow: 0 22px 60px rgba(0,200,150,.18);
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
+      display:inline-flex; align-items:center; gap:8px;
     }
-
     .btn:hover{ filter:brightness(1.05); }
-
     .btn2{
       border:1px solid rgba(148,163,184,.50);
       background: rgba(2,6,23,.35);
       color: var(--text);
-      border-radius:999px;
-      padding:10px 14px;
-      font-size:13px;
-      font-weight:700;
+      border-radius:999px; padding:10px 14px; font-size:13px; font-weight:700;
       cursor:pointer;
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
+      display:inline-flex; align-items:center; gap:8px;
     }
-
     .btn2:hover{ border-color:rgba(148,163,184,.75); }
 
     section{ padding:64px 0; }
     .sectionHead{ margin-bottom:18px; }
-
-    .eyebrow{
-      color:var(--accent);
-      font-size:11px;
-      letter-spacing:.22em;
-      text-transform:uppercase;
-      margin-bottom:6px;
-    }
-
+    .eyebrow{ color:var(--accent); font-size:11px; letter-spacing:.22em; text-transform:uppercase; margin-bottom:6px; }
     h1,h2,h3{ margin:0 0 10px; }
-
-    p{
-      margin:0;
-      color:var(--muted);
-      line-height:1.6;
-    }
+    p{ margin:0; color:var(--muted); line-height:1.6; }
 
     .hero{ padding-top:40px; }
-
-    .heroGrid{
-      display:grid;
-      grid-template-columns:1.25fr .95fr;
-      gap:22px;
-      align-items:stretch;
-    }
-
+    .heroGrid{ display:grid; grid-template-columns: 1.25fr .95fr; gap:22px; align-items:stretch; }
     .heroTitle{
       font-size: clamp(30px, 3.6vw, 46px);
-      line-height:1.08;
-      font-weight:900;
+      line-height:1.08; font-weight:900;
       margin:12px 0 12px;
     }
-
     .gradText{
       background: linear-gradient(to right, #38bdf8, #a855f7, #22c55e);
-      -webkit-background-clip:text;
-      background-clip:text;
-      color:transparent;
+      -webkit-background-clip:text; background-clip:text; color:transparent;
     }
-
-    .heroSub{
-      max-width:720px;
-      font-size:14px;
-    }
-
-    .heroActions{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      margin-top:16px;
-    }
-
+    .heroSub{ max-width:720px; font-size:14px; }
+    .heroActions{ display:flex; flex-wrap:wrap; gap:10px; margin-top:16px; }
     .noteLine{
-      margin-top:14px;
-      font-size:12px;
-      color:rgba(156,163,175,.95);
+      margin-top:14px; font-size:12px; color:rgba(156,163,175,.95);
       border-left:2px solid rgba(0,200,150,.7);
       padding-left:10px;
     }
@@ -210,19 +117,8 @@
       padding:18px;
       box-shadow: var(--shadow);
     }
-
-    .card.soft{
-      background: rgba(11,16,32,.85);
-      box-shadow:none;
-    }
-
-    .miniGrid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:10px;
-      margin-top:12px;
-    }
-
+    .card.soft{ background: rgba(11,16,32,.85); box-shadow:none; }
+    .miniGrid{ display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:12px; }
     .mini{
       background: rgba(2,6,23,.45);
       border:1px solid rgba(31,41,55,.85);
@@ -231,25 +127,10 @@
       font-size:12px;
       color: var(--muted);
     }
+    .mini strong{ color:var(--text); display:block; font-size:14px; margin-top:3px; }
 
-    .mini strong{
-      color:var(--text);
-      display:block;
-      font-size:14px;
-      margin-top:3px;
-    }
-
-    .grid3{
-      display:grid;
-      grid-template-columns: repeat(3, minmax(0,1fr));
-      gap:14px;
-    }
-
-    .grid2{
-      display:grid;
-      grid-template-columns: repeat(2, minmax(0,1fr));
-      gap:14px;
-    }
+    .grid3{ display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:14px; }
+    .grid2{ display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap:14px; }
 
     .svc{
       background: rgba(11,16,32,.82);
@@ -257,31 +138,17 @@
       border-radius: var(--radius);
       padding:16px;
     }
-
     .tag{
-      font-size:10px;
-      letter-spacing:.20em;
-      text-transform:uppercase;
+      font-size:10px; letter-spacing:.20em; text-transform:uppercase;
       color:#bbf7d0;
-      display:inline-flex;
-      align-items:center;
-      gap:6px;
-      padding:6px 10px;
-      border-radius:999px;
+      display:inline-flex; align-items:center; gap:6px;
+      padding:6px 10px; border-radius:999px;
       border:1px solid rgba(34,197,94,.35);
       background: rgba(22,101,52,.25);
       margin-bottom:10px;
     }
-
     .svc h3{ font-size:16px; margin:0 0 8px; }
-
-    .svc ul{
-      margin:10px 0 0;
-      padding-left:18px;
-      color:var(--muted);
-      font-size:13px;
-    }
-
+    .svc ul{ margin:10px 0 0; padding-left:18px; color:var(--muted); font-size:13px; }
     .svc li{ margin:6px 0; }
 
     .priceCard{
@@ -290,43 +157,14 @@
       border-radius: var(--radius);
       padding:18px;
     }
-
-    .priceRow{
-      display:flex;
-      align-items:baseline;
-      justify-content:space-between;
-      gap:12px;
-      flex-wrap:wrap;
-    }
-
-    .price{
-      font-size:34px;
-      font-weight:900;
-      letter-spacing:-.03em;
-    }
-
+    .priceRow{ display:flex; align-items:baseline; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+    .price{ font-size:34px; font-weight:900; letter-spacing:-.03em; }
     .small{ font-size:12px; color:var(--muted); }
     .tiny{ font-size:11px; color:rgba(156,163,175,.95); }
 
-    .portalWrap{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:14px;
-      align-items:start;
-    }
-
-    .field{
-      display:flex;
-      flex-direction:column;
-      gap:6px;
-      margin-top:10px;
-    }
-
-    label{
-      color:rgba(156,163,175,.95);
-      font-size:12px;
-    }
-
+    .portalWrap{ display:grid; grid-template-columns: 1fr 1fr; gap:14px; align-items:start; }
+    .field{ display:flex; flex-direction:column; gap:6px; margin-top:10px; }
+    label{ color:rgba(156,163,175,.95); font-size:12px; }
     input,select,textarea{
       width:100%;
       background: rgba(2,6,23,.5);
@@ -337,76 +175,35 @@
       outline:none;
       font-size:13px;
     }
-
-    textarea{
-      min-height:92px;
-      resize:vertical;
-    }
-
-    .row{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      align-items:center;
-    }
-
-    .hint{
-      font-size:12px;
-      color:rgba(156,163,175,.95);
-      margin-top:10px;
-    }
-
+    textarea{ min-height:92px; resize:vertical; }
+    .row{ display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+    .hint{ font-size:12px; color:rgba(156,163,175,.95); margin-top:10px; }
     .hide{ display:none !important; }
 
-    table{
-      width:100%;
-      border-collapse:collapse;
-      margin-top:12px;
-      overflow:hidden;
-      border-radius:14px;
-    }
-
+    table{ width:100%; border-collapse:collapse; margin-top:12px; overflow:hidden; border-radius:14px; }
     thead th{
-      text-align:left;
-      font-size:11px;
-      color:rgba(156,163,175,.95);
-      letter-spacing:.16em;
-      text-transform:uppercase;
+      text-align:left; font-size:11px; color:rgba(156,163,175,.95);
+      letter-spacing:.16em; text-transform:uppercase;
       padding:10px 10px;
       border-bottom:1px solid rgba(31,41,55,.9);
       background: rgba(2,6,23,.35);
     }
-
     tbody td{
       padding:10px 10px;
       border-bottom:1px solid rgba(31,41,55,.75);
       font-size:13px;
       vertical-align:top;
     }
-
     tbody tr:nth-child(even){ background: rgba(2,6,23,.20); }
     .note{ color:rgba(156,163,175,.95); font-size:12px; }
 
-    .statusbar{
-      display:flex;
-      justify-content:space-between;
-      gap:10px;
-      flex-wrap:wrap;
-      align-items:flex-start;
-    }
-
+    .statusbar{ display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; align-items:flex-start; }
     .badge{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding:6px 10px;
-      border-radius:999px;
-      font-size:12px;
-      font-weight:800;
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:6px 10px; border-radius:999px; font-size:12px; font-weight:800;
       border:1px solid rgba(148,163,184,.40);
       background: rgba(2,6,23,.35);
     }
-
     .b-pending{ border-color: rgba(245,158,11,.40); color:#fde68a; background: rgba(245,158,11,.12); }
     .b-progress{ border-color: rgba(59,130,246,.45); color:#bfdbfe; background: rgba(59,130,246,.12); }
     .b-done{ border-color: rgba(34,197,94,.45); color:#bbf7d0; background: rgba(34,197,94,.12); }
@@ -418,11 +215,7 @@
       background: rgba(11,16,32,.82);
       padding:14px 16px;
     }
-
-    .faqItem h3{
-      font-size:15px;
-      margin-bottom:6px;
-    }
+    .faqItem h3{ font-size:15px; margin-bottom:6px; }
 
     .squareGrid{
       display:flex;
@@ -430,7 +223,6 @@
       flex-wrap:wrap;
       align-items:stretch;
     }
-
     .squareWrap{
       width:290px;
       max-width:100%;
@@ -439,7 +231,6 @@
       background: rgba(2,6,23,.35);
       overflow:hidden;
     }
-
     .squareTop{
       width:100%;
       padding:10px 12px;
@@ -450,12 +241,7 @@
       line-height:1.35;
       text-align:center;
     }
-
-    .squareInner{
-      padding:16px;
-      display:flex;
-      justify-content:center;
-    }
+    .squareInner{ padding:16px; display:flex; justify-content:center; }
 
     .divider{
       height:1px;
@@ -474,12 +260,9 @@
     }
 
     @media (max-width: 980px){
-      .heroGrid, .grid3, .grid2, .portalWrap, .miniGrid{
-        grid-template-columns:1fr;
-      }
-
+      .heroGrid, .grid3, .grid2, .portalWrap, .miniGrid{ grid-template-columns:1fr; }
       .navLinks{ display:none; }
-      .brandLogo{ height:48px; }
+      .brandLogo{ width:210px; max-width:52vw; }
       #process{ margin-top:-18px; }
       #process .sectionHead{ margin-bottom:12px; }
       .divider{ margin:14px 0; }
@@ -491,7 +274,8 @@
 <header>
   <div class="container nav">
     <div class="brand">
-      <img src="assets/1128-logo.png" alt="1128 Management Corp logo" class="brandLogo" />
+      <img class="brandLogo" src="assets/1128-logo.png" alt="1128 Management Corp logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+      <div class="brandTextFallback" style="display:none; align-items:center; justify-content:center; width:54px; height:54px; border-radius:14px; font-weight:900; font-size:18px; letter-spacing:.08em; border:1px solid rgba(148,163,184,.45); background: radial-gradient(circle at 15% 0, #38bdf8, #4f46e5, #0b1020); box-shadow: 0 18px 55px rgba(31,75,255,.25); color:#fff;">1128</div>
     </div>
 
     <nav class="navLinks">
@@ -1150,602 +934,4 @@
     <div class="container">
       <div class="sectionHead">
         <div class="eyebrow">Client Portal</div>
-        <h2>Portal-based services start with intake.</h2>
-        <p>For portal-based services, clients submit an intake request first. When a portal workflow is needed, 1128 creates login credentials after intake review. The checklist, status, and admin notes appear after login.</p>
-      </div>
-
-      <div class="portalWrap">
-        <div class="card soft">
-          <h3 style="margin:0 0 6px;">Client Login</h3>
-          <p class="small">Portal accounts are created after intake review. There is no public self-registration.</p>
-
-          <div class="field">
-            <label for="email">Email</label>
-            <input id="email" type="email" placeholder="you@email.com" autocomplete="username" />
-          </div>
-
-          <div class="field">
-            <label for="password">Password</label>
-            <input id="password" type="password" placeholder="••••••••" autocomplete="current-password" />
-          </div>
-
-          <div class="row" style="margin-top:12px;">
-            <button id="btnLogin" class="btn" type="button">Login</button>
-            <button id="btnLogout" class="btn2 hide" type="button">Logout</button>
-          </div>
-
-          <div id="authMsg" class="hint"></div>
-          <div class="hint">For portal-based services, login credentials are created after intake review when a portal workflow is needed.</div>
-        </div>
-
-        <div class="card soft">
-          <h3 style="margin:0 0 6px;">New Client Intake Request</h3>
-          <p class="small">Submit intake first for services that require a portal workflow or customized coordination. After review, 1128 will confirm scope, create portal access if needed, and begin the applicable service process.</p>
-
-          <form id="intakeRequestForm">
-            <div class="grid2" style="gap:12px;">
-              <div class="field">
-                <label for="rq_fullName">Full Name</label>
-                <input id="rq_fullName" />
-              </div>
-              <div class="field">
-                <label for="rq_phone">Phone</label>
-                <input id="rq_phone" />
-              </div>
-              <div class="field">
-                <label for="rq_email">Email</label>
-                <input id="rq_email" type="email" />
-              </div>
-              <div class="field">
-                <label for="rq_address">Address (Optional)</label>
-                <input id="rq_address" />
-              </div>
-            </div>
-
-            <div class="grid2" style="gap:12px;">
-              <div class="field">
-                <label for="rq_contactMethod">Preferred Contact Method</label>
-                <select id="rq_contactMethod">
-                  <option value="Text">Text</option>
-                  <option value="Email">Email</option>
-                  <option value="Phone Call">Phone Call</option>
-                </select>
-              </div>
-              <div class="field">
-                <label for="rq_reason">Main Reason You Reached Out</label>
-                <select id="rq_reason">
-                  <option value="">Select one</option>
-                  <option value="New Business Formation">New Business Formation</option>
-                  <option value="Business Support">Business Support</option>
-                  <option value="Registered Agent Coordination">Registered Agent Coordination</option>
-                  <option value="Annual Report Support">Annual Report Support</option>
-                  <option value="Business Management">Business Management</option>
-                  <option value="Business Consulting">Business Consulting</option>
-                  <option value="Other">Other</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="grid2" style="gap:12px;">
-              <div class="field">
-                <label for="rq_businessName">Business Name (Optional)</label>
-                <input id="rq_businessName" />
-              </div>
-              <div class="field">
-                <label for="rq_businessWebsite">Business Website (Optional)</label>
-                <input id="rq_businessWebsite" />
-              </div>
-              <div class="field">
-                <label for="rq_registeredAgent">Registered Agent (Optional)</label>
-                <input id="rq_registeredAgent" />
-              </div>
-              <div class="field">
-                <label for="rq_businessEmail">Business Email (Optional)</label>
-                <input id="rq_businessEmail" />
-              </div>
-            </div>
-
-            <div class="field">
-              <label for="rq_notes">Tell us about your situation</label>
-              <textarea id="rq_notes" placeholder="What do you need help with? Any deadlines? Any existing entities or accounts?"></textarea>
-            </div>
-
-            <div class="field">
-              <label style="display:flex; gap:10px; align-items:flex-start;">
-                <input id="rq_auth" type="checkbox" required style="margin-top:3px;" />
-                <span>
-                  <strong>Authorization:</strong> I authorize 1128 Management Corp to coordinate and manage, as selected and agreed, administrative setup, business support, management, and consulting services on my behalf. I understand third-party approvals are not guaranteed.
-                </span>
-              </label>
-            </div>
-
-            <div class="row" style="margin-top:12px;">
-              <button id="btnSubmitIntake" class="btn" type="submit">Submit Intake Request</button>
-            </div>
-
-            <div id="intakeMsg" class="hint"></div>
-          </form>
-        </div>
-      </div>
-
-      <div id="statusCard" class="card soft hide" style="margin-top:14px;">
-        <div class="statusbar">
-          <div>
-            <h3 style="margin:0 0 6px;">Client Checklist &amp; Status</h3>
-            <div class="hint">This section appears only after you log in.</div>
-          </div>
-          <div style="text-align:right;">
-            <div class="hint">Logged in as:</div>
-            <div id="whoami" style="font-weight:900;"></div>
-          </div>
-        </div>
-
-        <div class="row" style="margin-top:12px; justify-content:space-between;">
-          <div class="row">
-            <div class="hint">Overall status:</div>
-            <div id="overallBadge" class="badge b-pending">Pending</div>
-          </div>
-          <div class="hint">Last updated: <span id="updatedAt">—</span></div>
-        </div>
-
-        <table>
-          <thead>
-            <tr>
-              <th style="width:34%;">Item</th>
-              <th style="width:16%;">Status</th>
-              <th>Admin Note</th>
-            </tr>
-          </thead>
-          <tbody id="stepsBody"></tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-
-  <section id="scope">
-    <div class="container">
-      <div class="sectionHead">
-        <div class="eyebrow">Scope</div>
-        <h2>Scope of services</h2>
-        <p>Clear scope language helps clients understand exactly what 1128 Management Corp provides.</p>
-      </div>
-
-      <div class="grid2">
-        <div class="card soft">
-          <h3 style="margin:0 0 8px;">Administrative Services</h3>
-          <p class="small">1128 Management Corp provides administrative coordination, business management support, coaching, mentoring, and consulting services.</p>
-        </div>
-
-        <div class="card soft">
-          <h3 style="margin:0 0 8px;">Professional Disclaimer</h3>
-          <p class="small">1128 Management Corp is not a law firm, CPA firm, financial institution, or lender. We do not provide legal, tax, or financial advice.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="policies">
-    <div class="container">
-      <div class="sectionHead">
-        <div class="eyebrow">Policies</div>
-        <h2>Service terms, privacy, and expectations</h2>
-        <p>Clear disclosures and professional service language help set expectations before work begins.</p>
-      </div>
-
-      <div class="grid2">
-        <div class="card soft">
-          <h3 style="margin:0 0 8px;">Refund &amp; Payment Policy</h3>
-          <ul style="margin:0; padding-left:18px; color:var(--muted); font-size:13px;">
-            <li>By submitting payment, you acknowledge that 1128 Management Corp may begin the review, preparation, coordination, consulting, scheduling, or support activity related to the service purchased.</li>
-            <li>Administrative services involve time, preparation, and coordination efforts.</li>
-            <li>Payments are non-refundable once service activity has begun.</li>
-            <li>Credits are non-refundable and not redeemable for cash.</li>
-            <li>Government, platform, and third-party fees may be billed separately where applicable.</li>
-            <li>No guarantees are made regarding approvals, timelines, or outcomes.</li>
-          </ul>
-        </div>
-
-        <div class="card soft">
-          <h3 style="margin:0 0 8px;">Client Responsibility</h3>
-          <ul style="margin:0; padding-left:18px; color:var(--muted); font-size:13px;">
-            <li>Clients are responsible for providing accurate information and timely responses.</li>
-            <li>Delays in documentation, approvals, or communication may affect service timelines.</li>
-            <li>Third-party institutions determine their own processing times, approvals, and requirements.</li>
-            <li>Results vary based on scope, readiness, and third-party involvement.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="grid2" style="margin-top:14px;">
-        <div class="card soft">
-          <h3 style="margin:0 0 8px;">Privacy Policy</h3>
-          <p class="small">1128 Management Corp collects information submitted through intake forms, direct communications, and client portal activity solely for the purpose of reviewing requests, coordinating services, and supporting clients. Information is not sold and is only shared when reasonably necessary to coordinate requested services with approved third parties.</p>
-        </div>
-
-        <div class="card soft">
-          <h3 style="margin:0 0 8px;">Terms of Service</h3>
-          <p class="small">Payments represent purchase of the selected service and permission to begin the related review, preparation, coordination, consulting, mentoring, coaching, scheduling, or management support required for that service scope. Services are delivered based on the confirmed service request and may involve planning, communication, document coordination, on-site activity, and follow-up support.</p>
-        </div>
-      </div>
-
-      <div class="grid2" style="margin-top:14px;">
-        <div class="card soft">
-          <h3 style="margin:0 0 8px;">Outcome Disclaimer</h3>
-          <p class="small">Services provided by 1128 Management Corp involve administrative coordination, consulting, and operational guidance. Outcomes may vary depending on client participation, documentation readiness, third-party institutions, and external processing factors.</p>
-        </div>
-
-        <div class="card soft">
-          <h3 style="margin:0 0 8px;">Payment Transparency</h3>
-          <p class="small">Payments are processed securely through Stripe and Square. Service availability, use of credits, and project scheduling remain subject to review, approval, and confirmed scope.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="engagements">
-    <div class="container">
-      <div class="sectionHead">
-        <div class="eyebrow">Featured Engagements</div>
-        <h2>Common consulting engagements</h2>
-        <p>These examples illustrate the types of larger consulting engagements businesses typically request from 1128 Management Corp.</p>
-      </div>
-
-      <div class="grid3">
-        <div class="svc">
-          <div class="tag">Startup Infrastructure</div>
-          <h3>Business Launch Architecture</h3>
-          <p>Full startup operational planning including formation coordination, systems setup strategy, documentation structure, and operational readiness planning.</p>
-        </div>
-
-        <div class="svc">
-          <div class="tag">Operations</div>
-          <h3>Operational Transformation</h3>
-          <p>Consulting engagement focused on improving internal workflows, organizing systems, documenting processes, and implementing operational improvements.</p>
-        </div>
-
-        <div class="svc">
-          <div class="tag">Executive</div>
-          <h3>Founder &amp; Executive Consulting</h3>
-          <p>Strategic guidance engagements where founders work directly with 1128 Management Corp on decision support, growth planning, and operational strategy.</p>
-        </div>
-      </div>
-
-      <div class="card soft" style="margin-top:14px;">
-        <p class="small">Engagement types vary based on company stage, operational complexity, and requested support. Larger consulting engagements typically begin with an intake consultation to determine scope and timeline.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="enterprise">
-    <div class="container">
-      <div class="sectionHead">
-        <div class="eyebrow">Enterprise Consulting</div>
-        <h2>High-impact consulting engagements</h2>
-        <p>For businesses needing deeper operational transformation, infrastructure design, or executive consulting support.</p>
-      </div>
-
-      <div class="grid3">
-        <div class="priceCard">
-          <div class="tag">Operations</div>
-          <h3 style="margin:0 0 6px;">Business Operations Architecture</h3>
-          <div class="price">$18,500</div>
-          <p class="small">Comprehensive operational audit and workflow redesign including systems planning, process mapping, and documentation structure.</p>
-          <ul style="margin:10px 0 0;padding-left:18px;color:var(--muted);font-size:13px;">
-            <li>Operational audit</li>
-            <li>Workflow redesign</li>
-            <li>Internal systems planning</li>
-            <li>Process documentation</li>
-            <li>Implementation roadmap</li>
-          </ul>
-        </div>
-
-        <div class="priceCard">
-          <div class="tag">Infrastructure</div>
-          <h3 style="margin:0 0 6px;">Business Infrastructure Implementation</h3>
-          <div class="price">$24,000</div>
-          <p class="small">Full infrastructure planning and systems implementation engagement for growing businesses.</p>
-          <ul style="margin:10px 0 0;padding-left:18px;color:var(--muted);font-size:13px;">
-            <li>CRM / systems architecture</li>
-            <li>Operational workflow setup</li>
-            <li>Internal documentation systems</li>
-            <li>Payment and client process infrastructure</li>
-            <li>Business operations planning</li>
-          </ul>
-        </div>
-
-        <div class="priceCard">
-          <div class="tag">Executive</div>
-          <h3 style="margin:0 0 6px;">Executive Consulting Program</h3>
-          <div class="price">$3,500<span class="tiny">/month</span></div>
-          <p class="small">Ongoing consulting access for founders and executives needing strategic guidance and operational insight.</p>
-          <ul style="margin:10px 0 0;padding-left:18px;color:var(--muted);font-size:13px;">
-            <li>Monthly consulting sessions</li>
-            <li>Strategic decision support</li>
-            <li>Operational review</li>
-            <li>Growth planning</li>
-            <li>Direct consulting access</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="card soft" style="margin-top:14px;">
-        <p class="small">Enterprise engagements typically begin with an intake consultation and scope review to determine the appropriate consulting structure and timeline.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="premium">
-    <div class="container">
-      <div class="sectionHead">
-        <div class="eyebrow">Premium Services</div>
-        <h2>Advanced business infrastructure services</h2>
-        <p>Higher-tier services designed for businesses needing deeper operational structure and consulting support.</p>
-      </div>
-
-      <div class="grid2">
-        <div class="priceCard">
-          <h3 style="margin:0 0 6px;">Business Infrastructure &amp; Launch Package</h3>
-          <div class="price">$1,250</div>
-          <p class="small">Comprehensive startup coordination including formation guidance, systems setup planning, consulting session, and operational readiness planning.</p>
-        </div>
-
-        <div class="priceCard">
-          <h3 style="margin:0 0 6px;">Operational Systems Implementation</h3>
-          <div class="price">$2,500</div>
-          <p class="small">Deep consulting engagement focused on workflow design, systems implementation, process mapping, and operational structure for growing businesses.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="results">
-    <div class="container">
-      <div class="sectionHead">
-        <div class="eyebrow">Results &amp; Client Outcomes</div>
-        <h2>Examples of business support outcomes</h2>
-        <p>Professional consulting websites typically highlight outcomes so visitors understand the type of problems solved and results businesses achieve.</p>
-      </div>
-
-      <div class="grid3">
-        <div class="svc">
-          <div class="tag">Startup Launch</div>
-          <h3>New Business Formation &amp; Setup</h3>
-          <p>Clients launching new businesses receive coordination support for entity formation, operational setup planning, and infrastructure readiness.</p>
-        </div>
-
-        <div class="svc">
-          <div class="tag">Operational Cleanup</div>
-          <h3>Process Organization</h3>
-          <p>Existing companies use consulting and management support to improve workflows, organize documentation, and implement better internal systems.</p>
-        </div>
-
-        <div class="svc">
-          <div class="tag">Growth Support</div>
-          <h3>Strategic Guidance</h3>
-          <p>Founders and operators receive mentoring, coaching, and consulting support focused on decision clarity, operational improvements, and business growth planning.</p>
-        </div>
-      </div>
-
-      <div class="card soft" style="margin-top:14px;">
-        <p class="small">Results vary depending on business stage, documentation readiness, and participation from the client. 1128 Management Corp provides administrative coordination, consulting, mentoring, and operational support designed to help businesses organize and move forward more effectively.</p>
-      </div>
-    </div>
-  </section>
-</main>
-
-<footer>
-  <div class="container" style="display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap;">
-    <div>© <span id="year"></span> 1128 Management Corp. All rights reserved.</div>
-    <div>Client Portal • Checklist Updates • Administrative Coordination</div>
-  </div>
-</footer>
-
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
-  import {
-    getAuth,
-    onAuthStateChanged,
-    signInWithEmailAndPassword,
-    signOut
-  } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js";
-  import {
-    getFirestore,
-    doc,
-    getDoc,
-    collection,
-    addDoc,
-    serverTimestamp
-  } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore.js";
-
-  const firebaseConfig = {
-    apiKey: "AIzaSyDWgaRI40PO-fgP8xa_m1OWg-3AgOKCQW4",
-    authDomain: "management-portal-da4aa.firebaseapp.com",
-    projectId: "management-portal-da4aa",
-    storageBucket: "management-portal-da4aa.firebasestorage.app",
-    messagingSenderId: "336550662632",
-    appId: "1:336550662632:web:da5a240a56fdd2df3a145d",
-    measurementId: "G-CCWG9GVVS7"
-  };
-
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
-  const db = getFirestore(app);
-  const $ = (id) => document.getElementById(id);
-
-  const btnLogin = $("btnLogin");
-  const btnLogout = $("btnLogout");
-  const authMsg = $("authMsg");
-  const statusCard = $("statusCard");
-  const whoami = $("whoami");
-  const updatedAtEl = $("updatedAt");
-  const overallBadge = $("overallBadge");
-  const stepsBody = $("stepsBody");
-  const intakeForm = $("intakeRequestForm");
-  const intakeMsg = $("intakeMsg");
-  const btnSubmitIntake = $("btnSubmitIntake");
-
-  function setBusy(isBusy, msg=""){
-    if (btnLogin) btnLogin.disabled = isBusy;
-    if (btnSubmitIntake) btnSubmitIntake.disabled = isBusy;
-    if (authMsg && msg) authMsg.textContent = msg;
-  }
-
-  function escapeHtml(str){
-    return String(str ?? "")
-      .replaceAll("&","&amp;")
-      .replaceAll("<","&lt;")
-      .replaceAll(">","&gt;")
-      .replaceAll('"',"&quot;")
-      .replaceAll("'","&#039;");
-  }
-
-  function badgeClass(status){
-    const s = String(status || "").toLowerCase();
-    if (s.includes("complete")) return "badge b-done";
-    if (s.includes("progress")) return "badge b-progress";
-    if (s.includes("pending")) return "badge b-pending";
-    if (s.includes("hold") || s.includes("issue") || s.includes("flag")) return "badge b-alert";
-    return "badge";
-  }
-
-  function fmtTimestamp(ts){
-    if (!ts) return "—";
-    try{
-      const d = ts.toDate ? ts.toDate() : new Date(ts);
-      return d.toLocaleString();
-    }catch{
-      return "—";
-    }
-  }
-
-  async function loadClientStatus(uid){
-    const ref = doc(db, "clientStatus", uid);
-    const snap = await getDoc(ref);
-
-    if (!snap.exists()){
-      overallBadge.className = "badge b-pending";
-      overallBadge.textContent = "Pending";
-      updatedAtEl.textContent = "—";
-      stepsBody.innerHTML = `
-        <tr>
-          <td colspan="3" class="note">
-            Your checklist has not been created yet. 1128 will add it after approval and onboarding.
-          </td>
-        </tr>`;
-      return;
-    }
-
-    const data = snap.data() || {};
-    const overall = data.overallStatus || "Pending";
-    overallBadge.className = badgeClass(overall);
-    overallBadge.textContent = overall;
-    updatedAtEl.textContent = fmtTimestamp(data.updatedAt);
-
-    const steps = Array.isArray(data.steps) ? data.steps : [];
-    if (!steps.length){
-      stepsBody.innerHTML = `<tr><td colspan="3" class="note">No checklist steps found yet.</td></tr>`;
-      return;
-    }
-
-    stepsBody.innerHTML = steps.map((s) => {
-      const label = s?.label ?? "";
-      const status = s?.status ?? "Pending";
-      const note = s?.note ?? "";
-      return `
-        <tr>
-          <td><strong>${escapeHtml(label)}</strong></td>
-          <td><span class="${badgeClass(status)}">${escapeHtml(status)}</span></td>
-          <td class="note">${escapeHtml(note)}</td>
-        </tr>`;
-    }).join("");
-  }
-
-  btnLogin?.addEventListener("click", async () => {
-    const email = $("email").value.trim();
-    const password = $("password").value;
-
-    if (!email || !password){
-      authMsg.textContent = "Enter email + password to login.";
-      return;
-    }
-
-    setBusy(true, "Signing in…");
-    try{
-      await signInWithEmailAndPassword(auth, email, password);
-      $("password").value = "";
-      authMsg.textContent = "Signed in. Loading your checklist…";
-    }catch(e){
-      authMsg.textContent = "Login failed: " + (e?.message || e);
-    }finally{
-      setBusy(false);
-    }
-  });
-
-  btnLogout?.addEventListener("click", async () => {
-    setBusy(true, "Signing out…");
-    try{
-      await signOut(auth);
-    }finally{
-      setBusy(false);
-    }
-  });
-
-  onAuthStateChanged(auth, async (user) => {
-    if (!user){
-      statusCard?.classList.add("hide");
-      btnLogout?.classList.add("hide");
-      if (whoami) whoami.textContent = "";
-      if (authMsg) authMsg.textContent = "";
-      return;
-    }
-
-    btnLogout?.classList.remove("hide");
-    statusCard?.classList.remove("hide");
-    if (whoami) whoami.textContent = user.email || user.uid;
-
-    try{
-      await loadClientStatus(user.uid);
-      if (authMsg) authMsg.textContent = "Signed in.";
-    }catch(e){
-      if (authMsg) authMsg.textContent = "Could not load checklist: " + (e?.message || e);
-    }
-  });
-
-  intakeForm?.addEventListener("submit", async (ev) => {
-    ev.preventDefault();
-    intakeMsg.textContent = "";
-
-    const payload = {
-      fullName: $("rq_fullName").value.trim(),
-      phone: $("rq_phone").value.trim(),
-      email: $("rq_email").value.trim(),
-      address: $("rq_address").value.trim(),
-      preferredContact: $("rq_contactMethod").value,
-      mainReason: $("rq_reason").value,
-      businessName: $("rq_businessName").value.trim(),
-      businessWebsite: $("rq_businessWebsite").value.trim(),
-      registeredAgent: $("rq_registeredAgent").value.trim(),
-      businessEmail: $("rq_businessEmail").value.trim(),
-      situationNotes: $("rq_notes").value.trim(),
-      status: "New",
-      createdAt: serverTimestamp()
-    };
-
-    btnSubmitIntake.disabled = true;
-    intakeMsg.textContent = "Submitting…";
-
-    try{
-      await addDoc(collection(db, "intakeRequests"), payload);
-      intakeMsg.textContent = "Intake submitted. 1128 will review and contact you. Portal access is created when a portal workflow is needed.";
-      intakeForm.reset();
-    }catch(e){
-      intakeMsg.textContent = "Intake submission failed: " + (e?.message || e);
-    }finally{
-      btnSubmitIntake.disabled = false;
-    }
-  });
-
-  $("year").textContent = new Date().getFullYear();
-</script>
-</body>
-</html>
+        <h2>Portal-b
