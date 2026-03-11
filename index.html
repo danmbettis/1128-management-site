@@ -27,86 +27,178 @@
       --shadow: 0 26px 80px rgba(0,0,0,.55);
       --radius: 18px;
     }
+
     *{ box-sizing:border-box; }
-    html,body{ margin:0; padding:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Arial,sans-serif; background: radial-gradient(circle at top, #101737 0, #050816 45%, #000 100%); color:var(--text); }
+    html,body{
+      margin:0;
+      padding:0;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Arial,sans-serif;
+      background: radial-gradient(circle at top, #101737 0, #050816 45%, #000 100%);
+      color:var(--text);
+    }
+
     a{ color:inherit; text-decoration:none; }
     button,input,select,textarea{ font-family:inherit; }
     .container{ max-width:1120px; margin:0 auto; padding:0 18px; }
 
     header{
-      position:sticky; top:0; z-index:50;
+      position:sticky;
+      top:0;
+      z-index:50;
       backdrop-filter: blur(14px);
       background: linear-gradient(to bottom, rgba(5,8,22,.92), rgba(5,8,22,.70), rgba(5,8,22,.0));
       border-bottom:1px solid rgba(31,41,55,.75);
     }
+
     .nav{
-      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
       padding:12px 0;
     }
-    .brand{ display:flex; align-items:center; gap:10px; }
-    .mark{
-      width:38px; height:38px; border-radius:14px;
-      display:flex; align-items:center; justify-content:center;
-      font-weight:900; font-size:12px; letter-spacing:.08em;
-      border:1px solid rgba(148,163,184,.45);
-      background: radial-gradient(circle at 15% 0, #38bdf8, #4f46e5, #0b1020);
-      box-shadow: 0 18px 55px rgba(31,75,255,.25);
-    }
-    .brandText{ display:flex; flex-direction:column; line-height:1.15; }
-    .brandText .t1{ font-weight:800; font-size:13px; letter-spacing:.08em; text-transform:uppercase; }
-    .brandText .t2{ font-size:11px; color:var(--muted); }
 
-    .navLinks{ display:flex; align-items:center; gap:16px; color:var(--muted); font-size:13px; }
-    .navLinks a{ padding:6px 0; position:relative; }
-    .navLinks a:hover{ color:var(--text); }
-    .navLinks a:after{
-      content:""; position:absolute; left:0; bottom:-2px; width:0; height:2px;
-      background: linear-gradient(to right, var(--primary), var(--accent));
-      border-radius:99px; transition: width .2s ease;
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:0;
     }
+
+    .brandLogo{
+      height:60px;
+      width:auto;
+      object-fit:contain;
+      display:block;
+      filter: drop-shadow(0 8px 22px rgba(0,0,0,0.35));
+    }
+
+    .navLinks{
+      display:flex;
+      align-items:center;
+      gap:16px;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .navLinks a{
+      padding:6px 0;
+      position:relative;
+    }
+
+    .navLinks a:hover{ color:var(--text); }
+
+    .navLinks a:after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:-2px;
+      width:0;
+      height:2px;
+      background: linear-gradient(to right, var(--primary), var(--accent));
+      border-radius:99px;
+      transition: width .2s ease;
+    }
+
     .navLinks a:hover:after{ width:100%; }
 
-    .navCtas{ display:flex; align-items:center; gap:10px; }
+    .navCtas{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
     .btn{
-      border:none; cursor:pointer;
-      border-radius:999px; padding:10px 14px; font-size:13px; font-weight:700;
+      border:none;
+      cursor:pointer;
+      border-radius:999px;
+      padding:10px 14px;
+      font-size:13px;
+      font-weight:700;
       color:#fff;
       background: linear-gradient(to right, var(--primary), var(--accent));
       box-shadow: 0 22px 60px rgba(0,200,150,.18);
-      display:inline-flex; align-items:center; gap:8px;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
     }
+
     .btn:hover{ filter:brightness(1.05); }
+
     .btn2{
       border:1px solid rgba(148,163,184,.50);
       background: rgba(2,6,23,.35);
       color: var(--text);
-      border-radius:999px; padding:10px 14px; font-size:13px; font-weight:700;
+      border-radius:999px;
+      padding:10px 14px;
+      font-size:13px;
+      font-weight:700;
       cursor:pointer;
-      display:inline-flex; align-items:center; gap:8px;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
     }
+
     .btn2:hover{ border-color:rgba(148,163,184,.75); }
 
     section{ padding:64px 0; }
     .sectionHead{ margin-bottom:18px; }
-    .eyebrow{ color:var(--accent); font-size:11px; letter-spacing:.22em; text-transform:uppercase; margin-bottom:6px; }
+
+    .eyebrow{
+      color:var(--accent);
+      font-size:11px;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      margin-bottom:6px;
+    }
+
     h1,h2,h3{ margin:0 0 10px; }
-    p{ margin:0; color:var(--muted); line-height:1.6; }
+
+    p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.6;
+    }
 
     .hero{ padding-top:40px; }
-    .heroGrid{ display:grid; grid-template-columns: 1.25fr .95fr; gap:22px; align-items:stretch; }
+
+    .heroGrid{
+      display:grid;
+      grid-template-columns:1.25fr .95fr;
+      gap:22px;
+      align-items:stretch;
+    }
+
     .heroTitle{
       font-size: clamp(30px, 3.6vw, 46px);
-      line-height:1.08; font-weight:900;
+      line-height:1.08;
+      font-weight:900;
       margin:12px 0 12px;
     }
+
     .gradText{
       background: linear-gradient(to right, #38bdf8, #a855f7, #22c55e);
-      -webkit-background-clip:text; background-clip:text; color:transparent;
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
     }
-    .heroSub{ max-width:720px; font-size:14px; }
-    .heroActions{ display:flex; flex-wrap:wrap; gap:10px; margin-top:16px; }
+
+    .heroSub{
+      max-width:720px;
+      font-size:14px;
+    }
+
+    .heroActions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:16px;
+    }
+
     .noteLine{
-      margin-top:14px; font-size:12px; color:rgba(156,163,175,.95);
+      margin-top:14px;
+      font-size:12px;
+      color:rgba(156,163,175,.95);
       border-left:2px solid rgba(0,200,150,.7);
       padding-left:10px;
     }
@@ -118,8 +210,19 @@
       padding:18px;
       box-shadow: var(--shadow);
     }
-    .card.soft{ background: rgba(11,16,32,.85); box-shadow:none; }
-    .miniGrid{ display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:12px; }
+
+    .card.soft{
+      background: rgba(11,16,32,.85);
+      box-shadow:none;
+    }
+
+    .miniGrid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px;
+      margin-top:12px;
+    }
+
     .mini{
       background: rgba(2,6,23,.45);
       border:1px solid rgba(31,41,55,.85);
@@ -128,10 +231,25 @@
       font-size:12px;
       color: var(--muted);
     }
-    .mini strong{ color:var(--text); display:block; font-size:14px; margin-top:3px; }
 
-    .grid3{ display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:14px; }
-    .grid2{ display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap:14px; }
+    .mini strong{
+      color:var(--text);
+      display:block;
+      font-size:14px;
+      margin-top:3px;
+    }
+
+    .grid3{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap:14px;
+    }
+
+    .grid2{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap:14px;
+    }
 
     .svc{
       background: rgba(11,16,32,.82);
@@ -139,17 +257,31 @@
       border-radius: var(--radius);
       padding:16px;
     }
+
     .tag{
-      font-size:10px; letter-spacing:.20em; text-transform:uppercase;
+      font-size:10px;
+      letter-spacing:.20em;
+      text-transform:uppercase;
       color:#bbf7d0;
-      display:inline-flex; align-items:center; gap:6px;
-      padding:6px 10px; border-radius:999px;
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:6px 10px;
+      border-radius:999px;
       border:1px solid rgba(34,197,94,.35);
       background: rgba(22,101,52,.25);
       margin-bottom:10px;
     }
+
     .svc h3{ font-size:16px; margin:0 0 8px; }
-    .svc ul{ margin:10px 0 0; padding-left:18px; color:var(--muted); font-size:13px; }
+
+    .svc ul{
+      margin:10px 0 0;
+      padding-left:18px;
+      color:var(--muted);
+      font-size:13px;
+    }
+
     .svc li{ margin:6px 0; }
 
     .priceCard{
@@ -158,14 +290,43 @@
       border-radius: var(--radius);
       padding:18px;
     }
-    .priceRow{ display:flex; align-items:baseline; justify-content:space-between; gap:12px; flex-wrap:wrap; }
-    .price{ font-size:34px; font-weight:900; letter-spacing:-.03em; }
+
+    .priceRow{
+      display:flex;
+      align-items:baseline;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .price{
+      font-size:34px;
+      font-weight:900;
+      letter-spacing:-.03em;
+    }
+
     .small{ font-size:12px; color:var(--muted); }
     .tiny{ font-size:11px; color:rgba(156,163,175,.95); }
 
-    .portalWrap{ display:grid; grid-template-columns: 1fr 1fr; gap:14px; align-items:start; }
-    .field{ display:flex; flex-direction:column; gap:6px; margin-top:10px; }
-    label{ color:rgba(156,163,175,.95); font-size:12px; }
+    .portalWrap{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+      align-items:start;
+    }
+
+    .field{
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+      margin-top:10px;
+    }
+
+    label{
+      color:rgba(156,163,175,.95);
+      font-size:12px;
+    }
+
     input,select,textarea{
       width:100%;
       background: rgba(2,6,23,.5);
@@ -176,35 +337,76 @@
       outline:none;
       font-size:13px;
     }
-    textarea{ min-height:92px; resize:vertical; }
-    .row{ display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
-    .hint{ font-size:12px; color:rgba(156,163,175,.95); margin-top:10px; }
+
+    textarea{
+      min-height:92px;
+      resize:vertical;
+    }
+
+    .row{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+
+    .hint{
+      font-size:12px;
+      color:rgba(156,163,175,.95);
+      margin-top:10px;
+    }
+
     .hide{ display:none !important; }
 
-    table{ width:100%; border-collapse:collapse; margin-top:12px; overflow:hidden; border-radius:14px; }
+    table{
+      width:100%;
+      border-collapse:collapse;
+      margin-top:12px;
+      overflow:hidden;
+      border-radius:14px;
+    }
+
     thead th{
-      text-align:left; font-size:11px; color:rgba(156,163,175,.95);
-      letter-spacing:.16em; text-transform:uppercase;
+      text-align:left;
+      font-size:11px;
+      color:rgba(156,163,175,.95);
+      letter-spacing:.16em;
+      text-transform:uppercase;
       padding:10px 10px;
       border-bottom:1px solid rgba(31,41,55,.9);
       background: rgba(2,6,23,.35);
     }
+
     tbody td{
       padding:10px 10px;
       border-bottom:1px solid rgba(31,41,55,.75);
       font-size:13px;
       vertical-align:top;
     }
+
     tbody tr:nth-child(even){ background: rgba(2,6,23,.20); }
     .note{ color:rgba(156,163,175,.95); font-size:12px; }
 
-    .statusbar{ display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; align-items:flex-start; }
+    .statusbar{
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:flex-start;
+    }
+
     .badge{
-      display:inline-flex; align-items:center; justify-content:center;
-      padding:6px 10px; border-radius:999px; font-size:12px; font-weight:800;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:800;
       border:1px solid rgba(148,163,184,.40);
       background: rgba(2,6,23,.35);
     }
+
     .b-pending{ border-color: rgba(245,158,11,.40); color:#fde68a; background: rgba(245,158,11,.12); }
     .b-progress{ border-color: rgba(59,130,246,.45); color:#bfdbfe; background: rgba(59,130,246,.12); }
     .b-done{ border-color: rgba(34,197,94,.45); color:#bbf7d0; background: rgba(34,197,94,.12); }
@@ -216,7 +418,11 @@
       background: rgba(11,16,32,.82);
       padding:14px 16px;
     }
-    .faqItem h3{ font-size:15px; margin-bottom:6px; }
+
+    .faqItem h3{
+      font-size:15px;
+      margin-bottom:6px;
+    }
 
     .squareGrid{
       display:flex;
@@ -224,14 +430,16 @@
       flex-wrap:wrap;
       align-items:stretch;
     }
+
     .squareWrap{
-      width: 290px;
+      width:290px;
       max-width:100%;
       border:1px solid rgba(31,41,55,.85);
-      border-radius: 14px;
+      border-radius:14px;
       background: rgba(2,6,23,.35);
       overflow:hidden;
     }
+
     .squareTop{
       width:100%;
       padding:10px 12px;
@@ -242,18 +450,11 @@
       line-height:1.35;
       text-align:center;
     }
+
     .squareInner{
       padding:16px;
       display:flex;
       justify-content:center;
-    }
-
-    footer{
-      border-top:1px solid rgba(31,41,55,.85);
-      background: rgba(5,8,22,.92);
-      padding:20px 0;
-      color:var(--muted);
-      font-size:12px;
     }
 
     .divider{
@@ -264,9 +465,21 @@
       margin:18px 0;
     }
 
+    footer{
+      border-top:1px solid rgba(31,41,55,.85);
+      background: rgba(5,8,22,.92);
+      padding:20px 0;
+      color:var(--muted);
+      font-size:12px;
+    }
+
     @media (max-width: 980px){
-      .heroGrid, .grid3, .grid2, .portalWrap, .miniGrid{ grid-template-columns:1fr; }
+      .heroGrid, .grid3, .grid2, .portalWrap, .miniGrid{
+        grid-template-columns:1fr;
+      }
+
       .navLinks{ display:none; }
+      .brandLogo{ height:48px; }
       #process{ margin-top:-18px; }
       #process .sectionHead{ margin-bottom:12px; }
       .divider{ margin:14px 0; }
@@ -278,17 +491,13 @@
 <header>
   <div class="container nav">
     <div class="brand">
-      <div class="mark">1128</div>
-      <div class="brandText">
-        <div class="t1">1128 Management Corp</div>
-        <div class="t2">Formation • Business Support • Administrative Management • Consulting</div>
-      </div>
+      <img src="assets/1128-logo.png" alt="1128 Management Corp logo" class="brandLogo" />
     </div>
 
     <nav class="navLinks">
       <a href="#services">Services</a>
       <a href="#formation">Formation</a>
-      <a href="#management">Consulting</a>
+      <a href="#management">Management</a>
       <a href="#products">Pricing</a>
       <a href="#credits">Credits</a>
       <a href="#squarepay">Checkout</a>
@@ -422,13 +631,13 @@
         <div class="svc">
           <div class="tag">Step 5</div>
           <h3>Portal Updates</h3>
-          <p>Clients can view progress through their private portal checklist and status updates when a portal workflow is used.</p>
+          <p>Clients can view progress through their private portal checklist and status updates when a portal workflow is being used.</p>
         </div>
 
         <div class="svc">
           <div class="tag">Step 6</div>
           <h3>Completion &amp; Support</h3>
-          <p>Once services are completed, clients may continue with management, consulting, or ongoing business support.</p>
+          <p>Once services are completed, clients may continue with management, consulting, or business support services.</p>
         </div>
       </div>
     </div>
@@ -440,7 +649,7 @@
         <div class="eyebrow">Services</div>
         <h2>Expanded service lineup</h2>
         <p>
-          The site includes business formation, business support, administrative management, and consulting services while preserving your current look and positioning.
+          The site includes formation, business support, administrative management, and consulting services while preserving your current look and positioning.
         </p>
       </div>
 
@@ -526,7 +735,7 @@
     <div class="container">
       <div class="sectionHead">
         <div class="eyebrow">Formation &amp; Business Support</div>
-        <h2>Business formation services you can now offer</h2>
+        <h2>Business formation services you can offer</h2>
         <p>These additions expand the site from basic setup into a fuller formation and ongoing business support offering.</p>
       </div>
 
@@ -565,7 +774,7 @@
           <div class="tag">Records</div>
           <h3 style="margin:0 0 6px;">Certificates &amp; Document Retrieval</h3>
           <div class="price">$69</div>
-          <p class="small">Certificate ordering, status requests, certified copies, and document retrieval support.</p>
+          <p class="small">Certificate ordering, good-standing requests, certified copies, and document retrieval support.</p>
         </div>
 
         <div class="priceCard">
@@ -703,9 +912,7 @@
       <div class="grid2" style="margin-top:14px;">
         <div class="priceCard">
           <h3 style="margin:0 0 6px;">Support Credits (Public)</h3>
-          <p class="small">
-            Credits remain available to the public. Minimum purchase is $5 and quantity can be adjusted at checkout.
-          </p>
+          <p class="small">Credits remain available to the public. Minimum purchase is $5 and quantity can be adjusted at checkout.</p>
           <div class="row" style="margin-top:14px;">
             <a class="btn" href="https://buy.stripe.com/4gM00jddY2Q228qanU1ck07" target="_blank" rel="noopener">Buy Credits</a>
             <a class="btn2" href="#credits">How Credits Work</a>
@@ -717,7 +924,7 @@
           <p class="small">Optional add-ons to strengthen business infrastructure and internal operations.</p>
           <ul style="margin:10px 0 0; padding-left:18px; color:var(--muted); font-size:13px;">
             <li>Corporate records package (bylaws, ownership ledger, certificates) — $149</li>
-            <li>Certificate of status / document retrieval — $79</li>
+            <li>Certificate of good standing retrieval — $79</li>
             <li>Annual business support monitoring subscription — $199/year</li>
             <li>Website build or rebuild — $399</li>
             <li>Business phone &amp; email setup — $89</li>
@@ -772,9 +979,7 @@
       <div class="sectionHead">
         <div class="eyebrow">Optional</div>
         <h2>Alternative checkout option</h2>
-        <p>
-          If you prefer, you can use this alternate checkout link. This is optional and does not replace the primary credits checkout.
-        </p>
+        <p>If you prefer, you can use this alternate checkout link. This is optional and does not replace the primary credits checkout.</p>
       </div>
 
       <div class="card soft">
@@ -782,35 +987,11 @@
           <div class="squareWrap">
             <div class="squareTop">Optional checkout (Square)</div>
             <div class="squareInner">
-              <div style="
-                overflow: auto;
-                display: flex;
-                flex-direction: column;
-                justify-content: flex-end;
-                align-items: center;
-                width: 259px;
-                background: #FFFFFF;
-                border: 1px solid rgba(0, 0, 0, 0.1);
-                box-shadow: -2px 10px 5px rgba(0, 0, 0, 0);
-                border-radius: 10px;
-                font-family: SQ Market, SQ Market, Helvetica, Arial, sans-serif;
-              ">
-                <div style="padding: 20px;">
-                  <p style="font-size: 18px; line-height: 20px; margin:0; color:#111827;">Square</p>
-                  <p style="font-size: 18px; line-height: 20px; font-weight: 600; margin:8px 0 16px 0; color:#111827;">$10.00</p>
-                  <a target="_blank" rel="noopener" href="https://square.link/u/61zmF93I?src=embed" style="
-                    display: inline-block;
-                    font-size: 18px;
-                    line-height: 48px;
-                    height: 48px;
-                    color: #ffffff;
-                    min-width: 212px;
-                    background-color: #006aff;
-                    text-align: center;
-                    box-shadow: 0 0 0 1px rgba(0,0,0,.1) inset;
-                    border-radius: 6px;
-                    text-decoration:none;
-                  ">Buy now</a>
+              <div style="overflow:auto; display:flex; flex-direction:column; justify-content:flex-end; align-items:center; width:259px; background:#FFFFFF; border:1px solid rgba(0,0,0,0.1); box-shadow:-2px 10px 5px rgba(0,0,0,0); border-radius:10px; font-family:SQ Market, SQ Market, Helvetica, Arial, sans-serif;">
+                <div style="padding:20px;">
+                  <p style="font-size:18px; line-height:20px; margin:0; color:#111827;">Square</p>
+                  <p style="font-size:18px; line-height:20px; font-weight:600; margin:8px 0 16px 0; color:#111827;">$10.00</p>
+                  <a target="_blank" rel="noopener" href="https://square.link/u/61zmF93I?src=embed" style="display:inline-block; font-size:18px; line-height:48px; height:48px; color:#ffffff; min-width:212px; background-color:#006aff; text-align:center; box-shadow:0 0 0 1px rgba(0,0,0,.1) inset; border-radius:6px; text-decoration:none;">Buy now</a>
                 </div>
               </div>
             </div>
@@ -900,7 +1081,7 @@
         <div class="svc">
           <div class="tag">Service Phase</div>
           <h3>Coordination &amp; Preparation</h3>
-          <p>Administrative coordination, consulting preparation, document review, scheduling, or requested service activity begins based on the confirmed scope.</p>
+          <p>Administrative coordination, consulting preparation, document review, scheduling, or requested service activity begin based on the confirmed service scope.</p>
         </div>
         <div class="svc">
           <div class="tag">Ongoing Visibility</div>
@@ -940,9 +1121,7 @@
       </div>
 
       <div class="card soft" style="margin-top:14px;">
-        <p class="small">
-          1128 Management Corp provides both remote and in-person administrative and consulting services. Certain services may require physical coordination, while others can be completed fully online. Availability may depend on location and scheduling.
-        </p>
+        <p class="small">1128 Management Corp provides both remote and in-person administrative and consulting services. Certain services may require physical coordination, while others can be completed fully online. Availability may depend on location and scheduling.</p>
       </div>
     </div>
   </section>
@@ -972,9 +1151,7 @@
       <div class="sectionHead">
         <div class="eyebrow">Client Portal</div>
         <h2>Portal-based services start with intake.</h2>
-        <p>
-          For portal-based services, clients submit an intake request first. When a portal workflow is needed, 1128 creates login credentials after intake review. The checklist, status, and admin notes appear after login.
-        </p>
+        <p>For portal-based services, clients submit an intake request first. When a portal workflow is needed, 1128 creates login credentials after intake review. The checklist, status, and admin notes appear after login.</p>
       </div>
 
       <div class="portalWrap">
@@ -1003,9 +1180,7 @@
 
         <div class="card soft">
           <h3 style="margin:0 0 6px;">New Client Intake Request</h3>
-          <p class="small">
-            Submit intake first for services that require a portal workflow or customized coordination. After review, 1128 will confirm scope, create portal access if needed, and begin the applicable service process.
-          </p>
+          <p class="small">Submit intake first for services that require a portal workflow or customized coordination. After review, 1128 will confirm scope, create portal access if needed, and begin the applicable service process.</p>
 
           <form id="intakeRequestForm">
             <div class="grid2" style="gap:12px;">
@@ -1079,8 +1254,7 @@
               <label style="display:flex; gap:10px; align-items:flex-start;">
                 <input id="rq_auth" type="checkbox" required style="margin-top:3px;" />
                 <span>
-                  <strong>Authorization:</strong> I authorize 1128 Management Corp to coordinate and manage, as selected and agreed,
-                  administrative setup, business support, management, and consulting services on my behalf. I understand third-party approvals are not guaranteed.
+                  <strong>Authorization:</strong> I authorize 1128 Management Corp to coordinate and manage, as selected and agreed, administrative setup, business support, management, and consulting services on my behalf. I understand third-party approvals are not guaranteed.
                 </span>
               </label>
             </div>
@@ -1185,189 +1359,179 @@
       <div class="grid2" style="margin-top:14px;">
         <div class="card soft">
           <h3 style="margin:0 0 8px;">Privacy Policy</h3>
-          <p class="small">
-            1128 Management Corp collects information submitted through intake forms, direct communications, and client portal activity solely for the purpose of reviewing requests, coordinating services, and supporting clients. Information is not sold and is only shared when reasonably necessary to coordinate requested services with approved third parties.
-          </p>
+          <p class="small">1128 Management Corp collects information submitted through intake forms, direct communications, and client portal activity solely for the purpose of reviewing requests, coordinating services, and supporting clients. Information is not sold and is only shared when reasonably necessary to coordinate requested services with approved third parties.</p>
         </div>
 
         <div class="card soft">
           <h3 style="margin:0 0 8px;">Terms of Service</h3>
-          <p class="small">
-            Payments represent purchase of the selected service and permission to begin the related review, preparation, coordination, consulting, mentoring, coaching, scheduling, or management support required for that service scope. Services are delivered based on the confirmed service request and may involve planning, communication, document coordination, on-site activity, and follow-up support.
-          </p>
+          <p class="small">Payments represent purchase of the selected service and permission to begin the related review, preparation, coordination, consulting, mentoring, coaching, scheduling, or management support required for that service scope. Services are delivered based on the confirmed service request and may involve planning, communication, document coordination, on-site activity, and follow-up support.</p>
         </div>
       </div>
 
       <div class="grid2" style="margin-top:14px;">
         <div class="card soft">
           <h3 style="margin:0 0 8px;">Outcome Disclaimer</h3>
-          <p class="small">
-            Services provided by 1128 Management Corp involve administrative coordination, consulting, and operational guidance. Outcomes may vary depending on client participation, documentation readiness, third-party institutions, and external processing factors.
-          </p>
+          <p class="small">Services provided by 1128 Management Corp involve administrative coordination, consulting, and operational guidance. Outcomes may vary depending on client participation, documentation readiness, third-party institutions, and external processing factors.</p>
         </div>
 
         <div class="card soft">
           <h3 style="margin:0 0 8px;">Payment Transparency</h3>
-          <p class="small">
-            Payments are processed securely through Stripe and Square. Service availability, use of credits, and project scheduling remain subject to review, approval, and confirmed scope.
-          </p>
+          <p class="small">Payments are processed securely through Stripe and Square. Service availability, use of credits, and project scheduling remain subject to review, approval, and confirmed scope.</p>
         </div>
       </div>
     </div>
   </section>
+
+  <section id="engagements">
+    <div class="container">
+      <div class="sectionHead">
+        <div class="eyebrow">Featured Engagements</div>
+        <h2>Common consulting engagements</h2>
+        <p>These examples illustrate the types of larger consulting engagements businesses typically request from 1128 Management Corp.</p>
+      </div>
+
+      <div class="grid3">
+        <div class="svc">
+          <div class="tag">Startup Infrastructure</div>
+          <h3>Business Launch Architecture</h3>
+          <p>Full startup operational planning including formation coordination, systems setup strategy, documentation structure, and operational readiness planning.</p>
+        </div>
+
+        <div class="svc">
+          <div class="tag">Operations</div>
+          <h3>Operational Transformation</h3>
+          <p>Consulting engagement focused on improving internal workflows, organizing systems, documenting processes, and implementing operational improvements.</p>
+        </div>
+
+        <div class="svc">
+          <div class="tag">Executive</div>
+          <h3>Founder &amp; Executive Consulting</h3>
+          <p>Strategic guidance engagements where founders work directly with 1128 Management Corp on decision support, growth planning, and operational strategy.</p>
+        </div>
+      </div>
+
+      <div class="card soft" style="margin-top:14px;">
+        <p class="small">Engagement types vary based on company stage, operational complexity, and requested support. Larger consulting engagements typically begin with an intake consultation to determine scope and timeline.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="enterprise">
+    <div class="container">
+      <div class="sectionHead">
+        <div class="eyebrow">Enterprise Consulting</div>
+        <h2>High-impact consulting engagements</h2>
+        <p>For businesses needing deeper operational transformation, infrastructure design, or executive consulting support.</p>
+      </div>
+
+      <div class="grid3">
+        <div class="priceCard">
+          <div class="tag">Operations</div>
+          <h3 style="margin:0 0 6px;">Business Operations Architecture</h3>
+          <div class="price">$18,500</div>
+          <p class="small">Comprehensive operational audit and workflow redesign including systems planning, process mapping, and documentation structure.</p>
+          <ul style="margin:10px 0 0;padding-left:18px;color:var(--muted);font-size:13px;">
+            <li>Operational audit</li>
+            <li>Workflow redesign</li>
+            <li>Internal systems planning</li>
+            <li>Process documentation</li>
+            <li>Implementation roadmap</li>
+          </ul>
+        </div>
+
+        <div class="priceCard">
+          <div class="tag">Infrastructure</div>
+          <h3 style="margin:0 0 6px;">Business Infrastructure Implementation</h3>
+          <div class="price">$24,000</div>
+          <p class="small">Full infrastructure planning and systems implementation engagement for growing businesses.</p>
+          <ul style="margin:10px 0 0;padding-left:18px;color:var(--muted);font-size:13px;">
+            <li>CRM / systems architecture</li>
+            <li>Operational workflow setup</li>
+            <li>Internal documentation systems</li>
+            <li>Payment and client process infrastructure</li>
+            <li>Business operations planning</li>
+          </ul>
+        </div>
+
+        <div class="priceCard">
+          <div class="tag">Executive</div>
+          <h3 style="margin:0 0 6px;">Executive Consulting Program</h3>
+          <div class="price">$3,500<span class="tiny">/month</span></div>
+          <p class="small">Ongoing consulting access for founders and executives needing strategic guidance and operational insight.</p>
+          <ul style="margin:10px 0 0;padding-left:18px;color:var(--muted);font-size:13px;">
+            <li>Monthly consulting sessions</li>
+            <li>Strategic decision support</li>
+            <li>Operational review</li>
+            <li>Growth planning</li>
+            <li>Direct consulting access</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card soft" style="margin-top:14px;">
+        <p class="small">Enterprise engagements typically begin with an intake consultation and scope review to determine the appropriate consulting structure and timeline.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="premium">
+    <div class="container">
+      <div class="sectionHead">
+        <div class="eyebrow">Premium Services</div>
+        <h2>Advanced business infrastructure services</h2>
+        <p>Higher-tier services designed for businesses needing deeper operational structure and consulting support.</p>
+      </div>
+
+      <div class="grid2">
+        <div class="priceCard">
+          <h3 style="margin:0 0 6px;">Business Infrastructure &amp; Launch Package</h3>
+          <div class="price">$1,250</div>
+          <p class="small">Comprehensive startup coordination including formation guidance, systems setup planning, consulting session, and operational readiness planning.</p>
+        </div>
+
+        <div class="priceCard">
+          <h3 style="margin:0 0 6px;">Operational Systems Implementation</h3>
+          <div class="price">$2,500</div>
+          <p class="small">Deep consulting engagement focused on workflow design, systems implementation, process mapping, and operational structure for growing businesses.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="results">
+    <div class="container">
+      <div class="sectionHead">
+        <div class="eyebrow">Results &amp; Client Outcomes</div>
+        <h2>Examples of business support outcomes</h2>
+        <p>Professional consulting websites typically highlight outcomes so visitors understand the type of problems solved and results businesses achieve.</p>
+      </div>
+
+      <div class="grid3">
+        <div class="svc">
+          <div class="tag">Startup Launch</div>
+          <h3>New Business Formation &amp; Setup</h3>
+          <p>Clients launching new businesses receive coordination support for entity formation, operational setup planning, and infrastructure readiness.</p>
+        </div>
+
+        <div class="svc">
+          <div class="tag">Operational Cleanup</div>
+          <h3>Process Organization</h3>
+          <p>Existing companies use consulting and management support to improve workflows, organize documentation, and implement better internal systems.</p>
+        </div>
+
+        <div class="svc">
+          <div class="tag">Growth Support</div>
+          <h3>Strategic Guidance</h3>
+          <p>Founders and operators receive mentoring, coaching, and consulting support focused on decision clarity, operational improvements, and business growth planning.</p>
+        </div>
+      </div>
+
+      <div class="card soft" style="margin-top:14px;">
+        <p class="small">Results vary depending on business stage, documentation readiness, and participation from the client. 1128 Management Corp provides administrative coordination, consulting, mentoring, and operational support designed to help businesses organize and move forward more effectively.</p>
+      </div>
+    </div>
+  </section>
 </main>
-
-<section id="engagements">
-  <div class="container">
-    <div class="sectionHead">
-      <div class="eyebrow">Featured Engagements</div>
-      <h2>Common consulting engagements</h2>
-      <p>These examples illustrate the types of larger consulting engagements businesses typically request from 1128 Management Corp.</p>
-    </div>
-
-    <div class="grid3">
-      <div class="svc">
-        <div class="tag">Startup Infrastructure</div>
-        <h3>Business Launch Architecture</h3>
-        <p>Full startup operational planning including formation coordination, systems setup strategy, documentation structure, and operational readiness planning.</p>
-      </div>
-
-      <div class="svc">
-        <div class="tag">Operations</div>
-        <h3>Operational Transformation</h3>
-        <p>Consulting engagement focused on improving internal workflows, organizing systems, documenting processes, and implementing operational improvements.</p>
-      </div>
-
-      <div class="svc">
-        <div class="tag">Executive</div>
-        <h3>Founder &amp; Executive Consulting</h3>
-        <p>Strategic guidance engagements where founders work directly with 1128 Management Corp on decision support, growth planning, and operational strategy.</p>
-      </div>
-    </div>
-
-    <div class="card soft" style="margin-top:14px;">
-      <p class="small">Engagement types vary based on company stage, operational complexity, and requested support. Larger consulting engagements typically begin with an intake consultation to determine scope and timeline.</p>
-    </div>
-  </div>
-</section>
-
-<section id="enterprise">
-  <div class="container">
-    <div class="sectionHead">
-      <div class="eyebrow">Enterprise Consulting</div>
-      <h2>High-impact consulting engagements</h2>
-      <p>For businesses needing deeper operational transformation, infrastructure design, or executive consulting support.</p>
-    </div>
-
-    <div class="grid3">
-      <div class="priceCard">
-        <div class="tag">Operations</div>
-        <h3 style="margin:0 0 6px;">Business Operations Architecture</h3>
-        <div class="price">$18,500</div>
-        <p class="small">Comprehensive operational audit and workflow redesign including systems planning, process mapping, and documentation structure.</p>
-        <ul style="margin:10px 0 0;padding-left:18px;color:var(--muted);font-size:13px;">
-          <li>Operational audit</li>
-          <li>Workflow redesign</li>
-          <li>Internal systems planning</li>
-          <li>Process documentation</li>
-          <li>Implementation roadmap</li>
-        </ul>
-      </div>
-
-      <div class="priceCard">
-        <div class="tag">Infrastructure</div>
-        <h3 style="margin:0 0 6px;">Business Infrastructure Implementation</h3>
-        <div class="price">$24,000</div>
-        <p class="small">Full infrastructure planning and systems implementation engagement for growing businesses.</p>
-        <ul style="margin:10px 0 0;padding-left:18px;color:var(--muted);font-size:13px;">
-          <li>CRM / systems architecture</li>
-          <li>Operational workflow setup</li>
-          <li>Internal documentation systems</li>
-          <li>Payment and client process infrastructure</li>
-          <li>Business operations planning</li>
-        </ul>
-      </div>
-
-      <div class="priceCard">
-        <div class="tag">Executive</div>
-        <h3 style="margin:0 0 6px;">Executive Consulting Program</h3>
-        <div class="price">$3,500<span class="tiny">/month</span></div>
-        <p class="small">Ongoing consulting access for founders and executives needing strategic guidance and operational insight.</p>
-        <ul style="margin:10px 0 0;padding-left:18px;color:var(--muted);font-size:13px;">
-          <li>Monthly consulting sessions</li>
-          <li>Strategic decision support</li>
-          <li>Operational review</li>
-          <li>Growth planning</li>
-          <li>Direct consulting access</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="card soft" style="margin-top:14px;">
-      <p class="small">Enterprise engagements typically begin with an intake consultation and scope review to determine the appropriate consulting structure and timeline.</p>
-    </div>
-  </div>
-</section>
-
-<section id="premium">
-  <div class="container">
-    <div class="sectionHead">
-      <div class="eyebrow">Premium Services</div>
-      <h2>Advanced business infrastructure services</h2>
-      <p>Higher-tier services designed for businesses needing deeper operational structure and consulting support.</p>
-    </div>
-
-    <div class="grid2">
-      <div class="priceCard">
-        <h3 style="margin:0 0 6px;">Business Infrastructure &amp; Launch Package</h3>
-        <div class="price">$1,250</div>
-        <p class="small">Comprehensive startup coordination including formation guidance, systems setup planning, consulting session, and operational readiness planning.</p>
-      </div>
-
-      <div class="priceCard">
-        <h3 style="margin:0 0 6px;">Operational Systems Implementation</h3>
-        <div class="price">$2,500</div>
-        <p class="small">Deep consulting engagement focused on workflow design, systems implementation, process mapping, and operational structure for growing businesses.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="results">
-  <div class="container">
-    <div class="sectionHead">
-      <div class="eyebrow">Results &amp; Client Outcomes</div>
-      <h2>Examples of business support outcomes</h2>
-      <p>Professional consulting websites typically highlight outcomes so visitors understand the type of problems solved and results businesses achieve.</p>
-    </div>
-
-    <div class="grid3">
-      <div class="svc">
-        <div class="tag">Startup Launch</div>
-        <h3>New Business Formation &amp; Setup</h3>
-        <p>Clients launching new businesses receive coordination support for entity formation, operational setup planning, and infrastructure readiness.</p>
-      </div>
-
-      <div class="svc">
-        <div class="tag">Operational Cleanup</div>
-        <h3>Process Organization</h3>
-        <p>Existing companies use consulting and management support to improve workflows, organize documentation, and implement better internal systems.</p>
-      </div>
-
-      <div class="svc">
-        <div class="tag">Growth Support</div>
-        <h3>Strategic Guidance</h3>
-        <p>Founders and operators receive mentoring, coaching, and consulting support focused on decision clarity, operational improvements, and business growth planning.</p>
-      </div>
-    </div>
-
-    <div class="card soft" style="margin-top:14px;">
-      <p class="small">
-        Results vary depending on business stage, documentation readiness, and participation from the client. 1128 Management Corp provides administrative coordination, consulting, mentoring, and operational support designed to help businesses organize and move forward more effectively.
-      </p>
-    </div>
-  </div>
-</section>
 
 <footer>
   <div class="container" style="display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap;">
@@ -1572,7 +1736,7 @@
 
     try{
       await addDoc(collection(db, "intakeRequests"), payload);
-      intakeMsg.textContent = "Intake submitted. 1128 will review and contact you. Portal login is created when a portal workflow is needed.";
+      intakeMsg.textContent = "Intake submitted. 1128 will review and contact you. Portal access is created when a portal workflow is needed.";
       intakeForm.reset();
     }catch(e){
       intakeMsg.textContent = "Intake submission failed: " + (e?.message || e);
