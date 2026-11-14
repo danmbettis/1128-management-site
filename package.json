@@ -1,0 +1,1 @@
+{"name":"1128-management-portal","private":true,"type":"module","engines":{"node":">=24"},"scripts":{"start":"node server.mjs","test":"node --test","owner":"node scripts/create-owner.mjs"}}
